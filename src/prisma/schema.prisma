@@ -9,3 +9,86 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model WeekIntentions {
+  id        String    @id @default(uuid())
+  startWeek DateTime?
+  endWeek   DateTime?
+  days      Day[]
+  status    Status    @default(NONE)
+}
+
+model Intention {
+  id     String @id @default(uuid())
+  zIndex Int
+  hour   String
+  value  String
+  Day    Day    @relation(fields: [dayId], references: [id], onDelete: Cascade)
+  dayId  String
+}
+
+model Day {
+  id             String         @id @default(uuid())
+  day            Weekday
+  dateOfDay      DateTime?
+  weekId         String
+  WeekIntentions WeekIntentions @relation(fields: [weekId], references: [id], onDelete: Cascade)
+  intentions     Intention[]
+}
+
+model Announcements {
+  id       String  @id @default(uuid())
+  subtitle String?
+  status   Status  @default(NONE)
+  value    String
+}
+
+model User {
+  id       String  @id @default(uuid())
+  password String
+  email    String  @unique
+  isActive Boolean @default(false)
+
+  @@index([email])
+}
+
+model Category {
+  id    String  @id @default(uuid())
+  name  String
+  order Int?
+  Album Album[]
+}
+
+model Album {
+  id          String    @id @default(uuid())
+  name        String
+  description String?
+  show        Boolean   @default(false)
+  category    Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  categoryId  String?
+  Image       Image[]
+}
+
+model Image {
+  id      String  @id @default(uuid())
+  name    String
+  url     String
+  album   Album?  @relation(fields: [albumId], references: [id], onDelete: SetNull)
+  albumId String?
+}
+
+enum Weekday {
+  MONDAY
+  WEDNESDAY
+  TUESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
+enum Status {
+  NONE
+  UPCOMING
+  ACTIVE
+}
