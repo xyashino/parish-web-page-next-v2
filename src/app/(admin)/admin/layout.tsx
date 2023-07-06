@@ -10,7 +10,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <div className="flex flex-col min-h-screen  max-h-screen  w-screen max-w-full">
       <AdminDashboardHeader />
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row grow">
         <aside className="lg:w-1/6 text-center border-r-2 shadow-xl">
           <AdminNavigationSideBar />
         </aside>
