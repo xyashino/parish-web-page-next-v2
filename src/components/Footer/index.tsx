@@ -1,6 +1,4 @@
 import React from "react";
-import AdminIcon from "@/components/icons/AdminIcon";
-import Link from "next/link";
 import Logo from "@/components/Logo";
 import AuthorInfo from "@/components/Footer/authorInfo";
 import AdminDashboardIcon from "@/components/Footer/adminDashboardIcon";
