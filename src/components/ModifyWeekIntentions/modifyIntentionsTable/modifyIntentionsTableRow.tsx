@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from "react";
+import React from "react";
 import { TableCell, TableRow } from "@/components/ui/table";
 import DeleteIcon from "@/components/icons/DeleteIcon";
 import { OneIntention } from "@/types/interfaces/week-intentions-store.interface";

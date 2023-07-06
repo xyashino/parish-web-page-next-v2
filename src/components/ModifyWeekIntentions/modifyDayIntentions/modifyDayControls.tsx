@@ -4,21 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Status } from ".prisma/client";
 import useWeekIntentionsStore from "@/lib/store/useWeekIntentionsStore";
 import SelectStatus from "@/components/SelectStatus";
-import Alert from "../../ConfirmAlert";
 import ConfirmAlert from "../../ConfirmAlert";
 
 const ModifyDayControls = () => {
   const { clearAll, updateStatus, weekIntentions } = useWeekIntentionsStore();
-
-  // const updateWeekDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const date = new Date(e.target.value);
-  //   dispatchWeekIntentions({
-  //     type: WeekIntentionsAction.UPDATE_WEEK,
-  //     payload: date,
-  //   });
-  //   toast.success("Zaktualizowano Date dla wszystkich dni tygodnia");
-  // };
-
   const onSave = (e: SyntheticEvent) => {
     e.preventDefault();
     console.log(weekIntentions);

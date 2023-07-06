@@ -1,5 +1,5 @@
 "use client";
-import React, { SyntheticEvent } from "react";
+import React from "react";
 import {
   AlertDialogAction,
   AlertDialogCancel,

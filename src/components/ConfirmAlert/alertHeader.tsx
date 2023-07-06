@@ -1,9 +1,6 @@
-import React, { SyntheticEvent } from "react";
+import React from "react";
 import {
-  AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
