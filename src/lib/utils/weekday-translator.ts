@@ -1,5 +1,5 @@
 import { Weekday } from "@prisma/client";
-export const X: Map<Weekday, string> = new Map([
+export const weekdayTranslator: Map<Weekday, string> = new Map([
   [Weekday.MONDAY, "poniedziałek"],
   [Weekday.FRIDAY, "piątek"],
   [Weekday.SATURDAY, "sobota"],
