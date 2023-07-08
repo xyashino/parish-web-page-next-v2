@@ -1,7 +1,4 @@
 import { Status, Weekday, WeekIntentions } from "@prisma/client";
-
-type OptionalID<T extends { id: string }> = Omit<T, "id"> & { id?: string };
-
 export interface OneIntention {
   id: string;
   zIndex: number;
