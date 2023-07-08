@@ -14,9 +14,11 @@ const NavigationLink = ({ text, href, className, icon }: Props) => {
   );
   return (
     <Link className={linkClasses} href={href}>
-      <span className="text-xl lg:text-2xl md:group-hover:scale-125  transition-transform duration-500 ease-in-out lg:p-1 rounded">
-        {icon}
-      </span>
+      {!!icon && (
+        <span className="text-xl lg:text-2xl md:group-hover:scale-125  transition-transform duration-500 ease-in-out lg:p-1 rounded">
+          {icon}
+        </span>
+      )}
       <span className="text-sm md:text-md lg:group-hover:scale-110  transition-transform duration-500 ease-in-out">
         {text}
       </span>
