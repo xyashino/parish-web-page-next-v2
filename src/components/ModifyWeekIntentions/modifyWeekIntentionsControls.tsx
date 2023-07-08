@@ -1,8 +1,15 @@
 import React, { SyntheticEvent } from "react";
-import { Button } from "@/components/ui/button";
 import ConfirmAlert from "@/components/ConfirmAlert";
 import useWeekIntentionsStore from "@/lib/store/useWeekIntentionsStore";
 import { DropShadowCard } from "@/components/ui/drop-shadow-card";
+import { UpdateIcon, ResetIcon } from "@radix-ui/react-icons";
+import ButtonWithIcon from "@/components/ButtonWithIcon";
+
+const triggerValue = (
+  <>
+    <ResetIcon className="mr-2 h-4 w-4" /> Wyczyść
+  </>
+);
 
 const ModifyWeekIntentionsControls = () => {
   const { clearAll, weekIntentions, dayIntentions } = useWeekIntentionsStore();
@@ -14,9 +21,13 @@ const ModifyWeekIntentionsControls = () => {
 
   return (
     <DropShadowCard className="flex flex-col items-center justify-around space-y-4">
-      <Button onClick={handleSave} className="w-full">
-        Zapisz
-      </Button>
+      <ButtonWithIcon
+        text="Zapisz"
+        Icon={UpdateIcon}
+        onClick={handleSave}
+        className="w-full"
+      />
+
       <ConfirmAlert
         headerData={{
           title: "Czy na pewno chcesz wyczyścić wszystkie intencje?",
@@ -24,10 +35,11 @@ const ModifyWeekIntentionsControls = () => {
             "Zmiany zostaną zrobione lokalnie. Musisz je zapisać, aby utrwalić.",
         }}
         triggerData={{
-          triggerValue: "Wyczyść wszystko",
+          triggerValue,
+          className: "w-full",
         }}
         footerData={{
-          doAfterConfirm: () => clearAll(),
+          doAfterConfirm: clearAll,
         }}
       />
     </DropShadowCard>
