@@ -6,15 +6,26 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import EditIcon from "@/components/icons/EditIcon";
-import { GearIcon, EyeOpenIcon, CrossCircledIcon } from "@radix-ui/react-icons";
+import {
+  GearIcon,
+  EyeOpenIcon,
+  CrossCircledIcon,
+  Pencil2Icon,
+} from "@radix-ui/react-icons";
 import DataTableActionItem from "@/components/DataTable/DataTableActions/dataTableActionItem";
 
 interface Props {
   id: string;
+  doAfterPreview?: () => void;
+  doAfterEdit?: () => void;
+  doAfterDelete?: () => void;
 }
 
-const DataTableActions = ({ id }: Props) => {
+const DataTableActions = ({
+  doAfterDelete,
+  doAfterPreview,
+  doAfterEdit,
+}: Props) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -27,16 +38,19 @@ const DataTableActions = ({ id }: Props) => {
         <DataTableActionItem
           text="Podgląd"
           icon={<EyeOpenIcon className="h-5 w-5" />}
+          onClick={doAfterPreview}
         />
         <DataTableActionItem
           text="Edytuj"
-          icon={<EditIcon className="h-5 w-5" />}
+          icon={<Pencil2Icon className="h-5 w-5" />}
+          onClick={doAfterEdit}
         />
         <DropdownMenuSeparator />
         <DataTableActionItem
           text="Usuń"
           icon={<CrossCircledIcon className="h-5 w-5" />}
           className="text-red-500"
+          onClick={doAfterDelete}
         />
       </DropdownMenuContent>
     </DropdownMenu>
