@@ -1,6 +1,6 @@
 import React from "react";
 import Alert from "../ConfirmAlert";
-import LogoutIcon from "@/components/icons/LogoutIcon";
+import { ExitIcon } from "@radix-ui/react-icons";
 
 const LogoutAlert = () => {
   return (
@@ -10,10 +10,8 @@ const LogoutAlert = () => {
         description: "Zostaniesz przekierowany na stronę główną.",
       }}
       triggerData={{
-        triggerValue: (
-          <LogoutIcon className="text-background text-2xl group-hover:text-foreground transition-colors" />
-        ),
-        className: "hover:bg-background rounded-full group transition-colors",
+        triggerValue: <ExitIcon className="text-background" />,
+        className: "hover:scale-125 transition-transform w-auto",
       }}
     />
   );
