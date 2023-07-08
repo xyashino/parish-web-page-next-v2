@@ -5,7 +5,7 @@ const defaultConfig = {
   },
 };
 
-export const fetchData = async <T>(
+export const apiCall = async <T>(
   url: string,
   config?: RequestInit,
   override = true
