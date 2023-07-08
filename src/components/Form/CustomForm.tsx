@@ -4,7 +4,8 @@ import { DeepPartial, useForm } from "react-hook-form";
 import { z, ZodRawShape } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-interface Props<T extends ZodRawShape> extends PropsWithChildren {
+export interface CustomFormProps<T extends ZodRawShape>
+  extends PropsWithChildren {
   formSchema: z.ZodObject<T>;
   defaultValues?: DeepPartial<z.infer<z.ZodObject<T>>>;
   onSubmit: (values: z.infer<z.ZodObject<T>>) => void;
@@ -17,7 +18,7 @@ const CustomForm = <T extends ZodRawShape>({
   defaultValues,
   onSubmit,
   className,
-}: Props<T>) => {
+}: CustomFormProps<T>) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
