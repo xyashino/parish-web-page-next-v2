@@ -8,8 +8,11 @@ interface Props {
 const EmptyTableRow = ({ columnsLength }: Props) => {
   return (
     <TableRow>
-      <TableCell colSpan={columnsLength} className="h-24 text-center">
-        No results.
+      <TableCell
+        colSpan={columnsLength}
+        className="h-24 text-center text-xl italic"
+      >
+        Brak Wyników.
       </TableCell>
     </TableRow>
   );
