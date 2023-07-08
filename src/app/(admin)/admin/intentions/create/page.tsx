@@ -1,6 +1,6 @@
 import React from "react";
 import AdminPageTitle from "@/components/AdminPageTitle";
-import ModifyIntentions from "../../../../../components/ModifyWeekIntentions";
+import ModifyIntentions from "@/components/ModifyWeekIntentions";
 
 const IntentionsCreatePage = async () => {
   return (
