@@ -18,10 +18,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import EmptyTableRow from "@/components/DataTable/emptyTableRow";
-import { useState } from "react";
+import { PropsWithChildren, useState } from "react";
 import { cn } from "@/lib/utils";
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData, TValue> extends PropsWithChildren {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   className?: string;
