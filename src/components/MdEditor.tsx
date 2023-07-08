@@ -8,9 +8,13 @@ const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
 interface Props {
   defaultContent?: string;
+  editorHeight?: number;
 }
 
-const MyMarkdownEditor = ({ defaultContent = "" }: Props) => {
+const MyMarkdownEditor = ({
+  defaultContent = "",
+  editorHeight = 200,
+}: Props) => {
   const { editorValue, setEditorValue } = useMdEditorStore();
 
   useEffect(() => {
@@ -21,14 +25,12 @@ const MyMarkdownEditor = ({ defaultContent = "" }: Props) => {
     content !== undefined && setEditorValue(content);
 
   return (
-    <div
-      className="my-4 mx-auto mb-8 h-full w-full rounded-xl p-2 shadow bg-slate-950 md:p-4"
-      data-color-mode="dark"
-    >
+    <div className="my-4 mx-auto mb-8 h-full w-full rounded-xl p-2 shadow bg-slate-950 md:p-4">
       <MDEditor
         className="h-full w-full"
         value={editorValue}
         onChange={handleEditorChange}
+        height={editorHeight}
       />
     </div>
   );
