@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { Button } from "@/components/ui/button";
 import CustomForm from "@/components/Form/CustomForm";
 import { FormField } from "@/components/ui/form";
 import { z } from "zod";
@@ -11,7 +10,8 @@ import { Separator } from "@/components/ui/separator";
 import SwitchWithLabel from "@/components/SwitchWithLabel";
 import { DropShadowCard } from "@/components/ui/drop-shadow-card";
 import useMdEditorStore from "@/lib/store/useMdEditorStore";
-
+import ButtonWithIcon from "@/components/ButtonWithIcon";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
 interface Props {
   defaultContent?: {
     order: number;
@@ -89,8 +89,8 @@ const ModifyWeekIntentionsForm = ({
           />
         </div>
         <Separator className="w-5/6 my-4" />
-        <MyMarkdownEditor />
-        <Button type="submit">Dodaj Intencje</Button>
+        <MyMarkdownEditor editorHeight={300} />
+        <ButtonWithIcon text="Dodaj Intencje" Icon={PlusCircledIcon} />
       </CustomForm>
     </DropShadowCard>
   );
