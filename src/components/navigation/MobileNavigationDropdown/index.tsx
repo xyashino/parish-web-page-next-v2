@@ -22,18 +22,14 @@ const MobileNavigationDropdown = ({
     <div>
       <ToggleButton {...{ isOpen, toggle, icon, text }} />
       <ListWrapper isOpen={isOpen}>
-        {nestedRoutes?.map((route, i) => {
-          const key = `${route.href}-${i}}`;
-          return (
-            <NavigationLink
-              key={key}
-              href={`${href}/${route.href}`}
-              text={route.text}
-              className="rounded-none"
-              icon={route.icon}
-            />
-          );
-        })}
+        {nestedRoutes?.map(({ icon, text, href: routeHref }, i) => (
+          <NavigationLink
+            key={`${routeHref}-${i}}`}
+            href={`${href}/${routeHref}`}
+            className="rounded-none"
+            {...{ icon, text }}
+          />
+        ))}
       </ListWrapper>
     </div>
   );
