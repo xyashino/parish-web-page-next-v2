@@ -1,40 +1,44 @@
-import React, { useEffect } from "react";
-import dynamic from "next/dynamic";
-import useMdEditorStore from "@/lib/store/useMdEditorStore";
-import "@uiw/react-md-editor/markdown-editor.css";
-import "@uiw/react-markdown-preview/markdown.css";
+import "@toast-ui/editor/dist/toastui-editor.css";
 
-const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
+import { Editor } from "@toast-ui/react-editor";
+import { useLayoutEffect, useRef } from "react";
+import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
 
 interface Props {
   defaultContent?: string;
-  editorHeight?: number;
+  editorHeight?: string;
 }
 
 const MyMarkdownEditor = ({
-  defaultContent = "",
-  editorHeight = 200,
+  editorHeight = "300px",
+  defaultContent,
 }: Props) => {
-  const { editorValue, setEditorValue } = useMdEditorStore();
+  const { setEditorValue, editorValue } = useMdEditorStore();
+  const editorRef = useRef<Editor>(null);
 
-  useEffect(() => {
-    setEditorValue(defaultContent);
-  }, [defaultContent]);
-
-  const handleEditorChange = (content: string | undefined) =>
-    content !== undefined && setEditorValue(content);
-
+  useLayoutEffect(() => {
+    if (editorRef.current) {
+      editorRef.current.getInstance().setMarkdown(editorValue);
+    }
+  }, [editorValue]);
+  const handleBlur = () => {
+    if (editorRef.current) {
+      setEditorValue(editorRef.current.getInstance().getMarkdown());
+    }
+  };
   return (
-    <div className="my-4 mx-auto mb-8 h-full w-full rounded-xl p-2 shadow bg-slate-950 md:p-4">
-      <MDEditor
-        className="h-full w-full"
-        value={editorValue}
-        onChange={handleEditorChange}
+    <div className="w-full px-4">
+      <Editor
+        initialValue={defaultContent ?? ""}
+        previewStyle="vertical"
         height={editorHeight}
+        initialEditType="markdown"
+        useCommandShortcut={true}
+        ref={editorRef}
+        onBlur={handleBlur}
       />
     </div>
   );
 };
 
-MyMarkdownEditor.displayName = "MyMarkdownEditor";
 export default MyMarkdownEditor;
