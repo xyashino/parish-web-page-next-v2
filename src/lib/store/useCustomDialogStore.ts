@@ -7,10 +7,9 @@ interface CustomDialogStore {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-const useCustomDialogStore = create<CustomDialogStore>((set) => ({
+export const useCustomDialogStore = create<CustomDialogStore>((set) => ({
   isOpen: false,
   open: () => set({ isOpen: true }),
   close: () => set({ isOpen: false }),
   setIsOpen: (isOpen: boolean) => set({ isOpen }),
 }));
-export default useCustomDialogStore;
