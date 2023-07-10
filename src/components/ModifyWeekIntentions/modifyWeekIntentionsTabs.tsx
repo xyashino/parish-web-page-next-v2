@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { weekdayTranslator } from "@/lib/utils";
-import useWeekIntentionsStore from "@/lib/store/useWeekIntentionsStore";
+import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import ModifyDayIntentions from "@/components/ModifyWeekIntentions/modifyDayIntentions";
 import { DropShadowCard } from "@/components/ui/drop-shadow-card";
 
