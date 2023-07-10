@@ -6,7 +6,6 @@ interface Props {
 
 const IntentionsDataTableDateCell = ({ value }: Props) => {
   if (!value) return <span className="font-bold uppercase italic">Brak</span>;
-
   const dateObj = new Date(Date.parse(value));
   const formattedDate = dateObj.toLocaleDateString("en-GB", {
     day: "2-digit",
