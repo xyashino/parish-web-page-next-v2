@@ -4,14 +4,14 @@ import { FormField } from "@/components/ui/form";
 import { z } from "zod";
 import CustomFormControlItem from "@/components/Form/CustomFormControlItem";
 import { Input } from "@/components/ui/input";
-import useWeekIntentionsStore from "@/lib/store/useWeekIntentionsStore";
 import MyMarkdownEditor from "@/components/MdEditor";
 import { Separator } from "@/components/ui/separator";
 import SwitchWithLabel from "@/components/SwitchWithLabel";
 import { DropShadowCard } from "@/components/ui/drop-shadow-card";
-import useMdEditorStore from "@/lib/store/useMdEditorStore";
 import ButtonWithIcon from "@/components/ButtonWithIcon";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
+import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
+import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
 interface Props {
   defaultContent?: {
     order: number;
@@ -89,7 +89,7 @@ const ModifyWeekIntentionsForm = ({
           />
         </div>
         <Separator className="w-5/6 my-4" />
-        <MyMarkdownEditor editorHeight={300} />
+        <MyMarkdownEditor editorHeight="300px" />
         <ButtonWithIcon text="Dodaj Intencje" Icon={PlusCircledIcon} />
       </CustomForm>
     </DropShadowCard>
