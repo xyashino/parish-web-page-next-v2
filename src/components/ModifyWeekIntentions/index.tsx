@@ -1,11 +1,11 @@
 "use client";
 import React, { useLayoutEffect } from "react";
-import useWeekIntentionsStore from "@/lib/store/useWeekIntentionsStore";
 import ModifyWeekIntentionsForm from "@/components/ModifyWeekIntentions/modifyWeekIntentionsForm";
 import { WeekIntentionsStoreData } from "@/types/interfaces/week-intentions-store.interface";
 import ModifyWeekIntentionsTabs from "@/components/ModifyWeekIntentions/modifyWeekIntentionsTabs";
 import ModifyWeekIntentionsControls from "@/components/ModifyWeekIntentions/modifyWeekIntentionsControls";
 import ModifyIntentionsCard from "@/components/ModifyWeekIntentions/modifyIntentionsCard";
+import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 
 interface Props {
   defaultValue?: WeekIntentionsStoreData;
