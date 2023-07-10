@@ -1,15 +1,19 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-
 interface Props {
   className?: string;
   text: string;
-  icon: React.ReactNode;
-  onClick?: () => void;
+  Icon: React.FC;
+  onClick?: (e?: SyntheticEvent) => void;
 }
 
-const DataTableActionItem = ({ className, text, icon, onClick }: Props) => {
+const DataTableActionsDropDawnItem = ({
+  className,
+  text,
+  Icon,
+  onClick,
+}: Props) => {
   const classes = cn(
     "flex items-center justify-between w-full mx-2 text-foreground",
     className
@@ -18,10 +22,10 @@ const DataTableActionItem = ({ className, text, icon, onClick }: Props) => {
     <DropdownMenuItem className="cursor-pointer" onClick={onClick}>
       <span className={classes}>
         <span>{text}</span>
-        {icon}
+        <Icon />
       </span>
     </DropdownMenuItem>
   );
 };
 
-export default DataTableActionItem;
+export default DataTableActionsDropDawnItem;
