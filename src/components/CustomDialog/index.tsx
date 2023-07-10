@@ -7,28 +7,35 @@ import CustomDialogHeader, {
   ModifyDialogHeaderProps,
 } from "./customDialogHeader";
 import CustomDialogFooter from "./customDialogFooter";
-import useCustomDialogStore from "@/lib/store/useCustomDialogStore";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import CustomForm, { CustomFormProps } from "@/components/Form/CustomForm";
-import { ZodRawShape } from "zod";
+import { z, ZodAny, ZodRawShape } from "zod";
+import { useCustomDialogStore } from "@/lib/store/useCustomDialogStore";
 
-interface ModifyDialogProps extends PropsWithChildren {
+interface ModifyDialogProps<T extends ZodRawShape> extends PropsWithChildren {
   trigger: ModifyTriggerDialogProps;
   headerData: ModifyDialogHeaderProps;
-  form?: Omit<CustomFormProps<ZodRawShape>, "children">;
+  form?: Omit<CustomFormProps<z.ZodObject<T>>, "children">;
+  doBeforeClose?: () => void;
 }
 
-const CustomDialog = ({
+const CustomDialog = <T extends ZodRawShape>({
   trigger,
   headerData,
   children,
   form,
-}: ModifyDialogProps) => {
+  doBeforeClose,
+}: ModifyDialogProps<T>) => {
   const { isOpen, setIsOpen } = useCustomDialogStore();
+
+  const handleDialogChange = (state: boolean) => {
+    if (!state) doBeforeClose && doBeforeClose();
+    setIsOpen(state);
+  };
 
   if (form)
     return (
-      <Dialog onOpenChange={setIsOpen} open={isOpen}>
+      <Dialog onOpenChange={handleDialogChange} open={isOpen}>
         <CustomDialogTrigger {...trigger} />
         <DialogContent>
           <CustomForm {...form}>
@@ -41,7 +48,7 @@ const CustomDialog = ({
     );
 
   return (
-    <Dialog onOpenChange={setIsOpen} open={isOpen}>
+    <Dialog onOpenChange={handleDialogChange} open={isOpen}>
       <CustomDialogTrigger {...trigger} />
       <DialogContent>
         <CustomDialogHeader {...headerData} />
