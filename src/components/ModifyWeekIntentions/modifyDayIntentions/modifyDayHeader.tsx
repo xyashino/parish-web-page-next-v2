@@ -1,5 +1,5 @@
 import React from "react";
-import useWeekIntentionsStore from "@/lib/store/useWeekIntentionsStore";
+import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { DayIntentions } from "@/types/interfaces/week-intentions-store.interface";
 import { weekdayTranslator } from "@/lib/utils";
 
