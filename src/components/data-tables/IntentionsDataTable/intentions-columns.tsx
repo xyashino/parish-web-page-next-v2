@@ -1,19 +1,11 @@
-"use client";
 import React from "react";
-import DataTable from "@/components/DataTable";
-import { WeekIntentions } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
-import { Button } from "@/components/ui/button";
-import DataTableActions from "@/components/DataTable/DataTableActions";
-import IntentionsDataTableDateCell from "@/components/IntentionsDataTable/intentionsDataTableDateCell";
-import { CaretSortIcon } from "@radix-ui/react-icons";
+import { WeekIntentions } from "@prisma/client";
 import DataTableSortBtn from "@/components/DataTable/DataTableSortBtn";
+import IntentionsDataTableDateCell from "@/components/data-tables/IntentionsDataTable/intentionsDataTableDateCell";
+import IntentionsDropDownActions from "@/components/data-tables/IntentionsDataTable/intentionsDropDownActions";
 
-interface Props {
-  data: WeekIntentions[];
-}
-
-const columns: ColumnDef<WeekIntentions>[] = [
+const intentionsColumns: ColumnDef<WeekIntentions>[] = [
   {
     accessorKey: "id",
     header: () => <span className="font-bold w-10">ID</span>,
@@ -62,13 +54,7 @@ const columns: ColumnDef<WeekIntentions>[] = [
   {
     id: "actions",
     enableHiding: false,
-    cell: ({ row }) => {
-      return <DataTableActions id={row.original.id} />;
-    },
+    cell: ({ row }) => <IntentionsDropDownActions id={row.original.id} />,
   },
 ];
-const IntentionsDataTable = ({ data }: Props) => {
-  return <DataTable columns={columns} data={data} />;
-};
-
-export default IntentionsDataTable;
+export default intentionsColumns;
