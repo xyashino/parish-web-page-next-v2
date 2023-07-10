@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from "react";
 import ConfirmAlert from "@/components/ConfirmAlert";
-import useWeekIntentionsStore from "@/lib/store/useWeekIntentionsStore";
+import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { DropShadowCard } from "@/components/ui/drop-shadow-card";
 import { UpdateIcon, ResetIcon } from "@radix-ui/react-icons";
 import ButtonWithIcon from "@/components/ButtonWithIcon";
