@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "@/components/Logo";
 
-const LogoWithDescription = () => {
+export const LogoWithDescription = () => {
   return (
     <div className="space-y-2">
       <Logo
@@ -14,5 +14,3 @@ const LogoWithDescription = () => {
     </div>
   );
 };
-
-export default LogoWithDescription;

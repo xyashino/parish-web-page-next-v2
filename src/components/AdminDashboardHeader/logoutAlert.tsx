@@ -2,7 +2,7 @@ import React from "react";
 import Alert from "../ConfirmAlert";
 import { ExitIcon } from "@radix-ui/react-icons";
 
-const LogoutAlert = () => {
+export const LogoutAlert = () => {
   return (
     <Alert
       headerData={{
@@ -16,5 +16,3 @@ const LogoutAlert = () => {
     />
   );
 };
-
-export default LogoutAlert;

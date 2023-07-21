@@ -1,6 +1,6 @@
 import React from "react";
-import LogoutAlert from "@/components/AdminDashboardHeader/logoutAlert";
-import LogoWithDescription from "@/components/AdminDashboardHeader/logoWithDescription";
+import { LogoutAlert } from "./logoutAlert";
+import { LogoWithDescription } from "./logoWithDescription";
 
 const AdminDashboardHeader = () => {
   return (
