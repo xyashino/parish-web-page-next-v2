@@ -1,9 +1,12 @@
-import client from "@/lib/prisma";
-import { Album } from "@prisma/client";
+import client from "@/lib/db";
 
 export const getAlbums = async () => {
   try {
-    return await client.album.findMany();
+    return await client.album.findMany({
+      include: {
+        category: true,
+      },
+    });
   } catch (error) {
     console.error(error);
     throw new Error("Something went wrong");
