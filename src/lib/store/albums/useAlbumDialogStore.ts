@@ -1,10 +1,10 @@
-import { createDialogStore } from "@/lib/store/createDialogStore";
 import { z } from "zod";
+import { createDialogStore } from "@/lib/store/createDialogStore";
 import modifyAlbumSchema from "@/components/ModifyAlbumDialog/modify-album.schema";
 
 const ALBUM_DEFAULT_VALUE: z.infer<typeof modifyAlbumSchema> = {
-  name: "",
-  description: "",
+  title: "",
+  subtitle: "",
   categoryId: "",
   show: true,
 };
