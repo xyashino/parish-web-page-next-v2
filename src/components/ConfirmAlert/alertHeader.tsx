@@ -10,7 +10,7 @@ export interface AlertHeaderProps {
   description?: string;
 }
 
-const AlertHeader = ({ title, description }: AlertHeaderProps) => {
+export const AlertHeader = ({ title, description }: AlertHeaderProps) => {
   return (
     <AlertDialogHeader>
       <AlertDialogTitle>{title}</AlertDialogTitle>
@@ -18,5 +18,3 @@ const AlertHeader = ({ title, description }: AlertHeaderProps) => {
     </AlertDialogHeader>
   );
 };
-
-export default AlertHeader;

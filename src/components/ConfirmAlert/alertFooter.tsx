@@ -12,7 +12,7 @@ export interface AlertFooterProps {
   confirmText?: string;
 }
 
-const AlertFooter = ({
+export const AlertFooter = ({
   doAfterConfirm,
   cancelText = "Anuluj",
   confirmText = "Potwierdź",
@@ -29,5 +29,3 @@ const AlertFooter = ({
     </AlertDialogFooter>
   );
 };
-
-export default AlertFooter;

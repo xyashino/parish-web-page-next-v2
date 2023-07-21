@@ -1,16 +1,12 @@
 import React, { PropsWithChildren } from "react";
 import { AlertDialog, AlertDialogContent } from "@/components/ui/alert-dialog";
-import AlertFooter, {
-  AlertFooterProps,
-} from "@/components/ConfirmAlert/alertFooter";
-import AlertHeader, {
-  AlertHeaderProps,
-} from "@/components/ConfirmAlert/alertHeader";
-import AlertTrigger, {
-  AlertTriggerProps,
-} from "@/components/ConfirmAlert/alertTrigger";
 
-interface Props extends PropsWithChildren {
+import { AlertDialogProps } from "@radix-ui/react-alert-dialog";
+import { AlertFooterProps, AlertFooter } from "./alertFooter";
+import { AlertHeaderProps, AlertHeader } from "./alertHeader";
+import { AlertTriggerProps, AlertTrigger } from "./alertTrigger";
+
+interface Props extends PropsWithChildren, AlertDialogProps {
   footerData?: AlertFooterProps;
   headerData: AlertHeaderProps;
   triggerData: AlertTriggerProps;
@@ -21,9 +17,10 @@ const ConfirmAlert = ({
   footerData,
   headerData,
   triggerData,
+  ...rest
 }: Props) => {
   return (
-    <AlertDialog>
+    <AlertDialog {...rest}>
       <AlertTrigger {...triggerData} />
       <AlertDialogContent>
         <AlertHeader {...headerData} />
