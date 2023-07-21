@@ -1,12 +1,12 @@
-import client from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
+import client from "@/lib/db";
 
-export const updateAlbum = async (
+export const updateAnnouncement = async (
   id: string,
-  data: Prisma.AlbumUpdateInput
+  data: Prisma.AnnouncementsUpdateInput
 ) => {
   try {
-    return await client.album.update({
+    return await client.announcements.update({
       where: { id },
       data,
     });
