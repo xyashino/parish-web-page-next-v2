@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { getWeekIntentionWithRelations } from "@/lib/prisma/weekIntentions";
+import { getWeekIntentionWithRelations } from "@/lib/db/weekIntentions";
 
-export async function GET(request: Request, { params }: any) {
+export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const intentions = await getWeekIntentionWithRelations(id);
   return NextResponse.json(intentions);
