@@ -1,7 +1,7 @@
 import React from "react";
 import AdminPageTitle from "@/components/AdminPageTitle";
 import NavigationBtn from "@/components/navigation/NavigationBtn";
-import { getAnnouncements } from "@/lib/prisma/announcement";
+import { getAnnouncements } from "@/lib/db/announcement";
 import AnnouncementsDataTable from "@/components/data-tables/AnnouncementsDataTable";
 
 const AnnouncementsPage = async () => {
