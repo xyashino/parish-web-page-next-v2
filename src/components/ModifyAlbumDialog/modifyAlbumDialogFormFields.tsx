@@ -3,29 +3,44 @@ import { FormField } from "@/components/ui/form";
 import CustomFormControlItem from "@/components/Form/CustomFormControlItem";
 import { Input } from "@/components/ui/input";
 import SelectCategoryFormField from "./selectCategoryFormField";
+import SwitchWithLabel from "@/components/SwitchWithLabel";
 
-const ModifyAlbumDialogFormFields = () => {
+export const ModifyAlbumDialogFormFields = () => {
   return (
     <>
       <FormField
-        name="name"
+        name="title"
         render={({ field }) => (
-          <CustomFormControlItem label="Nazwa">
+          <CustomFormControlItem label="Tytuł:" description="Pole wymagane">
             <Input {...field} type="text" />
           </CustomFormControlItem>
         )}
       />
       <FormField
-        name="description"
+        name="subtitle"
         render={({ field }) => (
-          <CustomFormControlItem label="Opis">
+          <CustomFormControlItem
+            label="Podtytuł:"
+            description="Pole nie jest wymagane"
+          >
             <Input {...field} type="text" />
           </CustomFormControlItem>
         )}
       />
       <SelectCategoryFormField />
+
+      <FormField
+        name="show"
+        render={({ field }) => (
+          <CustomFormControlItem>
+            <SwitchWithLabel
+              {...field}
+              labelText="Wyświetlaj na album na stronie."
+              id="album"
+            />
+          </CustomFormControlItem>
+        )}
+      />
     </>
   );
 };
-
-export default ModifyAlbumDialogFormFields;

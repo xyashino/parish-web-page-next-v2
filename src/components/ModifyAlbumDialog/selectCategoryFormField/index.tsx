@@ -1,15 +1,15 @@
 import React from "react";
 import { Select } from "@/components/ui/select";
-import { Category } from "@prisma/client";
-import SelectCategoryContent from "./selectCategoryContent";
-import SelectCategoryTrigger from "./selectCategoryTrigger";
 import {
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { SelectCategoryContent } from "./selectCategoryContent";
+import { SelectCategoryTrigger } from "./selectCategoryTrigger";
 const SelectCategoryFormField = () => {
   return (
     <FormField
@@ -23,6 +23,10 @@ const SelectCategoryFormField = () => {
             </FormControl>
             <SelectCategoryContent />
           </Select>
+          <FormDescription>
+            Wybierz kategorię do której ma należeć album. Jeśli nie wybierzesz
+            żadnej, album nie będzie widoczny na stronie.
+          </FormDescription>
           <FormMessage />
         </FormItem>
       )}

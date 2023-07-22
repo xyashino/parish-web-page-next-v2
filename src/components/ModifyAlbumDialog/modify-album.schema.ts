@@ -1,10 +1,8 @@
 import { z } from "zod";
 
-const modifyAlbumSchema = z.object({
-  name: z.string().nonempty(),
-  description: z.string().optional(),
-  categoryId: z.string().uuid().optional(),
+export const modifyAlbumSchema = z.object({
+  title: z.string().nonempty(),
+  subtitle: z.string().optional(),
+  categoryId: z.string().optional(),
   show: z.boolean().default(true),
 });
-
-export default modifyAlbumSchema;
