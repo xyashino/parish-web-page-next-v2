@@ -1,37 +1,20 @@
-import { Label } from "@/components/ui/label";
+import { SwitchProps } from "@radix-ui/react-switch";
 import { Switch } from "@/components/ui/switch";
-import { forwardRef, useImperativeHandle, useState } from "react";
+import { Label } from "@/components/ui/label";
 
-interface Props {
-  id: string;
-  labelText: string;
-  defaultChecked?: boolean;
-  onChange?: (value: boolean) => void;
+interface Props extends Omit<SwitchProps, "value" | "onChange"> {
+  labelText?: string;
+  value: boolean;
+  onChange: (e: boolean) => void;
 }
 
-const SwitchWithLabel = forwardRef<{ isChecked: boolean }, Props>(
-  ({ id, labelText, defaultChecked = false, onChange }, ref) => {
-    const [isChecked, setIsChecked] = useState(defaultChecked);
+const SwitchWithLabel = ({ labelText, value, onChange, ...props }: Props) => {
+  return (
+    <div className="flex items-center space-x-2">
+      <Switch {...props} checked={value} onCheckedChange={onChange} />
+      <Label htmlFor={props.id}>{labelText}</Label>
+    </div>
+  );
+};
 
-    useImperativeHandle(ref, () => ({
-      isChecked,
-    }));
-    const handleCheckedChange = (value: boolean) => {
-      setIsChecked(value);
-      onChange && onChange(value);
-    };
-    return (
-      <div className="flex items-center space-x-2">
-        <Switch
-          id={id}
-          checked={isChecked}
-          onCheckedChange={handleCheckedChange}
-        />
-        <Label htmlFor={id}>{labelText}</Label>
-      </div>
-    );
-  }
-);
-
-SwitchWithLabel.displayName = "SwitchWithLabel";
 export default SwitchWithLabel;
