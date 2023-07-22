@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
+import { z } from "zod";
 import CustomDialog from "@/components/CustomDialog";
 import modifyCategorySchema from "./modify-category.schema";
 import { useCategoryDialogStore } from "@/lib/store/categories/useCategoryDialogStore";
 import ModifyCategoryDialogFormFields from "./modifyCategoryDialogFormFields";
-import { z } from "zod";
 import { useCategoriesStore } from "@/lib/store/categories/useCategoriesStore";
 import { useCustomDialogStore } from "@/lib/store/useCustomDialogStore";
 
@@ -17,9 +17,7 @@ const ModifyCategoryDialog = () => {
     ? "Tworzysz Kategorie"
     : `Edytujesz Kategorie  "${defaultValues.name}"`;
 
-  const toggleHeaderSubtitle = !id
-    ? "Dodaj Kategorie do swojej kolekcji"
-    : "Edytuj Kategorie";
+  const toggleHeaderSubtitle = !id ? "Według kategori są grupowane Albumy" : "";
 
   const onSubmit = async (values: z.infer<typeof modifyCategorySchema>) => {
     if (id) return updateEntity({ id, ...values });
