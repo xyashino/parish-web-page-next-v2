@@ -1,5 +1,5 @@
 import React from "react";
-import { getManyWeekIntentions } from "@/lib/prisma/weekIntentions";
+import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
 import { apiCall } from "@/lib/utils";
 import AdminPageTitle from "@/components/AdminPageTitle";
 import ModifyIntentions from "@/components/ModifyWeekIntentions";
