@@ -20,7 +20,7 @@ const Logo = ({ renderAsLink = true, className, navigateTo }: Props) => {
     return (
       <Link className={logoClasses} href={navigateTo ?? PageRoute.CLIENT_HOME}>
         <ChurchIcon className="text-center group-hover:scale-125 transition-transform duration-500 ease-in-out" />
-        <h2 className="italic align-middle">Parafia Gruszów Wielki</h2>
+        <span className="italic align-middle">Parafia Gruszów Wielki</span>
       </Link>
     );
 
