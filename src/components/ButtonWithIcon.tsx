@@ -9,7 +9,7 @@ interface Props extends ButtonProps {
 const ButtonWithIcon = ({ Icon, text, ...props }: Props) => {
   return (
     <Button {...props}>
-      <Icon className="mr-2 h-4 w-4" /> {text}
+      <Icon className="mr-2 h-4 w-4" /> <span>{text}</span>
     </Button>
   );
 };
