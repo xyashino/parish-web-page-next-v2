@@ -1,6 +1,6 @@
 import React from "react";
 import AdminPageTitle from "@/components/AdminPageTitle";
-import { getManyWeekIntentions } from "@/lib/prisma/weekIntentions";
+import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
 import NavigationBtn from "@/components/navigation/NavigationBtn";
 import IntentionsDataTable from "@/components/data-tables/IntentionsDataTable";
 
