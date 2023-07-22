@@ -12,14 +12,16 @@ interface Props {
 const AlbumEditAction = ({ albumData }: Props) => {
   const { open } = useCustomDialogStore();
   const { updateDefaultValues } = useAlbumDialogStore();
+
+  const { show, categoryId, title, subtitle } = albumData;
   const handleNavigate = (e?: SyntheticEvent) => {
     e?.preventDefault();
     updateDefaultValues(
       {
-        name: albumData.name,
-        description: albumData.description ?? "",
-        show: albumData.show,
-        categoryId: albumData.categoryId ?? "",
+        title,
+        subtitle: subtitle ?? "",
+        show,
+        categoryId: categoryId ?? "",
       },
       albumData.id
     );
