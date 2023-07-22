@@ -9,7 +9,9 @@ interface Props {
   categoryData: Category;
 }
 
-const CategoryEditAction = ({ categoryData: { order, name, id } }: Props) => {
+const CategoryEditAction = ({
+  categoryData: { name, id, order, show },
+}: Props) => {
   const { open } = useCustomDialogStore();
   const { updateDefaultValues } = useCategoryDialogStore();
   const handleEditModal = (e?: SyntheticEvent) => {
@@ -18,6 +20,7 @@ const CategoryEditAction = ({ categoryData: { order, name, id } }: Props) => {
       {
         name,
         order: order ?? 0,
+        show,
       },
       id
     );

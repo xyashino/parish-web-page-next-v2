@@ -1,7 +1,6 @@
 import React, { SyntheticEvent } from "react";
 import DataTableActionsDropDawnItem from "@/components/DataTable/DataTableActionsDropDawnItem";
 import { TrashIcon } from "@radix-ui/react-icons";
-import toast from "react-hot-toast";
 import { useCategoriesStore } from "@/lib/store/categories/useCategoriesStore";
 
 interface Props {
@@ -10,6 +9,7 @@ interface Props {
 
 const CategoryDeleteAction = ({ id }: Props) => {
   const { deleteEntity } = useCategoriesStore();
+
   const handleDelete = (e?: SyntheticEvent) => {
     e?.preventDefault();
     return deleteEntity(id);
