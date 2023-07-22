@@ -1,7 +1,7 @@
 import React from "react";
 import { Announcements } from "@prisma/client";
 import notFound from "@/app/not-found";
-import { getAnnouncements } from "@/lib/prisma/announcement";
+import { getAnnouncements } from "@/lib/db/announcement";
 import { apiCall } from "@/lib/utils";
 import AdminPageTitle from "@/components/AdminPageTitle";
 import ModifyAnnouncements from "@/components/ModifyAnnouncements";
