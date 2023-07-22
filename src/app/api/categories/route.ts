@@ -1,4 +1,4 @@
-import { createCategory, getCategories } from "@/lib/prisma/category";
+import { createCategory, getCategories } from "@/lib/db/category";
 import { NextResponse } from "next/server";
 import { Category } from "@prisma/client";
 export async function GET() {
