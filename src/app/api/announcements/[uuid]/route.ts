@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAnnouncement } from "@/lib/prisma/announcement/get-announcement";
+import { getAnnouncement } from "@/lib/db/announcement/get-announcement";
 
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
