@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getManyWeekIntentions } from "@/lib/prisma/weekIntentions";
+import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
 import { WeekIntentionsStoreData } from "@/types/interfaces/week-intentions-store.interface";
 
 export async function GET() {
