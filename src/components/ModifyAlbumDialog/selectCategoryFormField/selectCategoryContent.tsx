@@ -1,20 +1,16 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import { SelectContent, SelectGroup, SelectItem } from "@/components/ui/select";
-import { useCategoriesStore } from "@/lib/store";
-import { apiCall } from "@/lib/utils";
-import { Category } from "@prisma/client";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { useCategories } from "@/lib/hooks/useCategories";
 
-const SelectCategoryContent = () => {
-  const { entities } = useCategoriesStore();
-
+export const SelectCategoryContent = () => {
+  const { isLoading, categories } = useCategories();
   return (
     <SelectContent>
       <SelectGroup className="font-bold uppercase">
         <SelectItem value="" defaultChecked>
-          Brak
+          {isLoading ? "Pobieranie Kategorii..." : "Brak"}
         </SelectItem>
-        {entities.map(({ id, name }) => (
+        {categories.map(({ id, name }) => (
           <SelectItem value={id} key={id}>
             {name}
           </SelectItem>
@@ -23,4 +19,3 @@ const SelectCategoryContent = () => {
     </SelectContent>
   );
 };
-export default SelectCategoryContent;
