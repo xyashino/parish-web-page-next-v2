@@ -1,55 +1,20 @@
 "use client";
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import CustomDialog from "@/components/CustomDialog";
-import modifyAlbumSchema from "./modify-album.schema";
-import ModifyAlbumDialogFormFields from "@/components/ModifyAlbumDialog/modifyAlbumDialogFormFields";
-import { z } from "zod";
-import { useAlbumDialogStore } from "@/lib/store/albums/useAlbumDialogStore";
-import { useCategoriesStore } from "@/lib/store";
-import { Category } from "@prisma/client";
-import { useAlbumsStore } from "@/lib/store/albums/useAlbumsStore";
-import { useCustomDialogStore } from "@/lib/store/useCustomDialogStore";
+import { useModifyAlbumLogic } from "@/lib/hooks/useModifyAlbumLogic";
+import { modifyAlbumSchema } from "./modify-album.schema";
+import { ModifyAlbumDialogFormFields } from "./modifyAlbumDialogFormFields";
 
-interface Props {
-  categories: Category[];
-}
-
-const ModifyAlbumDialog = ({ categories }: Props) => {
-  const { updateAllEntities } = useCategoriesStore();
-  const { createEntity, updateEntity } = useAlbumsStore();
-  const { defaultValues, resetDefaultValues, id } = useAlbumDialogStore();
-  const { close } = useCustomDialogStore();
-
-  useLayoutEffect(() => {
-    updateAllEntities(categories);
-  }, []);
-  const onSubmit = async (values: z.infer<typeof modifyAlbumSchema>) => {
-    if (id)
-      return updateEntity({
-        id,
-        ...values,
-        categoryId: values.categoryId ?? null,
-        description: values.description ?? null,
-      });
-    await createEntity({
-      ...values,
-      categoryId: values.categoryId ?? null,
-      description: values.description ?? null,
-    });
-    close();
-  };
+const ModifyAlbumDialog = () => {
+  const { submitMethod, resetDefaultValues, defaultValues, headerData } =
+    useModifyAlbumLogic();
   return (
     <CustomDialog
-      trigger={{
-        text: "Dodaj albums",
-      }}
-      headerData={{
-        title: "Dodajesz albums",
-        subtitle: "Nazwa nie może być pusta",
-      }}
+      trigger={{ text: "Dodaj Zdjęcie" }}
+      headerData={headerData}
       form={{
         formSchema: modifyAlbumSchema,
-        onSubmit,
+        onSubmit: submitMethod,
         defaultValues,
         className: "space-y-4",
       }}
