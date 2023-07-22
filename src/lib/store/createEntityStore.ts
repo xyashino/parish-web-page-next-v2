@@ -1,4 +1,4 @@
-import { create, createStore } from "zustand";
+import { create } from "zustand";
 import { apiCallWithToast, apiRevalidateCall } from "@/lib/utils";
 import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
 
@@ -69,7 +69,7 @@ export const createEntityStore = <T extends Entity>(
       return apiRevalidateCall(revalidateTag);
     },
 
-    updateEntity: async (entityToUpdate: T) => {
+    updateEntity: async (entityToUpdate) => {
       const result = await customApiCall<T>(
         `${baseApiPath}/${entityToUpdate.id}`,
         {
