@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAnnouncements } from "@/lib/prisma/announcement";
+import { getAnnouncements } from "@/lib/db/announcement";
 
 export async function GET() {
   const result = await getAnnouncements({
