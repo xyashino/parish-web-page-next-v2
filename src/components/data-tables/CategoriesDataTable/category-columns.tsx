@@ -6,10 +6,6 @@ import CategoryDropDownActions from "@/components/data-tables/CategoriesDataTabl
 
 const categoryColumns: ColumnDef<Category>[] = [
   {
-    accessorKey: "id",
-    header: () => <span className="font-bold w-10">ID</span>,
-  },
-  {
     accessorKey: "order",
     header: ({ column }) => {
       return (
@@ -23,6 +19,10 @@ const categoryColumns: ColumnDef<Category>[] = [
   {
     accessorKey: "name",
     header: "Nazwa",
+  },
+  {
+    accessorKey: "show",
+    header: "Aktywna",
   },
   {
     id: "actions",

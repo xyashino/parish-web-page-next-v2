@@ -28,7 +28,7 @@ interface EntityStore<T extends Entity> {
   entities: T[];
   updateAllEntities: (entities: T[]) => void;
   deleteEntity: (id: T["id"]) => Promise<void>;
-  updateEntity: (entity: T) => Promise<void>;
+  updateEntity: (entity: Partial<T>) => Promise<void>;
   createEntity: (entity: Omit<T, "id">) => Promise<void>;
 }
 
