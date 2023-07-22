@@ -1,14 +1,31 @@
 "use client";
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { Album } from "@prisma/client";
+import { Album, Category } from "@prisma/client";
 import DataTableSortBtn from "@/components/DataTable/DataTableSortBtn";
 import AlbumDropDownActions from "@/components/data-tables/AlbumsDataTable/albumDropDownActions";
 
-const albumColumns: ColumnDef<Album>[] = [
+const albumColumns: ColumnDef<Album & { category: Category | null }>[] = [
   {
-    accessorKey: "id",
-    header: () => <span className="font-bold w-10">ID</span>,
+    accessorKey: "title",
+    header: "Tytuł",
+  },
+  {
+    id: "description",
+    accessorKey: "description",
+    header: "Opis",
+    cell: ({ getValue }) => {
+      const value = getValue() as string | null;
+      return <span>{value || "Brak"}</span>;
+    },
+  },
+  {
+    accessorKey: "category.name",
+    header: "Kat.",
+    cell: ({ getValue }) => {
+      const value = getValue() as string | null;
+      return <span className="font-bold italic">{value || "Brak"}</span>;
+    },
   },
   {
     accessorKey: "show",
@@ -21,17 +38,7 @@ const albumColumns: ColumnDef<Album>[] = [
       );
     },
   },
-  {
-    accessorKey: "name",
-    header: "Nazwa",
-  },
-  {
-    id: "description",
-    cell: ({ getValue }) => {
-      const value = getValue() as string | null;
-      return <span>{value || "Brak"}</span>;
-    },
-  },
+
   {
     id: "actions",
     enableHiding: false,
