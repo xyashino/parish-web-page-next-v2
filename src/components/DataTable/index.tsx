@@ -44,7 +44,7 @@ const DataTable = <TData, TValue>({
     },
   });
 
-  const tableClasses = cn("rounded-xl border mx-4", className);
+  const tableClasses = cn("rounded-xl border mx-auto lg:w-11/12", className);
   return (
     <div className={tableClasses}>
       <Table>
