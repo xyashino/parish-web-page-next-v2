@@ -31,7 +31,6 @@ export const AnnouncementsInputsFields = ({
           doAfterChange={updateStatus}
           label="Status:"
         />
-        <p className="text[0.8rem] text-muted">Test</p>
       </div>
       <div className="flex-grow">
         <Label id="subtitle">Podtytuł:</Label>
