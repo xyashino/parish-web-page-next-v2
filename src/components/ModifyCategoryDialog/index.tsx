@@ -2,7 +2,7 @@
 import React from "react";
 import { z } from "zod";
 import CustomDialog from "@/components/CustomDialog";
-import modifyCategorySchema from "./modify-category.schema";
+import { modifyCategorySchema } from "./modify-category.schema";
 import { useCategoryDialogStore } from "@/lib/store/categories/useCategoryDialogStore";
 import ModifyCategoryDialogFormFields from "./modifyCategoryDialogFormFields";
 import { useCategoriesStore } from "@/lib/store/categories/useCategoriesStore";
