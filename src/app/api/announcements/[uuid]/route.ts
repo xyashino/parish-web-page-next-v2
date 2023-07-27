@@ -1,26 +1,32 @@
 import { NextResponse } from "next/server";
-import { getAnnouncement } from "@/lib/db/announcement/get-announcement";
+import {
+  deleteAnnouncement,
+  getAnnouncement,
+  updateAnnouncement,
+} from "@/lib/db/announcement";
+import { AnnouncementBody } from "@/types/announcement-edit.types";
+import { revalidateTag } from "next/cache";
+import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
 
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
-  const intentions = getAnnouncement(id);
-  return NextResponse.json(intentions);
+  const announcement = getAnnouncement(id);
+  return NextResponse.json(announcement);
 }
-//
-// export async function PUT(request: Request, { params }: ParamsWithUuid) {
-//   const id = params.uuid;
-//   const { status, value, subtitle }: Announcements = await request.json();
-//   const intentions = await updateAnnouncement(id, {
-//     value,
-//     subtitle,
-//     status,
-//   });
-//
-//   return NextResponse.json(intentions);
-// }
-//
-// export async function DELETE(request: Request, { params }: ParamsWithUuid) {
-//   const id = params.uuid;
-//   const intentions = await deleteAnnouncement(id);
-//   return NextResponse.json(intentions);
-// }
+export async function PUT(request: Request, { params }: ParamsWithUUID) {
+  const id = params.uuid;
+  const { status, value, subtitle }: AnnouncementBody = await request.json();
+  const announcements = await updateAnnouncement(id, {
+    value,
+    subtitle,
+    status,
+  });
+  revalidateTag(RevalidateTag.ANNOUNCEMENTS);
+  return NextResponse.json(announcements);
+}
+export async function DELETE(request: Request, { params }: ParamsWithUUID) {
+  const id = params.uuid;
+  const announcements = await deleteAnnouncement(id);
+  revalidateTag(RevalidateTag.ANNOUNCEMENTS);
+  return NextResponse.json(announcements);
+}
