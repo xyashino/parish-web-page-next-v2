@@ -1,21 +1,23 @@
 import React, { SyntheticEvent } from "react";
-import DataTableActionsDropDawnItem from "@/components/DataTable/DataTableActionsDropDawnItem";
 import { TrashIcon } from "@radix-ui/react-icons";
-import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
+import { deleteAnnouncementApiCall } from "@/lib/services";
 
 interface Props {
   id: string;
 }
 
 const AnnouncementsDeleteAction = ({ id }: Props) => {
-  const handleDelete = (e?: SyntheticEvent) => {
+  const { refresh } = useRouter();
+  const handleDelete = async (e?: SyntheticEvent) => {
     e?.preventDefault();
-    console.log("Delete");
-    toast.success("Usunięto ogłoszenie o id: " + id);
+    await deleteAnnouncementApiCall(id);
+    refresh();
   };
 
   return (
-    <DataTableActionsDropDawnItem
+    <DataTableActionsDropDownItem
       text="Usuń"
       Icon={TrashIcon}
       onClick={handleDelete}
