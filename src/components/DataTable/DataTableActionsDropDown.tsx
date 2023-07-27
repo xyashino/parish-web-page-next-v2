@@ -11,7 +11,7 @@ interface Props extends PropsWithChildren {
   srText?: string;
 }
 
-const DataTableActionsDropDawn = ({
+const DataTableActionsDropDown = ({
   srText = "Ustawienia menu",
   children,
 }: Props) => {
@@ -28,4 +28,4 @@ const DataTableActionsDropDawn = ({
   );
 };
 
-export default DataTableActionsDropDawn;
+export default DataTableActionsDropDown;
