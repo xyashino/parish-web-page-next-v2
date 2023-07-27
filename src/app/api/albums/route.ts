@@ -1,8 +1,10 @@
 import { Album } from "@prisma/client";
-import { createAlbum } from "@/lib/db/album";
+import { createAlbum, getAlbums } from "@/lib/db/album";
 import { NextResponse } from "next/server";
 import { mkdir } from "fs/promises";
 import { join } from "path";
+import { revalidateTag } from "next/cache";
+import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
 
 const createDirectory = (id: string) => {
   const { UPLOAD_DIR } = process.env;
@@ -11,10 +13,15 @@ const createDirectory = (id: string) => {
     recursive: true,
   });
 };
+export async function GET() {
+  const albums = await getAlbums();
+  return NextResponse.json(albums);
+}
 
 export async function POST(request: Request) {
   const data: Omit<Album, "id"> = await request.json();
   const result = await createAlbum({ ...data });
   await createDirectory(result.id);
+  revalidateTag(RevalidateTag.ALBUMS);
   return NextResponse.json(result);
 }
