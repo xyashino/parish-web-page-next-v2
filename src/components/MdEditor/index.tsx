@@ -57,7 +57,7 @@ const MdEditor: React.FC<Props> = ({
         useCommandShortcut={true}
         ref={editorRef}
         onBlur={handleBlur}
-        theme="dark"
+        autofocus={false}
       />
     </div>
   );
