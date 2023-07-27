@@ -1,5 +1,5 @@
 import React from "react";
-import DataTableActionsDropDawn from "@/components/DataTable/DataTableActionsDropDawn";
+import DataTableActionsDropDown from "@/components/DataTable/DataTableActionsDropDown";
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import AnnouncementsDeleteAction from "./announcementsDeleteAction";
 import AnnouncementsEditAction from "./announcementsEditAction";
@@ -10,11 +10,11 @@ interface Props {
 
 const AnnouncementsDropDownActions = ({ id }: Props) => {
   return (
-    <DataTableActionsDropDawn>
+    <DataTableActionsDropDown>
       <AnnouncementsEditAction id={id} />
       <DropdownMenuSeparator />
       <AnnouncementsDeleteAction id={id} />
-    </DataTableActionsDropDawn>
+    </DataTableActionsDropDown>
   );
 };
 
