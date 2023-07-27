@@ -1,5 +1,5 @@
 import React from "react";
-import DataTableActionsDropDawn from "@/components/DataTable/DataTableActionsDropDawn";
+import DataTableActionsDropDown from "@/components/DataTable/DataTableActionsDropDown";
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import IntentionsDeleteAction from "./intentionsDeleteAction";
 import IntentionsEditAction from "./intentionsEditAction";
@@ -9,11 +9,11 @@ interface Props {
 
 const IntentionsDropDownActions = ({ id }: Props) => {
   return (
-    <DataTableActionsDropDawn>
+    <DataTableActionsDropDown>
       <IntentionsEditAction id={id} />
       <DropdownMenuSeparator />
       <IntentionsDeleteAction id={id} />
-    </DataTableActionsDropDawn>
+    </DataTableActionsDropDown>
   );
 };
 

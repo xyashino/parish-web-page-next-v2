@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from "react";
-import DataTableActionsDropDawnItem from "@/components/DataTable/DataTableActionsDropDawnItem";
+import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
 import { TrashIcon } from "@radix-ui/react-icons";
 import toast from "react-hot-toast";
 
@@ -10,12 +10,10 @@ interface Props {
 const IntentionsDeleteAction = ({ id }: Props) => {
   const handleDelete = (e?: SyntheticEvent) => {
     e?.preventDefault();
-    console.log("Delete");
-    toast.success("Usunięto intencje o id: " + id);
   };
 
   return (
-    <DataTableActionsDropDawnItem
+    <DataTableActionsDropDownItem
       text="Usuń"
       Icon={TrashIcon}
       onClick={handleDelete}

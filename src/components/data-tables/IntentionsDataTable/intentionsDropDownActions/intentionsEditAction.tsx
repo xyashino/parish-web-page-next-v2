@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from "react";
-import DataTableActionsDropDawnItem from "@/components/DataTable/DataTableActionsDropDawnItem";
+import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 
@@ -13,8 +13,9 @@ const IntentionsEditAction = ({ id }: Props) => {
     e?.preventDefault();
     push(`/admin/intentions/${id}`);
   };
+
   return (
-    <DataTableActionsDropDawnItem
+    <DataTableActionsDropDownItem
       text="Edytuj"
       Icon={Pencil2Icon}
       onClick={handleNavigate}
