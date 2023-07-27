@@ -4,10 +4,16 @@ import { Announcements } from "@prisma/client";
 import DataTableSortBtn from "@/components/DataTable/DataTableSortBtn";
 import AnnouncementsDropDownActions from "@/components/data-tables/AnnouncementsDataTable/announcementsDropDownActions";
 
-const announcementsColumns: ColumnDef<Announcements>[] = [
+export const announcementsColumns: ColumnDef<Announcements>[] = [
   {
-    accessorKey: "id",
-    header: () => <span className="font-bold w-10">ID</span>,
+    accessorKey: "subtitle",
+    header: "Podtytuł",
+    cell: ({ getValue }) => {
+      const value = getValue() as string | null;
+      if (!value)
+        return <span className="font-bold uppercase italic">Brak</span>;
+      return <span>{value}</span>;
+    },
   },
   {
     accessorKey: "status",
@@ -21,16 +27,6 @@ const announcementsColumns: ColumnDef<Announcements>[] = [
     },
   },
   {
-    accessorKey: "subtitle",
-    header: "Podtytuł",
-    cell: ({ getValue }) => {
-      const value = getValue() as string | null;
-      if (!value)
-        return <span className="font-bold uppercase italic">Brak</span>;
-      return <span>{value}</span>;
-    },
-  },
-  {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
@@ -39,4 +35,3 @@ const announcementsColumns: ColumnDef<Announcements>[] = [
     },
   },
 ];
-export default announcementsColumns;
