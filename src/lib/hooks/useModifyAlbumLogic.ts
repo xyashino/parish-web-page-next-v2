@@ -16,12 +16,12 @@ export const useModifyAlbumLogic = () => {
       return updateEntity({
         id,
         ...rest,
-        categoryId: categoryId ?? null,
+        categoryId: categoryId && categoryId !== "" ? categoryId : null,
         subtitle: subtitle ?? null,
       });
     await createEntity({
       ...rest,
-      categoryId: categoryId ?? null,
+      categoryId: categoryId && categoryId !== "" ? categoryId : null,
       subtitle: subtitle ?? null,
       coverId: null,
     });
