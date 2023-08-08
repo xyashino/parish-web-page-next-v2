@@ -1,3 +1,5 @@
+import { AnnouncementsData } from "@/types/announcement-edit";
+
 export const ANNOUNCEMENTS_API_MESSAGES = {
   delete: {
     loading: "Usuwanie ogłoszeń...",
@@ -14,4 +16,9 @@ export const ANNOUNCEMENTS_API_MESSAGES = {
     success: "Ogłoszenie zostało utworzone",
     error: "Nie udało się utworzyć ogłoszenia",
   },
+} as const;
+
+export const DEFAULT_ANNOUNCEMENT_DATA: AnnouncementsData = {
+  status: "NONE",
+  subtitle: "",
 } as const;
