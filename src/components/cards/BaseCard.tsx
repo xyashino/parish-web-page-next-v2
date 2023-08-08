@@ -12,7 +12,7 @@ interface Props extends PropsWithChildren, HTMLAttributes<HTMLDivElement> {
   Icon?: ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;
 }
 
-const BaseCard = ({ children, title, Icon, ...props }: Props) => {
+export const BaseCard = ({ children, title, Icon, ...props }: Props) => {
   return (
     <Card {...props}>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -23,5 +23,3 @@ const BaseCard = ({ children, title, Icon, ...props }: Props) => {
     </Card>
   );
 };
-
-export default BaseCard;
