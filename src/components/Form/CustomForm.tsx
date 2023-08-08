@@ -1,13 +1,13 @@
 import React, { PropsWithChildren } from "react";
 import { Form } from "@/components/ui/form";
-import { DeepPartial, useForm } from "react-hook-form";
+import { DefaultValues, useForm } from "react-hook-form";
 import { z, ZodRawShape } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export interface CustomFormProps<T extends z.ZodObject<ZodRawShape>>
   extends PropsWithChildren {
   formSchema: T;
-  defaultValues?: DeepPartial<z.infer<T>>;
+  defaultValues?: DefaultValues<z.infer<T>>;
   onSubmit: (values: z.infer<T>) => void;
   className?: string;
 }
