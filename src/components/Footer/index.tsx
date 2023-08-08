@@ -1,7 +1,7 @@
 import React from "react";
-import Logo from "@/components/Logo";
-import AuthorInfo from "@/components/Footer/authorInfo";
-import AdminDashboardIcon from "@/components/Footer/adminDashboardIcon";
+import { Logo } from "@/components/Logo";
+import { AuthorInfo } from "@/components/Footer/authorInfo";
+import { AdminDashboardIcon } from "@/components/Footer/adminDashboardIcon";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   showAdminIcon?: true;
 }
 
-const Footer = ({ showAdminIcon, className }: Props) => {
+export const Footer = ({ showAdminIcon, className }: Props) => {
   const footerClassNames = cn(
     "bg-foreground w-full text-background",
     className
@@ -27,4 +27,3 @@ const Footer = ({ showAdminIcon, className }: Props) => {
     </footer>
   );
 };
-export default Footer;
