@@ -3,7 +3,7 @@ import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { DayIntentions } from "@/types/interfaces/week-intentions-store.interface";
 import { weekdayTranslator } from "@/lib/utils";
 
-const ModifyDayHeader = ({
+export const ModifyDayHeader = ({
   day,
   dateOfDay,
 }: Omit<DayIntentions, "intentions">) => {
@@ -25,5 +25,3 @@ const ModifyDayHeader = ({
     </div>
   );
 };
-
-export default ModifyDayHeader;

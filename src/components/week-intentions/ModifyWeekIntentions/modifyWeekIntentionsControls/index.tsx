@@ -1,15 +1,15 @@
 import React, { SyntheticEvent } from "react";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { UpdateIcon } from "@radix-ui/react-icons";
-import ButtonWithIcon from "@/components/ButtonWithIcon";
+import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 import { Card, CardContent } from "@/components/ui/card";
-import CardHeaderWithSeparator from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
 import { DayIntentions } from "@/types/interfaces/week-intentions-store.interface";
 import { ClearButtonWithAlert } from "./clearButtonWithAlert";
 import { DeleteButtonWithAlert } from "./deleteButtonWithAlert";
 import { IntentionsCrud } from "@/lib/services/intentions";
 
-const ModifyWeekIntentionsControls = () => {
+export const ModifyWeekIntentionsControls = () => {
   const { clearAll, weekIntentions, dayIntentions } = useWeekIntentionsStore();
 
   const handleSave = async (e: SyntheticEvent) => {
@@ -51,5 +51,3 @@ const ModifyWeekIntentionsControls = () => {
     </Card>
   );
 };
-
-export default ModifyWeekIntentionsControls;

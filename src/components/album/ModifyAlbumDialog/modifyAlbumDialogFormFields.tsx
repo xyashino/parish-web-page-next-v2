@@ -1,9 +1,9 @@
 import React from "react";
 import { FormField } from "@/components/ui/form";
-import CustomFormControlItem from "@/components/Form/CustomFormControlItem";
+import { CustomFormControlItem } from "@/components/Form/CustomFormControlItem";
 import { Input } from "@/components/ui/input";
-import SelectCategoryFormField from "./selectCategoryFormField";
-import SwitchWithLabel from "@/components/SwitchWithLabel";
+import { SelectCategoryFormField } from "./selectCategoryFormField";
+import { SwitchWithLabel } from "@/components/SwitchWithLabel";
 
 export const ModifyAlbumDialogFormFields = () => {
   return (

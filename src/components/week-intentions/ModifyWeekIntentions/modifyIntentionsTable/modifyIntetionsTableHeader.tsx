@@ -1,7 +1,7 @@
 import React from "react";
 import { TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-const ModifyTableHeader = () => (
+export const ModifyTableHeader = () => (
   <TableHeader>
     <TableRow className="bg-slate-800 font-bold hover:bg-slate-700">
       <TableHead className="text-slate-50 max-w-[10px]">Lp.</TableHead>
@@ -11,4 +11,3 @@ const ModifyTableHeader = () => (
     </TableRow>
   </TableHeader>
 );
-export default ModifyTableHeader;

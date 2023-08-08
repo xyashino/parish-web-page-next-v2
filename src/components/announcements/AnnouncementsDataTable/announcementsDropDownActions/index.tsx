@@ -1,14 +1,14 @@
 import React from "react";
-import DataTableActionsDropDown from "@/components/DataTable/DataTableActionsDropDown";
+import { DataTableActionsDropDown } from "@/components/DataTable/DataTableActionsDropDown";
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
-import AnnouncementsDeleteAction from "./announcementsDeleteAction";
-import AnnouncementsEditAction from "./announcementsEditAction";
+import { AnnouncementsDeleteAction } from "./announcementsDeleteAction";
+import { AnnouncementsEditAction } from "./announcementsEditAction";
 
 interface Props {
   id: string;
 }
 
-const AnnouncementsDropDownActions = ({ id }: Props) => {
+export const AnnouncementsDropDownActions = ({ id }: Props) => {
   return (
     <DataTableActionsDropDown>
       <AnnouncementsEditAction id={id} />

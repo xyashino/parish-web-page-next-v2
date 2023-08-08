@@ -12,7 +12,7 @@ interface Props extends PropsWithChildren, AlertDialogProps {
   triggerData: AlertTriggerProps;
 }
 
-const ConfirmAlert = ({
+export const ConfirmAlert = ({
   children,
   footerData,
   headerData,
@@ -30,4 +30,3 @@ const ConfirmAlert = ({
     </AlertDialog>
   );
 };
-export default ConfirmAlert;

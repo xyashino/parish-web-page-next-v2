@@ -8,7 +8,7 @@ interface Props {
   id: string;
 }
 
-const IntentionsDeleteAction = ({ id }: Props) => {
+export const IntentionsDeleteAction = ({ id }: Props) => {
   const { refresh } = useRouter();
   const handleDelete = async () => {
     await IntentionsCrud.delete(id);
@@ -24,5 +24,3 @@ const IntentionsDeleteAction = ({ id }: Props) => {
     />
   );
 };
-
-export default IntentionsDeleteAction;

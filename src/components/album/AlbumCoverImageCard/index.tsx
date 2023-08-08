@@ -10,7 +10,7 @@ interface Props {
   imageCoverId: string | null;
 }
 
-const AlbumCoverImageCard = ({ imageCoverId }: Props) => {
+export const AlbumCoverImageCard = ({ imageCoverId }: Props) => {
   const { coverImagePath, setCoverImageByImageId } = useAlbumCoverImageStore();
 
   useLayoutEffect(() => {
@@ -29,5 +29,3 @@ const AlbumCoverImageCard = ({ imageCoverId }: Props) => {
     </Card>
   );
 };
-
-export default AlbumCoverImageCard;

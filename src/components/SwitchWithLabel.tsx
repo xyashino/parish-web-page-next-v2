@@ -8,7 +8,12 @@ interface Props extends Omit<SwitchProps, "value" | "onChange"> {
   onChange: (e: boolean) => void;
 }
 
-const SwitchWithLabel = ({ labelText, value, onChange, ...props }: Props) => {
+export const SwitchWithLabel = ({
+  labelText,
+  value,
+  onChange,
+  ...props
+}: Props) => {
   return (
     <div className="flex items-center space-x-2">
       <Switch {...props} checked={value} onCheckedChange={onChange} />
@@ -16,5 +21,3 @@ const SwitchWithLabel = ({ labelText, value, onChange, ...props }: Props) => {
     </div>
   );
 };
-
-export default SwitchWithLabel;

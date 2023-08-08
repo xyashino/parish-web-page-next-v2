@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from "react";
-import ButtonWithIcon from "@/components/ButtonWithIcon";
+import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 import { UpdateIcon } from "@radix-ui/react-icons";
-import CardHeaderWithSeparator from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
 import { Card, CardContent } from "@/components/ui/card";
 import { ClearButtonWithAlert } from "./clearButtonWithAlert";
 import { DeleteButtonWithAlert } from "./deleteButtonWithAlert";
@@ -13,7 +13,7 @@ interface Props {
   deleteMethod: () => void;
 }
 
-const ModifyAnnouncementsControls = ({
+export const ModifyAnnouncementsControls = ({
   saveMethod,
   clearMethod,
   deleteMethod,
@@ -43,5 +43,3 @@ const ModifyAnnouncementsControls = ({
     </Card>
   );
 };
-
-export default ModifyAnnouncementsControls;

@@ -27,7 +27,7 @@ interface Props extends EditorProps {
   editorHeight?: string;
 }
 
-const MdEditor: React.FC<Props> = ({
+export const MdEditor: React.FC<Props> = ({
   defaultContent,
   editorHeight = "300px",
   ...props
@@ -62,5 +62,3 @@ const MdEditor: React.FC<Props> = ({
     </div>
   );
 };
-
-export default MdEditor;

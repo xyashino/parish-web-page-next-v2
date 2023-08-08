@@ -11,21 +11,17 @@ interface Props extends PropsWithChildren {
   srText?: string;
 }
 
-const DataTableActionsDropDown = ({
+export const DataTableActionsDropDown = ({
   srText = "Ustawienia menu",
   children,
-}: Props) => {
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild className="cursor-pointer">
-        <Button variant="ghost" className="h-8 w-8 p-0 ">
-          <span className="sr-only">{srText}</span>
-          <GearIcon className="h-5 w-5" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">{children}</DropdownMenuContent>
-    </DropdownMenu>
-  );
-};
-
-export default DataTableActionsDropDown;
+}: Props) => (
+  <DropdownMenu>
+    <DropdownMenuTrigger asChild className="cursor-pointer">
+      <Button variant="ghost" className="h-8 w-8 p-0 ">
+        <span className="sr-only">{srText}</span>
+        <GearIcon className="h-5 w-5" />
+      </Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="end">{children}</DropdownMenuContent>
+  </DropdownMenu>
+);

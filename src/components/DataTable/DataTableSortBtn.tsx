@@ -7,7 +7,7 @@ interface Props {
   onClick: () => void;
 }
 
-const DataTableSortBtn = ({ value, onClick }: Props) => {
+export const DataTableSortBtn = ({ value, onClick }: Props) => {
   return (
     <Button onClick={onClick}>
       {value}
@@ -15,5 +15,3 @@ const DataTableSortBtn = ({ value, onClick }: Props) => {
     </Button>
   );
 };
-
-export default DataTableSortBtn;

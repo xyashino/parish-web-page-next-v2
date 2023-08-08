@@ -9,7 +9,7 @@ interface Props extends SelectProps {
   value: Status;
 }
 
-const SelectStatusItem = ({ value, ...props }: Props) => {
+export const SelectStatusItem = ({ value, ...props }: Props) => {
   return (
     <Select {...props}>
       <SelectStatusTrigger value={value} />
@@ -19,5 +19,3 @@ const SelectStatusItem = ({ value, ...props }: Props) => {
     </Select>
   );
 };
-
-export default SelectStatusItem;

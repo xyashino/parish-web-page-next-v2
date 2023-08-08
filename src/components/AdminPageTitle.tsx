@@ -9,7 +9,7 @@ interface Props {
   title: string;
 }
 
-const AdminPageTitle = ({ title }: Props) => {
+export const AdminPageTitle = ({ title }: Props) => {
   const { back, refresh } = useRouter();
   const handleClick = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -31,5 +31,3 @@ const AdminPageTitle = ({ title }: Props) => {
     </div>
   );
 };
-
-export default AdminPageTitle;

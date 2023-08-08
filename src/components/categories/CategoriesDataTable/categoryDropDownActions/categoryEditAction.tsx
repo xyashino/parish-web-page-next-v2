@@ -1,15 +1,14 @@
 import React, { SyntheticEvent } from "react";
-import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
+import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { Category } from "@prisma/client";
 import { useCategoryDialogStore } from "@/lib/store";
-import { useRouter } from "next/navigation";
 
 interface Props {
   categoryData: Category;
 }
 
-const CategoryEditAction = ({
+export const CategoryEditAction = ({
   categoryData: { name, id, order, show },
 }: Props) => {
   const { open } = useCategoryDialogStore();
@@ -32,5 +31,3 @@ const CategoryEditAction = ({
     />
   );
 };
-
-export default CategoryEditAction;

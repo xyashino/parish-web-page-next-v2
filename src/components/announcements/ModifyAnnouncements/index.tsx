@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import ModifyAnnouncementsControls from "./modifyAnnouncementsControls";
-import ModifyAnnouncementsMainCard from "@/components/announcements/ModifyAnnouncements/modifyAnnouncementsMainCard";
+import { ModifyAnnouncementsControls } from "./modifyAnnouncementsControls";
+import { ModifyAnnouncementsMainCard } from "./modifyAnnouncementsMainCard";
 import { Separator } from "@/components/ui/separator";
 import { Announcements } from "@prisma/client";
 import { useModifyAnnouncementLogic } from "@/lib/hooks/useModifyAnnouncementLogic";
@@ -10,7 +10,7 @@ interface Props {
   defaultValue?: Announcements;
 }
 
-const ModifyAnnouncements = ({ defaultValue }: Props) => {
+export const ModifyAnnouncements = ({ defaultValue }: Props) => {
   const { announcementData, updateAnnouncementData, methods } =
     useModifyAnnouncementLogic(defaultValue);
   return (
@@ -29,5 +29,3 @@ const ModifyAnnouncements = ({ defaultValue }: Props) => {
     </div>
   );
 };
-
-export default ModifyAnnouncements;

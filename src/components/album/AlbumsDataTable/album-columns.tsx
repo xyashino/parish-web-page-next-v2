@@ -2,11 +2,11 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Album } from "@prisma/client";
-import DataTableSortBtn from "@/components/DataTable/DataTableSortBtn";
-import AlbumDropDownActions from "@/components/album/AlbumsDataTable/albumDropDownActions";
-import DataTableBooleanCell from "@/components/DataTable/DataTableBooleanCell";
+import { DataTableSortBtn } from "@/components/DataTable/DataTableSortBtn";
+import { AlbumDropDownActions } from "./albumDropDownActions";
+import { DataTableBooleanCell } from "@/components/DataTable/DataTableBooleanCell";
 
-const albumColumns: ColumnDef<Album>[] = [
+export const albumColumns: ColumnDef<Album>[] = [
   {
     accessorKey: "title",
     header: "Tytuł",
@@ -20,14 +20,6 @@ const albumColumns: ColumnDef<Album>[] = [
       return <span>{value || "Brak"}</span>;
     },
   },
-  // {
-  //   accessorKey: "category.name",
-  //   header: "Kat.",
-  //   cell: ({ getValue }) => {
-  //     const value = getValue() as string | null;
-  //     return <span className="font-bold italic">{value || "Brak"}</span>;
-  //   },
-  // },
   {
     accessorKey: "show",
     header: ({ column }) => (
@@ -47,4 +39,3 @@ const albumColumns: ColumnDef<Album>[] = [
     cell: ({ row }) => <AlbumDropDownActions albumData={row.original} />,
   },
 ];
-export default albumColumns;

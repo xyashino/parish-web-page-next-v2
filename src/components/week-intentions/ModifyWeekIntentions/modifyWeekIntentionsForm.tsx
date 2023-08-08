@@ -6,13 +6,13 @@ import CustomFormControlItem from "@/components/Form/CustomFormControlItem";
 import { Input } from "@/components/ui/input";
 import MyMarkdownEditor from "@/components/MdEditor";
 import { Separator } from "@/components/ui/separator";
-import ButtonWithIcon from "@/components/ButtonWithIcon";
+import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
 import { Card, CardContent } from "@/components/ui/card";
-import CardHeaderWithSeparator from "@/components/CardHeaderWithSeparator";
-import SwitchWithLabel from "@/components/SwitchWithLabel";
+import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
+import { SwitchWithLabel } from "@/components/SwitchWithLabel";
 interface Props {
   defaultContent?: {
     order: number;
@@ -25,7 +25,7 @@ const formSchema = z.object({
   hour: z.string().nonempty({ message: "Godzina jest wymagana" }),
 });
 
-const ModifyWeekIntentionsForm = ({
+export const ModifyWeekIntentionsForm = ({
   defaultContent = { order: 0, hour: "" },
 }: Props) => {
   const { createIntention } = useWeekIntentionsStore();
@@ -79,11 +79,6 @@ const ModifyWeekIntentionsForm = ({
                 </CustomFormControlItem>
               )}
             />
-            {/*<SwitchWithLabel*/}
-            {/*  labelText="Czyść formularz po dodaniu."*/}
-            {/*  id="clearForm"*/}
-            {/*  ref={switchRef}*/}
-            {/*/>*/}
           </div>
           <div className="flex flex-col justify-around h-full">
             <SwitchWithLabel
@@ -102,4 +97,3 @@ const ModifyWeekIntentionsForm = ({
     </Card>
   );
 };
-export default ModifyWeekIntentionsForm;

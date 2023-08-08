@@ -12,7 +12,7 @@ interface Props extends PropsWithChildren {
   description?: string;
 }
 
-const CustomFormControlItem = <T extends {}>({
+export const CustomFormControlItem = <T extends {}>({
   children,
   description,
   label,
@@ -26,5 +26,3 @@ const CustomFormControlItem = <T extends {}>({
     </FormItem>
   );
 };
-
-export default CustomFormControlItem;

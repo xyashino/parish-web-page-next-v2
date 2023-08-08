@@ -1,6 +1,6 @@
 import React from "react";
 import { Status } from "@prisma/client";
-import BaseCard from "@/components/cards/BaseCard";
+import { BaseCard } from "@/components/cards/BaseCard";
 import { ChatBubbleIcon } from "@radix-ui/react-icons";
 import { SummaryStatusCardTable } from "./summaryStatusCardTable";
 
@@ -12,7 +12,7 @@ interface Props<T extends ObjectWithStatus> {
   title: string;
 }
 
-const SummaryStatusCard = <T extends ObjectWithStatus>({
+export const SummaryStatusCard = <T extends ObjectWithStatus>({
   values,
   emptyArrayMessage,
   title,
@@ -27,5 +27,3 @@ const SummaryStatusCard = <T extends ObjectWithStatus>({
     </BaseCard>
   );
 };
-
-export default SummaryStatusCard;

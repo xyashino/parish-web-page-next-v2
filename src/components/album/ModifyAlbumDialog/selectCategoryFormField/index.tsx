@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/form";
 import { SelectCategoryContent } from "./selectCategoryContent";
 import { SelectCategoryTrigger } from "./selectCategoryTrigger";
-const SelectCategoryFormField = () => {
+export const SelectCategoryFormField = () => {
   return (
     <FormField
       name="categoryId"
@@ -33,4 +33,3 @@ const SelectCategoryFormField = () => {
     />
   );
 };
-export default SelectCategoryFormField;

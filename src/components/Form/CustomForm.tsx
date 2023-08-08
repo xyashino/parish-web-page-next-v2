@@ -12,7 +12,7 @@ export interface CustomFormProps<T extends z.ZodObject<ZodRawShape>>
   className?: string;
 }
 
-const CustomForm = <T extends z.ZodObject<ZodRawShape>>({
+export const CustomForm = <T extends z.ZodObject<ZodRawShape>>({
   children,
   formSchema,
   defaultValues,
@@ -32,5 +32,3 @@ const CustomForm = <T extends z.ZodObject<ZodRawShape>>({
     </Form>
   );
 };
-
-export default CustomForm;

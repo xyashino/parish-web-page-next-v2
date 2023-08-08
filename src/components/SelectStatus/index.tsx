@@ -10,7 +10,7 @@ interface Props {
   label?: string;
 }
 
-const SelectStatus = ({
+export const SelectStatus = ({
   doAfterChange,
   defaultValue = Status.NONE,
   label,
@@ -34,4 +34,3 @@ const SelectStatus = ({
 
   return <SelectStatusItem value={value} onValueChange={handleChange} />;
 };
-export default SelectStatus;

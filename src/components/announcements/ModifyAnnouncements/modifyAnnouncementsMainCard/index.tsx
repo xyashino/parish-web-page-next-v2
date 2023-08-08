@@ -1,8 +1,8 @@
 import React from "react";
-import MdEditor from "@/components/MdEditor";
+import { MdEditor } from "@/components/MdEditor";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent } from "@/components/ui/card";
-import CardHeaderWithSeparator from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
 
 import { AnnouncementsInputsFields } from "./announcementsInputsFields";
 
@@ -16,7 +16,7 @@ interface Props {
   updateMethod: (a: UpdateAnnouncementData) => void;
 }
 
-const ModifyAnnouncementsMainCard = (props: Props) => {
+export const ModifyAnnouncementsMainCard = (props: Props) => {
   return (
     <Card className="w-11/12 mx-auto">
       <CardHeaderWithSeparator
@@ -31,5 +31,3 @@ const ModifyAnnouncementsMainCard = (props: Props) => {
     </Card>
   );
 };
-
-export default ModifyAnnouncementsMainCard;

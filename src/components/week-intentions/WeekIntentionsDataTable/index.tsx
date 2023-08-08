@@ -9,7 +9,7 @@ interface Props extends PropsWithChildren {
   data: WeekIntentions[];
 }
 
-const WeekIntentionsDataTable = ({ data }: Props) => {
+export const WeekIntentionsDataTable = ({ data }: Props) => {
   return (
     <div>
       <div className="w-11/12 mx-auto space-y-2 mb-2">
@@ -22,5 +22,3 @@ const WeekIntentionsDataTable = ({ data }: Props) => {
     </div>
   );
 };
-
-export default WeekIntentionsDataTable;

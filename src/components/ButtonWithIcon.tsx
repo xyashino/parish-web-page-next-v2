@@ -6,12 +6,10 @@ interface Props extends ButtonProps {
   Icon: React.ElementType;
 }
 
-const ButtonWithIcon = ({ Icon, text, ...props }: Props) => {
+export const ButtonWithIcon = ({ Icon, text, ...props }: Props) => {
   return (
     <Button {...props}>
       <Icon className="mr-2 h-4 w-4" /> {text && <span>{text}</span>}
     </Button>
   );
 };
-
-export default ButtonWithIcon;

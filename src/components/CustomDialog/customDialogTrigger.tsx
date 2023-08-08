@@ -4,19 +4,12 @@ import { PlusCircledIcon } from "@radix-ui/react-icons";
 import ButtonWithIcon from "@/components/ButtonWithIcon";
 export interface ModifyTriggerDialogProps extends PropsWithChildren {
   element?: React.ReactNode;
-  empty?: boolean;
   text?: string;
 }
 
-const CustomDialogTrigger = ({
-  element,
-  empty,
-  text,
-}: ModifyTriggerDialogProps) => {
-  if (empty) return null;
-
+const CustomDialogTrigger = ({ element, text }: ModifyTriggerDialogProps) => {
   return (
-    <DialogTrigger asChild className="min:w-1/4 mx-auto group">
+    <DialogTrigger asChild className="min:w-1/4 mx-auto group cursor-pointer">
       {element ? (
         element
       ) : (

@@ -1,11 +1,11 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Category } from "@prisma/client";
-import DataTableSortBtn from "@/components/DataTable/DataTableSortBtn";
-import CategoryDropDownActions from "@/components/categories/CategoriesDataTable/categoryDropDownActions";
-import DataTableBooleanCell from "@/components/DataTable/DataTableBooleanCell";
+import { DataTableSortBtn } from "@/components/DataTable/DataTableSortBtn";
+import { CategoryDropDownActions } from "@/components/categories/CategoriesDataTable/categoryDropDownActions";
+import { DataTableBooleanCell } from "@/components/DataTable/DataTableBooleanCell";
 
-const categoryColumns: ColumnDef<Category>[] = [
+export const categoryColumns: ColumnDef<Category>[] = [
   {
     accessorKey: "order",
     header: ({ column }) => (
@@ -37,4 +37,3 @@ const categoryColumns: ColumnDef<Category>[] = [
     cell: ({ row }) => <CategoryDropDownActions categoryData={row.original} />,
   },
 ];
-export default categoryColumns;

@@ -1,14 +1,14 @@
 import React, { SyntheticEvent } from "react";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
-import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
+import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
 import { AnnouncementsCrud } from "@/lib/services";
 
 interface Props {
   id: string;
 }
 
-const AnnouncementsDeleteAction = ({ id }: Props) => {
+export const AnnouncementsDeleteAction = ({ id }: Props) => {
   const { refresh } = useRouter();
   const handleDelete = async (e?: SyntheticEvent) => {
     e?.preventDefault();
@@ -25,5 +25,3 @@ const AnnouncementsDeleteAction = ({ id }: Props) => {
     />
   );
 };
-
-export default AnnouncementsDeleteAction;

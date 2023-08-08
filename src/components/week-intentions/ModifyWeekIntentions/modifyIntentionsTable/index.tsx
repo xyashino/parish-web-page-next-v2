@@ -1,14 +1,14 @@
 import React from "react";
 import { Table, TableBody } from "@/components/ui/table";
-import ModifyTableHeader from "@/components/week-intentions/ModifyWeekIntentions/modifyIntentionsTable/modifyIntetionsTableHeader";
+import { ModifyTableHeader } from "./modifyIntetionsTableHeader";
 import { OneIntention } from "@/types/interfaces/week-intentions-store.interface";
-import ModifyIntentionTableRow from "@/components/week-intentions/ModifyWeekIntentions/modifyIntentionsTable/modifyIntentionsTableRow";
+import { ModifyIntentionsRow } from "./modifyIntentionsTableRow";
 
 interface Props {
   intentions: OneIntention[];
 }
 
-const ModifyIntentionsTable = ({ intentions }: Props) => {
+export const ModifyIntentionsTable = ({ intentions }: Props) => {
   return (
     <>
       <Table>
@@ -17,7 +17,7 @@ const ModifyIntentionsTable = ({ intentions }: Props) => {
           {intentions
             .sort((a, b) => a.order - b.order)
             .map((intention) => (
-              <ModifyIntentionTableRow
+              <ModifyIntentionsRow
                 intentionData={intention}
                 key={intention.id}
                 id={intention.id}
@@ -28,5 +28,3 @@ const ModifyIntentionsTable = ({ intentions }: Props) => {
     </>
   );
 };
-
-export default ModifyIntentionsTable;

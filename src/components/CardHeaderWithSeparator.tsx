@@ -7,7 +7,7 @@ interface Props {
   description?: string;
 }
 
-const CardHeaderWithSeparator = ({ title, description }: Props) => {
+export const CardHeaderWithSeparator = ({ title, description }: Props) => {
   return (
     <CardHeader>
       <CardTitle>{title}</CardTitle>
@@ -16,5 +16,3 @@ const CardHeaderWithSeparator = ({ title, description }: Props) => {
     </CardHeader>
   );
 };
-
-export default CardHeaderWithSeparator;

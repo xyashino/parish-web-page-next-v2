@@ -8,7 +8,7 @@ interface Props extends SingleNavigationItem {
   className?: string;
 }
 
-const NavigationLink = ({ text, href, className, icon }: Props) => {
+export const NavigationLink = ({ text, href, className, icon }: Props) => {
   const path = usePathname();
   const { push } = useRouter();
   const linkClasses = cn(
@@ -29,4 +29,3 @@ const NavigationLink = ({ text, href, className, icon }: Props) => {
     </button>
   );
 };
-export default NavigationLink;

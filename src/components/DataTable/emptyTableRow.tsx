@@ -5,7 +5,7 @@ interface Props {
   columnsLength: number;
 }
 
-const EmptyTableRow = ({ columnsLength }: Props) => {
+export const EmptyTableRow = ({ columnsLength }: Props) => {
   return (
     <TableRow>
       <TableCell
@@ -17,5 +17,3 @@ const EmptyTableRow = ({ columnsLength }: Props) => {
     </TableRow>
   );
 };
-
-export default EmptyTableRow;

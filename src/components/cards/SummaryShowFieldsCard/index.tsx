@@ -1,5 +1,5 @@
 import React from "react";
-import BaseCard from "@/components/cards/BaseCard";
+import { BaseCard } from "@/components/cards/BaseCard";
 import { ChatBubbleIcon } from "@radix-ui/react-icons";
 import { SummaryShowFieldCardTable } from "./summaryShowFieldCardTable";
 
@@ -11,7 +11,7 @@ interface Props<T extends ObjectWithShow> {
   title: string;
 }
 
-const SummaryShowFieldsCard = <T extends ObjectWithShow>({
+export const SummaryShowFieldsCard = <T extends ObjectWithShow>({
   values,
   emptyArrayMessage,
   title,
@@ -26,5 +26,3 @@ const SummaryShowFieldsCard = <T extends ObjectWithShow>({
     </BaseCard>
   );
 };
-
-export default SummaryShowFieldsCard;

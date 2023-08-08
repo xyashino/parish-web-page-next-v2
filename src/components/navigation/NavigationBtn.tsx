@@ -9,7 +9,7 @@ interface Props {
   buttonText: string;
 }
 
-const NavigationBtn = ({ href, buttonText }: Props) => {
+export const NavigationBtn = ({ href, buttonText }: Props) => {
   return (
     <Button className="min-w-1/4 mx-auto shadow drop-shadow-lg hover:bg-accent-foreground">
       <Link href={href} className="space-x-1 flex items-center group">
@@ -23,4 +23,3 @@ const NavigationBtn = ({ href, buttonText }: Props) => {
     </Button>
   );
 };
-export default NavigationBtn;

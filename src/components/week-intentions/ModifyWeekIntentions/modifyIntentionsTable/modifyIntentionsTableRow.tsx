@@ -9,7 +9,7 @@ interface Props {
   id: string;
 }
 
-const ModifyIntentionsRow = ({ intentionData, id }: Props) => {
+export const ModifyIntentionsRow = ({ intentionData, id }: Props) => {
   const { deleteIntention } = useWeekIntentionsStore();
 
   return (
@@ -30,4 +30,3 @@ const ModifyIntentionsRow = ({ intentionData, id }: Props) => {
     </TableRow>
   );
 };
-export default ModifyIntentionsRow;

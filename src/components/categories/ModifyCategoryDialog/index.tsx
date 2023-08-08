@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { z } from "zod";
-import CustomDialog from "@/components/CustomDialog";
+import { CustomDialog } from "@/components/CustomDialog";
 
 import { modifyCategorySchema } from "@/lib/schemas/categories";
 import { useCategoryDialogStore } from "@/lib/store/categories/useCategoryDialogStore";
@@ -9,7 +9,7 @@ import { ModifyCategoryDialogFormFields } from "./modifyCategoryDialogFormFields
 import { CategoriesCrud } from "@/lib/services/categories";
 import { useRouter } from "next/navigation";
 
-const ModifyCategoryDialog = () => {
+export const ModifyCategoryDialog = () => {
   const { defaultValues, id, close, isOpen, setIsOpen } =
     useCategoryDialogStore();
   const { refresh } = useRouter();
@@ -49,4 +49,3 @@ const ModifyCategoryDialog = () => {
     </CustomDialog>
   );
 };
-export default ModifyCategoryDialog;

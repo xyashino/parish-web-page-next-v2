@@ -1,9 +1,9 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Announcements, Status } from "@prisma/client";
-import DataTableSortBtn from "@/components/DataTable/DataTableSortBtn";
+import { DataTableSortBtn } from "@/components/DataTable/DataTableSortBtn";
 import AnnouncementsDropDownActions from "@/components/announcements/AnnouncementsDataTable/announcementsDropDownActions";
-import DataTableStatusCell from "@/components/DataTable/DataTableStatusCell";
+import { DataTableStatusCell } from "@/components/DataTable/DataTableStatusCell";
 
 export const announcementsColumns: ColumnDef<Announcements>[] = [
   {

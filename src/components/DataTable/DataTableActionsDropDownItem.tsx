@@ -8,7 +8,7 @@ interface Props {
   onClick?: (e?: SyntheticEvent) => void;
 }
 
-const DataTableActionsDropDownItem = ({
+export const DataTableActionsDropDownItem = ({
   className,
   text,
   Icon,
@@ -27,5 +27,3 @@ const DataTableActionsDropDownItem = ({
     </DropdownMenuItem>
   );
 };
-
-export default DataTableActionsDropDownItem;

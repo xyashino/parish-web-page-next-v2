@@ -31,7 +31,7 @@ interface Props {
   status: Status;
 }
 
-const DataTableStatusCell = ({ status }: Props) => {
+export const DataTableStatusCell = ({ status }: Props) => {
   const { className, text } = getStatusColor(status);
   const spanClasses = cn(
     "px-2 py-1 select-none rounded-md text-white text-sm  uppercase font-bold shadow-sm",
@@ -39,5 +39,3 @@ const DataTableStatusCell = ({ status }: Props) => {
   );
   return <span className={spanClasses}>{text} </span>;
 };
-
-export default DataTableStatusCell;

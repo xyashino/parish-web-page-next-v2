@@ -2,8 +2,8 @@ import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Status, WeekIntentions } from "@prisma/client";
 import DataTableSortBtn from "@/components/DataTable/DataTableSortBtn";
-import IntentionsDataTableDateCell from "@/components/week-intentions/WeekIntentionsDataTable/intentionsDataTableDateCell";
-import IntentionsDropDownActions from "@/components/week-intentions/WeekIntentionsDataTable/intentionsDropDownActions";
+import { IntentionsDataTableDateCell } from "./intentionsDataTableDateCell";
+import IntentionsDropDownActions from "./intentionsDropDownActions";
 import DataTableStatusCell from "@/components/DataTable/DataTableStatusCell";
 
 export const intentionsColumns: ColumnDef<WeekIntentions>[] = [

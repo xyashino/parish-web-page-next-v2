@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Status } from ".prisma/client";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import SelectStatus from "@/components/SelectStatus";
-import ConfirmAlert from "../../../ConfirmAlert";
+import { ConfirmAlert } from "@/components/ConfirmAlert";
 
-const ModifyDayControls = () => {
+export const ModifyDayControls = () => {
   const { clearAll, updateStatus, weekIntentions } = useWeekIntentionsStore();
   const onSave = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -61,4 +61,3 @@ const ModifyDayControls = () => {
     </div>
   );
 };
-export default ModifyDayControls;

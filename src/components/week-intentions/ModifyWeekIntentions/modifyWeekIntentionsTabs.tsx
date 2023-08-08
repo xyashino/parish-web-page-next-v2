@@ -4,9 +4,9 @@ import { weekdayTranslator } from "@/lib/utils";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import ModifyDayIntentions from "@/components/week-intentions/ModifyWeekIntentions/modifyDayIntentions";
 import { Card, CardContent } from "@/components/ui/card";
-import CardHeaderWithSeparator from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
 
-const ModifyWeekIntentionsTabs = () => {
+export const ModifyWeekIntentionsTabs = () => {
   const { dayIntentions, activeDay, updateActiveDay } =
     useWeekIntentionsStore();
   return (
@@ -38,5 +38,3 @@ const ModifyWeekIntentionsTabs = () => {
     </Card>
   );
 };
-
-export default ModifyWeekIntentionsTabs;

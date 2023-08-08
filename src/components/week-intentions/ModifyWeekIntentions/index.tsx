@@ -1,10 +1,10 @@
 "use client";
 import React, { useLayoutEffect } from "react";
-import ModifyWeekIntentionsForm from "@/components/week-intentions/ModifyWeekIntentions/modifyWeekIntentionsForm";
+import { ModifyWeekIntentionsForm } from "./modifyWeekIntentionsForm";
 import { WeekIntentionsStoreData } from "@/types/interfaces/week-intentions-store.interface";
-import ModifyWeekIntentionsTabs from "@/components/week-intentions/ModifyWeekIntentions/modifyWeekIntentionsTabs";
-import ModifyWeekIntentionsControls from "@/components/week-intentions/ModifyWeekIntentions/modifyWeekIntentionsControls";
-import ModifyIntentionsCard from "@/components/week-intentions/ModifyWeekIntentions/modifyIntentionsCard";
+import { ModifyWeekIntentionsTabs } from "./modifyWeekIntentionsTabs";
+import { ModifyWeekIntentionsControls } from "./modifyWeekIntentionsControls";
+import { ModifyIntentionsCard } from "./modifyIntentionsCard";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
 
@@ -12,7 +12,7 @@ interface Props {
   defaultValue?: WeekIntentionsStoreData;
 }
 
-const ModifyWeekIntentions = ({ defaultValue }: Props) => {
+export const ModifyWeekIntentions = ({ defaultValue }: Props) => {
   const { clearAll, updateAll } = useWeekIntentionsStore();
   const { setEditorValue } = useMdEditorStore();
 
@@ -32,5 +32,3 @@ const ModifyWeekIntentions = ({ defaultValue }: Props) => {
     </div>
   );
 };
-export const revalidate = 0;
-export default ModifyWeekIntentions;

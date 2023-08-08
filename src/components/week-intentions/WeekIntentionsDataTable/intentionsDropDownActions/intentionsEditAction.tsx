@@ -8,7 +8,7 @@ interface Props {
   id: string;
 }
 
-const IntentionsEditAction = ({ id }: Props) => {
+export const IntentionsEditAction = ({ id }: Props) => {
   const { push } = useRouter();
   const handleNavigate = () => {
     push(`${Navigation.BASE_ADMIN_INTENTIONS}/${id}`);
@@ -22,5 +22,3 @@ const IntentionsEditAction = ({ id }: Props) => {
     />
   );
 };
-
-export default IntentionsEditAction;

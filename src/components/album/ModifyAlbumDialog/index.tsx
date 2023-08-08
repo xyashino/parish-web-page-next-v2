@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import CustomDialog from "@/components/CustomDialog";
+import { CustomDialog } from "@/components/CustomDialog";
 import { modifyAlbumSchema } from "@/lib/schemas/album";
 import { useModifyAlbumLogic } from "@/lib/hooks/useModifyAlbumLogic";
 import { ModifyAlbumDialogFormFields } from "./modifyAlbumDialogFormFields";
 
-const ModifyAlbumDialog = () => {
+export const ModifyAlbumDialog = () => {
   const { headerData, submitMethod, defaultValues, isOpen, setIsOpen } =
     useModifyAlbumLogic();
   return (
@@ -25,5 +25,3 @@ const ModifyAlbumDialog = () => {
     </CustomDialog>
   );
 };
-
-export default ModifyAlbumDialog;

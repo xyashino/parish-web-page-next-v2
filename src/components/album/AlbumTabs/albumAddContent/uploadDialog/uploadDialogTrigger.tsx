@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonWithIcon from "@/components/ButtonWithIcon";
+import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 import { UploadIcon } from "@radix-ui/react-icons";
 import { AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { useUploadImagesStore } from "@/lib/store/useUploadImagesStore";

@@ -10,11 +10,12 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useUploadedImagesStore } from "@/lib/store/useUploadedImagesStore";
+
 interface Props {
   albumData: Album & { category: Category | null };
 }
 
-const AlbumInfoCard = ({
+export const AlbumInfoCard = ({
   albumData: { title, subtitle, show, category },
 }: Props) => {
   const { images } = useUploadedImagesStore();
@@ -57,5 +58,3 @@ const AlbumInfoCard = ({
     </Card>
   );
 };
-
-export default AlbumInfoCard;

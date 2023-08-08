@@ -1,6 +1,6 @@
 import React from "react";
 
-const AuthorInfo = () => {
+export const AuthorInfo = () => {
   return (
     <p className="text-sm text-background sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
       © {new Date().getFullYear()} Stworzone przez -
@@ -15,5 +15,3 @@ const AuthorInfo = () => {
     </p>
   );
 };
-
-export default AuthorInfo;

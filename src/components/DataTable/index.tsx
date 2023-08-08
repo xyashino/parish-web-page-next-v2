@@ -17,7 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import EmptyTableRow from "@/components/DataTable/emptyTableRow";
+import { EmptyTableRow } from "@/components/DataTable/emptyTableRow";
 import { PropsWithChildren, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +27,7 @@ interface DataTableProps<TData, TValue> extends PropsWithChildren {
   className?: string;
 }
 
-const DataTable = <TData, TValue>({
+export const DataTable = <TData, TValue>({
   columns,
   data,
   className,
@@ -91,4 +91,3 @@ const DataTable = <TData, TValue>({
     </div>
   );
 };
-export default DataTable;

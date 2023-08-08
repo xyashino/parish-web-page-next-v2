@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import AdminIcon from "@/components/icons/AdminIcon";
 
-const AdminDashboardIcon = () => {
+export const AdminDashboardIcon = () => {
   return (
     <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start text-xl">
       <Link
@@ -15,5 +15,3 @@ const AdminDashboardIcon = () => {
     </span>
   );
 };
-
-export default AdminDashboardIcon;

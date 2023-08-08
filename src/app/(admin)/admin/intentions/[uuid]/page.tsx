@@ -1,10 +1,11 @@
 import React from "react";
 import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
 import { apiCall } from "@/lib/utils";
-import AdminPageTitle from "@/components/AdminPageTitle";
-import ModifyIntentions from "@/components/ModifyWeekIntentions";
+import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { WeekIntentionsStoreData } from "@/types/interfaces/week-intentions-store.interface";
 import notFound from "@/app/not-found";
+import { ApiRoute } from "@/types/enums/api-route.enum";
+import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekIntentions";
 
 export async function generateStaticParams() {
   const intentions = await getManyWeekIntentions();
@@ -15,13 +16,13 @@ export async function generateStaticParams() {
 
 const EditOneIntention = async ({ params: { uuid } }: any) => {
   const weekIntention = await apiCall<WeekIntentionsStoreData>(
-    `/api/intentions/${uuid}`
+    `${ApiRoute.BASE_WEEK_INTENTIONS}/${uuid}`
   );
   if (!weekIntention) return notFound();
   return (
     <div className="flex flex-col space-y-6 p-4 rounded-xl lg:w-11/12 mx-auto">
       <AdminPageTitle title={"Edytujesz Intencje o ID" + uuid} />
-      <ModifyIntentions defaultValue={weekIntention} />
+      <ModifyWeekIntentions defaultValue={weekIntention} />
     </div>
   );
 };

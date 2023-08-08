@@ -2,9 +2,9 @@ import React, { SyntheticEvent } from "react";
 import ConfirmAlert from "@/components/ConfirmAlert";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { UpdateIcon, ResetIcon } from "@radix-ui/react-icons";
-import ButtonWithIcon from "@/components/ButtonWithIcon";
+import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 import { Card, CardContent } from "@/components/ui/card";
-import CardHeaderWithSeparator from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
 import { DayIntentions } from "@/types/interfaces/week-intentions-store.interface";
 import { IntentionsCrud } from "@/lib/services/intentions";
 
@@ -14,7 +14,7 @@ const triggerValue = (
   </>
 );
 
-const ModifyWeekIntentionsControls = () => {
+export const ModifyWeekIntentionsControls = () => {
   const { clearAll, weekIntentions, dayIntentions } = useWeekIntentionsStore();
 
   const handleSave = async (e: SyntheticEvent) => {
@@ -60,5 +60,3 @@ const ModifyWeekIntentionsControls = () => {
     </Card>
   );
 };
-
-export default ModifyWeekIntentionsControls;

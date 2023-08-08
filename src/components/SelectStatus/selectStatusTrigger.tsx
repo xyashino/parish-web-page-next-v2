@@ -6,11 +6,10 @@ interface Props {
   value: Status;
 }
 
-const SelectStatusTrigger = ({ value }: Props) => {
+export const SelectStatusTrigger = ({ value }: Props) => {
   return (
     <SelectTrigger className="uppercase min-w-[200px]" value={value}>
       <SelectValue placeholder="BRAK" />
     </SelectTrigger>
   );
 };
-export default SelectStatusTrigger;

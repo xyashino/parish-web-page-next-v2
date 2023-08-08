@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import CustomDialogFooter from "./customDialogFooter";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import CustomForm, { CustomFormProps } from "@/components/Form/CustomForm";
+import { CustomFormProps, CustomForm } from "@/components/Form/CustomForm";
 import { z, ZodRawShape } from "zod";
 
 import CustomDialogTrigger, {
@@ -20,7 +20,7 @@ interface ModifyDialogProps<T extends ZodRawShape>
   form?: Omit<CustomFormProps<z.ZodObject<T>>, "children">;
 }
 
-const CustomDialog = <T extends ZodRawShape>({
+export const CustomDialog = <T extends ZodRawShape>({
   trigger,
   headerData,
   children,
@@ -52,4 +52,3 @@ const CustomDialog = <T extends ZodRawShape>({
     </Dialog>
   );
 };
-export default CustomDialog;

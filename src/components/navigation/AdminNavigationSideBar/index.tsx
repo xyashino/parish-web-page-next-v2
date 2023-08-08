@@ -1,13 +1,13 @@
 import React, { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 import { ADMIN_NAVIGATION_ROUTES } from "@/lib/constants/admin-navigation-routes.constant";
-import NavigationLink from "@/components/navigation/NavigationLink";
+import { NavigationLink } from "@/components/navigation/NavigationLink";
 import { LogoutAlert } from "@/components/navigation/AdminNavigationSideBar/logoutAlert";
 import { AdminSidebarLogo } from "@/components/navigation/AdminNavigationSideBar/adminSidebarLogo";
 
 interface SidebarProps extends HTMLAttributes<HTMLDivElement> {}
 
-const AdminNavigationSideBar = ({ className }: SidebarProps) => (
+export const AdminNavigationSideBar = ({ className }: SidebarProps) => (
   <div className={cn("pb-12 w-1/6 flex flex-col", className)}>
     <AdminSidebarLogo />
     <div className="grow">
@@ -27,4 +27,3 @@ const AdminNavigationSideBar = ({ className }: SidebarProps) => (
     <LogoutAlert />
   </div>
 );
-export default AdminNavigationSideBar;

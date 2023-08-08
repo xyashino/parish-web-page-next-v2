@@ -11,7 +11,10 @@ export interface ModifyDialogHeaderProps {
   subtitle: string;
 }
 
-const CustomDialogHeader = ({ title, subtitle }: ModifyDialogHeaderProps) => {
+export const CustomDialogHeader = ({
+  title,
+  subtitle,
+}: ModifyDialogHeaderProps) => {
   return (
     <DialogHeader className="space-y-2">
       <DialogTitle>{title}</DialogTitle>
@@ -20,4 +23,3 @@ const CustomDialogHeader = ({ title, subtitle }: ModifyDialogHeaderProps) => {
     </DialogHeader>
   );
 };
-export default CustomDialogHeader;

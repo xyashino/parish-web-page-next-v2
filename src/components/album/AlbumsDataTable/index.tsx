@@ -1,6 +1,6 @@
 "use client";
 import React, { PropsWithChildren } from "react";
-import DataTable from "@/components/DataTable";
+import { DataTable } from "@/components/DataTable";
 import { Album } from "@prisma/client";
 import albumColumns from "./album-columns";
 import { Separator } from "@/components/ui/separator";
@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator";
 interface Props extends PropsWithChildren {
   data: Album[];
 }
-const AlbumsDataTable = ({ data }: Props) => {
+export const AlbumsDataTable = ({ data }: Props) => {
   return (
     <div>
       <div className="w-11/12 mx-auto space-y-2 mb-2">
@@ -21,4 +21,3 @@ const AlbumsDataTable = ({ data }: Props) => {
     </div>
   );
 };
-export default AlbumsDataTable;

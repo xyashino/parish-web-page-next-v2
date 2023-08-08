@@ -4,7 +4,7 @@ import { AlbumTabsValue } from "./album-tabs-value.enum";
 import { AlbumAddContent } from "./albumAddContent";
 import { AlbumEditContent } from "./albumEditContent";
 
-const AlbumTabs = () => {
+export const AlbumTabs = () => {
   return (
     <div>
       <Tabs defaultValue={AlbumTabsValue.ADD_IMAGES}>
@@ -20,5 +20,3 @@ const AlbumTabs = () => {
     </div>
   );
 };
-
-export default AlbumTabs;

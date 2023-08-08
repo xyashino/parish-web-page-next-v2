@@ -4,7 +4,7 @@ import {
   ContextMenuItem,
 } from "@/components/ui/context-menu";
 import { ImageIcon, TrashIcon } from "@radix-ui/react-icons";
-import ConfirmAlert from "@/components/ConfirmAlert";
+import { ConfirmAlert } from "@/components/ConfirmAlert";
 import { useUploadedImagesStore } from "@/lib/store/useUploadedImagesStore";
 import { Separator } from "@/components/ui/separator";
 import { useAlbumCoverImageStore } from "@/lib/store/useAlbumCoverImageStore";

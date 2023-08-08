@@ -7,7 +7,7 @@ interface Props {
   id: string;
 }
 
-const IntentionsDropDownActions = ({ id }: Props) => {
+export const IntentionsDropDownActions = ({ id }: Props) => {
   return (
     <DataTableActionsDropDown>
       <IntentionsEditAction id={id} />
@@ -16,5 +16,3 @@ const IntentionsDropDownActions = ({ id }: Props) => {
     </DataTableActionsDropDown>
   );
 };
-
-export default IntentionsDropDownActions;

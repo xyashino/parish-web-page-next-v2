@@ -1,14 +1,14 @@
 import React, { SyntheticEvent } from "react";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
-import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
+import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
 import { Navigation } from "@/types/enums/navigation.enum";
 
 interface Props {
   id: string;
 }
 
-const AnnouncementsEditAction = ({ id }: Props) => {
+export const AnnouncementsEditAction = ({ id }: Props) => {
   const { push } = useRouter();
   const handleNavigate = (e?: SyntheticEvent) => {
     e?.preventDefault();
@@ -22,5 +22,3 @@ const AnnouncementsEditAction = ({ id }: Props) => {
     />
   );
 };
-
-export default AnnouncementsEditAction;

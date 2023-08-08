@@ -1,7 +1,7 @@
 import React from "react";
 import { Album } from "@prisma/client";
 
-import DataTableActionsDropDown from "@/components/DataTable/DataTableActionsDropDown";
+import { DataTableActionsDropDown } from "@/components/DataTable/DataTableActionsDropDown";
 
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { AlbumDeleteAction } from "./albumDeleteAction";
@@ -12,7 +12,7 @@ interface Props {
   albumData: Album;
 }
 
-const AlbumDropDownActions = ({ albumData }: Props) => {
+export const AlbumDropDownActions = ({ albumData }: Props) => {
   return (
     <DataTableActionsDropDown>
       <AlbumAddImagesAction id={albumData.id} />
@@ -22,5 +22,3 @@ const AlbumDropDownActions = ({ albumData }: Props) => {
     </DataTableActionsDropDown>
   );
 };
-
-export default AlbumDropDownActions;
