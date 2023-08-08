@@ -1,22 +1,20 @@
 import React, { SyntheticEvent } from "react";
-import DataTableActionsDropDawnItem from "@/components/DataTable/DataTableActionsDropDawnItem";
+import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { Album } from "@prisma/client";
-import { useCustomDialogStore } from "@/lib/store/useCustomDialogStore";
 import { useAlbumDialogStore } from "@/lib/store";
 
 interface Props {
   albumData: Album;
 }
 
-const AlbumEditAction = ({ albumData }: Props) => {
-  const { open } = useCustomDialogStore();
-  const { updateDefaultValues } = useAlbumDialogStore();
+export const AlbumEditAction = ({ albumData }: Props) => {
+  const { open } = useAlbumDialogStore();
 
   const { show, categoryId, title, subtitle } = albumData;
   const handleNavigate = (e?: SyntheticEvent) => {
     e?.preventDefault();
-    updateDefaultValues(
+    open(
       {
         title,
         subtitle: subtitle ?? "",
@@ -25,15 +23,12 @@ const AlbumEditAction = ({ albumData }: Props) => {
       },
       albumData.id
     );
-    open();
   };
   return (
-    <DataTableActionsDropDawnItem
+    <DataTableActionsDropDownItem
       text="Edytuj"
       Icon={Pencil2Icon}
       onClick={handleNavigate}
     />
   );
 };
-
-export default AlbumEditAction;

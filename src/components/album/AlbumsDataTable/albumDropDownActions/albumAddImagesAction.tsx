@@ -1,24 +1,23 @@
 import React from "react";
-import DataTableActionsDropDawnItem from "@/components/DataTable/DataTableActionsDropDawnItem";
+import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
 import { FilePlusIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
+import { Navigation } from "@/types/enums/navigation.enum";
 
 interface Props {
   id: string;
 }
 
-const AlbumAddImagesAction = ({ id }: Props) => {
+export const AlbumAddImagesAction = ({ id }: Props) => {
   const { push } = useRouter();
   const handleAddImages = () => {
-    push(`/admin/albums/${id}`);
+    push(`${Navigation.BASE_ADMIN_ALBUMS}/${id}`);
   };
   return (
-    <DataTableActionsDropDawnItem
+    <DataTableActionsDropDownItem
       text="Zdjęcia"
       Icon={FilePlusIcon}
       onClick={handleAddImages}
     />
   );
 };
-
-export default AlbumAddImagesAction;

@@ -1,31 +1,29 @@
 import { z } from "zod";
-import { useAlbumsStore } from "@/lib/store/albums/useAlbumsStore";
 import { useAlbumDialogStore } from "@/lib/store";
-import { useCustomDialogStore } from "@/lib/store/useCustomDialogStore";
-import { modifyAlbumSchema } from "@/components/ModifyAlbumDialog/modify-album.schema";
 import { ModifyDialogHeaderProps } from "@/components/CustomDialog/customDialogHeader";
+import { modifyAlbumSchema } from "@/lib/schemas/album";
+import { AlbumCrud } from "@/lib/services/albums/crud";
+import { useRouter } from "next/navigation";
 
 export const useModifyAlbumLogic = () => {
-  const { createEntity, updateEntity } = useAlbumsStore();
-  const { defaultValues, resetDefaultValues, id } = useAlbumDialogStore();
-  const { close } = useCustomDialogStore();
-
+  const { defaultValues, close, id, isOpen, setIsOpen } = useAlbumDialogStore();
+  const { refresh } = useRouter();
   const submitMethod = async (values: z.infer<typeof modifyAlbumSchema>) => {
     const { categoryId, subtitle, ...rest } = values;
     if (id)
-      return updateEntity({
-        id,
+      return AlbumCrud.update(id, {
         ...rest,
         categoryId: categoryId && categoryId !== "" ? categoryId : null,
         subtitle: subtitle ?? null,
       });
-    await createEntity({
+    await AlbumCrud.create({
       ...rest,
       categoryId: categoryId && categoryId !== "" ? categoryId : null,
       subtitle: subtitle ?? null,
       coverId: null,
     });
     close();
+    refresh();
   };
 
   const headerData: ModifyDialogHeaderProps = {
@@ -33,5 +31,5 @@ export const useModifyAlbumLogic = () => {
     subtitle: "Album służy do grupowania zdjęć",
   };
 
-  return { defaultValues, resetDefaultValues, id, submitMethod, headerData };
+  return { defaultValues, id, submitMethod, headerData, isOpen, setIsOpen };
 };
