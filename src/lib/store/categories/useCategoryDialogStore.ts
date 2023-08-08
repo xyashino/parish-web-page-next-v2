@@ -1,12 +1,7 @@
-import { modifyCategorySchema } from "@/components/ModifyCategoryDialog/modify-category.schema";
-import { createDialogStore } from "@/lib/store/createDialogStore";
-import { z } from "zod";
+import { createDialogStore } from "@/lib/store/default";
+import { modifyCategorySchema } from "@/lib/schemas/categories";
+import { CATEGORY_DEFAULT_VALUE } from "@/lib/constants/categories";
 
-const CATEGORY_DEFAULT_VALUE: z.infer<typeof modifyCategorySchema> = {
-  name: "",
-  order: 0,
-  show: true,
-};
 export const useCategoryDialogStore = createDialogStore(
   modifyCategorySchema,
   CATEGORY_DEFAULT_VALUE
