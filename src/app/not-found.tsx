@@ -1,6 +1,6 @@
 "use client";
 import React, { SyntheticEvent } from "react";
-import { PageRoute } from "@/types/enums/page-route.enum";
+import { Navigation } from "@/types/enums/navigation.enum";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
@@ -9,11 +9,10 @@ const NotFound = () => {
 
   const goToHome = (e: SyntheticEvent) => {
     e.preventDefault();
-    push(PageRoute.CLIENT_HOME);
+    push(Navigation.CLIENT_HOME);
   };
 
-  const goBack = (e: SyntheticEvent) => {
-    e.preventDefault();
+  const goBack = () => {
     back();
   };
 
