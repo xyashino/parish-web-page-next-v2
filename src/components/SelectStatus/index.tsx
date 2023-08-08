@@ -25,7 +25,7 @@ const SelectStatus = ({
 
   if (label) {
     return (
-      <div className="mx-auto w-[200px]">
+      <div className="w-[200px]">
         <Label id={label}>{label}</Label>
         <SelectStatusItem value={value} onValueChange={handleChange} />
       </div>
