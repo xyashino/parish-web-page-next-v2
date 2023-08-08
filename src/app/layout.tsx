@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="pl">
-      <body className={`${inter.className} bg-background`}>
+      <body className={`${inter.className} bg-background overflow-hidden`}>
         {children}
         <Toaster position="bottom-right" />
       </body>
