@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
 import CustomDialog from "@/components/CustomDialog";
+import { modifyAlbumSchema } from "@/lib/schemas/album";
 import { useModifyAlbumLogic } from "@/lib/hooks/useModifyAlbumLogic";
-import { modifyAlbumSchema } from "./modify-album.schema";
 import { ModifyAlbumDialogFormFields } from "./modifyAlbumDialogFormFields";
 
 const ModifyAlbumDialog = () => {
-  const { submitMethod, resetDefaultValues, defaultValues, headerData } =
+  const { headerData, submitMethod, defaultValues, isOpen, setIsOpen } =
     useModifyAlbumLogic();
   return (
     <CustomDialog
-      trigger={{ text: "Dodaj Zdjęcie" }}
+      trigger={{ text: "Dodaj Album" }}
       headerData={headerData}
       form={{
         formSchema: modifyAlbumSchema,
@@ -18,7 +18,8 @@ const ModifyAlbumDialog = () => {
         defaultValues,
         className: "space-y-4",
       }}
-      doBeforeClose={resetDefaultValues}
+      open={isOpen}
+      onOpenChange={setIsOpen}
     >
       <ModifyAlbumDialogFormFields />
     </CustomDialog>

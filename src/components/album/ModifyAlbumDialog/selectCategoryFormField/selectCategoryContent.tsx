@@ -6,7 +6,7 @@ export const SelectCategoryContent = () => {
   const { isLoading, categories } = useCategories();
   return (
     <SelectContent>
-      <SelectGroup className="font-bold uppercase">
+      <SelectGroup className="uppercase">
         <SelectItem value="" defaultChecked>
           {isLoading ? "Pobieranie Kategorii..." : "Brak"}
         </SelectItem>
