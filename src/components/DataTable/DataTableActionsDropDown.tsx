@@ -17,8 +17,8 @@ const DataTableActionsDropDown = ({
 }: Props) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="h-8 w-8 p-0">
+      <DropdownMenuTrigger asChild className="cursor-pointer">
+        <Button variant="ghost" className="h-8 w-8 p-0 ">
           <span className="sr-only">{srText}</span>
           <GearIcon className="h-5 w-5" />
         </Button>
