@@ -2,16 +2,17 @@
 import React from "react";
 import { z } from "zod";
 import CustomDialog from "@/components/CustomDialog";
-import { modifyCategorySchema } from "./modify-category.schema";
+
+import { modifyCategorySchema } from "@/lib/schemas/categories";
 import { useCategoryDialogStore } from "@/lib/store/categories/useCategoryDialogStore";
-import ModifyCategoryDialogFormFields from "./modifyCategoryDialogFormFields";
-import { useCategoriesStore } from "@/lib/store/categories/useCategoriesStore";
-import { useCustomDialogStore } from "@/lib/store/useCustomDialogStore";
+import { ModifyCategoryDialogFormFields } from "./modifyCategoryDialogFormFields";
+import { CategoriesCrud } from "@/lib/services/categories";
+import { useRouter } from "next/navigation";
 
 const ModifyCategoryDialog = () => {
-  const { updateEntity, createEntity } = useCategoriesStore();
-  const { close } = useCustomDialogStore();
-  const { defaultValues, id, resetDefaultValues } = useCategoryDialogStore();
+  const { defaultValues, id, close, isOpen, setIsOpen } =
+    useCategoryDialogStore();
+  const { refresh } = useRouter();
 
   const toggleHeaderTitle = !id
     ? "Tworzysz Kategorie"
@@ -20,9 +21,10 @@ const ModifyCategoryDialog = () => {
   const toggleHeaderSubtitle = !id ? "Według kategori są grupowane Albumy" : "";
 
   const onSubmit = async (values: z.infer<typeof modifyCategorySchema>) => {
-    if (id) return updateEntity({ id, ...values });
-    await createEntity({ ...values });
+    if (id) return CategoriesCrud.update(id, { ...values });
+    await CategoriesCrud.create({ ...values });
     close();
+    refresh();
   };
 
   return (
@@ -40,7 +42,8 @@ const ModifyCategoryDialog = () => {
         onSubmit,
         className: "space-y-4",
       }}
-      doBeforeClose={resetDefaultValues}
+      open={isOpen}
+      onOpenChange={setIsOpen}
     >
       <ModifyCategoryDialogFormFields />
     </CustomDialog>
