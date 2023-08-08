@@ -1,4 +1,8 @@
-import React, { FormEvent, PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
+import CustomDialogFooter from "./customDialogFooter";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import CustomForm, { CustomFormProps } from "@/components/Form/CustomForm";
+import { z, ZodRawShape } from "zod";
 
 import CustomDialogTrigger, {
   ModifyTriggerDialogProps,
@@ -6,17 +10,14 @@ import CustomDialogTrigger, {
 import CustomDialogHeader, {
   ModifyDialogHeaderProps,
 } from "./customDialogHeader";
-import CustomDialogFooter from "./customDialogFooter";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import CustomForm, { CustomFormProps } from "@/components/Form/CustomForm";
-import { z, ZodAny, ZodRawShape } from "zod";
-import { useCustomDialogStore } from "@/lib/store/useCustomDialogStore";
+import * as DialogPrimitive from "@radix-ui/react-dialog/dist";
 
-interface ModifyDialogProps<T extends ZodRawShape> extends PropsWithChildren {
+interface ModifyDialogProps<T extends ZodRawShape>
+  extends PropsWithChildren,
+    DialogPrimitive.DialogProps {
   trigger: ModifyTriggerDialogProps;
   headerData: ModifyDialogHeaderProps;
   form?: Omit<CustomFormProps<z.ZodObject<T>>, "children">;
-  doBeforeClose?: () => void;
 }
 
 const CustomDialog = <T extends ZodRawShape>({
@@ -24,18 +25,11 @@ const CustomDialog = <T extends ZodRawShape>({
   headerData,
   children,
   form,
-  doBeforeClose,
+  ...props
 }: ModifyDialogProps<T>) => {
-  const { isOpen, setIsOpen } = useCustomDialogStore();
-
-  const handleDialogChange = (state: boolean) => {
-    if (!state) doBeforeClose && doBeforeClose();
-    setIsOpen(state);
-  };
-
   if (form)
     return (
-      <Dialog onOpenChange={handleDialogChange} open={isOpen}>
+      <Dialog {...props}>
         <CustomDialogTrigger {...trigger} />
         <DialogContent>
           <CustomForm {...form}>
@@ -48,7 +42,7 @@ const CustomDialog = <T extends ZodRawShape>({
     );
 
   return (
-    <Dialog onOpenChange={handleDialogChange} open={isOpen}>
+    <Dialog {...props}>
       <CustomDialogTrigger {...trigger} />
       <DialogContent>
         <CustomDialogHeader {...headerData} />
