@@ -1,15 +1,18 @@
-import React, { SyntheticEvent } from "react";
+import React from "react";
 import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
 import { TrashIcon } from "@radix-ui/react-icons";
-import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { IntentionsCrud } from "@/lib/services/intentions";
 
 interface Props {
   id: string;
 }
 
 const IntentionsDeleteAction = ({ id }: Props) => {
-  const handleDelete = (e?: SyntheticEvent) => {
-    e?.preventDefault();
+  const { refresh } = useRouter();
+  const handleDelete = async () => {
+    await IntentionsCrud.delete(id);
+    refresh();
   };
 
   return (

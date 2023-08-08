@@ -14,7 +14,7 @@ const ModifyIntentionsRow = ({ intentionData, id }: Props) => {
 
   return (
     <TableRow>
-      <TableCell>{intentionData.zIndex}</TableCell>
+      <TableCell>{intentionData.order}</TableCell>
       <TableCell className="font-bold">{intentionData.hour}</TableCell>
       <TableCell>{intentionData.value}</TableCell>
       <TableCell className="flex flex-col items-end justify-center">

@@ -1,7 +1,8 @@
-import React, { SyntheticEvent } from "react";
+import React from "react";
 import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
+import { Navigation } from "@/types/enums/navigation.enum";
 
 interface Props {
   id: string;
@@ -9,9 +10,8 @@ interface Props {
 
 const IntentionsEditAction = ({ id }: Props) => {
   const { push } = useRouter();
-  const handleNavigate = (e?: SyntheticEvent) => {
-    e?.preventDefault();
-    push(`/admin/intentions/${id}`);
+  const handleNavigate = () => {
+    push(`${Navigation.BASE_ADMIN_INTENTIONS}/${id}`);
   };
 
   return (

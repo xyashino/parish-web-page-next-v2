@@ -1,9 +1,9 @@
 import React from "react";
 import { TabsContent } from "@/components/ui/tabs";
 import { DayIntentions } from "@/types/interfaces/week-intentions-store.interface";
-import ModifyDayHeader from "@/components/ModifyWeekIntentions/modifyDayIntentions/modifyDayHeader";
+import ModifyDayHeader from "@/components/week-intentions/ModifyWeekIntentions/modifyDayIntentions/modifyDayHeader";
 import ModifyIntentionsTable from "../modifyIntentionsTable";
-import ModifyDayEmptyTableInfo from "@/components/ModifyWeekIntentions/modifyDayIntentions/modifyDayEmptyTableInfo";
+import ModifyDayEmptyTableInfo from "@/components/week-intentions/ModifyWeekIntentions/modifyDayIntentions/modifyDayEmptyTableInfo";
 
 interface Props extends DayIntentions {
   id: string;

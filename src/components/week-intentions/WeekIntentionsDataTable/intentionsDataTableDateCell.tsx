@@ -5,7 +5,12 @@ interface Props {
 }
 
 const IntentionsDataTableDateCell = ({ value }: Props) => {
-  if (!value) return <span className="font-bold uppercase italic">Brak</span>;
+  if (!value)
+    return (
+      <span className="py-1 px-2 uppercase text-white bg-zinc-900 rounded-sm font-bold">
+        Brak
+      </span>
+    );
   const dateObj = new Date(Date.parse(value));
   const formattedDate = dateObj.toLocaleDateString("en-GB", {
     day: "2-digit",
@@ -13,7 +18,11 @@ const IntentionsDataTableDateCell = ({ value }: Props) => {
     year: "numeric",
   });
 
-  return <span>{formattedDate}</span>;
+  return (
+    <span className="py-1 px-2 uppercase text-white bg-zinc-900 rounded-sm font-bold italic">
+      {formattedDate}
+    </span>
+  );
 };
 
 export default IntentionsDataTableDateCell;
