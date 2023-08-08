@@ -1,7 +1,7 @@
 import { Status, Weekday, WeekIntentions } from "@prisma/client";
 export interface OneIntention {
   id: string;
-  zIndex: number;
+  order: number;
   hour: string;
   value: string;
   dayId?: string;
