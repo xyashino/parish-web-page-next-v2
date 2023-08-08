@@ -10,23 +10,24 @@ interface Props {
 }
 
 const AdminPageTitle = ({ title }: Props) => {
-  const { back } = useRouter();
+  const { back, refresh } = useRouter();
   const handleClick = (e: SyntheticEvent) => {
     e.preventDefault();
     back();
+    refresh();
   };
 
   return (
-    <div className="w-full flex p-4 rounded-xl items-center">
-      <Button variant="ghost" onClick={handleClick}>
-        <PinLeftIcon className="text-foreground text-2xl" />
-      </Button>
-      <div className="w-full  space-y-2">
-        <h2 className="text-3xl indent-2 italic capitalize font-light text-foreground">
+    <div className="w-full  p-6 space-y-4 rounded-xl  flex-wrap">
+      <div className="flex items-center space-x-2.5">
+        <Button variant="ghost" onClick={handleClick}>
+          <PinLeftIcon className="text-foreground text-2xl" />
+        </Button>
+        <h2 className="text-2xl font-bold capitalize text-foreground uppercase">
           {title}
         </h2>
-        <Separator className="indent-2" />
       </div>
+      <Separator className="indent-2" />
     </div>
   );
 };
