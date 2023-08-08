@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import ChurchIcon from "@/components/icons/ChurchIcon";
-import { PageRoute } from "@/types/enums/page-route.enum";
+import { Navigation } from "@/types/enums/navigation.enum";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -18,7 +18,7 @@ const Logo = ({ renderAsLink = true, className, navigateTo }: Props) => {
 
   if (renderAsLink)
     return (
-      <Link className={logoClasses} href={navigateTo ?? PageRoute.CLIENT_HOME}>
+      <Link className={logoClasses} href={navigateTo ?? Navigation.CLIENT_HOME}>
         <ChurchIcon className="text-center group-hover:scale-125 transition-transform duration-500 ease-in-out" />
         <span className="italic align-middle">Parafia Gruszów Wielki</span>
       </Link>
