@@ -4,7 +4,7 @@ import {
   getAnnouncement,
   updateAnnouncement,
 } from "@/lib/db/announcement";
-import { AnnouncementBody } from "@/types/announcement-edit.types";
+import { AnnouncementBody } from "@/types/announcement-edit";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
 
