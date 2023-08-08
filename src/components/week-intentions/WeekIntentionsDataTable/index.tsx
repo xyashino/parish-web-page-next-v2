@@ -1,8 +1,8 @@
 "use client";
 import React, { PropsWithChildren } from "react";
-import DataTable from "@/components/DataTable";
+import { DataTable } from "@/components/DataTable";
 import { WeekIntentions } from "@prisma/client";
-import { intentionsColumns } from "@/components/week-intentions/WeekIntentionsDataTable/intentions-columns";
+import { intentionsColumns } from "./intentions-columns";
 import { Separator } from "@/components/ui/separator";
 
 interface Props extends PropsWithChildren {

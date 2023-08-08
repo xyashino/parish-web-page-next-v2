@@ -1,8 +1,8 @@
 import React from "react";
-import DataTableActionsDropDown from "@/components/DataTable/DataTableActionsDropDown";
+import { DataTableActionsDropDown } from "@/components/DataTable/DataTableActionsDropDown";
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
-import IntentionsDeleteAction from "./intentionsDeleteAction";
-import IntentionsEditAction from "./intentionsEditAction";
+import { IntentionsDeleteAction } from "./intentionsDeleteAction";
+import { IntentionsEditAction } from "./intentionsEditAction";
 interface Props {
   id: string;
 }

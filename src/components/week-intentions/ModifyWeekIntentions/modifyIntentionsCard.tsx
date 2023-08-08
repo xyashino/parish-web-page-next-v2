@@ -3,7 +3,7 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
-import SelectStatus from "@/components/SelectStatus";
+import { SelectStatus } from "@/components/SelectStatus";
 import { Card, CardContent } from "@/components/ui/card";
 import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
 

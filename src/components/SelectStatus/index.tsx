@@ -2,7 +2,7 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Status } from "@prisma/client";
 import { Label } from "@/components/ui/label";
-import SelectStatusItem from "@/components/SelectStatus/selecStatuesItem";
+import { SelectStatusItem } from "@/components/SelectStatus/selecStatuesItem";
 
 interface Props {
   doAfterChange?: (value: Status) => void;

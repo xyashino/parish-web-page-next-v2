@@ -1,5 +1,5 @@
 import React from "react";
-import ConfirmAlert from "@/components/ConfirmAlert";
+import { ConfirmAlert } from "@/components/ConfirmAlert";
 import { ResetIcon } from "@radix-ui/react-icons";
 
 interface Props {

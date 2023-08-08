@@ -2,7 +2,7 @@
 import React, { PropsWithChildren } from "react";
 import { DataTable } from "@/components/DataTable";
 import { Album } from "@prisma/client";
-import albumColumns from "./album-columns";
+import { albumColumns } from "./album-columns";
 import { Separator } from "@/components/ui/separator";
 
 interface Props extends PropsWithChildren {

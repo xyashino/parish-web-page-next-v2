@@ -2,7 +2,7 @@ import React from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { weekdayTranslator } from "@/lib/utils";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
-import ModifyDayIntentions from "@/components/week-intentions/ModifyWeekIntentions/modifyDayIntentions";
+import { ModifyDayIntentions } from "./modifyDayIntentions";
 import { Card, CardContent } from "@/components/ui/card";
 import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
 

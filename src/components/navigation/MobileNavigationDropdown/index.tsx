@@ -3,7 +3,7 @@ import React, { SyntheticEvent, useState } from "react";
 import ToggleButton from "@/components/navigation/MobileNavigationDropdown/toggleButton";
 import { NavigationGroup } from "@/types/interfaces/navigation.interface";
 import ListWrapper from "@/components/navigation/MobileNavigationDropdown/listWrapper";
-import NavigationLink from "@/components/navigation/NavigationLink";
+import { NavigationLink } from "@/components/navigation/NavigationLink";
 
 const MobileNavigationDropdown = ({
   nestedRoutes,

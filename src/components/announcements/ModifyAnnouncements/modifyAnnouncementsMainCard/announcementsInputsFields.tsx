@@ -1,5 +1,5 @@
 import React from "react";
-import SelectStatus from "@/components/SelectStatus";
+import { SelectStatus } from "@/components/SelectStatus";
 import {
   AnnouncementsData,
   UpdateAnnouncementData,

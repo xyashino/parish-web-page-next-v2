@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from "react";
-import ConfirmAlert from "@/components/ConfirmAlert";
+import { ConfirmAlert } from "@/components/ConfirmAlert";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { UpdateIcon, ResetIcon } from "@radix-ui/react-icons";
 import { ButtonWithIcon } from "@/components/ButtonWithIcon";

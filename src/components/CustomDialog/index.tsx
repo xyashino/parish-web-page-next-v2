@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import CustomDialogFooter from "./customDialogFooter";
+import { CustomDialogFooter } from "./customDialogFooter";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { CustomFormProps, CustomForm } from "@/components/Form/CustomForm";
 import { z, ZodRawShape } from "zod";
@@ -7,8 +7,9 @@ import { z, ZodRawShape } from "zod";
 import CustomDialogTrigger, {
   ModifyTriggerDialogProps,
 } from "./customDialogTrigger";
-import CustomDialogHeader, {
+import {
   ModifyDialogHeaderProps,
+  CustomDialogHeader,
 } from "./customDialogHeader";
 import * as DialogPrimitive from "@radix-ui/react-dialog/dist";
 

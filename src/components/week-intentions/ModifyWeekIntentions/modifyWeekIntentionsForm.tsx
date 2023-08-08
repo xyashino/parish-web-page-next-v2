@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import CustomForm from "@/components/Form/CustomForm";
+import { CustomForm } from "@/components/Form/CustomForm";
 import { FormField } from "@/components/ui/form";
 import { z } from "zod";
-import CustomFormControlItem from "@/components/Form/CustomFormControlItem";
+import { CustomFormControlItem } from "@/components/Form/CustomFormControlItem";
 import { Input } from "@/components/ui/input";
-import MyMarkdownEditor from "@/components/MdEditor";
+import { MdEditor } from "@/components/MdEditor";
 import { Separator } from "@/components/ui/separator";
 import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
@@ -91,7 +91,7 @@ export const ModifyWeekIntentionsForm = ({
           </div>
 
           <Separator className="w-5/6 my-4" />
-          <MyMarkdownEditor editorHeight="300px" />
+          <MdEditor editorHeight="300px" />
         </CustomForm>
       </CardContent>
     </Card>

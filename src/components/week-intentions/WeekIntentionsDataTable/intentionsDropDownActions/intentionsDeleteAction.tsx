@@ -1,5 +1,5 @@
 import React from "react";
-import DataTableActionsDropDownItem from "@/components/DataTable/DataTableActionsDropDownItem";
+import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { IntentionsCrud } from "@/lib/services/intentions";
