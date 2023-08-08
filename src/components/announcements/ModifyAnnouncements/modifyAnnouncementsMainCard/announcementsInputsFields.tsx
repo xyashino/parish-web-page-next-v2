@@ -3,7 +3,7 @@ import SelectStatus from "@/components/SelectStatus";
 import {
   AnnouncementsData,
   UpdateAnnouncementData,
-} from "@/types/announcement-edit.types";
+} from "@/types/announcement-edit";
 import { Status } from "@prisma/client";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";

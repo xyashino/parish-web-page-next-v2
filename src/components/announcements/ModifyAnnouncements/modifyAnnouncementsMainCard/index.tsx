@@ -9,7 +9,7 @@ import { AnnouncementsInputsFields } from "./announcementsInputsFields";
 import {
   AnnouncementsData,
   UpdateAnnouncementData,
-} from "@/types/announcement-edit.types";
+} from "@/types/announcement-edit";
 
 interface Props {
   data: AnnouncementsData;

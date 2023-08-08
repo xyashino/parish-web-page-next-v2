@@ -1,8 +1,9 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { Announcements } from "@prisma/client";
+import { Announcements, Status } from "@prisma/client";
 import DataTableSortBtn from "@/components/DataTable/DataTableSortBtn";
-import AnnouncementsDropDownActions from "@/components/data-tables/AnnouncementsDataTable/announcementsDropDownActions";
+import AnnouncementsDropDownActions from "@/components/announcements/AnnouncementsDataTable/announcementsDropDownActions";
+import DataTableStatusCell from "@/components/DataTable/DataTableStatusCell";
 
 export const announcementsColumns: ColumnDef<Announcements>[] = [
   {
@@ -25,13 +26,13 @@ export const announcementsColumns: ColumnDef<Announcements>[] = [
         />
       );
     },
+    cell: ({ getValue }) => (
+      <DataTableStatusCell status={getValue() as Status} />
+    ),
   },
   {
     id: "actions",
     enableHiding: false,
-    cell: ({ row }) => {
-      const id = row.original.id;
-      return <AnnouncementsDropDownActions id={id} />;
-    },
+    cell: ({ row }) => <AnnouncementsDropDownActions id={row.original.id} />,
   },
 ];

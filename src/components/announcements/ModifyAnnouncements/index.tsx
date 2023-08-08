@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ModifyAnnouncementsControls from "./modifyAnnouncementsControls";
-import ModifyAnnouncementsMainCard from "@/components/ModifyAnnouncements/modifyAnnouncementsMainCard";
+import ModifyAnnouncementsMainCard from "@/components/announcements/ModifyAnnouncements/modifyAnnouncementsMainCard";
 import { Separator } from "@/components/ui/separator";
 import { Announcements } from "@prisma/client";
 import { useModifyAnnouncementLogic } from "@/lib/hooks/useModifyAnnouncementLogic";
