@@ -8,7 +8,7 @@ import { ConfirmAlert } from "@/components/ConfirmAlert";
 import { useUploadedImagesStore } from "@/lib/store/useUploadedImagesStore";
 import { Separator } from "@/components/ui/separator";
 import { useAlbumCoverImageStore } from "@/lib/store/useAlbumCoverImageStore";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 
 interface Props {
   id: string;

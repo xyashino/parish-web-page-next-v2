@@ -10,7 +10,7 @@ interface Props {
 
 export const CategoryDeleteAction = ({ id }: Props) => {
   const { refresh } = useRouter();
-  const handleDelete = async (e?: SyntheticEvent) => {
+  const handleDelete = async () => {
     await CategoriesCrud.delete(id);
     refresh();
   };

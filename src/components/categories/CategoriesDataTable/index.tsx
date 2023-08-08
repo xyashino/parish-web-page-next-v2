@@ -1,5 +1,5 @@
 "use client";
-import React, { PropsWithChildren, useEffect, useLayoutEffect } from "react";
+import React, { PropsWithChildren } from "react";
 import { DataTable } from "@/components/DataTable";
 import { Category } from "@prisma/client";
 import { categoryColumns } from "./category-columns";
