@@ -3,13 +3,9 @@ import { useEffect, useState } from "react";
 import { Announcements } from "@prisma/client";
 import { useRouter } from "next/navigation";
 
-import { UpdateAnnouncementData } from "@/types/announcement-edit.types";
-import { DEFAULT_ANNOUNCEMENT_DATA } from "@/lib/constants/default-announcement-data.constant";
-import {
-  createAnnouncementApiCall,
-  deleteAnnouncementApiCall,
-  updateAnnouncementApiCall,
-} from "@/lib/services";
+import { UpdateAnnouncementData } from "@/types/announcement-edit";
+import { DEFAULT_ANNOUNCEMENT_DATA } from "@/lib/constants/announcements";
+import { AnnouncementsCrud } from "@/lib/services";
 
 export const useModifyAnnouncementLogic = (defaultValue?: Announcements) => {
   const { setEditorValue, editorValue: value } = useMdEditorStore();
@@ -25,7 +21,7 @@ export const useModifyAnnouncementLogic = (defaultValue?: Announcements) => {
       setEditorValue(value);
       setAnnouncementData((prev) => ({ ...prev, status, subtitle }));
     }
-  }, [defaultValue]);
+  }, [defaultValue, setEditorValue]);
 
   const updateAnnouncementData = ({ key, value }: UpdateAnnouncementData) => {
     setAnnouncementData((prev) => ({ ...prev, [key]: value }));
@@ -37,7 +33,7 @@ export const useModifyAnnouncementLogic = (defaultValue?: Announcements) => {
   };
   const deleteAnnouncement = async () => {
     if (!defaultValue) return;
-    await deleteAnnouncementApiCall(defaultValue.id);
+    await AnnouncementsCrud.delete(defaultValue.id);
     back();
   };
 
@@ -47,8 +43,8 @@ export const useModifyAnnouncementLogic = (defaultValue?: Announcements) => {
       value,
     };
     return defaultValue
-      ? updateAnnouncementApiCall(defaultValue.id, body)
-      : createAnnouncementApiCall(body);
+      ? AnnouncementsCrud.update(defaultValue.id, body)
+      : AnnouncementsCrud.create(body);
   };
 
   const methods = {
