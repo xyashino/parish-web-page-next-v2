@@ -7,24 +7,24 @@ import { AlbumEditCardHeader } from "./albumEditCardHeader";
 import { MissingImagesInfo } from "./missingImagesInfo";
 import { Separator } from "@/components/ui/separator";
 import { DisplayAlbumImages } from "./displayAlbumImages";
-import { useUploadedImagesStore } from "@/lib/store/useUploadedImagesStore";
+import { Image } from "@prisma/client";
 
-export const AlbumEditContent = () => {
-  const { images } = useUploadedImagesStore();
+interface Props {
+  images: Image[];
+}
 
-  return (
-    <TabsContent value={AlbumTabsValue.EDIT_IMAGES} className="w-full">
-      <Card>
-        <AlbumEditCardHeader />
-        <Separator className="w-5/6 mx-auto" />
-        <CardContent>
-          {images.length === 0 ? (
-            <MissingImagesInfo />
-          ) : (
-            <DisplayAlbumImages images={images} />
-          )}
-        </CardContent>
-      </Card>
-    </TabsContent>
-  );
-};
+export const AlbumEditContent = ({ images }: Props) => (
+  <TabsContent value={AlbumTabsValue.EDIT_IMAGES} className="w-full">
+    <Card>
+      <AlbumEditCardHeader />
+      <Separator className="w-5/6 mx-auto" />
+      <CardContent>
+        {images.length === 0 ? (
+          <MissingImagesInfo />
+        ) : (
+          <DisplayAlbumImages images={images} />
+        )}
+      </CardContent>
+    </Card>
+  </TabsContent>
+);
