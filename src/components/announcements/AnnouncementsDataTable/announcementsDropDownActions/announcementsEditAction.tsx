@@ -12,7 +12,7 @@ export const AnnouncementsEditAction = ({ id }: Props) => {
   const { push } = useRouter();
   const handleNavigate = (e?: SyntheticEvent) => {
     e?.preventDefault();
-    push(`${Navigation.BASE_ADMIN_ANNOUNCEMENTS}${id}`);
+    push(`${Navigation.BASE_ADMIN_ANNOUNCEMENTS}/${id}`);
   };
   return (
     <DataTableActionsDropDownItem
