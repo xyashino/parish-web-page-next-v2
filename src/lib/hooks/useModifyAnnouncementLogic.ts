@@ -9,7 +9,7 @@ import { AnnouncementsCrud } from "@/lib/services";
 
 export const useModifyAnnouncementLogic = (defaultValue?: Announcements) => {
   const { setEditorValue, editorValue: value } = useMdEditorStore();
-  const { back } = useRouter();
+  const { back, refresh } = useRouter();
 
   const [announcementData, setAnnouncementData] = useState(
     DEFAULT_ANNOUNCEMENT_DATA
@@ -35,6 +35,7 @@ export const useModifyAnnouncementLogic = (defaultValue?: Announcements) => {
     if (!defaultValue) return;
     await AnnouncementsCrud.delete(defaultValue.id);
     back();
+    refresh();
   };
 
   const submitAnnouncement = async () => {
