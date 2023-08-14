@@ -11,12 +11,14 @@ interface Props {
 }
 
 export const AlbumCoverImageCard = ({ imageCoverId }: Props) => {
-  const { coverImagePath, setCoverImageByImageId } = useAlbumCoverImageStore();
+  const { coverImagePath, setCoverImageByImageId, setCoverImage } =
+    useAlbumCoverImageStore();
 
   useLayoutEffect(() => {
-    if (!imageCoverId) return;
+    console.log("imageCoverId", imageCoverId);
+    if (imageCoverId === null) return setCoverImage(imageCoverId);
     setCoverImageByImageId(imageCoverId);
-  }, []);
+  }, [imageCoverId, setCoverImage, setCoverImageByImageId]);
 
   return (
     <Card className="w-1/3">
