@@ -3,4 +3,5 @@ export enum RevalidateTag {
   INTENTIONS = "intentions",
   CATEGORIES = "categories",
   ALBUMS = "albums",
+  IMAGES = "images",
 }
