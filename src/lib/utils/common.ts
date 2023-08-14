@@ -10,3 +10,9 @@ export const getLengthByShow = <T extends { show: boolean }>(values: T[]) => {
   const falseValues = values.length - trueValues;
   return { trueValues, falseValues };
 };
+
+export const getErrorMessage = (error: unknown) => {
+  let errorMessage = "Unknown error";
+  if (error instanceof Error) errorMessage = error.message;
+  return errorMessage;
+};
