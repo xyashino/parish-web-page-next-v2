@@ -1,31 +1,19 @@
 import { NextResponse } from "next/server";
-import { unlink } from "fs/promises";
-import { join } from "path";
-import { deleteImage, getImage } from "@/lib/db/image";
-
-const clearImage = async (id: string) => {
-  const { UPLOAD_DIR } = process.env;
-  if (!UPLOAD_DIR) throw new Error("Upload dir not found");
-  try {
-    const deletedImage = await deleteImage(id);
-    await unlink(
-      join(process.cwd(), UPLOAD_DIR, deletedImage.path ?? "test.png")
-    );
-    return deletedImage;
-  } catch (error) {
-    throw new Error("Something went wrong");
-  }
-};
+import { getImage } from "@/lib/db/image";
+import { revalidateTag } from "next/cache";
+import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { clearImage } from "@/lib/services/images/server-methods";
 
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const deletedImage = await clearImage(id);
-  console.log(deletedImage);
+  revalidateTag(RevalidateTag.IMAGES);
   return NextResponse.json(deletedImage);
 }
 
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const foundImage = await getImage(id);
+  revalidateTag(RevalidateTag.IMAGES);
   return NextResponse.json(foundImage);
 }
