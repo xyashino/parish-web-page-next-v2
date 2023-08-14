@@ -1,5 +1,5 @@
-import client from "@/lib/db";
 import path from "node:path";
+import client from "@/lib/db";
 
 export const createImage = async (
   albumDir: string,
