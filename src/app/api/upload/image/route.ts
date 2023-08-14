@@ -1,9 +1,16 @@
 import { createImage } from "@/lib/db/image";
 import { NextResponse } from "next/server";
 
-import { checkAlbum, saveAsWebp, validateFormData } from "./route-helper";
+import { revalidateTag } from "next/cache";
+import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import {
+  checkAlbum,
+  saveAsWebp,
+  validateFormData,
+} from "@/lib/services/images/server-methods";
 
-const { UPLOAD_DIR } = process.env;
+const { UPLOAD_DIR, UPLOAD_DIR_ALBUM } = process.env;
+
 export async function POST(request: Request) {
   if (!UPLOAD_DIR) throw new Error("Upload dir not found");
   const formData = await request.formData();
@@ -12,9 +19,14 @@ export async function POST(request: Request) {
 
   await checkAlbum(albumId);
 
-  const imageEntity = await createImage("/albums/", albumId, "webp");
+  const imageEntity = await createImage(
+    `${UPLOAD_DIR_ALBUM}/`,
+    albumId,
+    "webp"
+  );
+
   if (!imageEntity.path) throw new Error("Something went wrong");
   await saveAsWebp(await file.arrayBuffer(), imageEntity.path);
-  console.log(imageEntity);
+  revalidateTag(RevalidateTag.IMAGES);
   return NextResponse.json(imageEntity);
 }
