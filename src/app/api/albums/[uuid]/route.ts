@@ -5,26 +5,13 @@ import {
 } from "@/lib/db/album";
 import { Album } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { rmdir } from "fs/promises";
-import { join } from "path";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
-
-const deleteDirectory = async (id: string) => {
-  const { UPLOAD_DIR } = process.env;
-  if (!UPLOAD_DIR) throw new Error("Upload dir not found");
-  try {
-    await rmdir(join(process.cwd(), UPLOAD_DIR, "/albums", id), {
-      recursive: true,
-    });
-  } catch (error) {
-    throw new Error("Something went wrong");
-  }
-};
+import { deleteDirectory } from "@/lib/services/albums/server-methods";
 
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
-  const album = getAlbumWithRelations(id);
+  const album = await getAlbumWithRelations(id);
   return NextResponse.json(album);
 }
 
