@@ -1,24 +1,8 @@
 import { useState } from "react";
-import { Image } from "@prisma/client";
-import { apiCall } from "@/lib/utils";
 import { useUploadImagesStore } from "@/lib/store/useUploadImagesStore";
 import { useProgressStore } from "@/lib/store/useProgressStore";
-import { ApiRoute } from "@/types/enums/api-route.enum";
 import { useParams, useRouter } from "next/navigation";
-
-const uploadImageApiCall = async (image: File, uuid: string) => {
-  const formData = new FormData();
-  formData.append(uuid, image);
-  return await apiCall<Image>(
-    ApiRoute.UPLOAD_IMAGE,
-    {
-      method: "POST",
-      body: formData,
-      headers: {},
-    },
-    true
-  );
-};
+import { uploadImageApiCall } from "@/lib/services/images/api-calls";
 
 export const useUploadImages = () => {
   const { uuid } = useParams();
