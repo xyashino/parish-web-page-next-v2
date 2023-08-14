@@ -1,6 +1,7 @@
 import { AnnouncementsData } from "@/types/announcement-edit";
+import { ApiToastsCrudMessages } from "@/types/toast";
 
-export const ANNOUNCEMENTS_API_MESSAGES = {
+export const ANNOUNCEMENTS_API_MESSAGES: ApiToastsCrudMessages = {
   delete: {
     loading: "Usuwanie ogłoszeń...",
     success: "Ogłoszenie zostało usunięte",
