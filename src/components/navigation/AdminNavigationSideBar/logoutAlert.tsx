@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { signOut } from "next-auth/react";
 import { ExitIcon } from "@radix-ui/react-icons";
 import { Separator } from "@/components/ui/separator";
 import { ConfirmAlert } from "@/components/ConfirmAlert";
@@ -21,6 +23,9 @@ export const LogoutAlert = () => (
         triggerValue,
         className:
           "w-full mx-auto flex items-center justify-center space-x-2.5 rounded-xl p-2.5",
+      }}
+      footerData={{
+        doAfterConfirm: () => signOut(),
       }}
     />
   </div>
