@@ -1,9 +1,8 @@
 import React from "react";
+import { Category } from "@prisma/client";
+import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { apiCall } from "@/lib/utils";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
-import { Category } from "@prisma/client";
-import { ApiRoute } from "@/types/enums/api-route.enum";
 import { ModifyCategoryDialog } from "@/components/categories/ModifyCategoryDialog";
 import { CategoriesDataTable } from "@/components/categories/CategoriesDataTable";
 

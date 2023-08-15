@@ -1,4 +1,4 @@
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { RevalidateTag } from "@/types/enums";
 
 export const apiRevalidateCall = async (tag: RevalidateTag) => {
   const url = new URL(`http://localhost:3000/api/revalidate`);

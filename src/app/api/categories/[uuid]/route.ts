@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { deleteCategory, updateCategory } from "@/lib/db/category";
 import { Category } from "@prisma/client";
 import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { RevalidateTag } from "@/types/enums";
 
 export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;

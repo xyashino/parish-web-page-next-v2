@@ -1,8 +1,9 @@
 "use client";
+
 import React, { ReactNode, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
-import { Navigation } from "@/types/enums/navigation.enum";
+import { Navigation } from "@/types/enums";
 
 interface Props {
   provider: "google" | "facebook";
@@ -16,7 +17,7 @@ export const ProviderButton = ({ provider, buttonText, icon }: Props) => {
 
   const handleClick = async () => {
     setLoading(true);
-    signIn(provider, {
+    return signIn(provider, {
       callbackUrl:
         NEXT_PUBLIC_APP_URL ?? "http://localhost:3000" + Navigation.ADMIN_HOME,
       redirect: false,

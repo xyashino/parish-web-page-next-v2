@@ -4,8 +4,8 @@ import { apiCall } from "@/lib/utils";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { WeekIntentionsStoreData } from "@/types/interfaces/week-intentions-store.interface";
 import notFound from "@/app/not-found";
-import { ApiRoute } from "@/types/enums/api-route.enum";
 import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekIntentions";
+import { ApiRoute } from "@/types/enums";
 
 export async function generateStaticParams() {
   const intentions = await getManyWeekIntentions();

@@ -2,7 +2,7 @@ import { createImage } from "@/lib/db/image";
 import { NextResponse } from "next/server";
 
 import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { RevalidateTag } from "@/types/enums";
 import {
   checkAlbum,
   saveAsWebp,

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import ChurchIcon from "@/components/icons/ChurchIcon";
-import { Navigation } from "@/types/enums/navigation.enum";
+import { Navigation } from "@/types/enums";
 import { cn } from "@/lib/utils";
 
 interface Props {

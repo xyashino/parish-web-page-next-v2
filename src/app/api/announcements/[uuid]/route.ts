@@ -6,7 +6,7 @@ import {
 } from "@/lib/db/announcement";
 import { AnnouncementBody } from "@/types/announcement-edit";
 import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { RevalidateTag } from "@/types/enums";
 
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;

@@ -1,5 +1,5 @@
+import { ApiRoute } from "@/types/enums";
 import { apiCallWithToast } from "@/lib/utils";
-import { ApiRoute } from "@/types/enums/api-route.enum";
 
 export const createAdministratorApiCall = async (values: { email: string }) => {
   await apiCallWithToast({

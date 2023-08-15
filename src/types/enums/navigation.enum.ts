@@ -1,6 +1,6 @@
 export enum Navigation {
   // ADMIN
-  LOGIN = "/admin/login",
+  LOGIN = "/login",
   ADMIN_HOME = "/admin",
   CREATE_ANNOUNCEMENT = "/admin/announcements/create",
 
@@ -12,7 +12,4 @@ export enum Navigation {
   CREATE_ANNOUNCEMENTS = "/admin/announcements/create",
   // CLIENT
   CLIENT_HOME = "/",
-  CONTACT = "/contact",
-  INTENTIONS = "/intentions",
-  ANNOUNCEMENTS = "/announcements",
 }

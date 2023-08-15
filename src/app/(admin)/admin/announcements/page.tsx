@@ -1,11 +1,9 @@
 import React from "react";
+import { Announcements } from "@prisma/client";
+import { ApiRoute, Navigation, RevalidateTag } from "@/types/enums";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { NavigationBtn } from "@/components/navigation/NavigationBtn";
 import { apiCall } from "@/lib/utils";
-import { ApiRoute } from "@/types/enums/api-route.enum";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
-import { Announcements } from "@prisma/client";
-import { Navigation } from "@/types/enums/navigation.enum";
 import { AnnouncementsDataTable } from "@/components/announcements/AnnouncementsDataTable";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
 

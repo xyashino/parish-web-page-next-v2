@@ -1,6 +1,6 @@
 import { deleteAdministrator } from "@/lib/db/administrators";
 import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { RevalidateTag } from "@/types/enums";
 import { NextResponse } from "next/server";
 
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {

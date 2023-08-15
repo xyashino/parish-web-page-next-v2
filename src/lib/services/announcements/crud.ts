@@ -1,8 +1,7 @@
-import { ApiRoute } from "@/types/enums/api-route.enum";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { ApiRoute, RevalidateTag } from "@/types/enums";
+import { Announcements } from "@prisma/client";
 import { ANNOUNCEMENTS_API_MESSAGES } from "@/lib/constants/announcements";
 import { BaseCrudApiCall } from "@/lib/services/crud";
-import { Announcements } from "@prisma/client";
 
 export const AnnouncementsCrud = new BaseCrudApiCall<Announcements>(
   ApiRoute.BASE_ANNOUNCEMENTS,

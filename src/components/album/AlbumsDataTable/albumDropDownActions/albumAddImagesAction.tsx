@@ -1,7 +1,7 @@
 import React from "react";
 import { FilePlusIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
-import { Navigation } from "@/types/enums/navigation.enum";
+import { Navigation } from "@/types/enums";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
 
 interface Props {

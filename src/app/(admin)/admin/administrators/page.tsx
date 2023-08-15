@@ -1,9 +1,8 @@
 import React from "react";
+import { Admin } from "@prisma/client";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { apiCall } from "@/lib/utils";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
-import { Admin } from "@prisma/client";
-import { ApiRoute } from "@/types/enums/api-route.enum";
+import { ApiRoute, RevalidateTag } from "@/types/enums";
 import {
   AddAdministratorDialog,
   AdministratorsTable,

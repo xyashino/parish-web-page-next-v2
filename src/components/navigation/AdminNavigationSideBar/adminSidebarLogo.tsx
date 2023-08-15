@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo } from "@/components/Logo";
-import { Navigation } from "@/types/enums/navigation.enum";
+import { Navigation } from "@/types/enums";
 
 export const AdminSidebarLogo = () => {
   return (

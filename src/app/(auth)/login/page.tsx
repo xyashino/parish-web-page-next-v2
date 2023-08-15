@@ -4,7 +4,7 @@ import { LeftSection } from "@/components/login/LeftSection";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { Navigation } from "@/types/enums/navigation.enum";
+import { Navigation } from "@/types/enums";
 
 export const metadata: Metadata = {
   title: "Authentication",

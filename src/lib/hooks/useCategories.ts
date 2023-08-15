@@ -1,8 +1,7 @@
-import { Category } from "@prisma/client";
 import { useLayoutEffect, useState } from "react";
+import { Category } from "@prisma/client";
+import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
-import { ApiRoute } from "@/types/enums/api-route.enum";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
 
 export const useCategories = (initialCategories?: Category[]) => {
   const [isLoading, setIsLoading] = useState(false);

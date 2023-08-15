@@ -1,5 +1,4 @@
-import { ApiRoute } from "@/types/enums/api-route.enum";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { BaseCrudApiCall } from "@/lib/services/crud";
 import { CATEGORY_API_MESSAGES } from "@/lib/constants/categories";
 

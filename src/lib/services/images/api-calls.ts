@@ -1,6 +1,6 @@
-import { apiCall, apiCallWithToast } from "@/lib/utils";
 import { Album, Image } from "@prisma/client";
-import { ApiRoute } from "@/types/enums/api-route.enum";
+import { ApiRoute } from "@/types/enums";
+import { apiCall, apiCallWithToast } from "@/lib/utils";
 import { UPDATE_COVER_IMAGE_MESSAGES } from "@/lib/constants/image";
 
 export const getImageCoverPath = async (id: string) => {

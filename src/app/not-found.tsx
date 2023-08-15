@@ -1,6 +1,6 @@
 "use client";
 import React, { SyntheticEvent } from "react";
-import { Navigation } from "@/types/enums/navigation.enum";
+import { Navigation } from "@/types/enums";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 

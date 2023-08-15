@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getImage } from "@/lib/db/image";
 import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { RevalidateTag } from "@/types/enums";
 import { clearImage } from "@/lib/services/images/server-methods";
 
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {

@@ -1,8 +1,8 @@
 import React, { SyntheticEvent } from "react";
-import { Pencil2Icon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
+import { Navigation } from "@/types/enums";
+import { Pencil2Icon } from "@radix-ui/react-icons";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
-import { Navigation } from "@/types/enums/navigation.enum";
 
 interface Props {
   id: string;

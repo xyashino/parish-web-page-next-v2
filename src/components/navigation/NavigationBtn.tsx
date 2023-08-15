@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { Navigation } from "@/types/enums/navigation.enum";
+import { Navigation } from "@/types/enums";
 import { Button } from "@/components/ui/button";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
 interface Props {

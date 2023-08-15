@@ -1,14 +1,13 @@
 import React from "react";
+import { Album, Category, Image } from "@prisma/client";
 import notFound from "@/app/not-found";
+import { ApiRoute, RevalidateTag } from "@/types/enums";
+import { apiCall } from "@/lib/utils";
 import { getAlbums } from "@/lib/db/album";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { AlbumInfoCard } from "@/components/album/AlbumInfoCard";
 import { AlbumCoverImageCard } from "@/components/album/AlbumCoverImageCard";
 import { AlbumTabs } from "@/components/album/AlbumTabs";
-import { apiCall } from "@/lib/utils";
-import { ApiRoute } from "@/types/enums/api-route.enum";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
-import { Album, Category, Image } from "@prisma/client";
 
 type AlbumWithRelations = Album & {
   images: Image[] | null;

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAnnouncement, getAnnouncements } from "@/lib/db/announcement";
 import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { RevalidateTag } from "@/types/enums";
 
 export async function GET() {
   const result = await getAnnouncements({

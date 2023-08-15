@@ -2,7 +2,7 @@ import { Album } from "@prisma/client";
 import { createAlbum, getAlbums } from "@/lib/db/album";
 import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { RevalidateTag } from "@/types/enums";
 import { createDirectory } from "@/lib/services/albums/server-methods";
 
 export async function GET() {

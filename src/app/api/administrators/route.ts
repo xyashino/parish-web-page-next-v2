@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getAdministrators } from "@/lib/db/administrators";
 import { createAdministrator } from "@/lib/db/administrators";
 import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { RevalidateTag } from "@/types/enums";
 
 export async function GET() {
   const administrators = await getAdministrators();

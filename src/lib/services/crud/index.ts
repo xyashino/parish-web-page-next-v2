@@ -1,8 +1,7 @@
+import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall, apiCallWithToast } from "@/lib/utils";
-import { ApiRoute } from "@/types/enums/api-route.enum";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
-import { DEFAULT_API_TOAST_CRUD_MESSAGES } from "@/lib/constants/common";
 import { ApiToastsCrudMessages, ToastMessages } from "@/types/toast";
+import { DEFAULT_API_TOAST_CRUD_MESSAGES } from "@/lib/constants/common";
 
 export class BaseCrudApiCall<T> {
   constructor(

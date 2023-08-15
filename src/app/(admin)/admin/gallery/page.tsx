@@ -1,11 +1,10 @@
 import React from "react";
-import { AdminPageTitle } from "@/components/AdminPageTitle";
-import { apiCall } from "@/lib/utils";
 import { Album, Category } from "@prisma/client";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
-import { Separator } from "@/components/ui/separator";
+import { ApiRoute, RevalidateTag } from "@/types/enums";
 
-import { ApiRoute } from "@/types/enums/api-route.enum";
+import { apiCall } from "@/lib/utils";
+import { AdminPageTitle } from "@/components/AdminPageTitle";
+import { Separator } from "@/components/ui/separator";
 import { AlbumsDataTable } from "@/components/album/AlbumsDataTable";
 import { ModifyAlbumDialog } from "@/components/album/ModifyAlbumDialog";
 import { ModifyCategoryDialog } from "@/components/categories/ModifyCategoryDialog";

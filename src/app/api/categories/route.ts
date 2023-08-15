@@ -1,8 +1,8 @@
-import { createCategory, getCategories } from "@/lib/db/category";
-import { NextResponse } from "next/server";
-import { Category } from "@prisma/client";
 import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums/revalidate-tag.enum";
+import { Category } from "@prisma/client";
+import { NextResponse } from "next/server";
+import { RevalidateTag } from "@/types/enums";
+import { createCategory, getCategories } from "@/lib/db/category";
 export async function GET() {
   const categories = await getCategories();
   return NextResponse.json(categories);

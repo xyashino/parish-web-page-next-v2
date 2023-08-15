@@ -1,7 +1,7 @@
 import React from "react";
-import { Logo } from "@/components/Logo";
 import Image from "next/image";
-import { Navigation } from "@/types/enums/navigation.enum";
+import { Navigation } from "@/types/enums";
+import { Logo } from "@/components/Logo";
 
 export const LeftSection = () => (
   <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
