@@ -4,4 +4,5 @@ export enum RevalidateTag {
   CATEGORIES = "categories",
   ALBUMS = "albums",
   IMAGES = "images",
+  ADMINISTRATORS = "administrators",
 }
