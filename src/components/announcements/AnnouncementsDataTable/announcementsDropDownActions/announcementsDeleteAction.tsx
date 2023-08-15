@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from "react";
+import React from "react";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
@@ -10,8 +10,8 @@ interface Props {
 
 export const AnnouncementsDeleteAction = ({ id }: Props) => {
   const { refresh } = useRouter();
-  const handleDelete = async (e?: SyntheticEvent) => {
-    e?.preventDefault();
+
+  const handleDelete = async () => {
     await AnnouncementsCrud.delete(id);
     refresh();
   };
