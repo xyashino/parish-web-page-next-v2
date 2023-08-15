@@ -1,9 +1,8 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Category } from "@prisma/client";
-import { DataTableSortBtn } from "@/components/DataTable/DataTableSortBtn";
-import { CategoryDropDownActions } from "@/components/categories/CategoriesDataTable/categoryDropDownActions";
-import { DataTableBooleanCell } from "@/components/DataTable/DataTableBooleanCell";
+import { DataTableBooleanCell, DataTableSortBtn } from "@/components/DataTable";
+import { CategoryDropDownActions } from "./categoryDropDownActions";
 
 export const categoryColumns: ColumnDef<Category>[] = [
   {

@@ -1,8 +1,8 @@
 import React from "react";
-import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { AlbumCrud } from "@/lib/services/albums/crud";
 import { useRouter } from "next/navigation";
+import { DataTableActionsDropDownItem } from "@/components/DataTable";
 
 interface Props {
   id: string;

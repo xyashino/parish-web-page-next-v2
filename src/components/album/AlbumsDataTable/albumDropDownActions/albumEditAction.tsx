@@ -1,8 +1,8 @@
 import React, { SyntheticEvent } from "react";
-import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { Album } from "@prisma/client";
 import { useAlbumDialogStore } from "@/lib/store";
+import { DataTableActionsDropDownItem } from "@/components/DataTable";
 
 interface Props {
   albumData: Album;

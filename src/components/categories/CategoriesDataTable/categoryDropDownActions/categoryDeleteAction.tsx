@@ -1,8 +1,8 @@
-import React, { SyntheticEvent } from "react";
-import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
+import React from "react";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { CategoriesCrud } from "@/lib/services/categories";
 import { useRouter } from "next/navigation";
+import { DataTableActionsDropDownItem } from "@/components/DataTable";
 
 interface Props {
   id: string;

@@ -2,9 +2,8 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Album } from "@prisma/client";
-import { DataTableSortBtn } from "@/components/DataTable/DataTableSortBtn";
 import { AlbumDropDownActions } from "./albumDropDownActions";
-import { DataTableBooleanCell } from "@/components/DataTable/DataTableBooleanCell";
+import { DataTableBooleanCell, DataTableSortBtn } from "@/components/DataTable";
 
 export const albumColumns: ColumnDef<Album>[] = [
   {

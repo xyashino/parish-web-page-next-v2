@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from "react";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
-import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
+import { DataTableActionsDropDownItem } from "@/components/DataTable";
 import { AnnouncementsCrud } from "@/lib/services";
 
 interface Props {

@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from "react";
-import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
-import { Pencil2Icon } from "@radix-ui/react-icons";
 import { Category } from "@prisma/client";
+import { Pencil2Icon } from "@radix-ui/react-icons";
+import { DataTableActionsDropDownItem } from "@/components/DataTable";
 import { useCategoryDialogStore } from "@/lib/store";
 
 interface Props {

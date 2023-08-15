@@ -1,8 +1,8 @@
 import React from "react";
-import { DataTableActionsDropDownItem } from "@/components/DataTable/DataTableActionsDropDownItem";
 import { FilePlusIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { Navigation } from "@/types/enums/navigation.enum";
+import { DataTableActionsDropDownItem } from "@/components/DataTable";
 
 interface Props {
   id: string;
