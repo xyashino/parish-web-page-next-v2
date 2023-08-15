@@ -1,5 +1,5 @@
 import React from "react";
-import { DataTableActionsDropDown } from "@/components/DataTable/DataTableActionsDropDown";
+import { DataTableActionsDropDown } from "@/components/DataTable";
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { AnnouncementsDeleteAction } from "./announcementsDeleteAction";
 import { AnnouncementsEditAction } from "./announcementsEditAction";
@@ -17,5 +17,3 @@ export const AnnouncementsDropDownActions = ({ id }: Props) => {
     </DataTableActionsDropDown>
   );
 };
-
-export default AnnouncementsDropDownActions;
