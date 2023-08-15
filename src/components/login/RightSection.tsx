@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ProviderButton } from "@/components/login/ProviderButton";
+import { ProviderButton } from "@/components/login";
 import { GoogleIcon } from "@/components/icons/GoogleIcon";
 import { FacebookIcon } from "@/components/icons/FacebookIcon";
 import { Separator } from "@/components/ui/separator";

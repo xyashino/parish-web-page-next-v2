@@ -1,10 +1,11 @@
 import { Metadata } from "next";
-import { RightSection } from "@/components/login/RightSection";
-import { LeftSection } from "@/components/login/LeftSection";
+
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { Navigation } from "@/types/enums";
+import React from "react";
+import { LeftSection, RightSection } from "@/components/login";
 
 export const metadata: Metadata = {
   title: "Authentication",
