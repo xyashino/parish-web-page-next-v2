@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { AdminNavigationSideBar } from "@/components/navigation/AdminNavigationSideBar";
+import { AdminNavigationSideBar } from "@/components/navigation";
 import { Footer } from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
 export const metadata = {

@@ -2,7 +2,7 @@ import React from "react";
 import { Navigation } from "@/types/enums";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
-import { NavigationBtn } from "@/components/navigation/NavigationBtn";
+import { NavigationBtn } from "@/components/navigation";
 import { WeekIntentionsDataTable } from "@/components/week-intentions";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
 

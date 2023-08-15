@@ -5,7 +5,7 @@ interface Props extends PropsWithChildren {
   isOpen: boolean;
 }
 
-const ListWrapper = ({ isOpen, children }: Props) => {
+export const ListWrapper = ({ isOpen, children }: Props) => {
   const toggleFrames = isOpen ? "grid-rows-1fr" : "grid-rows-0fr";
 
   return (
@@ -17,5 +17,3 @@ const ListWrapper = ({ isOpen, children }: Props) => {
     </div>
   );
 };
-
-export default ListWrapper;

@@ -8,7 +8,7 @@ interface Props {
   text: string;
 }
 
-const ToggleButton = ({ toggle, isOpen, text, icon }: Props) => {
+export const ToggleButton = ({ toggle, isOpen, text, icon }: Props) => {
   const toggleIcon = isOpen ? "rotate-180" : "rotate-0";
   return (
     <button
@@ -23,5 +23,3 @@ const ToggleButton = ({ toggle, isOpen, text, icon }: Props) => {
     </button>
   );
 };
-
-export default ToggleButton;
