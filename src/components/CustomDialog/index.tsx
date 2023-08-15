@@ -19,6 +19,7 @@ interface ModifyDialogProps<T extends ZodRawShape>
   trigger: ModifyTriggerDialogProps;
   headerData: ModifyDialogHeaderProps;
   form?: Omit<CustomFormProps<z.ZodObject<T>>, "children">;
+  submitText?: string;
 }
 
 export const CustomDialog = <T extends ZodRawShape>({
@@ -26,6 +27,7 @@ export const CustomDialog = <T extends ZodRawShape>({
   headerData,
   children,
   form,
+  submitText,
   ...props
 }: ModifyDialogProps<T>) => {
   if (form)
@@ -36,7 +38,7 @@ export const CustomDialog = <T extends ZodRawShape>({
           <CustomForm {...form}>
             <CustomDialogHeader {...headerData} />
             {children}
-            <CustomDialogFooter />
+            <CustomDialogFooter submitText={submitText} />
           </CustomForm>
         </DialogContent>
       </Dialog>
@@ -48,7 +50,7 @@ export const CustomDialog = <T extends ZodRawShape>({
       <DialogContent>
         <CustomDialogHeader {...headerData} />
         {children}
-        <CustomDialogFooter />
+        <CustomDialogFooter submitText={submitText} />
       </DialogContent>
     </Dialog>
   );
