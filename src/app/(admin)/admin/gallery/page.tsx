@@ -5,11 +5,12 @@ import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { Separator } from "@/components/ui/separator";
-
-import { ModifyCategoryDialog } from "@/components/categories/ModifyCategoryDialog";
-import { CategoriesDataTable } from "@/components/categories/CategoriesDataTable";
 import { SummaryShowFieldsCard } from "@/components/cards/SummaryShowFieldsCard";
 import { AlbumsDataTable, ModifyAlbumDialog } from "@/components/album";
+import {
+  CategoriesDataTable,
+  ModifyCategoryDialog,
+} from "@/components/categories";
 
 const AdministratorsManagePage = async () => {
   const albums = await apiCall<Album[]>(ApiRoute.BASE_ALBUMS, {
