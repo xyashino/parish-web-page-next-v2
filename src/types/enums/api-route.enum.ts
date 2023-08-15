@@ -5,4 +5,5 @@ export enum ApiRoute {
   BASE_ANNOUNCEMENTS = "/api/announcements",
   BASE_WEEK_INTENTIONS = "/api/intentions",
   BASE_IMAGES = "/api/images",
+  BASE_ADMINISTRATORS = "/api/administrators",
 }
