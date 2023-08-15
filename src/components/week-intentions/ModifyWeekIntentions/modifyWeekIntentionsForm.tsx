@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { CustomForm } from "@/components/form/CustomForm";
 import { FormField } from "@/components/ui/form";
 import { z } from "zod";
-import { CustomFormControlItem } from "@/components/form";
+import { CustomForm, CustomFormControlItem } from "@/components/form";
 import { Input } from "@/components/ui/input";
 import { MdEditor } from "@/components/MdEditor";
 import { Separator } from "@/components/ui/separator";
@@ -13,17 +12,13 @@ import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
 import { Card, CardContent } from "@/components/ui/card";
 import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
 import { SwitchWithLabel } from "@/components/SwitchWithLabel";
-interface Props {
-  defaultContent?: {
-    order: number;
-    hour: string;
-  };
-}
+import { weekIntentionsFormSchema } from "@/lib/schemas/week-intentions";
 
-const formSchema = z.object({
-  order: z.number().min(-20).max(20),
-  hour: z.string().nonempty({ message: "Godzina jest wymagana" }),
-});
+type TypeFormSchema = z.infer<typeof weekIntentionsFormSchema>;
+
+interface Props {
+  defaultContent?: TypeFormSchema;
+}
 
 export const ModifyWeekIntentionsForm = ({
   defaultContent = { order: 0, hour: "" },
@@ -32,7 +27,7 @@ export const ModifyWeekIntentionsForm = ({
   const { editorValue } = useMdEditorStore();
 
   const [switchValue, setSwitchValue] = useState(false);
-  const onSubmit = (e: z.infer<typeof formSchema>) => {
+  const onSubmit = (e: TypeFormSchema) => {
     createIntention({
       order: e.order,
       hour: e.hour,
@@ -49,7 +44,7 @@ export const ModifyWeekIntentionsForm = ({
       />
       <CardContent>
         <CustomForm
-          formSchema={formSchema}
+          formSchema={weekIntentionsFormSchema}
           defaultValues={defaultContent}
           onSubmit={onSubmit}
           className="flex flex-wrap items-center justify-around"
