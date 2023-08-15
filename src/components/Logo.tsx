@@ -10,11 +10,11 @@ interface Props {
   renderAsLink?: boolean;
 }
 
+const LOGO_CLASSES =
+  "flex items-center  group text-foreground space-x-2 transition-colors duration-200  hover:bg-slate-200 px-4 rounded select-none text-xl";
+
 export const Logo = ({ renderAsLink = true, className, navigateTo }: Props) => {
-  const logoClasses = cn(
-    "flex items-center  group text-foreground space-x-2 transition-colors duration-200  hover:bg-slate-200 px-4 rounded select-none text-xl",
-    className
-  );
+  const logoClasses = cn(LOGO_CLASSES, className);
 
   if (renderAsLink)
     return (
