@@ -4,8 +4,8 @@ import { ApiRoute, Navigation, RevalidateTag } from "@/types/enums";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { NavigationBtn } from "@/components/navigation/NavigationBtn";
 import { apiCall } from "@/lib/utils";
-import { AnnouncementsDataTable } from "@/components/announcements/AnnouncementsDataTable";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
+import { AnnouncementsDataTable } from "@/components/announcements";
 
 const AnnouncementsPage = async () => {
   const announcements = await apiCall<Announcements[]>(
