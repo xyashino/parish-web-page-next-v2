@@ -5,9 +5,11 @@ import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
 import { getAlbums } from "@/lib/db/album";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
-import { AlbumInfoCard } from "@/components/album/AlbumInfoCard";
-import { AlbumCoverImageCard } from "@/components/album/AlbumCoverImageCard";
-import { AlbumTabs } from "@/components/album/AlbumTabs";
+import {
+  AlbumCoverImageCard,
+  AlbumInfoCard,
+  AlbumTabs,
+} from "@/components/album";
 
 type AlbumWithRelations = Album & {
   images: Image[] | null;
