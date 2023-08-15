@@ -3,7 +3,7 @@ import { Navigation } from "@/types/enums";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
 import { NavigationBtn } from "@/components/navigation/NavigationBtn";
-import { WeekIntentionsDataTable } from "@/components/week-intentions/WeekIntentionsDataTable";
+import { WeekIntentionsDataTable } from "@/components/week-intentions";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
 
 const IntentionsPage = async () => {
