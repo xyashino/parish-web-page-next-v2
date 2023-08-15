@@ -3,7 +3,7 @@ import React from "react";
 import { z } from "zod";
 import { CustomDialog } from "@/components/CustomDialog";
 import { FormField } from "@/components/ui/form";
-import { CustomFormControlItem } from "@/components/Form/CustomFormControlItem";
+import { CustomFormControlItem } from "@/components/form";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import { createAdministratorApiCall } from "@/lib/services/administrators/api-calls";

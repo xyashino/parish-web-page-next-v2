@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import { CustomDialogFooter } from "./customDialogFooter";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { CustomFormProps, CustomForm } from "@/components/Form/CustomForm";
+import { CustomFormProps, CustomForm } from "@/components/form";
 import { z, ZodRawShape } from "zod";
 
 import CustomDialogTrigger, {

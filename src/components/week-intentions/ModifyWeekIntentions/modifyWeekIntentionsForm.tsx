@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { CustomForm } from "@/components/Form/CustomForm";
+import { CustomForm } from "@/components/form/CustomForm";
 import { FormField } from "@/components/ui/form";
 import { z } from "zod";
-import { CustomFormControlItem } from "@/components/Form/CustomFormControlItem";
+import { CustomFormControlItem } from "@/components/form";
 import { Input } from "@/components/ui/input";
 import { MdEditor } from "@/components/MdEditor";
 import { Separator } from "@/components/ui/separator";
