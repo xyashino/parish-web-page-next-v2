@@ -13,5 +13,3 @@ interface NavigationGroup {
   nestedRoutes: SingleNavigationItem[];
   icon?: React.ReactNode;
 }
-
-type NavigationItemType = SingleNavigationItem | NavigationGroup;
