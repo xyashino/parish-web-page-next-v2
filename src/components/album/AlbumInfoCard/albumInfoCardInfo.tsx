@@ -10,27 +10,27 @@ export const AlbumInfoCardInfo = ({
   albumData: { title, subtitle, show, category },
   images,
 }: AlbumInfoCardInfoProps) => (
-  <ul className="text-sm flex flex-col justify-around h-full">
-    <li>
+  <>
+    <p>
       <span className="font-bold">Tytuł: </span>
       <span>{title}</span>
-    </li>
-    <li>
+    </p>
+    <p>
       <span className="font-bold">Podtytuł: </span>
-      <span>{subtitle ?? "BRAk"}</span>
-    </li>
-    <li>
+      <span>{subtitle || "Brak"}</span>
+    </p>
+    <p>
       <span className="font-bold">Aktywny: </span>
       <span>{show ? "Tak" : "Nie"}</span>
-    </li>
-    <li>
+    </p>
+    <p>
       <span className="font-bold">Kategoria: </span>
       <span>{category?.name ?? "BRAK"}</span>
-    </li>
+    </p>
 
-    <li>
+    <p>
       <span className="font-bold">Liczba zdjęć: </span>
       <span>{images.length}</span>
-    </li>
-  </ul>
+    </p>
+  </>
 );

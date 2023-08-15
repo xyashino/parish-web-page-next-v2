@@ -5,8 +5,8 @@ import { AlbumInfoCardInfo, AlbumInfoCardInfoProps } from "./albumInfoCardInfo";
 
 export const AlbumInfoCard = (props: AlbumInfoCardInfoProps) => (
   <Card className="w-1/3">
+    <AlbumInfoCardHeader />
     <CardContent>
-      <AlbumInfoCardHeader />
       <AlbumInfoCardInfo {...props} />
     </CardContent>
   </Card>
