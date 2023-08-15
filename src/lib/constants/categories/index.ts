@@ -6,7 +6,7 @@ export const CATEGORY_DEFAULT_VALUE: z.infer<typeof modifyCategorySchema> = {
   name: "",
   order: 0,
   show: true,
-};
+} as const;
 
 export const CATEGORY_API_MESSAGES: ApiToastsCrudMessages = {
   delete: {
@@ -24,4 +24,4 @@ export const CATEGORY_API_MESSAGES: ApiToastsCrudMessages = {
     error: "Nie udało się utworzyć kategorii",
     loading: "Trwa tworzenie kategorii...",
   },
-};
+} as const;

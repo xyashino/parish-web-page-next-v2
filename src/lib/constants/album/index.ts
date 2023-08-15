@@ -7,7 +7,7 @@ export const ALBUM_DEFAULT_VALUE: z.infer<typeof modifyAlbumSchema> = {
   subtitle: "",
   categoryId: "",
   show: true,
-};
+} as const;
 
 export const ALBUM_API_MESSAGES: ApiToastsCrudMessages = {
   create: {
