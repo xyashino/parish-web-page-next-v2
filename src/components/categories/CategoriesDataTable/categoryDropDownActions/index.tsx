@@ -1,9 +1,9 @@
 import React from "react";
-import { DataTableActionsDropDown } from "@/components/DataTable/DataTableActionsDropDown";
+import { Category } from "@prisma/client";
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import { DataTableActionsDropDown } from "@/components/DataTable";
 import { CategoryDeleteAction } from "./categoryDeleteAction";
 import { CategoryEditAction } from "./categoryEditAction";
-import { Category } from "@prisma/client";
 
 interface Props {
   categoryData: Category;
