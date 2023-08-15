@@ -11,7 +11,7 @@ export const apiCall = async <T>(
   override = true
 ): Promise<T> => {
   const result = await fetch(
-    "http://localhost:3000" + url,
+    process.env.NEXT_PUBLIC_APP_URL + url,
     override ? { ...defaultConfig, ...config } : config
   );
   const parsedResult = await result.json();
