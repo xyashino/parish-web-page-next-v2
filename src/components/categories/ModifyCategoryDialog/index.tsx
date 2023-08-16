@@ -21,10 +21,13 @@ export const ModifyCategoryDialog = () => {
   const toggleHeaderSubtitle = !id ? "Według kategori są grupowane Albumy" : "";
 
   const onSubmit = async (values: z.infer<typeof modifyCategorySchema>) => {
-    if (id) return CategoriesCrud.update(id, { ...values });
-    await CategoriesCrud.create({ ...values });
-    close();
+    if (id) {
+      await CategoriesCrud.update(id, { ...values });
+    } else {
+      await CategoriesCrud.create({ ...values });
+    }
     refresh();
+    close();
   };
 
   return (
@@ -38,7 +41,7 @@ export const ModifyCategoryDialog = () => {
       }}
       form={{
         formSchema: modifyCategorySchema,
-        defaultValues: defaultValues,
+        defaultValues,
         onSubmit,
         className: "space-y-4",
       }}
