@@ -1,5 +1,5 @@
 "use client";
-import React, { SyntheticEvent } from "react";
+import React from "react";
 import { Separator } from "@/components/ui/separator";
 import { PinLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
@@ -11,8 +11,7 @@ interface Props {
 
 export const AdminPageTitle = ({ title }: Props) => {
   const { back, refresh } = useRouter();
-  const handleClick = (e: SyntheticEvent) => {
-    e.preventDefault();
+  const handleClick = () => {
     back();
     refresh();
   };
@@ -23,7 +22,7 @@ export const AdminPageTitle = ({ title }: Props) => {
         <Button variant="ghost" onClick={handleClick}>
           <PinLeftIcon className="text-foreground text-2xl" />
         </Button>
-        <h2 className="text-2xl font-bold capitalize text-foreground uppercase">
+        <h2 className="text-2xl font-bold capitalize text-foreground ">
           {title}
         </h2>
       </div>
