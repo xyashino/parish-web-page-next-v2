@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils";
 import { useTable } from "@/lib/hooks/useTable";
 import { DataTableBody } from "./dataTableBody";
 import { DataTableHeader } from "./dataTableHeader";
-import { DataTableTitle } from "./dataTableTitle";
+import { Card, CardContent } from "@/components/ui/card";
+import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -25,20 +26,25 @@ export const DataTable = <TData, TValue>({
 }: DataTableProps<TData, TValue>) => {
   const table = useTable(tableProps);
   const tableClasses = cn("rounded-xl border mx-auto", className);
-  const wrapperClasses = cn("w-11/12 mx-auto space-y-2 mb-2", wrapperClassName);
+  const wrapperClasses = cn("w-11/12 mx-auto mb-2", wrapperClassName);
 
   return (
-    <div className={wrapperClasses}>
-      {tableTitle && <DataTableTitle title={tableTitle} />}
-      <div className={tableClasses}>
-        <Table>
+    <Card className={wrapperClasses}>
+      {tableTitle && (
+        <CardHeaderWithSeparator
+          title={tableTitle}
+          separatorClasses="w-11/12"
+        />
+      )}
+      <CardContent>
+        <Table className={tableClasses}>
           <DataTableHeader table={table} />
           <DataTableBody
             table={table}
             columnsLength={tableProps.columns.length}
           />
         </Table>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 };
