@@ -11,19 +11,20 @@ export const useModifyAlbumLogic = () => {
   const submitMethod = async (values: z.infer<typeof modifyAlbumSchema>) => {
     const { categoryId, subtitle, ...rest } = values;
     if (id)
-      return AlbumCrud.update(id, {
+      await AlbumCrud.update(id, {
         ...rest,
         categoryId: categoryId && categoryId !== "" ? categoryId : null,
         subtitle: subtitle ?? null,
       });
-    await AlbumCrud.create({
-      ...rest,
-      categoryId: categoryId && categoryId !== "" ? categoryId : null,
-      subtitle: subtitle ?? null,
-      coverId: null,
-    });
-    close();
+    else
+      await AlbumCrud.create({
+        ...rest,
+        categoryId: categoryId && categoryId !== "" ? categoryId : null,
+        subtitle: subtitle ?? null,
+        coverId: null,
+      });
     refresh();
+    close();
   };
 
   const headerData: ModifyDialogHeaderProps = {
