@@ -3,7 +3,7 @@ import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { UpdateIcon } from "@radix-ui/react-icons";
 import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 import { Card, CardContent } from "@/components/ui/card";
-import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
 import { DayIntentions } from "@/types/interfaces/week-intentions-store.interface";
 import { ClearButtonWithAlert } from "./clearButtonWithAlert";
 import { DeleteButtonWithAlert } from "./deleteButtonWithAlert";

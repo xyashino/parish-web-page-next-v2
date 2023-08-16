@@ -2,7 +2,7 @@ import React from "react";
 import { MdEditor } from "@/components/MdEditor";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent } from "@/components/ui/card";
-import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
 
 import { AnnouncementsInputsFields } from "./announcementsInputsFields";
 

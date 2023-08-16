@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { SelectStatus } from "@/components/SelectStatus";
 import { Card, CardContent } from "@/components/ui/card";
-import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
 
 export const ModifyIntentionsCard = () => {
   const { updateWeek, weekIntentions, updateStatus } = useWeekIntentionsStore();

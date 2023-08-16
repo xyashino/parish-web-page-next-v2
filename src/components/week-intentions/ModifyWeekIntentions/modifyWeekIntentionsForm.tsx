@@ -10,7 +10,7 @@ import { PlusCircledIcon } from "@radix-ui/react-icons";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
 import { Card, CardContent } from "@/components/ui/card";
-import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
 import { SwitchWithLabel } from "@/components/SwitchWithLabel";
 import { weekIntentionsFormSchema } from "@/lib/schemas/week-intentions";
 

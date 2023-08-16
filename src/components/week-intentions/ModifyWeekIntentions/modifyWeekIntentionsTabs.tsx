@@ -4,7 +4,7 @@ import { weekdayTranslator } from "@/lib/utils";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { ModifyDayIntentions } from "./modifyDayIntentions";
 import { Card, CardContent } from "@/components/ui/card";
-import { CardHeaderWithSeparator } from "@/components/CardHeaderWithSeparator";
+import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
 
 export const ModifyWeekIntentionsTabs = () => {
   const { dayIntentions, activeDay, updateActiveDay } =
