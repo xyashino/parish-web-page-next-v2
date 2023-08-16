@@ -6,10 +6,9 @@ import { RevalidateTag } from "@/types/enums";
 
 export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
-  const { name, order }: Category = await request.json();
+  const changeData: Omit<Category, "id"> = await request.json();
   const categories = await updateCategory(id, {
-    name,
-    order,
+    ...changeData,
   });
   revalidateTag(RevalidateTag.CATEGORIES);
 
