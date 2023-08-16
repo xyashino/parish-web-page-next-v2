@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { ProviderButton } from "@/components/login";
 import { GoogleIcon } from "@/components/icons/GoogleIcon";
