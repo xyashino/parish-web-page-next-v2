@@ -11,7 +11,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <div className="flex h-screen w-screen max-w-full overflow-hidden">
       <AdminNavigationSideBar />
       <Separator orientation="vertical" />
-      <main className="flex-grow flex flex-col overflow-hidden">
+      <main className="flex-grow flex flex-col overflow-hidden bg-muted">
         <div className="flex-grow overflow-y-scroll">{children}</div>
         <Footer />
       </main>
