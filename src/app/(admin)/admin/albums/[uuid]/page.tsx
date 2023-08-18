@@ -10,6 +10,7 @@ import {
   AlbumInfoCard,
   AlbumTabs,
 } from "@/components/album";
+import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
 
 type AlbumWithRelations = Album & {
   images: Image[] | null;
@@ -36,10 +37,10 @@ const MenageAlbum = async ({ params: { uuid } }: ParamsWithUUID) => {
     <div className="flex flex-col space-y-2">
       <AdminPageTitle title={`Album: "${album.title}"`} />
       <div className="mx-4 w-full lg:w-11/12 lg:mx-auto space-y-4">
-        <div className="w-full justify-around flex">
+        <DashboardCardContainer>
           <AlbumInfoCard albumData={album} images={images ?? []} />
           <AlbumCoverImageCard imageCoverId={album.coverId} />
-        </div>
+        </DashboardCardContainer>
         <AlbumTabs images={images ?? []} />
       </div>
     </div>

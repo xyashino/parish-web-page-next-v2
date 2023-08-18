@@ -30,12 +30,12 @@ export const ModifyAnnouncementsControls = ({
         description="Na stronie głównej wyświetlane są tylko jede aktywne ogłoszenia. Które
         sa wybierane losowo."
       />
-      <CardContent className="flex justify-around">
+      <CardContent className="flex flex-col md:flex-row justify-around space-y-4 md:space-y-0 place-items-center">
         <ClearButtonWithAlert onConfirm={clearMethod} />
         <ButtonWithIcon
           text="Zapisz"
           Icon={UpdateIcon}
-          className="w-1/4"
+          className="w-full md:w-1/3"
           onClick={handleSave}
         />
         {isEdit && <DeleteButtonWithAlert onConfirm={deleteMethod} />}

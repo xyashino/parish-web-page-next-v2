@@ -18,7 +18,7 @@ interface Props {
 
 export const ModifyAnnouncementsMainCard = (props: Props) => {
   return (
-    <Card className="w-11/12 mx-auto">
+    <Card className="w-full mx-2 lg:w-11/12 lg:mx-auto">
       <CardHeaderWithSeparator
         title="Ogłoszenia Parafialne"
         description="Tworzysz/edytujesz ogłoszenia parafialne. Pamietaj, żeby nie zapomnieć o zapisaniu zmian!"

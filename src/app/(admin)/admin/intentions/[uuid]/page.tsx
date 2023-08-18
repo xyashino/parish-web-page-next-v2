@@ -20,10 +20,10 @@ const EditOneIntention = async ({ params: { uuid } }: any) => {
   );
   if (!weekIntention) return notFound();
   return (
-    <div className="flex flex-col space-y-6 p-4 rounded-xl lg:w-11/12 mx-auto">
+    <>
       <AdminPageTitle title={"Edytujesz Intencje o ID" + uuid} />
       <ModifyWeekIntentions defaultValue={weekIntention} />
-    </div>
+    </>
   );
 };
 export default EditOneIntention;

@@ -5,13 +5,14 @@ import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
 import { NavigationBtn } from "@/components/navigation";
 import { WeekIntentionsDataTable } from "@/components/week-intentions";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
+import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
 
 const IntentionsPage = async () => {
   const intentions = await getManyWeekIntentions();
   return (
     <div className="flex flex-col space-y-6">
       <AdminPageTitle title="Zarządzaj Intencjami parafialnymi" />
-      <div className="w-5/6 mx-auto flex justify-around items-center mb-4">
+      <DashboardCardContainer>
         <SummaryStatusCard
           title="Podsumowanie Intencji"
           emptyArrayMessage="Brak Intencji Parafialnych"
@@ -21,7 +22,7 @@ const IntentionsPage = async () => {
           href={Navigation.CREATE_INTENTIONS}
           buttonText="Dodaj Intencje"
         />
-      </div>
+      </DashboardCardContainer>
       <WeekIntentionsDataTable data={intentions} />
     </div>
   );

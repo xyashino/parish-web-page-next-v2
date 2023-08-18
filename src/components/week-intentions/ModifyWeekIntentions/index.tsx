@@ -22,8 +22,8 @@ export const ModifyWeekIntentions = ({ defaultValue }: Props) => {
   }, [defaultValue, updateAll, clearAll, setEditorValue]);
 
   return (
-    <div className="w-11/12 mx-auto space-y-8">
-      <div className="flex flex-wrap justify-around space-x-2 rounded-xl w-full">
+    <div className="w-full mx-4 lg:w-11/12 lg:mx-auto space-y-8">
+      <div className="flex flex-col lg:flex-row lg:flex-wrap justify-around space-x-2 rounded-xl lg:w-full mx-auto space-y-4">
         <ModifyWeekIntentionsControls />
         <ModifyIntentionsCard />
       </div>

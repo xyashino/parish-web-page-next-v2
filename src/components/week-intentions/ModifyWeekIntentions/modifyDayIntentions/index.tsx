@@ -15,7 +15,7 @@ export const ModifyDayIntentions = ({ intentions, ...rest }: Props) => (
     className="mx-auto mt-4 w-full rounded-2xl shadow"
   >
     <ModifyDayHeader {...rest} />
-    <div className="flex w-full flex-col bg-slate-200 mb-8">
+    <div className="flex w-full flex-col bg-slate-200 ">
       {intentions.length === 0 ? (
         <ModifyDayEmptyTableInfo />
       ) : (

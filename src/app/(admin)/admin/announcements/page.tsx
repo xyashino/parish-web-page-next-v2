@@ -6,6 +6,7 @@ import { NavigationBtn } from "@/components/navigation";
 import { apiCall } from "@/lib/utils";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
 import { AnnouncementsDataTable } from "@/components/announcements";
+import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
 
 const AnnouncementsPage = async () => {
   const announcements = await apiCall<Announcements[]>(
@@ -18,7 +19,7 @@ const AnnouncementsPage = async () => {
   return (
     <div className="flex flex-col space-y-6">
       <AdminPageTitle title="Zarządzaj ogłoszeniami parafialnymi" />
-      <div className="w-5/6 mx-auto flex justify-around items-center mb-4">
+      <DashboardCardContainer>
         <SummaryStatusCard
           title="Podsumowanie Ogłoszeń"
           emptyArrayMessage="Brak Ogłoszeń"
@@ -28,7 +29,7 @@ const AnnouncementsPage = async () => {
           href={Navigation.CREATE_ANNOUNCEMENT}
           buttonText="Dodaj ogłosznia"
         />
-      </div>
+      </DashboardCardContainer>
       <AnnouncementsDataTable data={announcements} />
     </div>
   );

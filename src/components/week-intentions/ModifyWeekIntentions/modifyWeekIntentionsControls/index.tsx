@@ -36,7 +36,7 @@ export const ModifyWeekIntentionsControls = () => {
   return (
     <Card>
       <CardHeaderWithSeparator title="Zarządzaj intencjami" />
-      <CardContent className="flex flex-col  space-y-4">
+      <CardContent className="flex flex-wrap space-y-4  items-center">
         <ButtonWithIcon
           text="Zapisz"
           Icon={UpdateIcon}

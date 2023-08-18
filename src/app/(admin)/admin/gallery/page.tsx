@@ -11,6 +11,7 @@ import {
   CategoriesDataTable,
   ModifyCategoryDialog,
 } from "@/components/categories";
+import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
 
 const AdministratorsManagePage = async () => {
   const albums = await apiCall<Album[]>(ApiRoute.BASE_ALBUMS, {
@@ -20,29 +21,28 @@ const AdministratorsManagePage = async () => {
     next: { tags: [RevalidateTag.CATEGORIES] },
   });
   return (
-    <div className="flex flex-col space-y-6 mb-4">
+    <div className="flex flex-col space-y-2 lg:space-y-6 mb-4">
       <AdminPageTitle title="Zarządzaj Galerią" />
-
-      <div className="flex justify-around items-center w-10/12 mx-auto">
+      <DashboardCardContainer>
         <SummaryShowFieldsCard
           values={albums}
           title="Podsumowanie Albumów"
           emptyArrayMessage="Brak Albumów"
         />
         <ModifyAlbumDialog />
-      </div>
+      </DashboardCardContainer>
       <AlbumsDataTable data={albums} />
 
       <Separator className="w-10/12 mx-auto" />
 
-      <div className="flex justify-around items-center w-10/12 mx-auto">
+      <DashboardCardContainer>
         <SummaryShowFieldsCard
           values={categories}
           title="Podsumowanie Katagorii"
           emptyArrayMessage="Brak Katagorii"
         />
         <ModifyCategoryDialog />
-      </div>
+      </DashboardCardContainer>
       <CategoriesDataTable data={categories} />
     </div>
   );
