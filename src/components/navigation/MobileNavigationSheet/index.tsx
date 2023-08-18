@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { NavigationLink } from "@/components/navigation";
-import { SingleNavigationItem } from "@/types/interfaces/navigation.interface";
+import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
 import { MobileNavigationSheetTrigger } from "./mobileNavigationSheetTrigger";
 import { MobileNavigationSheetHeader } from "./mobileNavigationSheetHeader";
 import { MobileNavigationSheetLogoutFooter } from "./mobileNavigationSheetLogoutFooter";
 
 interface Props {
-  navigationRoutes: SingleNavigationItem[];
+  navigationRoutes: SingleNavigationItemWithIcon[];
   showLogout?: boolean;
 }
 
