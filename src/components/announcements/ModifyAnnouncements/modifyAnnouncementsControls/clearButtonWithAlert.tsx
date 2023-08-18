@@ -1,5 +1,5 @@
 import React from "react";
-import { ConfirmAlert } from "@/components/ConfirmAlert";
+import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 import { ResetIcon } from "@radix-ui/react-icons";
 
 interface Props {
@@ -21,7 +21,7 @@ export const ClearButtonWithAlert = ({ onConfirm }: Props) => (
     }}
     triggerData={{
       triggerValue,
-      className: "w-1/4",
+      className: "w-full md:w-1/3",
     }}
     footerData={{
       doAfterConfirm: onConfirm,
