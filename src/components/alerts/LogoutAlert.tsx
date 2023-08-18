@@ -3,7 +3,12 @@ import React from "react";
 import { signOut } from "next-auth/react";
 import { ExitIcon } from "@radix-ui/react-icons";
 import { Separator } from "@/components/ui/separator";
-import { ConfirmAlert } from "@/components/ConfirmAlert";
+import { ConfirmAlert } from "./ConfirmAlert";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  className?: string;
+}
 
 const triggerValue = (
   <>
@@ -11,8 +16,8 @@ const triggerValue = (
     <p className="text-background">Wyloguj</p>
   </>
 );
-export const LogoutAlert = () => (
-  <div className="space-y-2 w-11/12 mx-auto">
+export const LogoutAlert = ({ className }: Props) => (
+  <div className={cn("space-y-2 w-11/12 mx-auto", className)}>
     <Separator className="w-5/6 mx-auto" />
     <ConfirmAlert
       headerData={{
