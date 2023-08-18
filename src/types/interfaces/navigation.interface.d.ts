@@ -1,15 +1,26 @@
 import React from "react";
 
-interface SingleNavigationItem {
+interface SingleNavigationItemWithIcon {
   href: string;
   text: string;
   nestedRoutes?: undefined;
   icon?: React.ReactNode;
 }
 
-interface NavigationGroup {
+interface SingleNavigationItem {
   href: string;
-  text: string;
-  nestedRoutes: SingleNavigationItem[];
-  icon?: React.ReactNode;
+  title: string;
+  description?: string;
 }
+
+interface NestedItem {
+  title: string;
+  nestedRoutes: SingleNavigationItem[];
+}
+
+export interface NavigationItem {
+  title: string;
+  href: string;
+}
+
+type NestedNavigationItem = NavigationItem | NestedItem;
