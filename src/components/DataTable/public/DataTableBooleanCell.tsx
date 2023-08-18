@@ -9,7 +9,7 @@ export const DataTableBooleanCell = ({ value }: Props) => {
 
   return (
     <span
-      className={`px-2 py-1 select-none rounded-md text-white text-sm  uppercase font-bold ${className} mx-auto`}
+      className={`px-2 py-1 select-none rounded-md text-white text-xs  uppercase font-bold ${className} mx-auto`}
     >
       {value ? "Tak" : "Nie"}
     </span>

@@ -34,7 +34,7 @@ interface Props {
 export const DataTableStatusCell = ({ status }: Props) => {
   const { className, text } = getStatusColor(status);
   const spanClasses = cn(
-    "px-2 py-1 select-none rounded-md text-white text-sm  uppercase font-bold shadow-sm",
+    "px-2 py-1 select-none rounded-md text-white text-xs  uppercase font-bold shadow-sm",
     className
   );
   return <span className={spanClasses}>{text} </span>;
