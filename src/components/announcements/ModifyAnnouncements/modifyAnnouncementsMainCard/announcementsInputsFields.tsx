@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { SelectStatus } from "@/components/SelectStatus";
 import {
   AnnouncementsData,
@@ -19,20 +19,18 @@ export const AnnouncementsInputsFields = ({
     updateMethod({ key: "status", value: status });
   };
 
-  const updateSubtitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const updateSubtitle = (e: ChangeEvent<HTMLInputElement>) => {
     const subtitle = e.target.value;
     updateMethod({ key: "subtitle", value: subtitle });
   };
   return (
-    <div className="w-5/6 flex mx-auto space-x-10">
-      <div className="">
-        <SelectStatus
-          defaultValue={status}
-          doAfterChange={updateStatus}
-          label="Status:"
-        />
-      </div>
-      <div className="flex-grow">
+    <div className="lg:w-5/6 flex place-items-center  flex-col md:flex-row mx-auto space-x-10">
+      <SelectStatus
+        defaultValue={status}
+        doAfterChange={updateStatus}
+        label="Status:"
+      />
+      <div className="grow">
         <Label id="subtitle">Podtytuł:</Label>
         <Input
           value={subtitle ?? ""}
