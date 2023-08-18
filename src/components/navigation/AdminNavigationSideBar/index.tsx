@@ -1,10 +1,10 @@
 import React, { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
-import { ADMIN_NAVIGATION_ROUTES } from "@/lib/constants/admin-navigation-routes.constant";
 import { NavigationLink } from "@/components/navigation";
 import { AdminSidebarHeader } from "./adminSidebarHeader";
 import * as crypto from "crypto";
 import { LogoutAlert } from "@/components/alerts/LogoutAlert";
+import { ADMIN_NAVIGATION_ROUTES } from "@/config/routes/admin";
 
 interface SidebarProps extends HTMLAttributes<HTMLDivElement> {}
 
