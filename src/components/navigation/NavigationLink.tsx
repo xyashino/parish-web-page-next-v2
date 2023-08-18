@@ -3,29 +3,39 @@ import React from "react";
 import { SingleNavigationItem } from "@/types/interfaces/navigation.interface";
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 interface Props extends SingleNavigationItem {
   className?: string;
+  onClick?: () => void;
 }
 
-export const NavigationLink = ({ text, href, className, icon }: Props) => {
+export const NavigationLink = ({
+  text,
+  href,
+  className,
+  icon,
+  onClick,
+}: Props) => {
   const path = usePathname();
   const { push } = useRouter();
+
   const linkClasses = cn(
-    "rounded space-x-2 p-2 group  flex items-center font-bold transition-colors text-left font-mono uppercase  w-full",
-    path.startsWith(href) ? "bg-foreground text-background" : "hover:bg-muted",
+    "space-x-2 font-bold  justify-normal font-mono uppercase  w-full",
+    path.startsWith(href)
+      ? "bg-foreground text-background hover:bg-accent-foreground hover:text-accent-background"
+      : "",
     className
   );
+
+  const handleClick = () => {
+    push(href);
+    onClick && onClick();
+  };
   return (
-    <button className={linkClasses} onClick={() => push(href)}>
-      {!!icon && (
-        <span className="text-xl lg:text-2xl  transition-transform duration-500 ease-in-out lg:p-1 rounded">
-          {icon}
-        </span>
-      )}
-      <span className="text-sm md:text-md transition-transform duration-500 ease-in-out">
-        {text}
-      </span>
-    </button>
+    <Button variant="ghost" className={linkClasses} onClick={handleClick}>
+      {!!icon && <span className="text-xl lg:text-2xl lg:p-1">{icon}</span>}
+      <span className="text-sm md:text-md">{text}</span>
+    </Button>
   );
 };
