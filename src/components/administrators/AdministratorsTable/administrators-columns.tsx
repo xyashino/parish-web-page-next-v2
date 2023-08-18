@@ -1,14 +1,10 @@
 import React from "react";
-import { ColumnDef } from "@tanstack/react-table";
-import { DataTableSortBtn } from "@/components/DataTable/public/DataTableSortBtn";
 import { Admin } from "@prisma/client";
-import DeleteAdministratorAction from "./deleteAdministratorAction";
+import { ColumnDef } from "@tanstack/react-table";
+import { DataTableSortBtn } from "@/components/DataTable";
+import { DeleteAdministratorAction } from "./deleteAdministratorAction";
 
 export const administratorsColumns: ColumnDef<Admin>[] = [
-  {
-    accessorKey: "id",
-    header: "ID",
-  },
   {
     accessorKey: "email",
     header: ({ column }) => (
