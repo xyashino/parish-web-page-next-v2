@@ -7,7 +7,7 @@ interface Props {
 export const IntentionsDataTableDateCell = ({ value }: Props) => {
   if (!value)
     return (
-      <span className="py-1 px-2 uppercase text-white bg-zinc-900 rounded-sm font-bold">
+      <span className="py-1 px-2 uppercase text-white bg-zinc-900 rounded-sm font-bold text-xs">
         Brak
       </span>
     );
