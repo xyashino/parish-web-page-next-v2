@@ -58,6 +58,8 @@ export const MdEditor: React.FC<Props> = ({
         ref={editorRef}
         onBlur={handleBlur}
         autofocus={false}
+        theme="dark"
+        language="pl-PL"
       />
     </div>
   );
