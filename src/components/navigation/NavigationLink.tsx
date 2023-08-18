@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { SingleNavigationItem } from "@/types/interfaces/navigation.interface";
+import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
-interface Props extends SingleNavigationItem {
+interface Props extends SingleNavigationItemWithIcon {
   className?: string;
   onClick?: () => void;
 }
