@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import ChurchIcon from "@/components/icons/ChurchIcon";
 import { Navigation } from "@/types/enums";
 import { cn } from "@/lib/utils";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
 interface Props {
   navigateTo?: string;
@@ -10,16 +12,19 @@ interface Props {
   renderAsLink?: boolean;
 }
 
-const LOGO_CLASSES =
-  "flex items-center  group text-foreground space-x-2 transition-colors duration-200  hover:bg-slate-200 px-4 rounded select-none text-xl";
+const LOGO_CLASSES = navigationMenuTriggerStyle();
 
 export const Logo = ({ renderAsLink = true, className, navigateTo }: Props) => {
-  const logoClasses = cn(LOGO_CLASSES, className);
+  const logoClasses = cn(
+    LOGO_CLASSES,
+    "text-xl space-x-4 bg-transparent",
+    className
+  );
 
   if (renderAsLink)
     return (
       <Link className={logoClasses} href={navigateTo ?? Navigation.CLIENT_HOME}>
-        <ChurchIcon className="text-center group-hover:scale-125 transition-transform duration-500 ease-in-out" />
+        <ChurchIcon className="text-center transition-transform duration-500 ease-in-out" />
         <span className="italic align-middle">Parafia Gruszów Wielki</span>
       </Link>
     );
