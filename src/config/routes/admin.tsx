@@ -1,4 +1,4 @@
-import { SingleNavigationItem } from "@/types/interfaces/navigation.interface";
+import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
 import {
   ImageIcon,
   PersonIcon,
@@ -6,7 +6,7 @@ import {
   FileTextIcon,
 } from "@radix-ui/react-icons";
 
-export const ADMIN_NAVIGATION_ROUTES: SingleNavigationItem[] = [
+export const ADMIN_NAVIGATION_ROUTES: SingleNavigationItemWithIcon[] = [
   {
     href: "/admin/intentions",
     text: "Intencje",
