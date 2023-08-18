@@ -2,10 +2,10 @@ import React from "react";
 import { Logo } from "@/components/Logo";
 import { Navigation } from "@/types/enums";
 import { MobileNavigationSheet } from "../MobileNavigationSheet";
-import { SingleNavigationItem } from "@/types/interfaces/navigation.interface";
+import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
 
 interface Props {
-  navigationRoutes: SingleNavigationItem[];
+  navigationRoutes: SingleNavigationItemWithIcon[];
 }
 
 export const AdminSidebarHeader = ({ navigationRoutes }: Props) => {
