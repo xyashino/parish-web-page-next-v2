@@ -3,13 +3,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { deleteAdministratorApiCall } from "@/lib/services/administrators/api-calls";
 import { useRouter } from "next/navigation";
-import { ConfirmAlert } from "@/components/ConfirmAlert";
+import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 
 interface Props {
   id: string;
 }
 
-const DeleteAdministratorAction = ({ id }: Props) => {
+export const DeleteAdministratorAction = ({ id }: Props) => {
   const { refresh } = useRouter();
 
   const handleDelete = async () => {
@@ -33,5 +33,3 @@ const DeleteAdministratorAction = ({ id }: Props) => {
     />
   );
 };
-
-export default DeleteAdministratorAction;

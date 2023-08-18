@@ -1,6 +1,6 @@
 import React from "react";
-import { ConfirmAlert } from "@/components/ConfirmAlert";
 import { TrashIcon } from "@radix-ui/react-icons";
+import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 
 interface Props {
   onConfirm: () => void;

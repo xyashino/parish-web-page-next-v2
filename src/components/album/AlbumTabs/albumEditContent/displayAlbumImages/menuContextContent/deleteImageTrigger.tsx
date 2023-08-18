@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from "react";
 import { ContextMenuItem } from "@/components/ui/context-menu";
-import { ConfirmAlert } from "@/components/ConfirmAlert";
+import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { deleteImageApiCall } from "@/lib/services/images/api-calls";
 import { useRouter } from "next/navigation";
