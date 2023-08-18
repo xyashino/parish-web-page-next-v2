@@ -7,10 +7,6 @@ import { DataTableSortBtn, DataTableStatusCell } from "@/components/DataTable";
 
 export const intentionsColumns: ColumnDef<WeekIntentions>[] = [
   {
-    accessorKey: "id",
-    header: () => <span className="font-bold w-10">ID</span>,
-  },
-  {
     accessorKey: "status",
     header: ({ column }) => (
       <DataTableSortBtn
