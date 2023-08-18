@@ -8,11 +8,11 @@ export const metadata = {
 };
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <div className="flex h-screen w-screen max-w-full overflow-hidden">
+    <div className="flex flex-col lg:flex-row h-screen w-screen max-w-full overflow-hidden">
       <AdminNavigationSideBar />
-      <Separator orientation="vertical" />
-      <main className="flex-grow flex flex-col overflow-hidden bg-muted">
-        <div className="flex-grow overflow-y-scroll">{children}</div>
+      <Separator orientation="vertical" className="hidden lg:block" />
+      <main className="grow flex flex-col justify-between overflow-hidden  overflow-y-scroll   bg-muted">
+        {children}
         <Footer />
       </main>
     </div>
