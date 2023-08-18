@@ -47,9 +47,9 @@ export const ModifyWeekIntentionsForm = ({
           formSchema={weekIntentionsFormSchema}
           defaultValues={defaultContent}
           onSubmit={onSubmit}
-          className="flex flex-wrap items-center justify-around"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full"
         >
-          <div className="flex flex-col space-y-4  items-center justify-around">
+          <div className="flex flex-col space-y-2  items-center justify-around">
             <FormField
               name="order"
               render={({ field }) => (
@@ -75,19 +75,22 @@ export const ModifyWeekIntentionsForm = ({
               )}
             />
           </div>
-          <div className="flex flex-col justify-around h-full">
+          <div className="flex flex-col justify-around items-center space-y-4">
             <SwitchWithLabel
               value={switchValue}
               onChange={setSwitchValue}
               labelText="Czyść formularz po dodaniu intencji?"
               id="clearForm"
             />
-            <ButtonWithIcon text="Dodaj Intencje" Icon={PlusCircledIcon} />
+            <ButtonWithIcon
+              text="Dodaj Intencje"
+              Icon={PlusCircledIcon}
+              className="w-max-[100px]"
+            />
           </div>
-
-          <Separator className="w-5/6 my-4" />
-          <MdEditor editorHeight="300px" />
         </CustomForm>
+        <Separator className="w-5/6 my-4" />
+        <MdEditor editorHeight="300px" />
       </CardContent>
     </Card>
   );

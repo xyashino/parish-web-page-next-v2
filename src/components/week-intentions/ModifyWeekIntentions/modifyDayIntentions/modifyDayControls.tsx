@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Status } from ".prisma/client";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { SelectStatus } from "@/components/SelectStatus";
-import { ConfirmAlert } from "@/components/ConfirmAlert";
+import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 
 export const ModifyDayControls = () => {
   const { clearAll, updateStatus, weekIntentions } = useWeekIntentionsStore();
@@ -54,7 +54,6 @@ export const ModifyDayControls = () => {
                 ? new Date(weekIntentions.startWeek).toISOString().slice(0, 10)
                 : ""
             }
-            // onChange={updateWeekDate}
           />
         </div>
       </div>

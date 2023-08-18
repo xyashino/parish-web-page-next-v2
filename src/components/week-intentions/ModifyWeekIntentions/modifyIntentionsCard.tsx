@@ -19,7 +19,7 @@ export const ModifyIntentionsCard = () => {
         title="Ustawienia dla całego tygodnia"
         description="Tutaj możesz ustawić status doaz datę ( w przypadku daty ustaw najbliższy poniedziałek )"
       />
-      <CardContent className="flex justify-around">
+      <CardContent className="flex justify-around  flex-col  md:flex-row items-center space-y-2">
         <SelectStatus
           defaultValue={weekIntentions.status}
           doAfterChange={updateStatus}
