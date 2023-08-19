@@ -7,6 +7,12 @@ import {
 import { ListItem } from "./listItem";
 import { NestedItem } from "@/types/interfaces/navigation.interface";
 
+const calculateColSpan = (currentIndex: number, totalLength: number) => {
+  return currentIndex === totalLength - 1 && totalLength % 2
+    ? "lg:col-span-2"
+    : "";
+};
+
 export const ClientDesktopNavigationNestedList = ({
   title,
   nestedRoutes,
@@ -16,13 +22,13 @@ export const ClientDesktopNavigationNestedList = ({
       <NavigationMenuTrigger> {title} </NavigationMenuTrigger>
       <NavigationMenuContent>
         <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-          {nestedRoutes.map((component) => (
+          {nestedRoutes.map(({ description, ...rest }, i) => (
             <ListItem
-              key={component.title}
-              title={component.title}
-              href={component.href}
+              key={`${rest.href}-${i}`}
+              {...rest}
+              className={calculateColSpan(i, nestedRoutes.length)}
             >
-              {component.description}
+              {description}
             </ListItem>
           ))}
         </ul>
