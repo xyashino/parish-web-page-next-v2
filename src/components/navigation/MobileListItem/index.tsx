@@ -1,16 +1,11 @@
 "use client";
 import React, { SyntheticEvent, useState } from "react";
-import { NavigationGroup } from "@/types/interfaces/navigation.interface";
 import { NavigationLink } from "@/components/navigation";
 import { ToggleButton } from "./toggleButton";
 import { ListWrapper } from "./listWrapper";
+import { NestedItem } from "@/types/interfaces/navigation.interface";
 
-export const MobileNavigationDropdown = ({
-  nestedRoutes,
-  href,
-  text,
-  icon,
-}: NavigationGroup) => {
+export const MobileListItem = ({ title, nestedRoutes }: NestedItem) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = (e: SyntheticEvent) => {
@@ -20,14 +15,14 @@ export const MobileNavigationDropdown = ({
 
   return (
     <div>
-      <ToggleButton {...{ isOpen, toggle, icon, text }} />
+      <ToggleButton {...{ isOpen, toggle, title }} />
       <ListWrapper isOpen={isOpen}>
-        {nestedRoutes?.map(({ icon, text, href: routeHref }, i) => (
+        {nestedRoutes?.map(({ href, title }, i) => (
           <NavigationLink
-            key={`${routeHref}-${i}}`}
-            href={`${href}/${routeHref}`}
+            key={`${href}-${i}}`}
+            href={href}
             className="rounded-none"
-            {...{ icon, text }}
+            title={title}
           />
         ))}
       </ListWrapper>
