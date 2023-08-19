@@ -4,6 +4,7 @@ import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.inte
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
 interface Props extends SingleNavigationItemWithIcon {
   className?: string;
@@ -11,7 +12,7 @@ interface Props extends SingleNavigationItemWithIcon {
 }
 
 export const NavigationLink = ({
-  text,
+  title,
   href,
   className,
   icon,
@@ -21,7 +22,8 @@ export const NavigationLink = ({
   const { push } = useRouter();
 
   const linkClasses = cn(
-    "space-x-2 font-bold  justify-normal font-mono uppercase  w-full",
+    navigationMenuTriggerStyle(),
+    "space-x-2 font-bold  justify-normal font-mono uppercase w-full",
     path.startsWith(href)
       ? "bg-foreground text-background hover:bg-accent-foreground hover:text-accent-background"
       : "",
@@ -35,7 +37,7 @@ export const NavigationLink = ({
   return (
     <Button variant="ghost" className={linkClasses} onClick={handleClick}>
       {!!icon && <span className="text-xl lg:text-2xl lg:p-1">{icon}</span>}
-      <span className="text-sm md:text-md">{text}</span>
+      <span className="text-md truncate">{title}</span>
     </Button>
   );
 };
