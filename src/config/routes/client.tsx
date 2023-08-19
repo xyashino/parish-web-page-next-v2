@@ -5,14 +5,14 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
     title: "Ogłoszenia",
     nestedRoutes: [
       {
-        title: "Ogłoszenia Parfialne",
+        title: "Ogłoszenia Parafialne",
         href: "/announcements",
-        description: "Lorem",
+        description: "Lorem ipsum dolor sit amet...",
       },
       {
-        title: "Intencje Parfialne",
+        title: "Intencje Parafialne",
         href: "/intentions",
-        description: "Lorem",
+        description: "Lorem ipsum dolor sit amet...",
       },
     ],
   },
@@ -24,14 +24,19 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
     title: "Duszpasterstwo",
     nestedRoutes: [
       {
-        title: "Ogłoszenia Parfialne",
-        href: "/announcements",
-        description: "Lorem",
+        title: "Sakramenty",
+        href: "/sacrament",
+        description: "Informacje o sakramentach...",
       },
       {
-        title: "Intencje Parfialne",
-        href: "/intentions",
-        description: "Lorem",
+        title: "Pogrzeb",
+        href: "/funeral",
+        description: "Procedury związane z pogrzebami...",
+      },
+      {
+        title: "Grupy Duszpasterskie",
+        href: "/groups",
+        description: "Lista grup działających przy parafii...",
       },
     ],
   },
@@ -39,14 +44,29 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
     title: "Parafia",
     nestedRoutes: [
       {
-        title: "Ogłoszenia Parfialne",
-        href: "/announcements",
-        description: "Lorem",
+        title: "Patron",
+        href: "/patron",
+        description: "Informacje o patronie parafii...",
       },
       {
-        title: "Intencje Parfialne",
-        href: "/intentions",
-        description: "Lorem",
+        title: "Nabożeństwa",
+        href: "/services",
+        description: "Harmonogram nabożeństw...",
+      },
+      {
+        title: "Rada Duszpasterska",
+        href: "/council",
+        description: "Zadania i działania rady duszpasterskiej...",
+      },
+      {
+        title: "Proboszczowie w historii parafii",
+        href: "/clergy",
+        description: "Lista proboszczów, którzy prowadzili parafię...",
+      },
+      {
+        title: "Kancelaria Parafialna",
+        href: "/office",
+        description: "Godziny otwarcia i kontakt do kancelarii...",
       },
     ],
   },
