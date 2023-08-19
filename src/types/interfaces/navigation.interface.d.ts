@@ -2,8 +2,7 @@ import React from "react";
 
 interface SingleNavigationItemWithIcon {
   href: string;
-  text: string;
-  nestedRoutes?: undefined;
+  title: string;
   icon?: React.ReactNode;
 }
 
