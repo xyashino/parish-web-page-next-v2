@@ -1,14 +1,16 @@
+"use client";
 import React from "react";
 import { Logo } from "@/components/Logo";
 import { Navigation } from "@/types/enums";
 import { MobileNavigationSheet } from "../MobileNavigationSheet";
 import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
+import { NavigationLink } from "@/components/navigation";
 
 interface Props {
   navigationRoutes: SingleNavigationItemWithIcon[];
 }
 
-export const AdminSidebarHeader = ({ navigationRoutes }: Props) => {
+export const AdminNavbarHeader = ({ navigationRoutes }: Props) => {
   return (
     <div className="py-5 px-2 xl:px-3.5 2xl:px-5 space-y-1 bg-foreground flex justify-between">
       <Logo
@@ -16,7 +18,15 @@ export const AdminSidebarHeader = ({ navigationRoutes }: Props) => {
         navigateTo={Navigation.ADMIN_HOME}
       />
       <MobileNavigationSheet
-        navigationRoutes={navigationRoutes}
+        renderItems={(onClick) =>
+          navigationRoutes.map((route, i) => (
+            <NavigationLink
+              key={`${route.href}-${i}`}
+              onClick={onClick}
+              {...route}
+            />
+          ))
+        }
         showLogout={true}
       />
     </div>
