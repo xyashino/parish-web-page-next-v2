@@ -2,37 +2,25 @@
 import React, { useState } from "react";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { NavigationLink } from "@/components/navigation";
-import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
 import { MobileNavigationSheetTrigger } from "./mobileNavigationSheetTrigger";
 import { MobileNavigationSheetHeader } from "./mobileNavigationSheetHeader";
 import { MobileNavigationSheetLogoutFooter } from "./mobileNavigationSheetLogoutFooter";
 
 interface Props {
-  navigationRoutes: SingleNavigationItemWithIcon[];
   showLogout?: boolean;
+  renderItems: (onClick: () => void) => React.ReactNode[];
 }
 
-export const MobileNavigationSheet = ({
-  navigationRoutes,
-  showLogout,
-}: Props) => {
+export const MobileNavigationSheet = ({ showLogout, renderItems }: Props) => {
   const [open, setOpen] = useState(false);
-  const closeSheet = () => setOpen(false);
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <MobileNavigationSheetTrigger />
-      <SheetContent>
+      <SheetContent className="overflow-y-scroll">
         <MobileNavigationSheetHeader />
         <div className="grid gap-4 py-4 grow">
           <Separator className="w-5/6 mx-auto" />
-          {navigationRoutes.map((route, i) => (
-            <NavigationLink
-              key={`${route.href}-${i}`}
-              onClick={closeSheet}
-              {...route}
-            />
-          ))}
+          {renderItems(() => setOpen(false))}
         </div>
         {showLogout && <MobileNavigationSheetLogoutFooter />}
       </SheetContent>

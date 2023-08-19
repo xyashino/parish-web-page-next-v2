@@ -6,7 +6,7 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 export const MobileNavigationSheetTrigger = () => (
   <SheetTrigger asChild className="lg:hidden">
     <Button variant="ghost">
-      <HamburgerMenuIcon className="w-6 h-6 text-background" />
+      <HamburgerMenuIcon className="w-6 h-6 text-black" />
     </Button>
   </SheetTrigger>
 );
