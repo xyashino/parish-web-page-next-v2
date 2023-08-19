@@ -9,22 +9,22 @@ import {
 export const ADMIN_NAVIGATION_ROUTES: SingleNavigationItemWithIcon[] = [
   {
     href: "/admin/intentions",
-    text: "Intencje",
+    title: "Intencje",
     icon: <ChatBubbleIcon />,
   },
   {
     href: "/admin/announcements",
-    text: "Ogłoszenia",
+    title: "Ogłoszenia",
     icon: <FileTextIcon />,
   },
   {
     href: "/admin/gallery",
-    text: "Galeria",
+    title: "Galeria",
     icon: <ImageIcon />,
   },
   {
     href: "/admin/administrators",
-    text: "Administratorzy",
+    title: "Administratorzy",
     icon: <PersonIcon />,
   },
 ];
