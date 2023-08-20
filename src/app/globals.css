@@ -84,23 +84,3 @@
   }
 }
 
-textarea::-webkit-scrollbar {
-  width: 0;
-}
-
-
-::-webkit-scrollbar {
-  width: 10px;
-  border-radius: 20px;
-}
-::-webkit-scrollbar-track {
-  background: var(--foreground);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--foreground);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--foreground);
-}
