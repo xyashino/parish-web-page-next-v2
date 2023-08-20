@@ -7,7 +7,7 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
       {
         title: "Ogłoszenia Parafialne",
         href: "/announcements",
-        description: "Lorem ipsum dolor sit amet...",
+        description: "Aktualne ogłosznenia na ten tydzień...",
       },
       {
         title: "Intencje Parafialne",
