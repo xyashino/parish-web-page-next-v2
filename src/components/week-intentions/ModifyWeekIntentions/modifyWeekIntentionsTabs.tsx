@@ -23,7 +23,7 @@ export const ModifyWeekIntentionsTabs = () => {
               <TabsTrigger
                 key={id}
                 value={id}
-                className="px-4 font-mono font-bold uppercase text-md xl:text-xl flex-grow min-w-1/4"
+                className="px-4 font-extrabold capitalize text-xl flex-grow basis-1/3 md:basis-1/4 lg:basis-auto"
               >
                 {weekdayTranslator.get(value.day)}
               </TabsTrigger>
