@@ -1,4 +1,4 @@
-import { Status } from "@prisma/client";
+import { Day, Status, Weekday } from "@prisma/client";
 
 export const getLengthByEnumStatus = <T extends { status: Status }>(
   values: T[],
@@ -15,4 +15,10 @@ export const getErrorMessage = (error: unknown) => {
   let errorMessage = "Unknown error";
   if (error instanceof Error) errorMessage = error.message;
   return errorMessage;
+};
+
+export const getActiveDayID = (days: Day[]) => {
+  const getCurrentDay = new Date().getDay() - 1;
+  const activeDay = Object.values(Weekday).at(getCurrentDay);
+  return days.find((day) => day.day === activeDay)?.id ?? days[0].id;
 };
