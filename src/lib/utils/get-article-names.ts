@@ -1,3 +1,4 @@
+"use server";
 import { join } from "path";
 import { readdir } from "node:fs/promises";
 
