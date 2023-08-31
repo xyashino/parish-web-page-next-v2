@@ -3,7 +3,7 @@ import Image from "next/image";
 export interface ImageTextSectionProps {
   src: string;
   alt: string;
-  title: string;
+  title?: string;
   subtitle?: string | null;
 }
 
@@ -23,15 +23,16 @@ export const ImageTextSection = ({
         draggable={false}
       />
     </div>
-    <div className="lg:rounded-xl grid place-items-center  -translate-y-1/2 select-none w-full p-8 bg-foreground md:w-11/12 md:mx-auto text-center">
-      <h2 className="text-background text-2xl font-bold lg:text-4xl capitalize italic">
-        {title}
-      </h2>
-      {!!subtitle && (
-        <h3 className="italic text-background text-md font-light lg:text-2xl">
-          {subtitle}
-        </h3>
-      )}
-    </div>
+      {!!title &&
+          <div className="lg:rounded-xl grid place-items-center  -translate-y-1/2 select-none w-full p-8 bg-foreground md:w-11/12 md:mx-auto text-center">
+              <h2 className="text-background text-2xl font-bold lg:text-4xl capitalize italic">
+                  {title}
+              </h2>
+              {!!subtitle && (
+                  <h3 className="italic text-background text-md font-light lg:text-2xl">
+                      {subtitle}
+                  </h3>
+              )}
+          </div>}
   </section>
 );
