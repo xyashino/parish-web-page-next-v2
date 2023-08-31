@@ -4,7 +4,7 @@ import { Logo } from "@/components/Logo";
 import { Navigation } from "@/types/enums";
 import { MobileNavigationSheet } from "../MobileNavigationSheet";
 import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
-import { NavigationLink } from "@/components/navigation";
+import { NavigationLink } from "@/components/navigation/NavigationLink";
 
 interface Props {
   navigationRoutes: SingleNavigationItemWithIcon[];
