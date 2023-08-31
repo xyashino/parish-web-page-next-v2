@@ -4,8 +4,8 @@ import React from "react";
 import { MobileNavigationSheet } from "@/components/navigation/MobileNavigationSheet";
 import { CLIENT_NAVIGATION_ROUTES } from "@/config/routes/client";
 import { MobileListItem } from "@/components/navigation/MobileListItem";
-import { NavigationLink } from "@/components/navigation";
 import { Separator } from "@/components/ui/separator";
+import { NavigationLink } from "@/components/navigation/NavigationLink";
 
 export const ClientMobileNavigation = () => (
   <div className="block lg:hidden">

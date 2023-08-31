@@ -1,10 +1,10 @@
 import React, { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
-import { NavigationLink } from "@/components/navigation";
 import { AdminNavbarHeader } from "./adminNavbarHeader";
 import * as crypto from "crypto";
 import { LogoutAlert } from "@/components/alerts/LogoutAlert";
 import { ADMIN_NAVIGATION_ROUTES } from "@/config/routes/admin";
+import { NavigationLink } from "@/components/navigation/NavigationLink";
 
 interface SidebarProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -12,7 +12,7 @@ export const AdminNavbar = ({ className }: SidebarProps) => (
   <div
     className={cn(
       "lg:pb-12 w-full lg:w-1/4  xl:w-1/5 2xl:w-1/6  shadow-lg z-20 flex flex-col",
-      className
+      className,
     )}
     tabIndex={0}
   >
