@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
-import { AdminNavbar } from "@/components/navigation";
 import { Footer } from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
+import { AdminNavbar } from "@/components/navigation/AdminNavbar";
 
 export const metadata = {
   title: "Create Next App",
