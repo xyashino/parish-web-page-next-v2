@@ -30,7 +30,7 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
       },
       {
         title: "Pogrzeb",
-        href: "/funeral",
+        href: "/article/funeral",
         description: "Procedury związane z pogrzebami...",
       },
       {
@@ -45,27 +45,27 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
     nestedRoutes: [
       {
         title: "Patron",
-        href: "/patron",
+        href: "/article/patron",
         description: "Informacje o patronie parafii...",
       },
       {
         title: "Nabożeństwa",
-        href: "/services",
+        href: "/article/services",
         description: "Harmonogram nabożeństw...",
       },
       {
         title: "Rada Duszpasterska",
-        href: "/council",
+        href: "/article/council",
         description: "Zadania i działania rady duszpasterskiej...",
       },
       {
         title: "Proboszczowie w historii parafii",
-        href: "/clergy",
+        href: "/article/clergy",
         description: "Lista proboszczów, którzy prowadzili parafię...",
       },
       {
         title: "Kancelaria Parafialna",
-        href: "/office",
+        href: "/article/office",
         description: "Godziny otwarcia i kontakt do kancelarii...",
       },
     ],
