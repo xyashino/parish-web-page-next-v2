@@ -4,3 +4,5 @@ export * from "./weekday-translator";
 export * from "./api-call-with-toast";
 export * from "./api-revalidate-call";
 export * from "./common";
+export * from "./get-article-by-file-name";
+export * from "./get-article-names";
