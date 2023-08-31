@@ -5,7 +5,7 @@ import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { WeekIntentionsStoreData } from "@/types/interfaces/week-intentions-store.interface";
 import notFound from "@/app/not-found";
 import { ApiRoute } from "@/types/enums";
-import { ModifyWeekIntentions } from "@/components/week-intentions";
+import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekIntentions";
 
 export async function generateStaticParams() {
   const intentions = await getManyWeekIntentions();
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 
 const EditOneIntention = async ({ params: { uuid } }: any) => {
   const weekIntention = await apiCall<WeekIntentionsStoreData>(
-    `${ApiRoute.BASE_WEEK_INTENTIONS}/${uuid}`
+    `${ApiRoute.BASE_WEEK_INTENTIONS}/${uuid}`,
   );
   if (!weekIntention) return notFound();
   return (

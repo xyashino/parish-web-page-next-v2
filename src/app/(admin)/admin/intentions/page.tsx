@@ -2,10 +2,10 @@ import React from "react";
 import { Navigation } from "@/types/enums";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
-import { NavigationBtn } from "@/components/navigation";
-import { WeekIntentionsDataTable } from "@/components/week-intentions";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
+import { NavigationBtn } from "@/components/navigation/NavigationBtn";
+import { WeekIntentionsDataTable } from "@/components/week-intentions/WeekIntentionsDataTable";
 
 const IntentionsPage = async () => {
   const intentions = await getManyWeekIntentions();

@@ -1,17 +1,15 @@
 import React from "react";
 import { Album, Category } from "@prisma/client";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
-
 import { apiCall } from "@/lib/utils";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
 import { Separator } from "@/components/ui/separator";
 import { SummaryShowFieldsCard } from "@/components/cards/SummaryShowFieldsCard";
-import { AlbumsDataTable, ModifyAlbumDialog } from "@/components/album";
-import {
-  CategoriesDataTable,
-  ModifyCategoryDialog,
-} from "@/components/categories";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
+import { ModifyAlbumDialog } from "@/components/album/ModifyAlbumDialog";
+import { AlbumsDataTable } from "@/components/album/AlbumsDataTable";
+import { ModifyCategoryDialog } from "@/components/categories/ModifyCategoryDialog";
+import { CategoriesDataTable } from "@/components/categories/CategoriesDataTable";
 
 const AdministratorsManagePage = async () => {
   const albums = await apiCall<Album[]>(ApiRoute.BASE_ALBUMS, {

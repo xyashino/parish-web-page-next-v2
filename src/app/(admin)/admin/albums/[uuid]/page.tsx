@@ -5,12 +5,10 @@ import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
 import { getAlbums } from "@/lib/db/album";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
-import {
-  AlbumCoverImageCard,
-  AlbumInfoCard,
-  AlbumTabs,
-} from "@/components/album";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
+import { AlbumInfoCard } from "@/components/album/AlbumInfoCard";
+import { AlbumCoverImageCard } from "@/components/album/AlbumCoverImageCard";
+import { AlbumTabs } from "@/components/album/AlbumTabs";
 
 type AlbumWithRelations = Album & {
   images: Image[] | null;
@@ -29,7 +27,7 @@ const MenageAlbum = async ({ params: { uuid } }: ParamsWithUUID) => {
     `${ApiRoute.BASE_ALBUMS}/${uuid}`,
     {
       next: { tags: [RevalidateTag.IMAGES, RevalidateTag.ALBUMS] },
-    }
+    },
   );
 
   if (!album) return notFound();

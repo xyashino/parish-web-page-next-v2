@@ -2,7 +2,7 @@ import React from "react";
 import notFound from "@/app/not-found";
 import { getAnnouncement, getAnnouncements } from "@/lib/db/announcement";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
-import { ModifyAnnouncements } from "@/components/announcements";
+import { ModifyAnnouncements } from "@/components/announcements/ModifyAnnouncements";
 
 export async function generateStaticParams() {
   const announcements = await getAnnouncements();
