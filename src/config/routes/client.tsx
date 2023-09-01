@@ -12,7 +12,7 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
       {
         title: "Intencje Parafialne",
         href: "/intentions",
-        description: "Lorem ipsum dolor sit amet...",
+        description: "Aktualne intencje na ten tydzien...",
       },
     ],
   },
@@ -25,7 +25,7 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
     nestedRoutes: [
       {
         title: "Sakramenty",
-        href: "/sacrament",
+        href: "/articles/sacrament",
         description: "Informacje o sakramentach...",
       },
       {
@@ -35,7 +35,7 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
       },
       {
         title: "Grupy Duszpasterskie",
-        href: "/groups",
+        href: "/articles/groups",
         description: "Lista grup działających przy parafii...",
       },
     ],
@@ -59,9 +59,9 @@ export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
         description: "Zadania i działania rady duszpasterskiej...",
       },
       {
-        title: "Proboszczowie w historii parafii",
-        href: "/article/clergy",
-        description: "Lista proboszczów, którzy prowadzili parafię...",
+        title: "Historia Parafii",
+        href: "/article/history",
+        description: "Historyczne informacje dotyczące parafii...",
       },
       {
         title: "Kancelaria Parafialna",
