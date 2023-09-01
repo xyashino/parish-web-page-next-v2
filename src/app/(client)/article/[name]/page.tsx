@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { ArticleWrapper } from "@/layouts/ArticleWrapper";
-import { getArticleByFileName, getArticleNames } from "@/lib/utils";
+import { getArticleByFileName, getArticleNames } from "@/lib/utils/mdx";
 
 const ARTICLE_PATH = "/src/articles" as const;
 
