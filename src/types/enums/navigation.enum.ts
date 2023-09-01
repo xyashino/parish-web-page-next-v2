@@ -12,4 +12,5 @@ export enum Navigation {
   CREATE_ANNOUNCEMENTS = "/admin/announcements/create",
   // CLIENT
   CLIENT_HOME = "/",
+  CLIENT_ALBUM = "/albums",
 }
