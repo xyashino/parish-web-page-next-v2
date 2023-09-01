@@ -18,7 +18,7 @@ export const WeekIntentionsContent = ({ days }: Props) => {
     <Tabs defaultValue={getActiveDayID(days)}>
       <TabsList
         className="flex h-auto w-full flex-wrap items-center justify-center"
-        id={`${TAB_LIST_ID}`}
+        id={TAB_LIST_ID}
       >
         {days.map(({ day, id }) => (
           <CustomTriggerWithScroll
