@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getCategoriesWithAlbums } from "@/lib/db/category/get-categories-with-albums";
+import { getCategoriesWithAlbums } from "@/lib/db/category";
 import { CategorySection } from "@/components/CategorySection";
 import { Navigation } from "@/types/enums";
 
