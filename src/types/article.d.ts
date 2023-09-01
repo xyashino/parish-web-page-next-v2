@@ -3,10 +3,10 @@ interface ImageMetadata {
   bgcAlt: string;
 }
 
-// type ArticleImageMetadata = {
-//   title: string;
-//   order: number;
-// } & (ImageMetadata | {});
+type SubArticleMetaData = {
+  title: string;
+  order: number;
+} & (ImageMetadata | {});
 
 type BaseArticleMetadata = {
   title?: string;
