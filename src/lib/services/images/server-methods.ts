@@ -1,6 +1,6 @@
 "use server";
 import sharp from "sharp";
-import { unlink, mkdir, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readdir, unlink, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { deleteImage } from "@/lib/db/image";
 import { getAlbumWithRelations } from "@/lib/db/album";
@@ -57,9 +57,9 @@ export const clearImage = async (id: string) => {
   if (!UPLOAD_DIR) throw new Error("Upload dir not found");
   try {
     const deletedImage = await deleteImage(id);
-    await unlink(
-      join(process.cwd(), UPLOAD_DIR, deletedImage.path ?? "test.png")
-    );
+    if (deletedImage.path) {
+      await unlink(join(process.cwd(), UPLOAD_DIR, deletedImage.path));
+    }
     return deletedImage;
   } catch (error) {
     throw new Error("Something went wrong");
