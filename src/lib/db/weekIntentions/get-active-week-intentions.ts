@@ -6,8 +6,8 @@ type Result = WeekIntentions & {
   days: (Day & { intentions: Intention[] })[];
 };
 
-export const getActiveWeekIntentions = async (): Promise<Result> => {
-  const result = await client.weekIntentions.findFirst({
+export const getActiveWeekIntentions = async (): Promise<Result | null> =>
+  client.weekIntentions.findFirst({
     where: { status: "ACTIVE" },
     include: {
       days: {
@@ -21,6 +21,3 @@ export const getActiveWeekIntentions = async (): Promise<Result> => {
       },
     },
   });
-  if (!result) throw new Error("Intention not found");
-  return result;
-};
