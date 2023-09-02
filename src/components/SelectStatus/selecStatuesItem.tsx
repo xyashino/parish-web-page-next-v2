@@ -11,7 +11,7 @@ interface Props extends SelectProps {
 
 export const SelectStatusItem = ({ value, ...props }: Props) => {
   return (
-    <Select {...props}>
+    <Select {...props} value={value}>
       <SelectStatusTrigger value={value} />
       <SelectContent>
         <SelectStatusGroup />

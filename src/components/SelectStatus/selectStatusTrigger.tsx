@@ -9,7 +9,7 @@ interface Props {
 export const SelectStatusTrigger = ({ value }: Props) => {
   return (
     <SelectTrigger className="uppercase min-w-[200px]" value={value}>
-      <SelectValue placeholder="BRAK" />
+      <SelectValue placeholder="BRAK" defaultValue={value} />
     </SelectTrigger>
   );
 };
