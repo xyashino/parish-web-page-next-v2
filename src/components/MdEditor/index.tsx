@@ -1,10 +1,8 @@
-import React from "react";
+import React, { forwardRef, useLayoutEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { Editor as EditorType, EditorProps } from "@toast-ui/react-editor";
 import { EditorWrapperForwardedProps } from "@/components/MdEditor/editorWrapper";
-import { forwardRef, useLayoutEffect, useRef } from "react";
 import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
-import "@toast-ui/editor/dist/toastui-editor.css";
 
 interface EditorPropsWithHandlers extends EditorProps {
   onChange?(value: string): void;
@@ -12,7 +10,7 @@ interface EditorPropsWithHandlers extends EditorProps {
 
 const Editor = dynamic<EditorWrapperForwardedProps>(
   () => import("./editorWrapper"),
-  { ssr: false }
+  { ssr: false },
 );
 const EditorWithForwardedRef = forwardRef<
   EditorType | undefined,
@@ -34,7 +32,6 @@ export const MdEditor: React.FC<Props> = ({
 }) => {
   const { setEditorValue, editorValue } = useMdEditorStore();
   const editorRef = useRef<EditorType | null>(null);
-
   useLayoutEffect(() => {
     if (editorRef.current) {
       editorRef.current.getInstance().setMarkdown(editorValue);
@@ -58,7 +55,6 @@ export const MdEditor: React.FC<Props> = ({
         ref={editorRef}
         onBlur={handleBlur}
         autofocus={false}
-        theme="dark"
         language="pl-PL"
       />
     </div>
