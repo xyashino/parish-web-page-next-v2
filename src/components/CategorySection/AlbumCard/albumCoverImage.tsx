@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { ImageIcon } from "@radix-ui/react-icons";
-import { CategoriesCover } from "@/types/category";
+import { CategoriesCover } from "@/types/db/category";
 
 interface Props {
   cover: CategoriesCover;

@@ -1,12 +1,12 @@
 import React from "react";
-import { Category } from "@prisma/client";
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { DataTableActionsDropDown } from "@/components/DataTable";
 import { CategoryDeleteAction } from "./categoryDeleteAction";
 import { CategoryEditAction } from "./categoryEditAction";
+import { NotNullCategoryResponse } from "@/types/db/category";
 
 interface Props {
-  categoryData: Category;
+  categoryData: NotNullCategoryResponse;
 }
 
 export const CategoryDropDownActions = ({ categoryData }: Props) => {

@@ -2,12 +2,12 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { AlbumCard } from "@/components/CategorySection/AlbumCard";
 import { Separator } from "@/components/ui/separator";
 import { EmptySection } from "@/components/CategorySection/emptySection";
-import { RelationCategoriesResponse } from "@/types/category";
+import { CategoryWithAlbumsResponse } from "@/types/db/category";
 
 export const CategorySection = ({
   name,
   albums,
-}: RelationCategoriesResponse) => {
+}: CategoryWithAlbumsResponse) => {
   return (
     <section className="mb-12">
       <div className="space-y-1 text-center">

@@ -1,10 +1,10 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { Category } from "@prisma/client";
 import { DataTableBooleanCell, DataTableSortBtn } from "@/components/DataTable";
 import { CategoryDropDownActions } from "./categoryDropDownActions";
+import { NotNullCategoryResponse } from "@/types/db/category";
 
-export const categoryColumns: ColumnDef<Category>[] = [
+export const categoryColumns: ColumnDef<NotNullCategoryResponse>[] = [
   {
     accessorKey: "order",
     header: ({ column }) => (

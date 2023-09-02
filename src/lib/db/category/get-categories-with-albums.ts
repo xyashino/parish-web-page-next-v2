@@ -1,8 +1,8 @@
 import client from "@/lib/db";
-import { RelationCategoriesResponse } from "@/types/category";
+import { CategoryWithAlbumsResponse } from "@/types/db/category";
 
 export const getCategoriesWithAlbums = async (): Promise<
-  RelationCategoriesResponse[] | []
+  CategoryWithAlbumsResponse[]
 > =>
   await client.category.findMany({
     orderBy: {
@@ -10,6 +10,7 @@ export const getCategoriesWithAlbums = async (): Promise<
     },
     select: {
       id: true,
+      name: true,
       albums: {
         where: {
           show: true,
@@ -17,15 +18,14 @@ export const getCategoriesWithAlbums = async (): Promise<
         select: {
           id: true,
           title: true,
+          subtitle: true,
           cover: {
             select: {
               id: true,
               path: true,
             },
           },
-          subtitle: true,
         },
       },
-      name: true,
     },
   });

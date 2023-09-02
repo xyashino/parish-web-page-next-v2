@@ -1,12 +1,13 @@
 import client from "@/lib/db";
+import { CategoryResponse } from "@/types/db/category";
 
-export const deleteCategory = async (id: string) => {
+export const deleteCategory = async (id: string): Promise<CategoryResponse> => {
   try {
     return await client.category.delete({
       where: { id },
     });
   } catch (error) {
     console.error(error);
-    throw new Error("Category not found");
+    return null;
   }
 };

@@ -1,11 +1,11 @@
 "use client";
 import React, { PropsWithChildren } from "react";
 import { DataTable } from "@/components/DataTable";
-import { Category } from "@prisma/client";
 import { categoryColumns } from "./category-columns";
+import { CategoriesResponse } from "@/types/db/category";
 
 interface Props extends PropsWithChildren {
-  data: Category[];
+  data: CategoriesResponse;
 }
 
 export const CategoriesDataTable = ({ data }: Props) => (

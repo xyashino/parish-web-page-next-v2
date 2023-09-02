@@ -1,11 +1,11 @@
 import React, { SyntheticEvent } from "react";
-import { Category } from "@prisma/client";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
 import { useCategoryDialogStore } from "@/lib/store";
+import { NotNullCategoryResponse } from "@/types/db/category";
 
 interface Props {
-  categoryData: Category;
+  categoryData: NotNullCategoryResponse;
 }
 
 export const CategoryEditAction = ({
@@ -20,7 +20,7 @@ export const CategoryEditAction = ({
         order: order ?? 0,
         show,
       },
-      id
+      id,
     );
   };
   return (
