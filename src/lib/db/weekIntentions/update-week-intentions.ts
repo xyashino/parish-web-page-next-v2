@@ -1,10 +1,11 @@
 import { Prisma } from "@prisma/client";
 import client from "@/lib/db";
+import { WeekIntentionsResponse } from "@/types/db/week-intentions";
 
 export const updateWeekIntentions = async (
   id: string,
-  data: Prisma.WeekIntentionsUpdateInput
-) => {
+  data: Prisma.WeekIntentionsUpdateInput,
+): Promise<WeekIntentionsResponse> => {
   try {
     return await client.weekIntentions.update({
       where: { id },
@@ -12,6 +13,6 @@ export const updateWeekIntentions = async (
     });
   } catch (error) {
     console.error(error);
-    throw new Error("Something went wrong");
+    return null;
   }
 };
