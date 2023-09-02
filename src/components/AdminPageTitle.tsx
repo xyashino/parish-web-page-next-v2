@@ -7,9 +7,10 @@ import { useRouter } from "next/navigation";
 
 interface Props {
   title: string;
+  description?: string | null;
 }
 
-export const AdminPageTitle = ({ title }: Props) => {
+export const AdminPageTitle = ({ title, description }: Props) => {
   const { back, refresh } = useRouter();
   const handleClick = () => {
     back();
@@ -22,9 +23,14 @@ export const AdminPageTitle = ({ title }: Props) => {
         <Button variant="ghost" onClick={handleClick}>
           <PinLeftIcon className="text-foreground text-2xl" />
         </Button>
-        <h2 className="text-xl lg:text-2xl font-bold capitalize text-foreground  text-center">
-          {title}
-        </h2>
+        <div>
+          <h2 className="text-xl lg:text-2xl font-bold capitalize text-foreground  text-center">
+            {title}
+          </h2>
+          {description && (
+            <p className="text-muted-foreground">{description}</p>
+          )}
+        </div>
       </div>
       <Separator className="indent-2" />
     </div>
