@@ -15,7 +15,6 @@ export const AlbumCoverImageCard = ({ imageCoverId }: Props) => {
     useAlbumCoverImageStore();
 
   useLayoutEffect(() => {
-    console.log("imageCoverId", imageCoverId);
     if (imageCoverId === null) return setCoverImage(imageCoverId);
     setCoverImageByImageId(imageCoverId);
   }, [imageCoverId, setCoverImage, setCoverImageByImageId]);

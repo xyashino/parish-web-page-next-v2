@@ -6,5 +6,5 @@ export const AlbumCrud = new BaseCrudApiCall(
   ApiRoute.BASE_ALBUMS,
   [RevalidateTag.ALBUMS],
   true,
-  ALBUM_API_MESSAGES
+  ALBUM_API_MESSAGES,
 );

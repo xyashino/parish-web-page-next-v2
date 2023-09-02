@@ -1,5 +1,5 @@
 import React from "react";
-import { Album, Category } from "@prisma/client";
+import { Category } from "@prisma/client";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
 import { AdminPageTitle } from "@/components/AdminPageTitle";
@@ -10,9 +10,10 @@ import { ModifyAlbumDialog } from "@/components/album/ModifyAlbumDialog";
 import { AlbumsDataTable } from "@/components/album/AlbumsDataTable";
 import { ModifyCategoryDialog } from "@/components/categories/ModifyCategoryDialog";
 import { CategoriesDataTable } from "@/components/categories/CategoriesDataTable";
+import { AlbumsResponse } from "@/types/db/album";
 
 const AdministratorsManagePage = async () => {
-  const albums = await apiCall<Album[]>(ApiRoute.BASE_ALBUMS, {
+  const albums = await apiCall<AlbumsResponse>(ApiRoute.BASE_ALBUMS, {
     next: { tags: [RevalidateTag.ALBUMS] },
   });
   const categories = await apiCall<Category[]>(ApiRoute.BASE_CATEGORIES, {
@@ -21,17 +22,6 @@ const AdministratorsManagePage = async () => {
   return (
     <div className="flex flex-col space-y-2 lg:space-y-6 mb-4">
       <AdminPageTitle title="Zarządzaj Galerią" />
-      <DashboardCardContainer>
-        <SummaryShowFieldsCard
-          values={albums}
-          title="Podsumowanie Albumów"
-          emptyArrayMessage="Brak Albumów"
-        />
-        <ModifyAlbumDialog />
-      </DashboardCardContainer>
-      <AlbumsDataTable data={albums} />
-
-      <Separator className="w-10/12 mx-auto" />
 
       <DashboardCardContainer>
         <SummaryShowFieldsCard
@@ -42,6 +32,18 @@ const AdministratorsManagePage = async () => {
         <ModifyCategoryDialog />
       </DashboardCardContainer>
       <CategoriesDataTable data={categories} />
+
+      <Separator className="w-10/12 mx-auto" />
+
+      <DashboardCardContainer>
+        <SummaryShowFieldsCard
+          values={albums}
+          title="Podsumowanie Albumów"
+          emptyArrayMessage="Brak Albumów"
+        />
+        <ModifyAlbumDialog />
+      </DashboardCardContainer>
+      <AlbumsDataTable data={albums} />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import client from "@/lib/db";
-import { AlbumResponse } from "@/types/album";
+import { AlbumResponse } from "@/types/db/album";
 
 export const deleteAlbum = async (id: string): Promise<AlbumResponse> => {
   try {

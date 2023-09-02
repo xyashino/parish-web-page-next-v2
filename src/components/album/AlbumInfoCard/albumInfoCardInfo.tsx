@@ -1,15 +1,13 @@
 import React from "react";
-import { Album, Category, Image } from "@prisma/client";
-
-export interface AlbumInfoCardInfoProps {
-  albumData: Album & { category: Category | null };
-  images: Image[];
-}
+import { AlbumWithRelationsResponse } from "@/types/db/album";
 
 export const AlbumInfoCardInfo = ({
-  albumData: { title, subtitle, show, category },
   images,
-}: AlbumInfoCardInfoProps) => (
+  category,
+  subtitle,
+  title,
+  show,
+}: Exclude<AlbumWithRelationsResponse, null>) => (
   <>
     <p>
       <span className="font-bold">Tytuł: </span>
