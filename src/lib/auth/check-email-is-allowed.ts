@@ -1,9 +1,9 @@
-import { getAdministratorByEmail } from "@/lib/db/administrators";
+import { getAdministratorByEmail } from "@/lib/db/administrator";
 
 const checkByEnvList = (email: string) => {
   const { ALLOW_EMAIL_LIST } = process.env;
   const allowEmailList = ALLOW_EMAIL_LIST?.split(",").map((email) =>
-    email.trim()
+    email.trim(),
   );
   return allowEmailList?.includes(email);
 };

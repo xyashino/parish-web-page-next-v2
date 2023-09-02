@@ -1,8 +1,9 @@
 import { ApiRoute } from "@/types/enums";
 import { apiCallWithToast } from "@/lib/utils";
+import { AdministratorResponse } from "@/types/db/administrator";
 
 export const createAdministratorApiCall = async (values: { email: string }) => {
-  await apiCallWithToast({
+  await apiCallWithToast<AdministratorResponse>({
     url: ApiRoute.BASE_ADMINISTRATORS,
     fetchOptions: {
       method: "POST",
@@ -17,7 +18,7 @@ export const createAdministratorApiCall = async (values: { email: string }) => {
 };
 
 export const deleteAdministratorApiCall = async (id: string) => {
-  await apiCallWithToast({
+  await apiCallWithToast<AdministratorResponse>({
     url: `${ApiRoute.BASE_ADMINISTRATORS}/${id}`,
     fetchOptions: {
       method: "DELETE",
