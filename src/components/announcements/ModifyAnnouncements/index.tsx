@@ -3,11 +3,11 @@ import React from "react";
 import { ModifyAnnouncementsControls } from "./modifyAnnouncementsControls";
 import { ModifyAnnouncementsMainCard } from "./modifyAnnouncementsMainCard";
 import { Separator } from "@/components/ui/separator";
-import { Announcements } from "@prisma/client";
 import { useModifyAnnouncementLogic } from "@/lib/hooks/useModifyAnnouncementLogic";
+import { AnnouncementResponse } from "@/types/db/announcement";
 
 interface Props {
-  defaultValue?: Announcements;
+  defaultValue?: Exclude<AnnouncementResponse, null>;
 }
 
 export const ModifyAnnouncements = ({ defaultValue }: Props) => {

@@ -1,18 +1,19 @@
 import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
 import { useEffect, useState } from "react";
-import { Announcements } from "@prisma/client";
 import { useRouter } from "next/navigation";
-
 import { UpdateAnnouncementData } from "@/types/announcement-edit";
 import { DEFAULT_ANNOUNCEMENT_DATA } from "@/lib/constants/announcements";
 import { AnnouncementsCrud } from "@/lib/services";
+import { AnnouncementResponse } from "@/types/db/announcement";
 
-export const useModifyAnnouncementLogic = (defaultValue?: Announcements) => {
+export const useModifyAnnouncementLogic = (
+  defaultValue?: AnnouncementResponse,
+) => {
   const { setEditorValue, editorValue: value } = useMdEditorStore();
   const { back, refresh } = useRouter();
 
   const [announcementData, setAnnouncementData] = useState(
-    DEFAULT_ANNOUNCEMENT_DATA
+    DEFAULT_ANNOUNCEMENT_DATA,
   );
 
   useEffect(() => {
