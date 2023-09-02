@@ -25,6 +25,7 @@ export const ModifyAnnouncements = ({ defaultValue }: Props) => {
       <ModifyAnnouncementsMainCard
         data={announcementData}
         updateMethod={updateAnnouncementData}
+        defaultContent={defaultValue?.value}
       />
     </div>
   );
