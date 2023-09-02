@@ -1,11 +1,11 @@
 import client from "@/lib/db";
 
-export const getWeekIntentionWithRelations = async (id: string) =>
-  client.weekIntentions.findUnique({
+export const getWeekIntentionWithRelations = async (id: string) => {
+  const result = await client.weekIntentions.findUnique({
     where: { id },
-    include: {
+    select: {
       days: {
-        include: {
+        select: {
           intentions: {
             orderBy: {
               order: "asc",
@@ -15,3 +15,7 @@ export const getWeekIntentionWithRelations = async (id: string) =>
       },
     },
   });
+
+  if (!result) throw new Error("Intention not found");
+  return result;
+};
