@@ -1,21 +1,30 @@
 import client from "@/lib/db";
+import { WeekIntentionsWithRelationsResponse } from "@/types/db/week-intentions";
 
-export const getWeekIntentionWithRelations = async (id: string) => {
-  const result = await client.weekIntentions.findUnique({
-    where: { id },
-    select: {
-      days: {
-        select: {
-          intentions: {
-            orderBy: {
-              order: "asc",
+export const getWeekIntentionWithRelations = async (
+  id: string,
+): Promise<WeekIntentionsWithRelationsResponse> => {
+  try {
+    return await client.weekIntentions.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        status: true,
+        endWeek: true,
+        startWeek: true,
+        days: {
+          select: {
+            intentions: {
+              orderBy: {
+                order: "asc",
+              },
             },
           },
         },
       },
-    },
-  });
-
-  if (!result) throw new Error("Intention not found");
-  return result;
+    });
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
 };
