@@ -1,10 +1,11 @@
 import client from "@/lib/db";
 import { Prisma } from "@prisma/client";
+import { AlbumResponse } from "@/types/album";
 
 export const updateAlbum = async (
   id: string,
-  data: Prisma.AlbumUpdateInput
-) => {
+  data: Prisma.AlbumUpdateInput,
+): Promise<AlbumResponse> => {
   try {
     return await client.album.update({
       where: { id },
@@ -12,6 +13,6 @@ export const updateAlbum = async (
     });
   } catch (error) {
     console.error(error);
-    throw new Error("Something went wrong");
+    return null;
   }
 };
