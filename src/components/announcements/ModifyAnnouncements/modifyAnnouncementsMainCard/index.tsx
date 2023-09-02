@@ -14,9 +14,13 @@ import {
 interface Props {
   data: AnnouncementsData;
   updateMethod: (a: UpdateAnnouncementData) => void;
+  defaultContent?: string;
 }
 
-export const ModifyAnnouncementsMainCard = (props: Props) => {
+export const ModifyAnnouncementsMainCard = ({
+  defaultContent,
+  ...rest
+}: Props) => {
   return (
     <Card className="w-full mx-2 lg:w-11/12 lg:mx-auto">
       <CardHeaderWithSeparator
@@ -24,9 +28,9 @@ export const ModifyAnnouncementsMainCard = (props: Props) => {
         description="Tworzysz/edytujesz ogłoszenia parafialne. Pamietaj, żeby nie zapomnieć o zapisaniu zmian!"
       />
       <CardContent>
-        <AnnouncementsInputsFields {...props} />
+        <AnnouncementsInputsFields {...rest} />
         <Separator className="w-5/6 my-4" />
-        <MdEditor editorHeight="600px" />
+        <MdEditor editorHeight="600px" defaultContent={defaultContent} />
       </CardContent>
     </Card>
   );
