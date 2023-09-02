@@ -1,12 +1,12 @@
 import { Album, Category, Image } from "@prisma/client";
 
-export type AlbumWithRelationsResponse =
+type AlbumWithRelationsResponse =
   | (Album & {
       images: Image[];
     } & {
       category: Category | null;
     })
   | null;
+type AlbumsResponse = Album[];
 
-export type AlbumsResponse = Album[];
-export type AlbumResponse = Album | null;
+type AlbumResponse = Album | null;
