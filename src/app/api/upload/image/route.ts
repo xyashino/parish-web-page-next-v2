@@ -22,10 +22,12 @@ export async function POST(request: Request) {
   const imageEntity = await createImage(
     `${UPLOAD_DIR_ALBUM}/`,
     albumId,
-    "webp"
+    "webp",
   );
 
-  if (!imageEntity.path) throw new Error("Something went wrong");
+  if (!imageEntity || !imageEntity.path)
+    throw new Error("Something went wrong");
+
   await saveAsWebp(await file.arrayBuffer(), imageEntity.path);
   revalidateTag(RevalidateTag.IMAGES);
   return NextResponse.json(imageEntity);

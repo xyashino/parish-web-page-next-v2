@@ -1,18 +1,18 @@
 import path from "node:path";
 import client from "@/lib/db";
+import { ImageResponse } from "@/types/db/image";
 
 export const createImage = async (
   albumDir: string,
   albumId: string,
-  extname: string
-) => {
+  extname: string,
+): Promise<ImageResponse> => {
   try {
     const imageEntity = await client.image.create({
       data: {
         albumId,
       },
     });
-
     return await client.image.update({
       where: { id: imageEntity.id },
       data: {
@@ -21,6 +21,6 @@ export const createImage = async (
     });
   } catch (error) {
     console.error(error);
-    throw new Error("Something went wrong");
+    return null;
   }
 };

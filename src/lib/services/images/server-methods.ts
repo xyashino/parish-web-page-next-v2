@@ -57,7 +57,7 @@ export const clearImage = async (id: string) => {
   if (!UPLOAD_DIR) throw new Error("Upload dir not found");
   try {
     const deletedImage = await deleteImage(id);
-    if (deletedImage.path) {
+    if (deletedImage && deletedImage.path) {
       await unlink(join(process.cwd(), UPLOAD_DIR, deletedImage.path));
     }
     return deletedImage;
