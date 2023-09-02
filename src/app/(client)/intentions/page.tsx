@@ -1,7 +1,9 @@
 import React from "react";
 import { ImageTextSection } from "@/components/ImageTextSection";
-import { getActiveWeekIntentions } from "@/lib/db/weekIntentions";
 import { WeekIntentionsContent } from "@/components/week-intentions/WeekIntentionsContent";
+import { apiCall } from "@/lib/utils";
+import { ApiRoute, RevalidateTag } from "@/types/enums";
+import { WeekIntentionsWithRelationsResponse } from "@/types/db/week-intentions";
 
 const getDateRange = (startDate: Date | null, endDate: Date | null) => {
   if (!startDate || !endDate) return "";
@@ -10,8 +12,13 @@ const getDateRange = (startDate: Date | null, endDate: Date | null) => {
   return `${start} - ${end}`;
 };
 
-export default async function Announcement() {
-  const data = await getActiveWeekIntentions();
+export default async function Intentions() {
+  const data = await apiCall<WeekIntentionsWithRelationsResponse>(
+    ApiRoute.ACTIVE_WEEK_INTENTION,
+    {
+      next: { tags: [RevalidateTag.INTENTIONS] },
+    },
+  );
   if (!data) return <div>null</div>;
   const { days } = data;
 
