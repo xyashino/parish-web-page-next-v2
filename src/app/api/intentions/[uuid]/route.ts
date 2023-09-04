@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 import {
   deleteWeekIntention,
   getWeekIntentionWithRelations,
+  updateWeekIntentions,
 } from "@/lib/db/weekIntentions";
 import { weekUpdateIntentionsValidator } from "@/lib/validators";
 import { deleteDaysByWeekId } from "@/lib/db/day";
-import { updateWeekIntentions } from "@/lib/db/weekIntentions/update-week-intentions";
 
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
