@@ -4,6 +4,6 @@ type ParamsWithUUID = { params: { uuid: string } };
 
 type ApiMethod = "POST" | "PUT" | "DELETE" | "GET" | "PATCH";
 
-type NullToUndefined<T> = {
-  [P in keyof T]: T[P] extends null ? undefined : T[P];
+type DateToString<T> = {
+  [K in keyof T]: T[K] extends Date | null ? string | null : T[K];
 };
