@@ -1,30 +1,46 @@
 import React from "react";
-import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
 import { apiCall } from "@/lib/utils";
-import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
-import { WeekIntentionsStoreData } from "@/types/interfaces/week-intentions-store.interface";
 import notFound from "@/app/not-found";
-import { ApiRoute } from "@/types/enums";
+import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekIntentions";
+import { convertIntentionsResponseToStoreData } from "@/lib/utils/conver-intentions-response-to-store-data";
+import {
+  ManyWeekIntentionsResponse,
+  WeekIntentionsWithRelationsResponse,
+} from "@/types/db/week-intentions";
+import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 export async function generateStaticParams() {
-  const intentions = await getManyWeekIntentions();
+  const intentions = await apiCall<ManyWeekIntentionsResponse>(
+    ApiRoute.BASE_WEEK_INTENTIONS,
+    {
+      next: { tags: [RevalidateTag.INTENTIONS] },
+    },
+  );
   return intentions.map((intention) => ({
     uuid: intention.id,
   }));
 }
 
 const EditOneIntention = async ({ params: { uuid } }: any) => {
-  const weekIntention = await apiCall<WeekIntentionsStoreData>(
+  const weekIntention = await apiCall<WeekIntentionsWithRelationsResponse>(
     `${ApiRoute.BASE_WEEK_INTENTIONS}/${uuid}`,
+    {
+      next: { tags: [RevalidateTag.INTENTIONS] },
+    },
   );
-  console.log({ weekIntention });
   if (!weekIntention) return notFound();
+
   return (
-    <>
-      <PageTitleWithPrevBtn title={"Edytujesz Intencje o ID" + uuid} />
-      <ModifyWeekIntentions defaultValue={weekIntention} />
-    </>
+    <AdminPageWrapper
+      headerData={{
+        title: "Dodajesz Intencje Parafialne",
+      }}
+    >
+      <ModifyWeekIntentions
+        defaultValue={convertIntentionsResponseToStoreData(weekIntention)}
+      />
+    </AdminPageWrapper>
   );
 };
 export default EditOneIntention;

@@ -1,11 +1,17 @@
 import React from "react";
-import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekIntentions";
+import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 const IntentionsCreatePage = async () => (
   <>
-    <PageTitleWithPrevBtn title="Dodajesz Intencje Parafialne" />
-    <ModifyWeekIntentions />
+    <AdminPageWrapper
+      headerData={{
+        title: "Dodajesz Intencje Parafialne",
+      }}
+      className="space-y-2"
+    >
+      <ModifyWeekIntentions />
+    </AdminPageWrapper>
   </>
 );
 

@@ -1,18 +1,21 @@
 import React from "react";
 import { Navigation } from "@/types/enums";
-import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
 import { NavigationBtn } from "@/components/navigation/NavigationBtn";
 import { WeekIntentionsDataTable } from "@/components/week-intentions/WeekIntentionsDataTable";
+import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 const IntentionsPage = async () => {
   const intentions = await getManyWeekIntentions();
 
   return (
-    <div className="flex flex-col space-y-6 animate-fadeIn transition-opacity">
-      <PageTitleWithPrevBtn title="Zarządzaj Intencjami parafialnymi" />
+    <AdminPageWrapper
+      headerData={{
+        title: "Zarządzaj Intencjami parafialnymi",
+      }}
+    >
       <DashboardCardContainer>
         <SummaryStatusCard
           title="Podsumowanie Intencji"
@@ -25,7 +28,7 @@ const IntentionsPage = async () => {
         />
       </DashboardCardContainer>
       <WeekIntentionsDataTable data={intentions} />
-    </div>
+    </AdminPageWrapper>
   );
 };
 

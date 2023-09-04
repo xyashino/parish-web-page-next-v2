@@ -1,12 +1,17 @@
 import React from "react";
-import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { LoadingElement } from "@/components/LoadingElement";
+import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 const Admin = () => {
   return (
     <>
-      <PageTitleWithPrevBtn title="Admin" />
-      <LoadingElement />
+      <AdminPageWrapper
+        headerData={{
+          title: "Strona główna ",
+        }}
+      >
+        <LoadingElement />
+      </AdminPageWrapper>
     </>
   );
 };

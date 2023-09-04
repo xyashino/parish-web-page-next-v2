@@ -2,7 +2,6 @@ import React from "react";
 import { Category } from "@prisma/client";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
-import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { Separator } from "@/components/ui/separator";
 import { SummaryShowFieldsCard } from "@/components/cards/SummaryShowFieldsCard";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
@@ -11,6 +10,7 @@ import { AlbumsDataTable } from "@/components/album/AlbumsDataTable";
 import { ModifyCategoryDialog } from "@/components/categories/ModifyCategoryDialog";
 import { CategoriesDataTable } from "@/components/categories/CategoriesDataTable";
 import { AlbumsResponse } from "@/types/db/album";
+import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 const AdministratorsManagePage = async () => {
   const albums = await apiCall<AlbumsResponse>(ApiRoute.BASE_ALBUMS, {
@@ -20,9 +20,12 @@ const AdministratorsManagePage = async () => {
     next: { tags: [RevalidateTag.CATEGORIES] },
   });
   return (
-    <div className="flex flex-col space-y-2 lg:space-y-6 mb-4 animate-fadeIn transition-opacity">
-      <PageTitleWithPrevBtn title="Zarządzaj Galerią" />
-
+    <AdminPageWrapper
+      headerData={{
+        title: "Zarządzaj Galerią",
+      }}
+      className="space-y-2 lg:space-y-6 "
+    >
       <DashboardCardContainer>
         <SummaryShowFieldsCard
           values={categories}
@@ -44,7 +47,7 @@ const AdministratorsManagePage = async () => {
         <ModifyAlbumDialog />
       </DashboardCardContainer>
       <AlbumsDataTable data={albums} />
-    </div>
+    </AdminPageWrapper>
   );
 };
 

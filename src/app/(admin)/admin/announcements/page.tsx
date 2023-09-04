@@ -1,12 +1,12 @@
 import React from "react";
 import { ApiRoute, Navigation, RevalidateTag } from "@/types/enums";
-import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { apiCall } from "@/lib/utils";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
 import { NavigationBtn } from "@/components/navigation/NavigationBtn";
 import { AnnouncementsDataTable } from "@/components/announcements/AnnouncementsDataTable";
 import { AnnouncementsResponse } from "@/types/db/announcement";
+import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 const AnnouncementsPage = async () => {
   const announcements = await apiCall<AnnouncementsResponse>(
@@ -17,8 +17,11 @@ const AnnouncementsPage = async () => {
   );
 
   return (
-    <div className="flex flex-col space-y-6 animate-fadeIn transition-opacity">
-      <PageTitleWithPrevBtn title="Zarządzaj ogłoszeniami parafialnymi" />
+    <AdminPageWrapper
+      headerData={{
+        title: "Zarządzaj ogłoszeniami parafialnymi",
+      }}
+    >
       <DashboardCardContainer>
         <SummaryStatusCard
           title="Podsumowanie Ogłoszeń"
@@ -31,7 +34,7 @@ const AnnouncementsPage = async () => {
         />
       </DashboardCardContainer>
       <AnnouncementsDataTable data={announcements} />
-    </div>
+    </AdminPageWrapper>
   );
 };
 

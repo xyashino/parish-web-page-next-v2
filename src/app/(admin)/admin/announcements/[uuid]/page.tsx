@@ -1,13 +1,13 @@
 import React from "react";
 import { apiCall } from "@/lib/utils";
 import notFound from "@/app/not-found";
-import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { ModifyAnnouncements } from "@/components/announcements/ModifyAnnouncements";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import {
   AnnouncementResponse,
   AnnouncementsResponse,
 } from "@/types/db/announcement";
+import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 export async function generateStaticParams() {
   const announcements = await apiCall<AnnouncementsResponse>(
@@ -32,10 +32,13 @@ const EditAnnouncement = async ({ params: { uuid } }: ParamsWithUUID) => {
   if (!announcement) return notFound();
 
   return (
-    <div className="flex flex-col space-y-6">
-      <PageTitleWithPrevBtn title={"Edytujesz Ogłoszenia o ID " + uuid} />
+    <AdminPageWrapper
+      headerData={{
+        title: `Edytujesz ogłoszenie o ID: "${uuid}"`,
+      }}
+    >
       <ModifyAnnouncements defaultValue={announcement} />
-    </div>
+    </AdminPageWrapper>
   );
 };
 
