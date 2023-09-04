@@ -6,6 +6,7 @@ import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { SelectStatus } from "@/components/SelectStatus";
 import { Card, CardContent } from "@/components/ui/card";
 import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
+import { getInputDateValue } from "@/lib/utils";
 
 export const ModifyIntentionsCard = () => {
   const {
@@ -34,9 +35,7 @@ export const ModifyIntentionsCard = () => {
           <Input
             type="date"
             className="rounded-md text-slate-950 md:p-2  font-light max-w-[200px] uppercase font-mono"
-            defaultValue={
-              startWeek ? new Date(startWeek).toISOString().slice(0, 10) : ""
-            }
+            defaultValue={getInputDateValue(startWeek)}
             onChange={handleDateInput}
           />
         </div>

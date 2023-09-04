@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { DayIntentions } from "@/types/week-intentions-store";
-import { weekdayTranslator } from "@/lib/utils";
+import { getInputDateValue, weekdayTranslator } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 
 export const ModifyDayHeader = ({
@@ -20,7 +20,7 @@ export const ModifyDayHeader = ({
       <Input
         type="date"
         className="rounded-md text-slate-950 md:p-2 text-xs font-light max-w-[140px] uppercase font-mono"
-        value={dateOfDay ? new Date(dateOfDay).toISOString().slice(0, 10) : ""}
+        value={getInputDateValue(dateOfDay)}
         onChange={handleDateChange}
       />
     </div>
