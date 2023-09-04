@@ -14,7 +14,7 @@ export const AdminNavbarHeader = ({ navigationRoutes }: Props) => {
   return (
     <div className="py-5 px-2 xl:px-3.5 2xl:px-5 space-y-1 bg-foreground flex justify-between">
       <Logo
-        className="hover:bg-transparent font-bold p-0 text-background ml-4 lg:ml-0"
+        className="hover:bg-transparent font-bold p-0 hover:text-background text-background ml-4 lg:ml-0 focus:bg-transparent focus:text-background focus:underline"
         navigateTo={Navigation.ADMIN_HOME}
       />
       <MobileNavigationSheet
