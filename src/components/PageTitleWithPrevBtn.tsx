@@ -10,7 +10,7 @@ interface Props {
   description?: string | null;
 }
 
-export const AdminPageTitle = ({ title, description }: Props) => {
+export const PageTitleWithPrevBtn = ({ title, description }: Props) => {
   const { back, refresh } = useRouter();
   const handleClick = () => {
     back();
