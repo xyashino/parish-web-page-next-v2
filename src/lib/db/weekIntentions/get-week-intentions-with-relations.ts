@@ -5,7 +5,7 @@ export const getWeekIntentionWithRelations = async (
   id: string,
 ): Promise<WeekIntentionsWithRelationsResponse> => {
   try {
-    return await client.weekIntentions.findUnique({
+    return (await client.weekIntentions.findUnique({
       where: { id },
       select: {
         id: true,
@@ -26,7 +26,7 @@ export const getWeekIntentionWithRelations = async (
           },
         },
       },
-    });
+    })) as WeekIntentionsWithRelationsResponse;
   } catch (e) {
     console.error(e);
     return null;
