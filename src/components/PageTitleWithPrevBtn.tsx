@@ -5,12 +5,15 @@ import { PinLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
-interface Props {
+export interface PageTitleWithPrevBtnProps {
   title: string;
   description?: string | null;
 }
 
-export const PageTitleWithPrevBtn = ({ title, description }: Props) => {
+export const PageTitleWithPrevBtn = ({
+  title,
+  description,
+}: PageTitleWithPrevBtnProps) => {
   const { back, refresh } = useRouter();
   const handleClick = () => {
     back();
