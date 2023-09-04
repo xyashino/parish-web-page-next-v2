@@ -1,4 +1,4 @@
-import { deleteAdministrator } from "@/lib/db/administrators";
+import { deleteAdministrator } from "@/lib/db/administrator";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
 import { NextResponse } from "next/server";

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAdministrators } from "@/lib/db/administrators";
-import { createAdministrator } from "@/lib/db/administrators";
+import { createAdministrator, getAdministrators } from "@/lib/db/administrator";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
 
