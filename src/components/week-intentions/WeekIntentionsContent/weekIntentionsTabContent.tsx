@@ -1,17 +1,14 @@
 import { TabsContent } from "@/components/ui/tabs";
-import { Day, Intention } from "@prisma/client";
 import { weekdayTranslator } from "@/lib/utils";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { WeekIntentionsDay } from "@/types/db/week-intentions";
 
-interface Props extends Day {
-  intentions: Intention[];
-}
 export const WeekIntentionsTabContent = ({
   day,
   dateOfDay,
   intentions,
   id,
-}: Props) => {
+}: WeekIntentionsDay) => {
   return (
     <TabsContent
       value={id}
