@@ -1,9 +1,10 @@
 import React from "react";
 import { TableCell, TableRow } from "@/components/ui/table";
-import { OneIntention } from "@/types/interfaces/week-intentions-store.interface";
+import { OneIntention } from "@/types/week-intentions-store";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { Button } from "@/components/ui/button";
 import { TrashIcon } from "@radix-ui/react-icons";
+
 interface Props {
   intentionData: OneIntention;
   id: string;

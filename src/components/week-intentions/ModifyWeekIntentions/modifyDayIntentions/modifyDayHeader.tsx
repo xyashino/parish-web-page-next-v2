@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
-import { DayIntentions } from "@/types/interfaces/week-intentions-store.interface";
+import { DayIntentions } from "@/types/week-intentions-store";
 import { weekdayTranslator } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 
