@@ -8,7 +8,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
 
 export const ModifyIntentionsCard = () => {
-  const { updateWeek, weekIntentions, updateStatus } = useWeekIntentionsStore();
+  const {
+    updateWeek,
+    weekIntentions: { status, startWeek },
+    updateStatus,
+  } = useWeekIntentionsStore();
   const handleDateInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const date = new Date(e.target.value);
     updateWeek(date);
@@ -21,7 +25,7 @@ export const ModifyIntentionsCard = () => {
       />
       <CardContent className="flex justify-around  flex-col  md:flex-row items-center space-y-2">
         <SelectStatus
-          defaultValue={weekIntentions.status}
+          defaultValue={status}
           doAfterChange={updateStatus}
           label="Status:"
         />
@@ -29,7 +33,10 @@ export const ModifyIntentionsCard = () => {
           <Label>Data:</Label>
           <Input
             type="date"
-            className="w-full uppercase"
+            className="rounded-md text-slate-950 md:p-2  font-light max-w-[200px] uppercase font-mono"
+            defaultValue={
+              startWeek ? new Date(startWeek).toISOString().slice(0, 10) : ""
+            }
             onChange={handleDateInput}
           />
         </div>
