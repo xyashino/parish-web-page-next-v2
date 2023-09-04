@@ -4,7 +4,7 @@ import { ClientDesktopNavigation } from "./clientDesktopNavigation";
 import { ClientMobileNavigation } from "./clientMobileNavigation";
 
 export const ClientNavbar = () => (
-  <section className="p-4 w-full justify-around  flex z-30  shadow-xl">
+  <section className="p-4 w-full justify-around flex  shadow-xl">
     <Logo />
     <div>
       <ClientDesktopNavigation />

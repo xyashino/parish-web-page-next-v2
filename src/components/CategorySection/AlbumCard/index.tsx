@@ -3,6 +3,7 @@ import React from "react";
 import { AlbumCoverImage } from "./albumCoverImage";
 import { useRouter } from "next/navigation";
 import { Navigation } from "@/types/enums";
+import { CategoriesAlbum } from "@/types/db/category";
 
 export const AlbumCard = ({ id, title, subtitle, cover }: CategoriesAlbum) => {
   const { push } = useRouter();

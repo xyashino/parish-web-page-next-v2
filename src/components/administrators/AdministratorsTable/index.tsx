@@ -9,7 +9,8 @@ interface Props {
 
 export const AdministratorsTable = ({ data }: Props) => (
   <DataTable
-    tableTitle="Lista wszystkich administratorów:"
+    tableTitle="Lista wszystkich e-maili administratorów:"
+    tableDescription="Umozliwia to logowanie do panelu administracyjnego poprzez zapisany email."
     data={data}
     columns={administratorsColumns}
   />

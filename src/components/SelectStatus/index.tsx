@@ -27,10 +27,20 @@ export const SelectStatus = ({
     return (
       <div className="w-[200px]">
         <Label id={label}>{label}</Label>
-        <SelectStatusItem value={value} onValueChange={handleChange} />
+        <SelectStatusItem
+          defaultValue={defaultValue}
+          value={value}
+          onValueChange={handleChange}
+        />
       </div>
     );
   }
 
-  return <SelectStatusItem value={value} onValueChange={handleChange} />;
+  return (
+    <SelectStatusItem
+      defaultValue={defaultValue}
+      value={value}
+      onValueChange={handleChange}
+    />
+  );
 };
