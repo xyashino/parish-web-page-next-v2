@@ -12,13 +12,13 @@ interface Props {
 export const Footer = ({ showAdminIcon, className }: Props) => {
   const footerClassNames = cn(
     "bg-foreground w-full text-background",
-    className
+    className,
   );
 
   return (
     <footer className={footerClassNames}>
       <div className="container px-3 py-4 mx-auto flex items-center sm:flex-row flex-col">
-        <Logo className="hover:bg-transparent text-background" />
+        <Logo className="hover:bg-transparent text-background hover:text-background" />
         <div className="flex items-center justify-between flex-1">
           <AuthorInfo />
           {showAdminIcon && <AdminDashboardIcon />}
