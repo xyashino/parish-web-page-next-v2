@@ -1,5 +1,5 @@
 import React from "react";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { deleteAdministratorApiCall } from "@/lib/services/administrators/api-calls";
 import { useRouter } from "next/navigation";
@@ -18,18 +18,19 @@ export const DeleteAdministratorAction = ({ id }: Props) => {
   };
   return (
     <ConfirmAlert
-      headerData={{
+      headerConfig={{
         title: "Czy na pewno chcesz usunąć administratora?",
         description: "Emial utraci dostęp do logowania.",
       }}
-      triggerData={{
-        triggerValue: <TrashIcon />,
-        className: buttonVariants({ variant: "destructive" }),
-      }}
-      footerData={{
+      footerConfig={{
         confirmText: "Usuń",
         doAfterConfirm: handleDelete,
       }}
+      triggerItem={
+        <Button variant="destructive">
+          <TrashIcon />
+        </Button>
+      }
     />
   );
 };
