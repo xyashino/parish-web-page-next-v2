@@ -18,7 +18,7 @@ export const LeftSection = () => (
     </div>
     <div className="relative z-20 flex items-center text-lg font-medium">
       <Logo
-        className="text-background font-extrabold uppercase hover:bg-transparent"
+        className="text-background font-extrabold uppercase bg-transparent hover:text-background hover:bg-transparent"
         navigateTo={Navigation.CLIENT_HOME}
       />
     </div>
