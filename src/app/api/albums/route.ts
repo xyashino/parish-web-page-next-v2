@@ -13,6 +13,7 @@ export async function GET() {
 export async function POST(request: Request) {
   const data: Omit<Album, "id"> = await request.json();
   const result = await createAlbum({ ...data });
+  if (!result) return NextResponse.error();
   await createDirectory(result.id);
   revalidateTag(RevalidateTag.ALBUMS);
   return NextResponse.json(result);
