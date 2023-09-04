@@ -1,31 +1,27 @@
 import React from "react";
 import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 import { ResetIcon } from "@radix-ui/react-icons";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   onConfirm: () => void;
 }
 
-const triggerValue = (
-  <>
-    <ResetIcon className="mr-2 h-4 w-4" /> Wyczyść
-  </>
-);
-
 export const ClearButtonWithAlert = ({ onConfirm }: Props) => (
   <ConfirmAlert
-    headerData={{
+    headerConfig={{
       title: "Czy na pewno chcesz wyczyścić ogłoszenia?",
       description:
         "Zmiany zostaną zrobione lokalnie. Musisz je zapisać, aby utrwalić.",
     }}
-    triggerData={{
-      triggerValue,
-      className: "w-full md:w-1/3",
-    }}
-    footerData={{
+    footerConfig={{
       doAfterConfirm: onConfirm,
       confirmText: "Wyczyść",
     }}
+    triggerItem={
+      <Button>
+        <ResetIcon className="mr-2 h-4 w-4" /> Wyczyść
+      </Button>
+    }
   />
 );

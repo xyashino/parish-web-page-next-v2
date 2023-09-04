@@ -4,16 +4,11 @@ import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { deleteImageApiCall } from "@/lib/services/images/api-calls";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   id: string;
 }
-
-const TriggerValue = (
-  <>
-    <span>Usuń</span> <TrashIcon />
-  </>
-);
 
 export const DeleteImageTrigger = ({ id }: Props) => {
   const { refresh } = useRouter();
@@ -31,17 +26,22 @@ export const DeleteImageTrigger = ({ id }: Props) => {
   return (
     <ContextMenuItem onClick={handleDeleteClick} className="text-red-800">
       <ConfirmAlert
-        headerData={{
+        headerConfig={{
           title: "Czy na pewno chcesz usunąć to zdjęcie?",
           description: "Zdjęcie zostanie trwale usunięte.",
         }}
-        triggerData={{
-          triggerValue: TriggerValue,
-          disableAllClasses: true,
-          className: "w-full flex items-center justify-around",
+        triggerItem={
+          <Button
+            variant="destructive"
+            className="w-full flex items-center justify-around"
+          >
+            <TrashIcon className="mr-2 h-4 w-4" /> Usuń
+          </Button>
+        }
+        triggerConfig={{
           hidden: true,
         }}
-        footerData={{
+        footerConfig={{
           confirmText: "Usuń",
           doAfterConfirm: onDeleteConfirm,
         }}
