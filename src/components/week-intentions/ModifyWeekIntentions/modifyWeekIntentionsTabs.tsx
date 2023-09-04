@@ -17,7 +17,7 @@ export const ModifyWeekIntentionsTabs = () => {
       />
 
       <CardContent>
-        <Tabs defaultValue={activeDay} onValueChange={updateActiveDay}>
+        <Tabs value={activeDay} onValueChange={updateActiveDay}>
           <TabsList className="flex h-auto w-full flex-wrap items-center justify-center">
             {Array.from(dayIntentions).map(([id, value]) => (
               <TabsTrigger
@@ -31,7 +31,7 @@ export const ModifyWeekIntentionsTabs = () => {
           </TabsList>
 
           {Array.from(dayIntentions).map(([id, value]) => (
-            <ModifyDayIntentions id={id} key={id} {...value} />
+            <ModifyDayIntentions key={id} {...value} id={value.id ?? id} />
           ))}
         </Tabs>
       </CardContent>
