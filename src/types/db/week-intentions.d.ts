@@ -4,9 +4,9 @@ type WeekIntentionsResponse = WeekIntentions | null;
 
 type ManyWeekIntentionsResponse = WeekIntentions[];
 
-type WeekIntentionsDay = Day & { intentions: Intention[] };
+type WeekIntentionsDay = DateToString<Day> & { intentions: Intention[] };
 
-type WeekIntentionsWithRelations = WeekIntentions & {
+type WeekIntentionsWithRelations = DateToString<WeekIntentions> & {
   days: WeekIntentionsDay[];
 };
 
