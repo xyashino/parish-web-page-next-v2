@@ -16,19 +16,21 @@ interface DataTableProps<TData, TValue> {
   className?: string;
   wrapperClassName?: string;
   tableTitle?: string;
+  tableDescription?: string;
 }
 
 export const DataTable = <TData, TValue>({
   className,
   tableTitle,
   wrapperClassName,
+  tableDescription,
   ...tableProps
 }: DataTableProps<TData, TValue>) => {
   const table = useTable(tableProps);
   const tableClasses = cn("rounded-xl border mx-auto", className);
   const wrapperClasses = cn(
     "mx-2 lg:w-11/12 lg:mx-auto mb-2 ",
-    wrapperClassName
+    wrapperClassName,
   );
 
   return (
@@ -36,6 +38,7 @@ export const DataTable = <TData, TValue>({
       {tableTitle && (
         <CardHeaderWithSeparator
           title={tableTitle}
+          description={tableDescription}
           separatorClasses="w-11/12"
         />
       )}
