@@ -1,34 +1,23 @@
 import React from "react";
 import { FormField } from "@/components/ui/form";
-import { CustomFormControlItem } from "@/components/form";
-import { Input } from "@/components/ui/input";
-import { SelectCategoryFormField } from "./selectCategoryFormField";
+import { CustomFormControlItem, CustomFormInputItem } from "@/components/form";
 import { SwitchWithLabel } from "@/components/SwitchWithLabel";
 
 export const ModifyAlbumDialogFormFields = () => {
   return (
     <>
-      <FormField
-        name="title"
-        render={({ field }) => (
-          <CustomFormControlItem label="Tytuł:" description="Pole wymagane">
-            <Input {...field} type="text" />
-          </CustomFormControlItem>
-        )}
+      <CustomFormInputItem
+        fieldName="title"
+        label="Tytuł:"
+        description="Pole wymagane"
+        type="text"
       />
-      <FormField
-        name="subtitle"
-        render={({ field }) => (
-          <CustomFormControlItem
-            label="Podtytuł:"
-            description="Pole nie jest wymagane"
-          >
-            <Input {...field} type="text" />
-          </CustomFormControlItem>
-        )}
+      <CustomFormInputItem
+        fieldName="subtitle"
+        label="Podtytuł:"
+        description="Pole nie jest wymagane"
+        type="text"
       />
-      <SelectCategoryFormField />
-
       <FormField
         name="show"
         render={({ field }) => (

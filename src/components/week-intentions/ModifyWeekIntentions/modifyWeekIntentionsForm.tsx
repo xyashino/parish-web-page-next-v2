@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { FormField } from "@/components/ui/form";
 import { z } from "zod";
-import { CustomForm, CustomFormControlItem } from "@/components/form";
-import { Input } from "@/components/ui/input";
+import { CustomForm, CustomFormInputItem } from "@/components/form";
 import { MdEditor } from "@/components/MdEditor";
 import { Separator } from "@/components/ui/separator";
 import { ButtonWithIcon } from "@/components/ButtonWithIcon";
@@ -50,29 +48,21 @@ export const ModifyWeekIntentionsForm = ({
           className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full"
         >
           <div className="flex flex-col space-y-2  items-center justify-around">
-            <FormField
-              name="order"
-              render={({ field }) => (
-                <CustomFormControlItem label="Z-index">
-                  <Input
-                    {...field}
-                    type="number"
-                    onChange={(e) => {
-                      field.onChange(e.target.valueAsNumber);
-                    }}
-                    min={-20}
-                    className="w-[200px]"
-                  />
-                </CustomFormControlItem>
-              )}
+            <CustomFormInputItem
+              fieldName="order"
+              label="Z-index"
+              type="number"
+              onChange={(e, field) => {
+                field.onChange(e.target.valueAsNumber);
+              }}
+              min={-20}
+              className="w-[200px]"
             />
-            <FormField
-              name="hour"
-              render={({ field }) => (
-                <CustomFormControlItem label="Godzina">
-                  <Input {...field} type="time" className="w-[200px]" />
-                </CustomFormControlItem>
-              )}
+            <CustomFormInputItem
+              fieldName="hour"
+              label="Godzina"
+              type="time"
+              className="w-[200px]"
             />
           </div>
           <div className="flex flex-col justify-around items-center space-y-4">

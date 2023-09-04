@@ -2,9 +2,7 @@
 import React from "react";
 import { z } from "zod";
 import { CustomDialog } from "@/components/CustomDialog";
-import { FormField } from "@/components/ui/form";
-import { CustomFormControlItem } from "@/components/form";
-import { Input } from "@/components/ui/input";
+import { CustomFormInputItem } from "@/components/form";
 import { useRouter } from "next/navigation";
 import { createAdministratorApiCall } from "@/lib/services/administrators/api-calls";
 import { addAdministratorSchema } from "@/lib/schemas/administrators";
@@ -13,7 +11,7 @@ export const AddAdministratorDialog = () => {
   const { refresh } = useRouter();
 
   const submitMethod = async (
-    values: z.infer<typeof addAdministratorSchema>
+    values: z.infer<typeof addAdministratorSchema>,
   ) => {
     await createAdministratorApiCall(values);
     refresh();
@@ -34,14 +32,7 @@ export const AddAdministratorDialog = () => {
       }}
       submitText="Dodaj"
     >
-      <FormField
-        name="email"
-        render={({ field }) => (
-          <CustomFormControlItem label="Email:">
-            <Input {...field} type="text" />
-          </CustomFormControlItem>
-        )}
-      />
+      <CustomFormInputItem fieldName="email" type="email" />
     </CustomDialog>
   );
 };
