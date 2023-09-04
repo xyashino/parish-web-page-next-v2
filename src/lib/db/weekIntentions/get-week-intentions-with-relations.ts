@@ -14,6 +14,10 @@ export const getWeekIntentionWithRelations = async (
         startWeek: true,
         days: {
           select: {
+            id: true,
+            weekId: true,
+            day: true,
+            dateOfDay: true,
             intentions: {
               orderBy: {
                 order: "asc",
