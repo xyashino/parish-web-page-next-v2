@@ -12,7 +12,7 @@ export const ClientDesktopNavigationItem = ({
   href,
 }: NavigationItem) => {
   return (
-    <NavigationMenuItem>
+    <NavigationMenuItem asChild>
       <Link href={href} legacyBehavior passHref>
         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
           {title}
