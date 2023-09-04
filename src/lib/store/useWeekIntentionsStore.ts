@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { WeekIntentionsStore } from "@/types/interfaces/week-intentions-store.interface";
-import { Weekday } from "@prisma/client";
+import { WeekIntentionsStore } from "@/types/week-intentions-store";
+import { Status, Weekday } from "@prisma/client";
 import { WEEK_INTENTIONS_STORE_DEFAULT } from "@/lib/constants/week-intentions";
 
 export const useWeekIntentionsStore = create<WeekIntentionsStore>(
@@ -9,14 +9,18 @@ export const useWeekIntentionsStore = create<WeekIntentionsStore>(
     updateActiveDay: (id) => {
       set({ activeDay: id });
     },
-    updateAll: (data) => {
-      set(data);
+    updateAll: ({ dayIntentions, weekIntentions, activeDay }) => {
+      set({
+        dayIntentions: new Map(dayIntentions),
+        weekIntentions: { ...weekIntentions },
+        activeDay,
+      });
     },
     clearAll: () => {
       const { dayIntentions, weekIntentions } = get();
       weekIntentions.startWeek = null;
       weekIntentions.endWeek = null;
-      weekIntentions.status = "NONE";
+      weekIntentions.status = Status.NONE;
       const getEnumDays = Object.values(Weekday);
 
       getEnumDays.forEach((day, i) => {
@@ -46,7 +50,7 @@ export const useWeekIntentionsStore = create<WeekIntentionsStore>(
       const foundDay = dayIntentions.get(activeDay);
       if (!foundDay) return;
       foundDay.intentions = foundDay.intentions.filter(
-        (intention) => intention.id !== id
+        (intention) => intention.id !== id,
       );
       set({ dayIntentions: new Map(dayIntentions) });
     },
@@ -72,14 +76,14 @@ export const useWeekIntentionsStore = create<WeekIntentionsStore>(
       const { dayIntentions, weekIntentions } = get();
       weekIntentions.startWeek = new Date(date);
       weekIntentions.endWeek = new Date(
-        new Date(date).setDate(date.getDate() + 6)
+        new Date(date).setDate(date.getDate() + 6),
       );
       getEnumDays.forEach((day, i) => {
         const weekStart = new Date(date);
         const foundDay = dayIntentions.get(i.toString());
         if (!foundDay) return;
         foundDay.dateOfDay = new Date(
-          weekStart.setDate(weekStart.getDate() + i)
+          weekStart.setDate(weekStart.getDate() + i),
         );
       });
 
@@ -93,5 +97,5 @@ export const useWeekIntentionsStore = create<WeekIntentionsStore>(
       const { weekIntentions } = get();
       set({ weekIntentions: { ...weekIntentions, status } });
     },
-  })
+  }),
 );
