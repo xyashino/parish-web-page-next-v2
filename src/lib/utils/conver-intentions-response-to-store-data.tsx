@@ -1,7 +1,7 @@
 import {
   DayIntentions,
   WeekIntentionsStoreData,
-} from "@/types/interfaces/week-intentions-store.interface";
+} from "@/types/week-intentions-store";
 import {
   WeekIntentionsDay,
   WeekIntentionsWithRelationsResponse,

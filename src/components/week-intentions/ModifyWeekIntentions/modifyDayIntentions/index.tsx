@@ -1,6 +1,6 @@
 import React from "react";
 import { TabsContent } from "@/components/ui/tabs";
-import { DayIntentions } from "@/types/interfaces/week-intentions-store.interface";
+import { DayIntentions } from "@/types/week-intentions-store";
 import { ModifyDayHeader } from "./modifyDayHeader";
 import { ModifyIntentionsTable } from "../modifyIntentionsTable";
 import { ModifyDayEmptyTableInfo } from "./modifyDayEmptyTableInfo";

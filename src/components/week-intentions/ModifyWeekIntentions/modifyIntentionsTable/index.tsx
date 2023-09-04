@@ -1,7 +1,7 @@
 import React from "react";
 import { Table, TableBody } from "@/components/ui/table";
 import { ModifyTableHeader } from "./modifyIntetionsTableHeader";
-import { OneIntention } from "@/types/interfaces/week-intentions-store.interface";
+import { OneIntention } from "@/types/week-intentions-store";
 import { ModifyIntentionsRow } from "./modifyIntentionsTableRow";
 
 interface Props {
