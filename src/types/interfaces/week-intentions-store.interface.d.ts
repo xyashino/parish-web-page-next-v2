@@ -1,28 +1,21 @@
-import { Status, Weekday, WeekIntentions } from "@prisma/client";
+import { Day, Intention, Status, WeekIntentions } from "@prisma/client";
 
-export interface OneIntention {
-  id: string;
-  order: number;
-  hour: string;
-  value: string;
+type OneIntention = Omit<Intention, "dayId"> & {
   dayId?: string;
-}
+};
 
-export interface DayIntentions {
-  id: string;
-  day: Weekday;
-  dateOfDay: Date | null;
-  intentions: OneIntention[];
+type DayIntentions = Omit<Day, "weekId"> & {
   weekId?: string;
-}
+  intentions: OneIntention[];
+};
 
-export interface WeekIntentionsStoreData {
+interface WeekIntentionsStoreData {
   weekIntentions: OptionalID<WeekIntentions>;
   activeDay: string;
   dayIntentions: Map<string, DayIntentions>;
 }
 
-export interface WeekIntentionsStoreActions<> {
+interface WeekIntentionsStoreActions<> {
   clearAll: () => void;
   clearDay: () => void;
   deleteIntention: (id: string) => void;
@@ -34,5 +27,4 @@ export interface WeekIntentionsStoreActions<> {
   updateActiveDay: (id: string) => void;
 }
 
-export type WeekIntentionsStore = WeekIntentionsStoreData &
-  WeekIntentionsStoreActions;
+type WeekIntentionsStore = WeekIntentionsStoreData & WeekIntentionsStoreActions;
