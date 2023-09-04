@@ -4,7 +4,7 @@ import { UpdateIcon } from "@radix-ui/react-icons";
 import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 import { Card, CardContent } from "@/components/ui/card";
 import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
-import { DayIntentions } from "@/types/interfaces/week-intentions-store.interface";
+import { DayIntentions } from "@/types/week-intentions-store";
 import { ClearButtonWithAlert } from "./clearButtonWithAlert";
 import { DeleteButtonWithAlert } from "./deleteButtonWithAlert";
 import { IntentionsCrud } from "@/lib/services/intentions";
@@ -16,10 +16,10 @@ export const ModifyWeekIntentionsControls = () => {
     e.preventDefault();
 
     const { id, ...restWeekIntentions } = weekIntentions;
-    const days: DayIntentions[] = [];
+    const days: Omit<DayIntentions, "id">[] = [];
 
     dayIntentions.forEach((day) => {
-      const { weekId, ...restDay } = day;
+      const { weekId, id, ...restDay } = day;
       days.push(restDay);
     });
 

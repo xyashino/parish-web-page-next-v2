@@ -1,7 +1,7 @@
 "use client";
 import React, { useLayoutEffect } from "react";
 import { ModifyWeekIntentionsForm } from "./modifyWeekIntentionsForm";
-import { WeekIntentionsStoreData } from "@/types/interfaces/week-intentions-store.interface";
+import { WeekIntentionsStoreData } from "@/types/week-intentions-store";
 import { ModifyWeekIntentionsTabs } from "./modifyWeekIntentionsTabs";
 import { ModifyWeekIntentionsControls } from "./modifyWeekIntentionsControls";
 import { ModifyIntentionsCard } from "./modifyIntentionsCard";
@@ -18,7 +18,8 @@ export const ModifyWeekIntentions = ({ defaultValue }: Props) => {
 
   useLayoutEffect(() => {
     setEditorValue("");
-    defaultValue ? updateAll(defaultValue) : clearAll();
+    if (defaultValue) return updateAll(defaultValue);
+    clearAll();
   }, [defaultValue, updateAll, clearAll, setEditorValue]);
 
   return (

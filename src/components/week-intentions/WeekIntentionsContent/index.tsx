@@ -1,14 +1,12 @@
 import React from "react";
-import { Day, Intention } from "@prisma/client";
 import { Tabs, TabsList } from "@/components/ui/tabs";
 import { getActiveDayID, weekdayTranslator } from "@/lib/utils";
 import { WeekIntentionsTabContent } from "./weekIntentionsTabContent";
 import { CustomTriggerWithScroll } from "./customTriggerWithScroll";
+import { WeekIntentionsDay } from "@/types/db/week-intentions";
 
 interface Props {
-  days: (Day & {
-    intentions: Intention[];
-  })[];
+  days: WeekIntentionsDay[];
 }
 
 const TAB_LIST_ID = crypto.randomUUID();
