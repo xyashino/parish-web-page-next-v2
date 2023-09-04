@@ -1,11 +1,18 @@
-import { Day, Intention, Status, WeekIntentions } from "@prisma/client";
+import {
+  Day,
+  Intention,
+  Status,
+  Weekday,
+  WeekIntentions,
+} from "@prisma/client";
 
 type OneIntention = Omit<Intention, "dayId"> & {
-  dayId?: string;
+  dayId?: string | null;
 };
 
-type DayIntentions = Omit<Day, "weekId"> & {
-  weekId?: string;
+type DayIntentions = OptionalID<Omit<Day, "weekId" | "day">> & {
+  day: Weekday;
+  weekId?: string | null;
   intentions: OneIntention[];
 };
 
