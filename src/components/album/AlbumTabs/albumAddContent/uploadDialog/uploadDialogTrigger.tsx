@@ -7,7 +7,11 @@ import { useUploadImagesStore } from "@/lib/store/useUploadImagesStore";
 export const UploadDialogTrigger = () => {
   const { images } = useUploadImagesStore();
   return (
-    <AlertDialogTrigger className="mx-auto" disabled={images.length === 0}>
+    <AlertDialogTrigger
+      className="mx-auto"
+      disabled={images.length === 0}
+      asChild
+    >
       <ButtonWithIcon
         text="Dodaj zdjęcia"
         Icon={UploadIcon}
