@@ -1,10 +1,10 @@
 import React from "react";
-import { AdminPageTitle } from "@/components/AdminPageTitle";
+import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { ModifyAnnouncements } from "@/components/announcements/ModifyAnnouncements";
 
 const AnnouncementsCreatePage = async () => (
   <div className="flex flex-col space-y-6">
-    <AdminPageTitle title="Dodajesz Ogłoszenia Parafialne" />
+    <PageTitleWithPrevBtn title="Dodajesz Ogłoszenia Parafialne" />
     <ModifyAnnouncements />
   </div>
 );

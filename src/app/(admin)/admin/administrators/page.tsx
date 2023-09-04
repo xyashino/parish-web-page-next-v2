@@ -1,6 +1,6 @@
 import React from "react";
 import { apiCall } from "@/lib/utils";
-import { AdminPageTitle } from "@/components/AdminPageTitle";
+import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { AdministratorsTable } from "@/components/administrators/AdministratorsTable";
 import { AddAdministratorDialog } from "@/components/administrators/AddAdministratorDialog";
 import { AdministratorsResponse } from "@/types/db/administrator";
@@ -14,8 +14,8 @@ const AdministratorsManagePage = async () => {
     },
   );
   return (
-    <div className="flex flex-col">
-      <AdminPageTitle title="Zarządzaj Administatorami" />
+    <div className="flex flex-col animate-fadeIn transition-opacity">
+      <PageTitleWithPrevBtn title="Zarządzaj Administatorami" />
       <AdministratorsTable data={administrators} />
       <AddAdministratorDialog />
     </div>

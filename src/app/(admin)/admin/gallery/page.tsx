@@ -2,7 +2,7 @@ import React from "react";
 import { Category } from "@prisma/client";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
-import { AdminPageTitle } from "@/components/AdminPageTitle";
+import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { Separator } from "@/components/ui/separator";
 import { SummaryShowFieldsCard } from "@/components/cards/SummaryShowFieldsCard";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
@@ -20,8 +20,8 @@ const AdministratorsManagePage = async () => {
     next: { tags: [RevalidateTag.CATEGORIES] },
   });
   return (
-    <div className="flex flex-col space-y-2 lg:space-y-6 mb-4">
-      <AdminPageTitle title="Zarządzaj Galerią" />
+    <div className="flex flex-col space-y-2 lg:space-y-6 mb-4 animate-fadeIn transition-opacity">
+      <PageTitleWithPrevBtn title="Zarządzaj Galerią" />
 
       <DashboardCardContainer>
         <SummaryShowFieldsCard

@@ -1,7 +1,7 @@
 import React from "react";
 import { apiCall } from "@/lib/utils";
 import notFound from "@/app/not-found";
-import { AdminPageTitle } from "@/components/AdminPageTitle";
+import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { ModifyAnnouncements } from "@/components/announcements/ModifyAnnouncements";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import {
@@ -33,7 +33,7 @@ const EditAnnouncement = async ({ params: { uuid } }: ParamsWithUUID) => {
 
   return (
     <div className="flex flex-col space-y-6">
-      <AdminPageTitle title={"Edytujesz Ogłoszenia o ID " + uuid} />
+      <PageTitleWithPrevBtn title={"Edytujesz Ogłoszenia o ID " + uuid} />
       <ModifyAnnouncements defaultValue={announcement} />
     </div>
   );

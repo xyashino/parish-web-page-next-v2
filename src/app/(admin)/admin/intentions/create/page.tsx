@@ -1,10 +1,10 @@
 import React from "react";
-import { AdminPageTitle } from "@/components/AdminPageTitle";
+import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekIntentions";
 
 const IntentionsCreatePage = async () => (
   <>
-    <AdminPageTitle title="Dodajesz Intencje Parafialne" />
+    <PageTitleWithPrevBtn title="Dodajesz Intencje Parafialne" />
     <ModifyWeekIntentions />
   </>
 );

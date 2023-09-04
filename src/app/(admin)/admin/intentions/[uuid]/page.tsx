@@ -1,7 +1,7 @@
 import React from "react";
 import { getManyWeekIntentions } from "@/lib/db/weekIntentions";
 import { apiCall } from "@/lib/utils";
-import { AdminPageTitle } from "@/components/AdminPageTitle";
+import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { WeekIntentionsStoreData } from "@/types/interfaces/week-intentions-store.interface";
 import notFound from "@/app/not-found";
 import { ApiRoute } from "@/types/enums";
@@ -18,10 +18,11 @@ const EditOneIntention = async ({ params: { uuid } }: any) => {
   const weekIntention = await apiCall<WeekIntentionsStoreData>(
     `${ApiRoute.BASE_WEEK_INTENTIONS}/${uuid}`,
   );
+  console.log({ weekIntention });
   if (!weekIntention) return notFound();
   return (
     <>
-      <AdminPageTitle title={"Edytujesz Intencje o ID" + uuid} />
+      <PageTitleWithPrevBtn title={"Edytujesz Intencje o ID" + uuid} />
       <ModifyWeekIntentions defaultValue={weekIntention} />
     </>
   );

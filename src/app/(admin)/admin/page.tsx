@@ -1,10 +1,12 @@
 import React from "react";
-import { AdminPageTitle } from "@/components/AdminPageTitle";
+import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
+import { LoadingElement } from "@/components/LoadingElement";
 
 const Admin = () => {
   return (
     <>
-      <AdminPageTitle title="Admin" />
+      <PageTitleWithPrevBtn title="Admin" />
+      <LoadingElement />
     </>
   );
 };

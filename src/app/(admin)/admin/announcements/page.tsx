@@ -1,6 +1,6 @@
 import React from "react";
 import { ApiRoute, Navigation, RevalidateTag } from "@/types/enums";
-import { AdminPageTitle } from "@/components/AdminPageTitle";
+import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { apiCall } from "@/lib/utils";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
@@ -17,8 +17,8 @@ const AnnouncementsPage = async () => {
   );
 
   return (
-    <div className="flex flex-col space-y-6">
-      <AdminPageTitle title="Zarządzaj ogłoszeniami parafialnymi" />
+    <div className="flex flex-col space-y-6 animate-fadeIn transition-opacity">
+      <PageTitleWithPrevBtn title="Zarządzaj ogłoszeniami parafialnymi" />
       <DashboardCardContainer>
         <SummaryStatusCard
           title="Podsumowanie Ogłoszeń"
