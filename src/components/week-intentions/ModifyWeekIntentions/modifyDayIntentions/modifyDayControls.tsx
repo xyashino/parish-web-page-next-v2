@@ -10,25 +10,22 @@ export const ModifyDayControls = () => {
   const { clearAll, updateStatus, weekIntentions } = useWeekIntentionsStore();
   const onSave = (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(weekIntentions);
   };
 
   return (
     <div className="mx-auto my-4 w-full rounded-xl p-4 md:w-5/6">
       <div className="flex w-full items-center justify-around">
         <ConfirmAlert
-          triggerData={{
-            triggerValue: (
-              <Button onClick={onSave} className="w-1/3">
-                Zapisz
-              </Button>
-            ),
-          }}
-          headerData={{
+          triggerItem={
+            <Button onClick={onSave} className="w-1/3">
+              Zapisz
+            </Button>
+          }
+          headerConfig={{
             title: "Czy na pewno chcesz zapisać zmiany?",
             description: "Zmiany zostaną zapisane dopóki tego  nie zrobisz.",
           }}
-          footerData={{
+          footerConfig={{
             confirmText: "Wyczyść wszystko",
             doAfterConfirm: clearAll,
           }}
