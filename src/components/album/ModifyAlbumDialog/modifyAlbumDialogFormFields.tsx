@@ -2,6 +2,7 @@ import React from "react";
 import { FormField } from "@/components/ui/form";
 import { CustomFormControlItem, CustomFormInputItem } from "@/components/form";
 import { SwitchWithLabel } from "@/components/SwitchWithLabel";
+import { SelectCategoryFormField } from "@/components/album/ModifyAlbumDialog/selectCategoryFormField";
 
 export const ModifyAlbumDialogFormFields = () => {
   return (
@@ -18,6 +19,7 @@ export const ModifyAlbumDialogFormFields = () => {
         description="Pole nie jest wymagane"
         type="text"
       />
+      <SelectCategoryFormField />
       <FormField
         name="show"
         render={({ field }) => (
