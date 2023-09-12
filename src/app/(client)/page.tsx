@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div>
+    <div className="animate-fadeIn">
       <VideoSection />
       <Separator className="my-4 mx-auto w-5/6" />
       <section className="mb-32 text-center lg:text-left">

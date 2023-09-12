@@ -7,7 +7,7 @@ export default async function Gallery() {
   const categories = await getCategoriesWithAlbums();
   if (categories.length === 0) redirect(Navigation.CLIENT_HOME);
   return (
-    <div className="bg-background flex flex-col h-full my-auto shadowflex p-4 w-full">
+    <div className="bg-background flex flex-col h-full my-auto shadowflex p-4 w-full animate-fadeIn">
       {categories.map((category) => (
         <CategorySection key={category.id} {...category} />
       ))}

@@ -6,7 +6,7 @@ import { CONTACT_DATA } from "@/config/contact";
 
 export default function Contact() {
   return (
-    <section className="bg-background h-full my-auto">
+    <section className="bg-background h-full my-auto animate-fadeIn">
       <div className="container px-6 py-12 mx-auto">
         <ContactHeader />
         <div className="grid grid-cols-1 gap-12 mt-6 lg:grid-cols-3">
