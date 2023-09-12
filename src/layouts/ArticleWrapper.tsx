@@ -6,7 +6,7 @@ type Props = BaseArticleMetadata & {
 };
 export const ArticleWrapper = ({ content, ...rest }: Props) => {
   return (
-    <div>
+    <div className="animate-fadeIn">
       {"bgcSrc" in rest && rest.bgcSrc && rest.bgcAlt && (
         <ImageTextSection src={rest.bgcSrc} alt={rest.bgcAlt} {...rest} />
       )}
