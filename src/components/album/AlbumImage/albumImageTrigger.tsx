@@ -24,7 +24,7 @@ export const AlbumImageTrigger = ({ path, children }: Props) => {
           className="fixed z-40 animate-fadeIn inset-0 bg-black/20 p-4 grid place items-center overflow-hidden select-none"
           onClick={() => setDisplay((prev) => !prev)}
         >
-          <div className="w-11/12 h-11/12 mx-auto">
+          <div className="w-11/12 aspect-video mx-auto">
             <Image
               src={path ?? ""}
               alt="fullscreen image"
