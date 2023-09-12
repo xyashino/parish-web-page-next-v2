@@ -18,6 +18,7 @@ const Admin = () => {
         <h1>Witaj w panelu administracyjnym</h1>
         <p>Dzięki niemu możesz zarządzać treścią strony internetowej.</p>
         <h2>Faq:</h2>
+        <hr />
         <Accordion type="single">
           <AccordionItem value="status">
             <AccordionTrigger>
