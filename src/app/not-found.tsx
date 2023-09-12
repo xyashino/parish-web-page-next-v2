@@ -17,32 +17,40 @@ const NotFound = () => {
   };
 
   return (
-    <main className="h-screen w-full flex flex-col justify-center items-center bg-gradient-to-r  from-accent-foreground to-neutral-700 select-none">
-      <div className="relative">
-        <h1 className="text-5xl lg:text-9xl font-extrabold text-background tracking-widest">
-          404
-        </h1>
-        <div className="bg-accent px-2 uppercase italic font-mono rounded rotate-12 absolute top-1/2 left-0 w-full text-center text-foreground font-bold bg-white shadow-black  shadow-xl">
-          Strony nie została znaleziona
+    <section className="bg-background">
+      <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
+        <div>
+          <p className="text-2xl font-extrabold text-destructive dark:text-blue-400">
+            404 error
+          </p>
+          <h1 className="mt-3 text-4xl font-extrabold text-gray-800">
+            Nie znaleziono strony
+          </h1>
+          <p className="mt-4 text-gray-500">
+            Przepraszamy, strona której szukasz nie istnieje lub została
+            usunięta.
+          </p>
+
+          <div className="flex flex-wrap items-center mt-6 gap-4">
+            <Button
+              variant="outline"
+              className="font-semibold uppercase grow"
+              onClick={goBack}
+            >
+              Wróć do porzedniej strony
+            </Button>
+
+            <Button
+              onClick={goToHome}
+              variant="destructive"
+              className="px-5 py-2 font-semibold uppercase shrink-0 grow"
+            >
+              Strona Główna
+            </Button>
+          </div>
         </div>
       </div>
-      <div className="mt-5 flex space-x-4 flex-wrap">
-        <Button
-          onClick={goToHome}
-          variant="secondary"
-          className="p-6 shadow-black  shadow-xl font-mono font-bold uppercase"
-        >
-          Strona Główna
-        </Button>
-        <Button
-          onClick={goBack}
-          variant="secondary"
-          className="p-6 shadow-black  shadow-xl font-mono font-bold uppercase"
-        >
-          Wroc do porzedniej strony
-        </Button>
-      </div>
-    </main>
+    </section>
   );
 };
 export default NotFound;
