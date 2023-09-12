@@ -1,10 +1,12 @@
 import React from "react";
-import { Admin } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import { DataTableSortBtn } from "@/components/DataTable";
 import { DeleteAdministratorAction } from "./deleteAdministratorAction";
+import { AdministratorResponse } from "@/types/db/administrator";
 
-export const administratorsColumns: ColumnDef<Admin>[] = [
+export const administratorsColumns: ColumnDef<
+  Exclude<AdministratorResponse, null>
+>[] = [
   {
     accessorKey: "email",
     header: ({ column }) => (

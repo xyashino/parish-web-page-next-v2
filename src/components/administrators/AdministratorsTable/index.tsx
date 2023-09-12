@@ -1,10 +1,10 @@
 "use client";
 import { DataTable } from "@/components/DataTable";
-import { Admin } from ".prisma/client";
 import { administratorsColumns } from "./administrators-columns";
+import { AdministratorsResponse } from "@/types/db/administrator";
 
 interface Props {
-  data: Admin[];
+  data: AdministratorsResponse;
 }
 
 export const AdministratorsTable = ({ data }: Props) => (
