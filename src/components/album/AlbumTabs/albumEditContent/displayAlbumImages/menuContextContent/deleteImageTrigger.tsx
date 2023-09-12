@@ -32,10 +32,10 @@ export const DeleteImageTrigger = ({ id }: Props) => {
         }}
         triggerItem={
           <Button
-            variant="destructive"
+            variant="ghost"
             className="w-full flex items-center justify-around"
           >
-            <TrashIcon className="mr-2 h-4 w-4" /> Usuń
+            Usuń <TrashIcon className="mr-2 h-4 w-4" />
           </Button>
         }
         triggerConfig={{
