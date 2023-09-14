@@ -21,6 +21,7 @@ export const ImageTextSection = ({
         fill
         className="absolute object-cover lg:rounded-xl"
         draggable={false}
+        priority
       />
     </div>
     {!!title && (
