@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { useAlbumCoverImageStore } from "@/lib/store/useAlbumCoverImageStore";
 import { useParams } from "next/navigation";
 import { DeleteImageTrigger } from "./deleteImageTrigger";
+import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 
 interface Props {
   id: string;
@@ -23,12 +24,14 @@ export const MenuContextContent = ({ id }: Props) => {
 
   return (
     <ContextMenuContent className="p-0 border-0">
-      <ContextMenuItem
-        className="w-full justify-around cursor-pointer"
-        onClick={handleSetCoverImage}
-      >
-        <span>Okładka</span>
-        <ImageIcon />
+      <ContextMenuItem asChild>
+        <ButtonWithIcon
+          text="Okładka"
+          Icon={ImageIcon}
+          onClick={handleSetCoverImage}
+          className="w-full cursor-pointer"
+          variant="ghost"
+        />
       </ContextMenuItem>
       <Separator />
       <DeleteImageTrigger id={id} />
