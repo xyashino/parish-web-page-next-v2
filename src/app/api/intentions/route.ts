@@ -6,6 +6,8 @@ import {
 } from "@/lib/db/weekIntentions";
 import { weekIntentionsValidator } from "@/lib/validators";
 import { Status } from "@prisma/client";
+import { revalidateTag } from "next/cache";
+import { RevalidateTag } from "@/types/enums";
 
 export async function GET({ url }: NextRequest) {
   const status = new URL(url).searchParams.get("status");
@@ -34,5 +36,6 @@ export async function POST(request: Request) {
       })),
     },
   });
+  revalidateTag(RevalidateTag.INTENTIONS);
   return NextResponse.json(result);
 }
