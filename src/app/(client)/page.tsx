@@ -1,7 +1,7 @@
+import React from "react";
 import { VideoSection } from "@/components/client-home/VideoSection";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import React from "react";
 
 export default function Home() {
   return (
@@ -37,6 +37,7 @@ export default function Home() {
                   className="lg:rotate-[6deg] w-full rounded-lg shadow-lg absolute"
                   alt="image"
                   fill
+                  draggable={false}
                 />
               </div>
             </div>
