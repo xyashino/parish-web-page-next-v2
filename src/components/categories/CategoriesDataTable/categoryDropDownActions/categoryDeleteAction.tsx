@@ -3,6 +3,7 @@ import { TrashIcon } from "@radix-ui/react-icons";
 import { CategoriesCrud } from "@/lib/services/categories";
 import { useRouter } from "next/navigation";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
+import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 
 interface Props {
   id: string;
@@ -16,11 +17,23 @@ export const CategoryDeleteAction = ({ id }: Props) => {
   };
 
   return (
-    <DataTableActionsDropDownItem
-      text="Usuń"
-      Icon={TrashIcon}
-      onClick={handleDelete}
-      className="text-red-500"
+    <ConfirmAlert
+      headerConfig={{
+        title: "Czy na pewno chcesz usunąć tą kategorie?",
+        description:
+          "Z albmumów tej kategori zostanie ona usnięta ( albumy pozostaną bez przyznanej kategorii ).",
+      }}
+      triggerItem={
+        <DataTableActionsDropDownItem
+          text="Usuń"
+          Icon={TrashIcon}
+          className="text-destructive"
+        />
+      }
+      footerConfig={{
+        confirmText: "Usuń",
+        doAfterConfirm: handleDelete,
+      }}
     />
   );
 };
