@@ -1,7 +1,7 @@
 import React from "react";
 import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 import { ResetIcon } from "@radix-ui/react-icons";
-import { Button } from "@/components/ui/button";
+import { ButtonWithIcon } from "@/components/ButtonWithIcon";
 
 interface Props {
   clearAll: () => void;
@@ -16,9 +16,7 @@ export const ClearButtonWithAlert = ({ clearAll }: Props) => {
           "Zmiany zostaną zrobione lokalnie. Musisz je zapisać, aby utrwalić.",
       }}
       triggerItem={
-        <Button variant="destructive" className="w-full">
-          <ResetIcon className="mr-2 h-4 w-4" /> Wyczyść
-        </Button>
+        <ButtonWithIcon text="Wyczyść" Icon={ResetIcon} className="w-full" />
       }
       footerConfig={{
         doAfterConfirm: clearAll,

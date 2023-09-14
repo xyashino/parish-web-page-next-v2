@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { z } from "zod";
 import { CustomForm, CustomFormInputItem } from "@/components/form";
 import { MdEditor } from "@/components/MdEditor";
@@ -9,7 +9,6 @@ import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
 import { Card, CardContent } from "@/components/ui/card";
 import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSeparator";
-import { SwitchWithLabel } from "@/components/SwitchWithLabel";
 import { weekIntentionsFormSchema } from "@/lib/schemas/week-intentions";
 
 type TypeFormSchema = z.infer<typeof weekIntentionsFormSchema>;
@@ -24,7 +23,6 @@ export const ModifyWeekIntentionsForm = ({
   const { createIntention } = useWeekIntentionsStore();
   const { editorValue } = useMdEditorStore();
 
-  const [switchValue, setSwitchValue] = useState(false);
   const onSubmit = (e: TypeFormSchema) => {
     createIntention({
       order: e.order,
@@ -66,12 +64,6 @@ export const ModifyWeekIntentionsForm = ({
             />
           </div>
           <div className="flex flex-col justify-around items-center space-y-4">
-            <SwitchWithLabel
-              value={switchValue}
-              onChange={setSwitchValue}
-              labelText="Czyść formularz po dodaniu intencji?"
-              id="clearForm"
-            />
             <ButtonWithIcon
               text="Dodaj Intencje"
               Icon={PlusCircledIcon}

@@ -4,6 +4,7 @@ import { OneIntention } from "@/types/week-intentions-store";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { Button } from "@/components/ui/button";
 import { TrashIcon } from "@radix-ui/react-icons";
+import ReactMarkdown from "react-markdown";
 
 interface Props {
   intentionData: OneIntention;
@@ -12,13 +13,16 @@ interface Props {
 
 export const ModifyIntentionsRow = ({ intentionData, id }: Props) => {
   const { deleteIntention } = useWeekIntentionsStore();
-
   return (
     <TableRow>
       <TableCell>{intentionData.order}</TableCell>
       <TableCell className="font-bold">{intentionData.hour}</TableCell>
-      <TableCell>{intentionData.value}</TableCell>
-      <TableCell className="flex flex-col items-end justify-center">
+      <TableCell>
+        <ReactMarkdown className="prose-sm max-w-none">
+          {intentionData.value}
+        </ReactMarkdown>
+      </TableCell>
+      <TableCell className="grid place-items-center">
         <Button
           variant="ghost"
           onClick={() => deleteIntention(id)}
