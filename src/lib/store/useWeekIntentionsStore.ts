@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { WeekIntentionsStore } from "@/types/week-intentions-store";
-import { Status, Weekday } from "@prisma/client";
+import { Weekday } from "@prisma/client";
 import { WEEK_INTENTIONS_STORE_DEFAULT } from "@/lib/constants/week-intentions";
 
 export const useWeekIntentionsStore = create<WeekIntentionsStore>(
@@ -17,22 +17,8 @@ export const useWeekIntentionsStore = create<WeekIntentionsStore>(
       });
     },
     clearAll: () => {
-      const { dayIntentions, weekIntentions } = get();
-      weekIntentions.startWeek = null;
-      weekIntentions.endWeek = null;
-      weekIntentions.status = Status.NONE;
-      const getEnumDays = Object.values(Weekday);
-
-      getEnumDays.forEach((day, i) => {
-        const foundDay = dayIntentions.get(i.toString());
-        if (!foundDay) return;
-        foundDay.dateOfDay = null;
-        foundDay.intentions = [];
-      });
-
       set({
-        weekIntentions: { ...weekIntentions },
-        dayIntentions: new Map(dayIntentions),
+        ...WEEK_INTENTIONS_STORE_DEFAULT,
       });
     },
 
