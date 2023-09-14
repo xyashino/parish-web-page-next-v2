@@ -33,7 +33,7 @@ export default function Home() {
               </div>
               <div className="md:mb-12 lg:mb-0 relative w-full aspect-square">
                 <Image
-                  src="/main/kolbe.webp"
+                  src="/images/articles/kolbe.webp"
                   className="lg:rotate-[6deg] w-full rounded-lg shadow-lg absolute"
                   alt="image"
                   fill
