@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import ChurchIcon from "@/components/icons/ChurchIcon";
+import { ChurchIcon } from "@/components/icons/ChurchIcon";
 import { Navigation } from "@/types/enums";
 import { cn } from "@/lib/utils";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
@@ -18,7 +18,7 @@ export const Logo = ({ renderAsLink = true, className, navigateTo }: Props) => {
   const logoClasses = cn(
     LOGO_CLASSES,
     "text-xl space-x-4 bg-transparent",
-    className
+    className,
   );
 
   if (renderAsLink)

@@ -1,6 +1,6 @@
 import React from "react";
 import { SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import ChurchIcon from "@/components/icons/ChurchIcon";
+import { ChurchIcon } from "@/components/icons/ChurchIcon";
 
 export const MobileNavigationSheetHeader = () => (
   <SheetHeader className="select-none">
