@@ -1,6 +1,8 @@
 import React, { SyntheticEvent } from "react";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import { ButtonWithIcon } from "@/components/ButtonWithIcon";
+
 interface Props {
   className?: string;
   text: string;
@@ -13,17 +15,14 @@ export const DataTableActionsDropDownItem = ({
   text,
   Icon,
   onClick,
-}: Props) => {
-  const classes = cn(
-    "flex items-center justify-between w-full mx-2 text-foreground",
-    className
-  );
-  return (
-    <DropdownMenuItem className="cursor-pointer" onClick={onClick}>
-      <span className={classes}>
-        <span>{text}</span>
-        <Icon />
-      </span>
-    </DropdownMenuItem>
-  );
-};
+}: Props) => (
+  <DropdownMenuItem className="cursor-pointer" asChild>
+    <ButtonWithIcon
+      Icon={Icon}
+      text={text}
+      onClick={onClick}
+      className={cn("w-full cursor-pointer", className)}
+      variant="ghost"
+    />
+  </DropdownMenuItem>
+);
