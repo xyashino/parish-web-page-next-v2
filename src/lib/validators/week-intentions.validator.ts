@@ -38,5 +38,4 @@ export const weekIntentionsValidator = z.object({
 export const weekUpdateIntentionsValidator = z.object({
   ...weekIntentionsValidator.shape,
   status: z.nativeEnum(Status).optional(),
-  id: z.string(),
 });
