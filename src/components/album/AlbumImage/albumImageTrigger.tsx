@@ -21,7 +21,7 @@ export const AlbumImageTrigger = ({ path, children }: Props) => {
       </Button>
       {display && (
         <div
-          className="fixed z-40 animate-fadeIn inset-0 bg-black/20 p-4 grid place items-center overflow-hidden select-none"
+          className="fixed z-40 animate-fadeIn inset-0 bg-black/80 p-4 grid place items-center overflow-hidden select-none"
           onClick={() => setDisplay((prev) => !prev)}
         >
           <div className="w-11/12 aspect-video mx-auto">
