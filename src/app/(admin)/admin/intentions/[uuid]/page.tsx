@@ -29,7 +29,6 @@ const EditOneIntention = async ({ params: { uuid } }: any) => {
     },
   );
   if (!weekIntention) return notFound();
-  console.log(weekIntention);
   return (
     <AdminPageWrapper
       headerData={{
