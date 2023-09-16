@@ -4,7 +4,7 @@ const nextConfig = {
     mdxRs: true,
     serverActions: true,
   },
-}
+};
 
-const withMDX = require('@next/mdx')()
-module.exports = withMDX(nextConfig)
+const withMDX = require("@next/mdx")();
+module.exports = withMDX(nextConfig);

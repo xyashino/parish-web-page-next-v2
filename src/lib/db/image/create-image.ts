@@ -16,7 +16,7 @@ export const createImage = async (
     return await client.image.update({
       where: { id: imageEntity.id },
       data: {
-        path: path.join(albumDir, `/${albumId}/${imageEntity.id}.${extname}`),
+        path: path.join(albumDir, `/${albumId}/${imageEntity.id}${extname}`),
       },
     });
   } catch (error) {
