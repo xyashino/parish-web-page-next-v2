@@ -1,5 +1,4 @@
 "use server";
-import sharp from "sharp";
 import { mkdir, readdir, unlink, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { deleteImage } from "@/lib/db/image";
@@ -45,12 +44,13 @@ export const validateFormData = (formData: [string, File | string][]) => {
   };
 };
 
-export const saveAsWebp = async (buffer: ArrayBuffer, path: string) => {
+export const saveImage = async (buffer: ArrayBuffer, path: string) => {
   let pathCopy = path;
-  if (!pathCopy.endsWith(".webp")) pathCopy = pathCopy + ".webp";
   if (!UPLOAD_DIR) throw new Error("Upload dir not found , check .env file");
-  const webpBuffer = await sharp(buffer).webp().toBuffer();
-  await writeFile(join(process.cwd(), UPLOAD_DIR, `${pathCopy}`), webpBuffer);
+  await writeFile(
+    join(process.cwd(), UPLOAD_DIR, `${pathCopy}`),
+    Buffer.from(buffer),
+  );
 };
 
 export const clearImage = async (id: string) => {
