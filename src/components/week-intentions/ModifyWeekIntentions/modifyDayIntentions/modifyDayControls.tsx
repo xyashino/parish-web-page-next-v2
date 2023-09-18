@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from "react";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Status } from ".prisma/client";
+import { Status } from "@prisma/client";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { SelectStatus } from "@/components/SelectStatus";
 import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
