@@ -21,7 +21,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const EditOneIntention = async ({ params: { uuid } }: any) => {
+const EditOneIntention = async ({ params: { uuid } }: ParamsWithUUID) => {
   const weekIntention = await apiCall<WeekIntentionsWithRelationsResponse>(
     `${ApiRoute.BASE_WEEK_INTENTIONS}/${uuid}`,
     {
