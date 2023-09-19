@@ -15,7 +15,7 @@ export default async function Intentions() {
   return (
     <div className="my-4 animate-fadeIn">
       <ImageTextSection
-        src="/intencje.webp"
+        src="/images/intencje.webp"
         alt="Some hands"
         title="Intencje Parafialne"
         subtitle={getDateRange(intentions?.startWeek, intentions?.endWeek)}

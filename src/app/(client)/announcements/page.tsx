@@ -15,7 +15,7 @@ export default async function Announcement() {
   return (
     <div className="my-4 animate-fadeIn">
       <ImageTextSection
-        src="/biblia.webp"
+        src="/images/biblia.webp"
         alt="Some hands"
         title="Ogłoszenia Parafialne"
         subtitle={announcements?.subtitle}
