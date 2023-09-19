@@ -1,5 +1,5 @@
 import React from "react";
-import notFound from "@/app/not-found";
+import { notFound } from "next/navigation";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
 import { AlbumsResponse, AlbumWithRelationsResponse } from "@/types/db/album";

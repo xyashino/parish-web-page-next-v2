@@ -1,6 +1,6 @@
 import React from "react";
 import { apiCall } from "@/lib/utils";
-import notFound from "@/app/not-found";
+import { notFound } from "next/navigation";
 import { ModifyAnnouncements } from "@/components/announcements/ModifyAnnouncements";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import {

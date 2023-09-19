@@ -1,6 +1,6 @@
 import React from "react";
 import { apiCall, convertIntentionsResponseToStoreData } from "@/lib/utils";
-import notFound from "@/app/not-found";
+import { notFound } from "next/navigation";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekIntentions";
 import {
