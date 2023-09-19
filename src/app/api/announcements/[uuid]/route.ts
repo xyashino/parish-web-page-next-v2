@@ -11,6 +11,11 @@ import { RevalidateTag } from "@/types/enums";
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const announcement = getAnnouncement(id);
+  if (!announcement)
+    return NextResponse.json(
+      { error: "Announcement not found" },
+      { status: 404 },
+    );
   return NextResponse.json(announcement);
 }
 export async function PUT(request: Request, { params }: ParamsWithUUID) {

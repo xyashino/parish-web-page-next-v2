@@ -12,6 +12,11 @@ import { RevalidateTag } from "@/types/enums";
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const intentions = await getWeekIntentionWithRelations(id);
+  if (!intentions)
+    return NextResponse.json(
+      { error: "Intentions not found" },
+      { status: 404 },
+    );
   return NextResponse.json(intentions);
 }
 

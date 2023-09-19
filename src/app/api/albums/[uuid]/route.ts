@@ -12,6 +12,8 @@ import { deleteDirectory } from "@/lib/services/albums/server-methods";
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const album = await getAlbumWithRelations(id);
+  if (!album)
+    return NextResponse.json({ error: "Album not found" }, { status: 404 });
   return NextResponse.json(album);
 }
 
