@@ -8,6 +8,7 @@ import {
   saveImage,
   validateFormData,
 } from "@/lib/services/images/server-methods";
+import { ServerErrorResponse } from "@/lib/next-responses";
 
 const { UPLOAD_DIR, UPLOAD_DIR_ALBUM } = process.env;
 
@@ -25,7 +26,7 @@ export async function POST(request: Request) {
   );
 
   if (!imageEntity || !imageEntity.path)
-    throw new Error("Something went wrong");
+    return ServerErrorResponse("Image could not be saved");
   await saveImage(await file.arrayBuffer(), imageEntity.path);
   revalidateTag(RevalidateTag.IMAGES);
   return NextResponse.json(imageEntity);

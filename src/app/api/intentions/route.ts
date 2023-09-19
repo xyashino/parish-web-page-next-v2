@@ -8,11 +8,13 @@ import { weekIntentionsValidator } from "@/lib/validators";
 import { Status } from "@prisma/client";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
+import { NotFoundResponse, ServerErrorResponse } from "@/lib/next-responses";
 
 export async function GET({ url }: NextRequest) {
   const status = new URL(url).searchParams.get("status");
   if (status === Status.ACTIVE) {
     const result = await getActiveWeekIntentions();
+    if (!result) return NotFoundResponse("Active intentions not found");
     return NextResponse.json(result);
   }
 
@@ -36,6 +38,7 @@ export async function POST(request: Request) {
       })),
     },
   });
+  if (!result) return ServerErrorResponse("Intention could not be created");
   revalidateTag(RevalidateTag.INTENTIONS);
   return NextResponse.json(result);
 }

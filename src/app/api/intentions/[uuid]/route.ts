@@ -8,15 +8,12 @@ import { weekUpdateIntentionsValidator } from "@/lib/validators";
 import { deleteDaysByWeekId } from "@/lib/db/day";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
+import { NotFoundResponse } from "@/lib/next-responses";
 
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const intentions = await getWeekIntentionWithRelations(id);
-  if (!intentions)
-    return NextResponse.json(
-      { error: "Intentions not found" },
-      { status: 404 },
-    );
+  if (!intentions) return NotFoundResponse("Intention not found");
   return NextResponse.json(intentions);
 }
 
@@ -39,6 +36,7 @@ export async function PUT(request: Request, { params }: any) {
       })),
     },
   });
+  if (!intentions) return NotFoundResponse("Intention not found");
   revalidateTag(RevalidateTag.INTENTIONS);
   return NextResponse.json(intentions);
 }
@@ -46,6 +44,7 @@ export async function PUT(request: Request, { params }: any) {
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const intention = await deleteWeekIntention(id);
+  if (!intention) return NotFoundResponse("Intention not found");
   revalidateTag(RevalidateTag.INTENTIONS);
   return NextResponse.json(intention);
 }

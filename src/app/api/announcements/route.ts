@@ -7,13 +7,16 @@ import {
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
 import { Status } from "@prisma/client";
+import { NotFoundResponse, ServerErrorResponse } from "@/lib/next-responses";
 
 export async function GET(request: Request) {
   const status = new URLSearchParams(request.url).get("status");
 
   if (status === Status.ACTIVE) {
-    const albums = await getActiveAnnouncement();
-    return NextResponse.json(albums);
+    const announcements = await getActiveAnnouncement();
+    if (!announcements)
+      return NotFoundResponse("Active announcements not found");
+    return NextResponse.json(announcements);
   }
 
   const result = await getAnnouncements({
@@ -30,6 +33,7 @@ export async function POST(request: Request) {
     value,
     subtitle: subtitle || null,
   });
+  if (!result) return ServerErrorResponse("Announcement could not be created");
   revalidateTag(RevalidateTag.ANNOUNCEMENTS);
   return NextResponse.json(result);
 }

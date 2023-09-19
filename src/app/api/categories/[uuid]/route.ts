@@ -7,17 +7,18 @@ import { RevalidateTag } from "@/types/enums";
 export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const changeData: Omit<Category, "id"> = await request.json();
-  const categories = await updateCategory(id, {
+  const category = await updateCategory(id, {
     ...changeData,
   });
+  if (!category) return NextResponse.json("Category not found");
   revalidateTag(RevalidateTag.CATEGORIES);
-
-  return NextResponse.json(categories);
+  return NextResponse.json(category);
 }
 
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const category = await deleteCategory(id);
+  if (!category) return NextResponse.json("Category not found");
   revalidateTag(RevalidateTag.CATEGORIES);
   return NextResponse.json(category);
 }
