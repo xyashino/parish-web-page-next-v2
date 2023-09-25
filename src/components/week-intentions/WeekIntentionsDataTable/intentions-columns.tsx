@@ -1,11 +1,11 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { Status, WeekIntentions } from "@prisma/client";
 import { IntentionsDataTableDateCell } from "./intentionsDataTableDateCell";
 import { IntentionsDropDownActions } from "./intentionsDropDownActions";
 import { DataTableSortBtn, DataTableStatusCell } from "@/components/DataTable";
+import { SelectWeekIntentions } from "@/types/db/week-intentions";
 
-export const intentionsColumns: ColumnDef<WeekIntentions>[] = [
+export const intentionsColumns: ColumnDef<SelectWeekIntentions>[] = [
   {
     accessorKey: "status",
     header: ({ column }) => (
@@ -14,9 +14,7 @@ export const intentionsColumns: ColumnDef<WeekIntentions>[] = [
         value="Status"
       />
     ),
-    cell: ({ getValue }) => (
-      <DataTableStatusCell status={getValue() as Status} />
-    ),
+    cell: ({ getValue }) => <DataTableStatusCell status={getValue()} />,
   },
   {
     accessorKey: "startWeek",

@@ -2,7 +2,7 @@ import React from "react";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
-import { IntentionsCrud } from "@/lib/services/intentions";
+import { IntentionsApiService } from "@/lib/services/intentions";
 import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 export const IntentionsDeleteAction = ({ id }: Props) => {
   const { refresh } = useRouter();
   const handleDelete = async () => {
-    await IntentionsCrud.delete(id);
+    await IntentionsApiService.delete(id);
     refresh();
   };
 
