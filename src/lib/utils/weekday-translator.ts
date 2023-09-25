@@ -1,10 +1,11 @@
-import { Weekday } from "@prisma/client";
-export const weekdayTranslator: Map<Weekday, string> = new Map([
-  [Weekday.MONDAY, "poniedziałek"],
-  [Weekday.FRIDAY, "piątek"],
-  [Weekday.SATURDAY, "sobota"],
-  [Weekday.SUNDAY, "niedziela"],
-  [Weekday.THURSDAY, "czwartek"],
-  [Weekday.TUESDAY, "wtorek"],
-  [Weekday.WEDNESDAY, "środa"],
+import { Day } from "@/types/db/enums";
+
+export const weekdayTranslator: Map<Day, string> = new Map([
+  ["MONDAY", "poniedziałek"],
+  ["TUESDAY", "wtorek"],
+  ["WEDNESDAY", "środa"],
+  ["THURSDAY", "czwartek"],
+  ["FRIDAY", "piątek"],
+  ["SATURDAY", "sobota"],
+  ["SUNDAY", "niedziela"],
 ]);
