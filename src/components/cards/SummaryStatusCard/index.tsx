@@ -1,10 +1,9 @@
 import React from "react";
-import { Status } from "@prisma/client";
 import { BaseCard } from "@/components/cards/BaseCard";
 import { ChatBubbleIcon } from "@radix-ui/react-icons";
 import { SummaryStatusCardTable } from "./summaryStatusCardTable";
 
-type ObjectWithStatus = { status: Status };
+type ObjectWithStatus = { status: any };
 
 interface Props<T extends ObjectWithStatus> {
   values: T[];
