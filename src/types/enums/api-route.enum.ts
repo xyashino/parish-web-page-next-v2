@@ -9,4 +9,5 @@ export enum ApiRoute {
 
   ACTIVE_ANNOUNCEMENT = "/api/announcements?status=ACTIVE",
   ACTIVE_WEEK_INTENTION = "/api/intentions?status=ACTIVE",
+  ACTIVE_CATEGORIES = "/api/categories?status=ACTIVE",
 }
