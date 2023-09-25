@@ -2,15 +2,15 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
+import { AlbumResponse, AlbumWithRelationsResponse } from "@/types/db/album";
+import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
 import { AlbumInfoCard } from "@/components/album/AlbumInfoCard";
 import { AlbumCoverImageCard } from "@/components/album/AlbumCoverImageCard";
 import { AlbumTabs } from "@/components/album/AlbumTabs";
-import { AlbumsResponse, AlbumWithRelationsResponse } from "@/types/db/album";
-import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 export async function generateStaticParams() {
-  const announcements = await apiCall<AlbumsResponse>(ApiRoute.BASE_ALBUMS, {
+  const announcements = await apiCall<AlbumResponse[]>(ApiRoute.BASE_ALBUMS, {
     next: { tags: [RevalidateTag.ALBUMS] },
   });
   return announcements.map((announcement) => ({
