@@ -1,5 +1,4 @@
 import React from "react";
-import { Category } from "@prisma/client";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
@@ -9,16 +8,20 @@ import { ModifyAlbumDialog } from "@/components/album/ModifyAlbumDialog";
 import { AlbumsDataTable } from "@/components/album/AlbumsDataTable";
 import { ModifyCategoryDialog } from "@/components/categories/ModifyCategoryDialog";
 import { CategoriesDataTable } from "@/components/categories/CategoriesDataTable";
-import { AlbumsResponse } from "@/types/db/album";
+import { AlbumResponse, CategoriesResponse } from "@/types/db/album";
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 const AdministratorsManagePage = async () => {
-  const albums = await apiCall<AlbumsResponse>(ApiRoute.BASE_ALBUMS, {
+  const albums = await apiCall<AlbumResponse[]>(ApiRoute.BASE_ALBUMS, {
     next: { tags: [RevalidateTag.ALBUMS] },
   });
-  const categories = await apiCall<Category[]>(ApiRoute.BASE_CATEGORIES, {
-    next: { tags: [RevalidateTag.CATEGORIES] },
-  });
+  const categories = await apiCall<CategoriesResponse>(
+    ApiRoute.BASE_CATEGORIES,
+    {
+      next: { tags: [RevalidateTag.CATEGORIES] },
+    },
+  );
+  console.log(albums);
   return (
     <AdminPageWrapper
       headerData={{
@@ -44,7 +47,7 @@ const AdministratorsManagePage = async () => {
           title="Podsumowanie Albumów"
           emptyArrayMessage="Brak Albumów"
         />
-        <ModifyAlbumDialog />
+        <ModifyAlbumDialog categories={categories} />
       </DashboardCardContainer>
       <AlbumsDataTable data={albums} />
     </AdminPageWrapper>
