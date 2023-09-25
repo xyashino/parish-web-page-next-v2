@@ -4,8 +4,9 @@ import { CustomDialog } from "@/components/CustomDialog";
 import { modifyAlbumSchema } from "@/lib/schemas/album";
 import { useModifyAlbumLogic } from "@/lib/hooks/useModifyAlbumLogic";
 import { ModifyAlbumDialogFormFields } from "./modifyAlbumDialogFormFields";
+import { SelectCategoryProps } from "./selectCategoryFormField/selectCategoryContent";
 
-export const ModifyAlbumDialog = () => {
+export const ModifyAlbumDialog = (props: SelectCategoryProps) => {
   const { headerData, submitMethod, defaultValues, isOpen, setIsOpen } =
     useModifyAlbumLogic();
   return (
@@ -21,7 +22,7 @@ export const ModifyAlbumDialog = () => {
       open={isOpen}
       onOpenChange={setIsOpen}
     >
-      <ModifyAlbumDialogFormFields />
+      <ModifyAlbumDialogFormFields {...props} />
     </CustomDialog>
   );
 };

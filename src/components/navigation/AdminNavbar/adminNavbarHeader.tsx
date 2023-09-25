@@ -3,7 +3,7 @@ import React from "react";
 import { Logo } from "@/components/Logo";
 import { Navigation } from "@/types/enums";
 import { MobileNavigationSheet } from "../MobileNavigationSheet";
-import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
+import { SingleNavigationItemWithIcon } from "@/types/navigation";
 import { NavigationLink } from "@/components/navigation/NavigationLink";
 
 interface Props {

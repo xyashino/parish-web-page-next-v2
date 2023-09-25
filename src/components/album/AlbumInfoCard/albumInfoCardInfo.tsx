@@ -3,7 +3,6 @@ import { AlbumWithRelationsResponse } from "@/types/db/album";
 
 export const AlbumInfoCardInfo = ({
   images,
-  category,
   subtitle,
   title,
   show,
@@ -21,10 +20,10 @@ export const AlbumInfoCardInfo = ({
       <span className="font-bold">Aktywny: </span>
       <span>{show ? "Tak" : "Nie"}</span>
     </p>
-    <p>
-      <span className="font-bold">Kategoria: </span>
-      <span>{category?.name ?? "BRAK"}</span>
-    </p>
+    {/*<p>*/}
+    {/*  <span className="font-bold">Kategoria: </span>*/}
+    {/*  <span>{category?.name ?? "BRAK"}</span>*/}
+    {/*</p>*/}
 
     <p>
       <span className="font-bold">Liczba zdjęć: </span>

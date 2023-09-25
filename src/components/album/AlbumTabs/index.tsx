@@ -1,12 +1,12 @@
 import React from "react";
-import { Image } from "@prisma/client";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AlbumTabsValue } from "./album-tabs-value.enum";
 import { AlbumAddContent } from "./albumAddContent";
 import { AlbumEditContent } from "./albumEditContent";
+import { ImageResponse } from "@/types/db/album";
 
 interface Props {
-  images: Image[];
+  images: ImageResponse[];
 }
 
 export const AlbumTabs = ({ images }: Props) => (

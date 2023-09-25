@@ -7,10 +7,10 @@ import { AlbumEditCardHeader } from "./albumEditCardHeader";
 import { MissingImagesInfo } from "./missingImagesInfo";
 import { Separator } from "@/components/ui/separator";
 import { DisplayAlbumImages } from "./displayAlbumImages";
-import { Image } from "@prisma/client";
+import { ImageListResponse } from "@/types/db/album";
 
 interface Props {
-  images: Image[];
+  images: ImageListResponse;
 }
 
 export const AlbumEditContent = ({ images }: Props) => (

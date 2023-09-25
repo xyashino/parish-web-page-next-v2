@@ -3,9 +3,10 @@ import React from "react";
 import { ContextMenu } from "@/components/ui/context-menu";
 import { MenuTrigger } from "./menuTrigger";
 import { MenuContextContent } from "./menuContextContent";
-import { Image } from "@prisma/client";
+import { ImageResponse } from "@/types/db/album";
+
 interface Props {
-  images: Image[];
+  images: ImageResponse[];
 }
 
 export const DisplayAlbumImages = ({ images }: Props) => {

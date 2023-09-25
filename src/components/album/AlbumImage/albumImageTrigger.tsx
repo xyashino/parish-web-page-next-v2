@@ -1,11 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Image as ImageEntity } from "@prisma/client";
 import { PropsWithChildren, useState } from "react";
 import Image from "next/image";
+import { ImageResponse } from "@/types/db/album";
 
 interface Props extends PropsWithChildren {
-  path: ImageEntity["path"];
+  path: ImageResponse["path"];
 }
 
 export const AlbumImageTrigger = ({ path, children }: Props) => {

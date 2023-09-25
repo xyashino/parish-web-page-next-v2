@@ -1,10 +1,10 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Image as ImageEntity } from "@prisma/client";
 import { AlbumImageTrigger } from "@/components/album/AlbumImage/albumImageTrigger";
+import { ImageResponse } from "@/types/db/album";
 
-interface AlbumImageProps extends ImageEntity {
+interface AlbumImageProps extends ImageResponse {
   index: number;
 }
 
@@ -13,7 +13,7 @@ export const AlbumImage = ({ id, path, index }: AlbumImageProps) => {
     <div
       key={id}
       className={cn(
-        "w-full relative shadow  transition-transform duration-300 w-full aspect-video cursor-pointer",
+        "w-full relative shadow  transition-transform duration-300 aspect-video cursor-pointer",
         Math.floor(Math.random() * 2) % 2
           ? "lg:w-1/3"
           : "lg:aspect-square lg:w-1/4",

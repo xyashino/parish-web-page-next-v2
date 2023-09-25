@@ -1,6 +1,6 @@
 import React from "react";
 import { TrashIcon } from "@radix-ui/react-icons";
-import { AlbumCrud } from "@/lib/services/albums/crud";
+import { AlbumApiService } from "@/lib/services/albums/api";
 import { useRouter } from "next/navigation";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
 import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
@@ -12,7 +12,7 @@ interface Props {
 export const AlbumDeleteAction = ({ id }: Props) => {
   const { refresh } = useRouter();
   const handleDelete = async () => {
-    await AlbumCrud.delete(id);
+    await AlbumApiService.delete(id);
     refresh();
   };
 

@@ -1,11 +1,11 @@
 import React, { SyntheticEvent } from "react";
 import { Pencil2Icon } from "@radix-ui/react-icons";
-import { Album } from "@prisma/client";
 import { useAlbumDialogStore } from "@/lib/store";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
+import { AlbumResponse } from "@/types/db/album";
 
 interface Props {
-  albumData: Album;
+  albumData: AlbumResponse;
 }
 
 export const AlbumEditAction = ({ albumData }: Props) => {
@@ -21,7 +21,7 @@ export const AlbumEditAction = ({ albumData }: Props) => {
         show,
         categoryId: categoryId ?? "",
       },
-      albumData.id
+      albumData.id,
     );
   };
   return (

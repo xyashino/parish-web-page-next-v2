@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { ImageIcon } from "@radix-ui/react-icons";
-import { CategoriesCover } from "@/types/db/category";
+import { ImageResponse } from "@/types/db/album";
 
 interface Props {
-  cover: CategoriesCover;
+  cover: ImageResponse | null;
   title: string;
 }
 

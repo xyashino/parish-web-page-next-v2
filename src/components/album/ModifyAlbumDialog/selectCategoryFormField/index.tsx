@@ -8,9 +8,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { SelectCategoryContent } from "./selectCategoryContent";
+import {
+  SelectCategoryContent,
+  SelectCategoryProps,
+} from "./selectCategoryContent";
 import { SelectCategoryTrigger } from "./selectCategoryTrigger";
-export const SelectCategoryFormField = () => {
+
+export const SelectCategoryFormField = (props: SelectCategoryProps) => {
   return (
     <FormField
       name="categoryId"
@@ -21,7 +25,7 @@ export const SelectCategoryFormField = () => {
             <FormControl>
               <SelectCategoryTrigger />
             </FormControl>
-            <SelectCategoryContent />
+            <SelectCategoryContent {...props} />
           </Select>
           <FormDescription>
             Wybierz kategorię do której ma należeć album. Jeśli nie wybierzesz
