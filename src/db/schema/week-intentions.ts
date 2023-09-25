@@ -1,10 +1,4 @@
-import {
-  pgTable,
-  smallint,
-  timestamp,
-  uuid,
-  varchar,
-} from "drizzle-orm/pg-core";
+import { pgTable, smallint, timestamp, varchar } from "drizzle-orm/pg-core";
 import { dayEnum, statusEnum } from "./enums";
 import { randomUUID } from "node:crypto";
 import { relations } from "drizzle-orm";
@@ -24,7 +18,7 @@ export const dayTable = pgTable("Day", {
     .$defaultFn(() => randomUUID()),
   day: dayEnum("day").notNull(),
   dateOfDay: timestamp("dateOfDay"),
-  weekId: uuid("weekId").references(() => weekIntentionsTable.id, {
+  weekId: varchar("weekId").references(() => weekIntentionsTable.id, {
     onDelete: "cascade",
   }),
 });
@@ -36,7 +30,7 @@ export const intentionTable = pgTable("Intention", {
   order: smallint("order").default(0).notNull(),
   hour: varchar("hour", { length: 10 }),
   value: varchar("value", { length: 255 }).default("").notNull(),
-  dayId: uuid("dayId")
+  dayId: varchar("dayId")
     .notNull()
     .references(() => dayTable.id, {
       onDelete: "cascade",
