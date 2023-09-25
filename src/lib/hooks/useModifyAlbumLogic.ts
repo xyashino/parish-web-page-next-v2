@@ -2,7 +2,7 @@ import { z } from "zod";
 import { useAlbumDialogStore } from "@/lib/store";
 import { ModifyDialogHeaderProps } from "@/components/CustomDialog/customDialogHeader";
 import { modifyAlbumSchema } from "@/lib/schemas/album";
-import { AlbumCrud } from "@/lib/services/albums/crud";
+import { AlbumApiService } from "@/lib/services/albums/api";
 import { useRouter } from "next/navigation";
 
 export const useModifyAlbumLogic = () => {
@@ -11,13 +11,13 @@ export const useModifyAlbumLogic = () => {
   const submitMethod = async (values: z.infer<typeof modifyAlbumSchema>) => {
     const { categoryId, subtitle, ...rest } = values;
     if (id)
-      await AlbumCrud.update(id, {
+      await AlbumApiService.update(id, {
         ...rest,
         categoryId: categoryId && categoryId !== "" ? categoryId : null,
         subtitle: subtitle ?? null,
       });
     else
-      await AlbumCrud.create({
+      await AlbumApiService.create({
         ...rest,
         categoryId: categoryId && categoryId !== "" ? categoryId : null,
         subtitle: subtitle ?? null,

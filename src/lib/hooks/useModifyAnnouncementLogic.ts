@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { UpdateAnnouncementData } from "@/types/announcement-edit";
 import { DEFAULT_ANNOUNCEMENT_DATA } from "@/lib/constants/announcements";
-import { AnnouncementsCrud } from "@/lib/services";
+import { AnnouncementsApiService } from "@/lib/services/announcements";
 import { AnnouncementResponse } from "@/types/db/announcement";
 
 export const useModifyAnnouncementLogic = (
@@ -11,13 +11,16 @@ export const useModifyAnnouncementLogic = (
 ) => {
   const { setEditorValue, editorValue: value } = useMdEditorStore();
   const { back, refresh } = useRouter();
-
+  console.log({ defaultValue });
   const [announcementData, setAnnouncementData] = useState(
-    DEFAULT_ANNOUNCEMENT_DATA,
+    defaultValue ?? DEFAULT_ANNOUNCEMENT_DATA,
   );
 
   useEffect(() => {
+    console.log({ defaultValue });
+
     if (defaultValue) {
+      console.log({ defaultValue });
       const { status, subtitle, value } = defaultValue;
       setEditorValue(value);
       setAnnouncementData((prev) => ({ ...prev, status, subtitle }));
@@ -34,7 +37,7 @@ export const useModifyAnnouncementLogic = (
   };
   const deleteAnnouncement = async () => {
     if (!defaultValue) return;
-    await AnnouncementsCrud.delete(defaultValue.id);
+    await AnnouncementsApiService.delete(defaultValue.id);
     back();
     refresh();
   };
@@ -45,8 +48,8 @@ export const useModifyAnnouncementLogic = (
       value,
     };
     return defaultValue
-      ? AnnouncementsCrud.update(defaultValue.id, body)
-      : AnnouncementsCrud.create(body);
+      ? AnnouncementsApiService.update(defaultValue.id, body)
+      : AnnouncementsApiService.create(body);
   };
 
   const methods = {

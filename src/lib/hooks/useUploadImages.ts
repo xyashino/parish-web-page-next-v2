@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useUploadImagesStore } from "@/lib/store/useUploadImagesStore";
 import { useProgressStore } from "@/lib/store/useProgressStore";
 import { useParams, useRouter } from "next/navigation";
-import { uploadImageApiCall } from "@/lib/services/images/api-calls";
+import { uploadImageApiCall } from "@/lib/services/images/api";
 
 export const useUploadImages = () => {
   const { uuid } = useParams();
