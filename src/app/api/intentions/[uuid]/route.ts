@@ -1,49 +1,29 @@
 import { NextResponse } from "next/server";
-import {
-  deleteWeekIntention,
-  getWeekIntentionWithRelations,
-  updateWeekIntentions,
-} from "@/lib/db/weekIntentions";
-import { weekUpdateIntentionsValidator } from "@/lib/validators";
-import { deleteDaysByWeekId } from "@/lib/db/day";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
 import { NotFoundResponse } from "@/lib/next-responses";
+import { WeekIntentionsDb } from "@/db/handlers/week-intentions/week-intentions";
+import { CreateWeekIntentions } from "@/types/db/week-intentions";
 
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
-  const intentions = await getWeekIntentionWithRelations(id);
+  const intentions = await WeekIntentionsDb.getOneWithRelations(id);
   if (!intentions) return NotFoundResponse("Intention not found");
   return NextResponse.json(intentions);
 }
 
 export async function PUT(request: Request, { params }: any) {
   const id = params.uuid;
-  const data = await request.json();
-  const { days, ...weekData } = weekUpdateIntentionsValidator.parse(data);
-
-  await deleteDaysByWeekId(id);
-  const intentions = await updateWeekIntentions(id, {
-    ...weekData,
-    days: {
-      create: days.map(({ intentions, ...rest }) => ({
-        ...rest,
-        intentions: {
-          create: intentions.map((intention) => ({
-            ...intention,
-          })),
-        },
-      })),
-    },
-  });
-  if (!intentions) return NotFoundResponse("Intention not found");
+  const data = (await request.json()) as CreateWeekIntentions;
+  const result = WeekIntentionsDb.update(id, data);
+  if (!result) return NotFoundResponse("Intention not found");
   revalidateTag(RevalidateTag.INTENTIONS);
-  return NextResponse.json(intentions);
+  return NextResponse.json(result);
 }
 
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
-  const intention = await deleteWeekIntention(id);
+  const intention = await WeekIntentionsDb.delete(id);
   if (!intention) return NotFoundResponse("Intention not found");
   revalidateTag(RevalidateTag.INTENTIONS);
   return NextResponse.json(intention);

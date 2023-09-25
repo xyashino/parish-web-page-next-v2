@@ -1,43 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  createWeekIntention,
-  getActiveWeekIntentions,
-  getManyWeekIntentions,
-} from "@/lib/db/weekIntentions";
-import { weekIntentionsValidator } from "@/lib/validators";
-import { Status } from "@prisma/client";
+import { WeekIntentionsDb } from "@/db/handlers/week-intentions/week-intentions";
+import { NotFoundResponse, ServerErrorResponse } from "@/lib/next-responses";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
-import { NotFoundResponse, ServerErrorResponse } from "@/lib/next-responses";
+import { CreateWeekIntentions } from "@/types/db/week-intentions";
 
 export async function GET({ url }: NextRequest) {
   const status = new URL(url).searchParams.get("status");
-  if (status === Status.ACTIVE) {
-    const result = await getActiveWeekIntentions();
+  if (status === "ACTIVE") {
+    const result = await WeekIntentionsDb.getActive();
     if (!result) return NotFoundResponse("Active intentions not found");
     return NextResponse.json(result);
   }
 
-  const result = await getManyWeekIntentions();
+  const result = await WeekIntentionsDb.findAll();
   return NextResponse.json(result);
 }
 
 export async function POST(request: Request) {
-  const data = (await request.json()) as any;
-  const { days, ...weekData } = weekIntentionsValidator.parse(data);
-  const result = await createWeekIntention({
-    ...weekData,
-    days: {
-      create: days.map(({ intentions, ...rest }) => ({
-        ...rest,
-        intentions: {
-          create: intentions.map((intention) => ({
-            ...intention,
-          })),
-        },
-      })),
-    },
-  });
+  const data = (await request.json()) as CreateWeekIntentions;
+  const result = await WeekIntentionsDb.create(data);
+  console.log(result);
   if (!result) return ServerErrorResponse("Intention could not be created");
   revalidateTag(RevalidateTag.INTENTIONS);
   return NextResponse.json(result);

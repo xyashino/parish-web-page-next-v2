@@ -1,15 +1,13 @@
 import { NextResponse } from "next/server";
-import { deleteCategory, updateCategory } from "@/lib/db/category";
-import { Category } from "@prisma/client";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
+import { CategoryResponse } from "@/types/db/album";
+import { CategoryDb } from "@/db/handlers/album";
 
 export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
-  const changeData: Omit<Category, "id"> = await request.json();
-  const category = await updateCategory(id, {
-    ...changeData,
-  });
+  const changeData: Omit<CategoryResponse, "id"> = await request.json();
+  const category = await CategoryDb.update(id, changeData);
   if (!category) return NextResponse.json("Category not found");
   revalidateTag(RevalidateTag.CATEGORIES);
   return NextResponse.json(category);
@@ -17,7 +15,7 @@ export async function PUT(request: Request, { params }: ParamsWithUUID) {
 
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
-  const category = await deleteCategory(id);
+  const category = await CategoryDb.delete(id);
   if (!category) return NextResponse.json("Category not found");
   revalidateTag(RevalidateTag.CATEGORIES);
   return NextResponse.json(category);
