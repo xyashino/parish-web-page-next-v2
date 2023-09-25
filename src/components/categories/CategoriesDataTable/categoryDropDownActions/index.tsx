@@ -3,10 +3,10 @@ import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { DataTableActionsDropDown } from "@/components/DataTable";
 import { CategoryDeleteAction } from "./categoryDeleteAction";
 import { CategoryEditAction } from "./categoryEditAction";
-import { NotNullCategoryResponse } from "@/types/db/category";
+import { CategoryResponse } from "@/types/db/album";
 
 interface Props {
-  categoryData: NotNullCategoryResponse;
+  categoryData: ExcludeNull<CategoryResponse>;
 }
 
 export const CategoryDropDownActions = ({ categoryData }: Props) => {

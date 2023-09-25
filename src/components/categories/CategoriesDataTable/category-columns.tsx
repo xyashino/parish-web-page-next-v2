@@ -2,9 +2,9 @@ import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { DataTableBooleanCell, DataTableSortBtn } from "@/components/DataTable";
 import { CategoryDropDownActions } from "./categoryDropDownActions";
-import { NotNullCategoryResponse } from "@/types/db/category";
+import { CategoryResponse } from "@/types/db/album";
 
-export const categoryColumns: ColumnDef<NotNullCategoryResponse>[] = [
+export const categoryColumns: ColumnDef<ExcludeNull<CategoryResponse>>[] = [
   {
     accessorKey: "order",
     header: ({ column }) => (

@@ -6,7 +6,7 @@ import { CustomDialog } from "@/components/CustomDialog";
 import { modifyCategorySchema } from "@/lib/schemas/categories";
 import { useCategoryDialogStore } from "@/lib/store/categories/useCategoryDialogStore";
 import { ModifyCategoryDialogFormFields } from "./modifyCategoryDialogFormFields";
-import { CategoriesCrud } from "@/lib/services/categories";
+import { CategoriesApiService } from "@/lib/services/categories";
 import { useRouter } from "next/navigation";
 
 export const ModifyCategoryDialog = () => {
@@ -22,9 +22,9 @@ export const ModifyCategoryDialog = () => {
 
   const onSubmit = async (values: z.infer<typeof modifyCategorySchema>) => {
     if (id) {
-      await CategoriesCrud.update(id, { ...values });
+      await CategoriesApiService.update(id, { ...values });
     } else {
-      await CategoriesCrud.create({ ...values });
+      await CategoriesApiService.create({ ...values });
     }
     refresh();
     close();

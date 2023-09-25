@@ -2,7 +2,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { AlbumCard } from "@/components/CategorySection/AlbumCard";
 import { Separator } from "@/components/ui/separator";
 import { EmptySection } from "@/components/CategorySection/emptySection";
-import { CategoryWithAlbumsResponse } from "@/types/db/category";
+import { CategoryWithAlbumsResponse } from "@/types/db/album";
 
 export const CategorySection = ({
   name,

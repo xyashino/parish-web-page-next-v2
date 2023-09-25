@@ -1,6 +1,6 @@
 import React from "react";
 import { TrashIcon } from "@radix-ui/react-icons";
-import { CategoriesCrud } from "@/lib/services/categories";
+import { CategoriesApiService } from "@/lib/services/categories";
 import { useRouter } from "next/navigation";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
 import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
@@ -12,7 +12,7 @@ interface Props {
 export const CategoryDeleteAction = ({ id }: Props) => {
   const { refresh } = useRouter();
   const handleDelete = async () => {
-    await CategoriesCrud.delete(id);
+    await CategoriesApiService.delete(id);
     refresh();
   };
 

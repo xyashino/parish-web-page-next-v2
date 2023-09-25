@@ -2,10 +2,10 @@ import React, { SyntheticEvent } from "react";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
 import { useCategoryDialogStore } from "@/lib/store";
-import { NotNullCategoryResponse } from "@/types/db/category";
+import { CategoryResponse } from "@/types/db/album";
 
 interface Props {
-  categoryData: NotNullCategoryResponse;
+  categoryData: ExcludeNull<CategoryResponse>;
 }
 
 export const CategoryEditAction = ({
