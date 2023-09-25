@@ -7,7 +7,7 @@ import { CardHeaderWithSeparator } from "@/components/cards/CardHeaderWithSepara
 import { DayIntentions } from "@/types/week-intentions-store";
 import { ClearButtonWithAlert } from "./clearButtonWithAlert";
 import { DeleteButtonWithAlert } from "./deleteButtonWithAlert";
-import { IntentionsCrud } from "@/lib/services/intentions";
+import { IntentionsApiService } from "@/lib/services/intentions";
 
 export const ModifyWeekIntentionsControls = () => {
   const { clearAll, weekIntentions, dayIntentions } = useWeekIntentionsStore();
@@ -29,8 +29,8 @@ export const ModifyWeekIntentionsControls = () => {
     };
 
     !!id
-      ? await IntentionsCrud.update(id, body)
-      : await IntentionsCrud.create(body);
+      ? await IntentionsApiService.update(id, body)
+      : await IntentionsApiService.create(body);
   };
 
   return (

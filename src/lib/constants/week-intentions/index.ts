@@ -2,7 +2,6 @@ import {
   OneIntention,
   WeekIntentionsStoreData,
 } from "@/types/week-intentions-store";
-import { Weekday } from "@prisma/client";
 
 export const WEEK_INTENTIONS_STORE_DEFAULT: WeekIntentionsStoreData = {
   weekIntentions: {
@@ -15,7 +14,7 @@ export const WEEK_INTENTIONS_STORE_DEFAULT: WeekIntentionsStoreData = {
     [
       "0",
       {
-        day: Weekday.MONDAY,
+        day: "MONDAY",
         dateOfDay: null,
         intentions: [] as OneIntention[],
       },
@@ -23,7 +22,7 @@ export const WEEK_INTENTIONS_STORE_DEFAULT: WeekIntentionsStoreData = {
     [
       "1",
       {
-        day: Weekday.TUESDAY,
+        day: "TUESDAY",
         dateOfDay: null,
         intentions: [] as OneIntention[],
       },
@@ -31,7 +30,7 @@ export const WEEK_INTENTIONS_STORE_DEFAULT: WeekIntentionsStoreData = {
     [
       "2",
       {
-        day: Weekday.WEDNESDAY,
+        day: "WEDNESDAY",
         dateOfDay: null,
         intentions: [] as OneIntention[],
       },
@@ -39,7 +38,7 @@ export const WEEK_INTENTIONS_STORE_DEFAULT: WeekIntentionsStoreData = {
     [
       "3",
       {
-        day: Weekday.THURSDAY,
+        day: "THURSDAY",
         dateOfDay: null,
         intentions: [] as OneIntention[],
       },
@@ -47,7 +46,7 @@ export const WEEK_INTENTIONS_STORE_DEFAULT: WeekIntentionsStoreData = {
     [
       "4",
       {
-        day: Weekday.FRIDAY,
+        day: "FRIDAY",
         dateOfDay: null,
         intentions: [] as OneIntention[],
       },
@@ -55,7 +54,7 @@ export const WEEK_INTENTIONS_STORE_DEFAULT: WeekIntentionsStoreData = {
     [
       "5",
       {
-        day: Weekday.SATURDAY,
+        day: "SATURDAY",
         dateOfDay: null,
         intentions: [] as OneIntention[],
       },
@@ -63,7 +62,7 @@ export const WEEK_INTENTIONS_STORE_DEFAULT: WeekIntentionsStoreData = {
     [
       "6",
       {
-        day: Weekday.SUNDAY,
+        day: "SUNDAY",
         dateOfDay: null,
         intentions: [] as OneIntention[],
       },

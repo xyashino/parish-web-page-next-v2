@@ -1,7 +1,7 @@
 import { TabsContent } from "@/components/ui/tabs";
-import { weekdayTranslator } from "@/lib/utils";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { WeekIntentionsDay } from "@/types/db/week-intentions";
+import { weekdayTranslator } from "@/lib/utils";
 
 export const WeekIntentionsTabContent = ({
   day,
