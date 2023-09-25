@@ -11,6 +11,7 @@ export const categoryTable = pgTable("Category", {
   show: boolean("show").default(false).notNull(),
 });
 
+// @ts-ignore
 export const albumTable = pgTable("Album", {
   id: varchar("id", { length: 36 })
     .primaryKey()
@@ -29,6 +30,7 @@ export const albumTable = pgTable("Album", {
   }),
 });
 
+// @ts-ignore
 export const imageTable = pgTable("Image", {
   id: varchar("id", { length: 36 })
     .primaryKey()
