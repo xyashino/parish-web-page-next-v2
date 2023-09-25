@@ -19,7 +19,7 @@ export const ModifyIntentionsRow = ({ intentionData, id }: Props) => {
       <TableCell className="font-bold">{intentionData.hour}</TableCell>
       <TableCell>
         <ReactMarkdown className="prose-sm max-w-none">
-          {intentionData.value}
+          {intentionData.value ?? ""}
         </ReactMarkdown>
       </TableCell>
       <TableCell className="grid place-items-center">

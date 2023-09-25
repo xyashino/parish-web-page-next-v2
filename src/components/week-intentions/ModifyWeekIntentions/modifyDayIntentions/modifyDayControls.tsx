@@ -1,7 +1,6 @@
 import React, { SyntheticEvent } from "react";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Status } from "@prisma/client";
 import { useWeekIntentionsStore } from "@/lib/store/useWeekIntentionsStore";
 import { SelectStatus } from "@/components/SelectStatus";
 import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
@@ -37,7 +36,7 @@ export const ModifyDayControls = () => {
           <Label className="indent-2 font-bold">Status:</Label>
           <SelectStatus
             doAfterChange={updateStatus}
-            defaultValue={weekIntentions.status ?? Status.NONE}
+            defaultValue={weekIntentions.status ?? "NONE"}
           />
         </p>
 
