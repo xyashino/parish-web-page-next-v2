@@ -1,16 +1,11 @@
-import { getAdministratorByEmail } from "@/lib/db/administrator";
+import { env } from "@/config/env/server";
+import { AdministratorDb } from "@/db/handlers/adminstrator";
 
-const checkByEnvList = (email: string) => {
-  const { ALLOW_EMAIL_LIST } = process.env;
-  const allowEmailList = ALLOW_EMAIL_LIST?.split(",").map((email) =>
-    email.trim(),
-  );
-  return allowEmailList?.includes(email);
-};
+const { ALLOW_EMAIL_LIST } = env;
 
 const checkByDatabaseList = async (email: string) => {
   try {
-    return !!(await getAdministratorByEmail(email));
+    return !!(await AdministratorDb.findOneByEmail(email));
   } catch (e) {
     console.error(e);
     return false;
@@ -18,6 +13,6 @@ const checkByDatabaseList = async (email: string) => {
 };
 
 export const checkEmailIsAllowed = async (email: string) => {
-  if (checkByEnvList(email)) return true;
+  if (ALLOW_EMAIL_LIST.includes(email)) return true;
   return checkByDatabaseList(email);
 };
