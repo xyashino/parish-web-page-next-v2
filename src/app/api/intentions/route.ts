@@ -5,8 +5,9 @@ import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
 import { CreateWeekIntentions } from "@/types/db/week-intentions";
 
-export async function GET({ url }: NextRequest) {
-  const status = new URL(url).searchParams.get("status");
+export async function GET(request: NextRequest) {
+  const url = new URL(request.url);
+  const status = url.searchParams.get("status");
   if (status === "ACTIVE") {
     const result = await WeekIntentionsDb.getActive();
     if (!result) return NotFoundResponse("Active intentions not found");
