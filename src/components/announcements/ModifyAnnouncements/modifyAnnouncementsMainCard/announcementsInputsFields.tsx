@@ -4,9 +4,9 @@ import {
   AnnouncementsData,
   UpdateAnnouncementData,
 } from "@/types/announcement-edit";
-import { Status } from "@prisma/client";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+
 interface Props {
   data: AnnouncementsData;
   updateMethod: (a: UpdateAnnouncementData) => void;
@@ -15,9 +15,10 @@ export const AnnouncementsInputsFields = ({
   data: { status, subtitle },
   updateMethod,
 }: Props) => {
-  const updateStatus = (status: Status) => {
+  const updateStatus = (status: any) => {
     updateMethod({ key: "status", value: status });
   };
+  console.log(status);
 
   const updateSubtitle = (e: ChangeEvent<HTMLInputElement>) => {
     const subtitle = e.target.value;

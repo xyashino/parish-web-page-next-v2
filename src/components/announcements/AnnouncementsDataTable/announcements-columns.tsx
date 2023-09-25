@@ -1,10 +1,12 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { Announcements, Status } from "@prisma/client";
 import { DataTableSortBtn, DataTableStatusCell } from "@/components/DataTable";
 import { AnnouncementsDropDownActions } from "./announcementsDropDownActions";
+import { AnnouncementResponse } from "@/types/db/announcement";
 
-export const announcementsColumns: ColumnDef<Announcements>[] = [
+export const announcementsColumns: ColumnDef<
+  ExcludeNull<AnnouncementResponse>
+>[] = [
   {
     accessorKey: "subtitle",
     header: "Podtytuł",
@@ -25,9 +27,7 @@ export const announcementsColumns: ColumnDef<Announcements>[] = [
         />
       );
     },
-    cell: ({ getValue }) => (
-      <DataTableStatusCell status={getValue() as Status} />
-    ),
+    cell: ({ getValue }) => <DataTableStatusCell status={getValue()} />,
   },
   {
     id: "actions",

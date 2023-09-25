@@ -2,8 +2,8 @@ import React from "react";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
-import { AnnouncementsCrud } from "@/lib/services";
 import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
+import { AnnouncementsApiService } from "@/lib/services/announcements";
 
 interface Props {
   id: string;
@@ -13,7 +13,7 @@ export const AnnouncementsDeleteAction = ({ id }: Props) => {
   const { refresh } = useRouter();
 
   const handleDelete = async () => {
-    await AnnouncementsCrud.delete(id);
+    await AnnouncementsApiService.delete(id);
     refresh();
   };
 

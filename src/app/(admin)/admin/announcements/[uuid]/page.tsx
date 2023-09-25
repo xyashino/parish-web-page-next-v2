@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 
 const EditAnnouncement = async ({ params: { uuid } }: ParamsWithUUID) => {
   const announcement = await apiCall<AnnouncementResponse>(
-    ApiRoute.BASE_ANNOUNCEMENTS,
+    `${ApiRoute.BASE_ANNOUNCEMENTS}/${uuid}`,
     {
       next: { tags: [RevalidateTag.ANNOUNCEMENTS] },
     },

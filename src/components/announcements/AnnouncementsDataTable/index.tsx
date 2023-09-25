@@ -1,11 +1,11 @@
 "use client";
 import React, { PropsWithChildren } from "react";
-import { Announcements } from "@prisma/client";
 import { DataTable } from "@/components/DataTable";
 import { announcementsColumns } from "./announcements-columns";
+import { AnnouncementsResponse } from "@/types/db/announcement";
 
 interface Props extends PropsWithChildren {
-  data: Announcements[];
+  data: AnnouncementsResponse;
 }
 
 export const AnnouncementsDataTable = ({ data }: Props) => (

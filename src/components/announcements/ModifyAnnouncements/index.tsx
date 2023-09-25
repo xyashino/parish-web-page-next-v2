@@ -7,7 +7,7 @@ import { useModifyAnnouncementLogic } from "@/lib/hooks/useModifyAnnouncementLog
 import { AnnouncementResponse } from "@/types/db/announcement";
 
 interface Props {
-  defaultValue?: Exclude<AnnouncementResponse, null>;
+  defaultValue?: AnnouncementResponse;
 }
 
 export const ModifyAnnouncements = ({ defaultValue }: Props) => {
