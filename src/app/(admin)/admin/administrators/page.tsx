@@ -2,12 +2,12 @@ import React from "react";
 import { apiCall } from "@/lib/utils";
 import { AdministratorsTable } from "@/components/administrators/AdministratorsTable";
 import { AddAdministratorDialog } from "@/components/administrators/AddAdministratorDialog";
-import { AdministratorsResponse } from "@/types/db/administrator";
+import { AdministratorListResponse } from "@/types/db/administrator";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
 const AdministratorsManagePage = async () => {
-  const administrators = await apiCall<AdministratorsResponse>(
+  const administrators = await apiCall<AdministratorListResponse>(
     ApiRoute.BASE_ADMINISTRATORS,
     {
       next: { tags: [RevalidateTag.ADMINISTRATORS] },

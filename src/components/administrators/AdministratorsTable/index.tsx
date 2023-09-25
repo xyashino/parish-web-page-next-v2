@@ -1,10 +1,10 @@
 "use client";
 import { DataTable } from "@/components/DataTable";
 import { administratorsColumns } from "./administrators-columns";
-import { AdministratorsResponse } from "@/types/db/administrator";
+import { AdministratorListResponse } from "@/types/db/administrator";
 
 interface Props {
-  data: AdministratorsResponse;
+  data: AdministratorListResponse;
 }
 
 export const AdministratorsTable = ({ data }: Props) => (

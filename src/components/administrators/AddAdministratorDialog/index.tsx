@@ -4,15 +4,13 @@ import { z } from "zod";
 import { CustomDialog } from "@/components/CustomDialog";
 import { CustomFormInputItem } from "@/components/form";
 import { useRouter } from "next/navigation";
-import { createAdministratorApiCall } from "@/lib/services/administrators/api-calls";
-import { addAdministratorSchema } from "@/lib/schemas/administrators";
+import { createAdministratorApiCall } from "@/lib/services/administrators";
+import { emailSchema } from "@/lib/schemas/default";
 
 export const AddAdministratorDialog = () => {
   const { refresh } = useRouter();
 
-  const submitMethod = async (
-    values: z.infer<typeof addAdministratorSchema>,
-  ) => {
+  const submitMethod = async (values: z.infer<typeof emailSchema>) => {
     await createAdministratorApiCall(values);
     refresh();
   };
@@ -27,7 +25,7 @@ export const AddAdministratorDialog = () => {
         subtitle: "Podaj email administratora, aby mógł się zalogować.",
       }}
       form={{
-        formSchema: addAdministratorSchema,
+        formSchema: emailSchema,
         onSubmit: submitMethod,
       }}
       submitText="Dodaj"

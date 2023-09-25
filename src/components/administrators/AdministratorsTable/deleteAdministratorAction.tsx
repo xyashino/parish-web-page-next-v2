@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { TrashIcon } from "@radix-ui/react-icons";
-import { deleteAdministratorApiCall } from "@/lib/services/administrators/api-calls";
+import { deleteAdministratorApiCall } from "@/lib/services/administrators";
 import { useRouter } from "next/navigation";
 import { ConfirmAlert } from "@/components/alerts/ConfirmAlert";
 
