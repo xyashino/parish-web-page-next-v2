@@ -1,9 +1,8 @@
 import React from "react";
-import { Status } from "@prisma/client";
 import { getLengthByEnumStatus } from "@/lib/utils";
 
 interface Props {
-  values: { status: Status }[];
+  values: { status: any }[];
 }
 
 export const SummaryStatusCardTable = ({ values }: Props) => (
@@ -12,21 +11,21 @@ export const SummaryStatusCardTable = ({ values }: Props) => (
       <tr className="border-muted p-2">
         <th className="text-left text-green-700">Aktywne:</th>
         <td className="pl-2 font-bold">
-          {getLengthByEnumStatus(values, Status.ACTIVE)}
+          {getLengthByEnumStatus(values, "ACTIVE")}
         </td>
       </tr>
 
       <tr className="border-muted p-2">
         <th className="text-left text-yellow-600">Oczekujące:</th>
         <td className="text-right font-bold">
-          {getLengthByEnumStatus(values, Status.UPCOMING)}
+          {getLengthByEnumStatus(values, "UPCOMING")}
         </td>
       </tr>
 
       <tr className="border-muted p-2">
         <th className="text-left text-red-800">Bez Statusu:</th>
         <td className="text-right font-bold">
-          {getLengthByEnumStatus(values, Status.NONE)}
+          {getLengthByEnumStatus(values, "NONE")}
         </td>
       </tr>
 

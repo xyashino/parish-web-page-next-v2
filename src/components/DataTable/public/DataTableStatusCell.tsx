@@ -1,9 +1,9 @@
 import React from "react";
-import { Status } from "@prisma/client";
 import { cn } from "@/lib/utils";
+import { Status } from "@/types/db/enums";
 
 const getStatusColor = (
-  status: Status
+  status: Status,
 ): {
   className: string;
   text: string;
@@ -28,14 +28,14 @@ const getStatusColor = (
 };
 
 interface Props {
-  status: Status;
+  status: any;
 }
 
 export const DataTableStatusCell = ({ status }: Props) => {
   const { className, text } = getStatusColor(status);
   const spanClasses = cn(
     "px-2 py-1 select-none rounded-md text-white text-xs  uppercase font-bold shadow-sm",
-    className
+    className,
   );
   return <span className={spanClasses}>{text} </span>;
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Status } from "@prisma/client";
+import { Status } from "@/types/db/enums";
 
 interface Props {
   value: Status;

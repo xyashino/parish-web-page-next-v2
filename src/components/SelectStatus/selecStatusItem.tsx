@@ -1,9 +1,9 @@
 import React from "react";
-import { Status } from "@prisma/client";
 import { SelectStatusTrigger } from "@/components/SelectStatus/selectStatusTrigger";
 import { Select, SelectContent } from "@/components/ui/select";
 import { SelectStatusGroup } from "@/components/SelectStatus/selectStatusGroup";
 import { SelectProps } from "@radix-ui/react-select";
+import { Status } from "@/types/db/enums";
 
 interface Props extends SelectProps {
   value: Status;
