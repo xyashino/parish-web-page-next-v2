@@ -1,8 +1,5 @@
 import { create } from "zustand";
-import {
-  getImageCoverPath,
-  updateCoverImage,
-} from "@/lib/services/images/api-calls";
+import { getImageCoverPath, updateCoverImage } from "@/lib/services/images/api";
 
 interface AlbumCoverImageStore {
   coverImagePath: string | null | undefined;
