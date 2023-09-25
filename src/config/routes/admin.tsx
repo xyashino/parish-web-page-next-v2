@@ -1,9 +1,9 @@
-import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
+import { SingleNavigationItemWithIcon } from "@/types/navigation";
 import {
-  ImageIcon,
-  PersonIcon,
   ChatBubbleIcon,
   FileTextIcon,
+  ImageIcon,
+  PersonIcon,
 } from "@radix-ui/react-icons";
 
 export const ADMIN_NAVIGATION_ROUTES: SingleNavigationItemWithIcon[] = [

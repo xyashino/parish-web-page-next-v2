@@ -1,4 +1,4 @@
-import { NestedNavigationItem } from "@/types/interfaces/navigation.interface";
+import { NestedNavigationItem } from "@/types/navigation";
 
 export const CLIENT_NAVIGATION_ROUTES: NestedNavigationItem[] = [
   {
