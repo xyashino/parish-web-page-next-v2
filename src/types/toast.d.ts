@@ -5,8 +5,9 @@ interface ToastMessages {
   success: ValueOrFunction<Renderable, T>;
   error: ValueOrFunction<Renderable, any>;
 }
-type ApiToastsCrudMessages = {
+
+interface ApiToastsCrudMessages {
   create: ToastMessages;
   delete: ToastMessages;
   update: ToastMessages;
-};
+}

@@ -1,23 +1,22 @@
 import {
-  Day,
-  Intention,
-  Status,
-  Weekday,
-  WeekIntentions,
-} from "@prisma/client";
+  SelectDay,
+  SelectIntention,
+  SelectWeekIntentions,
+} from "@/types/db/week-intentions";
+import { Day, Status } from "@/types/db/enums";
 
-type OneIntention = Omit<Intention, "dayId"> & {
+type OneIntention = Omit<SelectIntention, "dayId"> & {
   dayId?: string | null;
 };
 
-type DayIntentions = OptionalID<Omit<Day, "weekId" | "day">> & {
-  day: Weekday;
+type DayIntentions = OptionalID<Omit<SelectDay, "weekId" | "day">> & {
+  day: Day;
   weekId?: string | null;
   intentions: OneIntention[];
 };
 
 interface WeekIntentionsStoreData {
-  weekIntentions: OptionalID<WeekIntentions>;
+  weekIntentions: OptionalID<SelectWeekIntentions>;
   activeDay: string;
   dayIntentions: Map<string, DayIntentions>;
 }

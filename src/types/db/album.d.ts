@@ -1,12 +1,37 @@
-import { Album, Category, Image } from "@prisma/client";
+import { albumTable, categoryTable, imageTable } from "@/db/schema";
 
-type AlbumWithRelationsResponse =
-  | (Album & {
-      images: Image[];
-    } & {
-      category: Category | null;
-    })
-  | null;
-type AlbumsResponse = Album[];
+type ImageResponse = typeof imageTable.$inferSelect;
+type ImageListResponse = SelectImage[];
 
-type AlbumResponse = Album | null;
+type CreateCategory = typeof categoryTable.$inferInsert;
+type SelectCategory = typeof categoryTable.$inferSelect;
+
+interface AlbumWithCover extends AlbumResponse {
+  cover: ImageResponse | null | undefined;
+}
+
+type ActiveCategoriesResponse = (SelectCategory & {
+  albums: AlbumWithCover[];
+})[];
+
+type CategoryResponse = SelectCategory;
+type CategoriesResponse = SelectCategory[];
+
+type CategoryWithAlbumsResponse = SelectCategory & {
+  albums: AlbumWithCover[];
+};
+
+type CreateAlbum = typeof albumTable.$inferInsert;
+type AlbumResponse = typeof albumTable.$inferSelect;
+type AlbumListResponse = AlbumResponse[];
+
+type AlbumsWithCategoryResponse = (AlbumResponse & {
+  category: string | null;
+  cover: string | null;
+})[];
+
+type AlbumWithRelationsResponse = AlbumResponse & {
+  images: ImageListResponse;
+  cover: ImageResponse;
+  category: CategoryResponse;
+};

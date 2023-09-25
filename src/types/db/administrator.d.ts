@@ -1,4 +1,6 @@
-import { Admin } from "@prisma/client";
+import { adminTable } from "@/db/schema/admin";
 
-type AdministratorResponse = Admin | null;
-type AdministratorsResponse = Admin[];
+type CreateAdministrator = typeof adminTable.$inferInsert;
+type SelectType = typeof adminTable.$inferSelect;
+type AdministratorResponse = SelectType;
+type AdministratorListResponse = SelectType[];
