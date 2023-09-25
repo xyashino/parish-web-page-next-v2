@@ -1,23 +1,23 @@
 "use server";
 import { mkdir, readdir, unlink, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { deleteImage } from "@/lib/db/image";
-import { getAlbumWithRelations } from "@/lib/db/album";
+import { AlbumDb, ImageDb } from "@/db/handlers/album";
+import { env } from "@/config/env/server";
 
-const { UPLOAD_DIR, UPLOAD_DIR_ALBUM } = process.env;
+const { UPLOAD_DIR, UPLOAD_DIR_ALBUMS } = env;
 
 export const checkDirectory = async (path: string) => {
-  if (!UPLOAD_DIR || !UPLOAD_DIR_ALBUM)
-    throw new Error("Upload dir not found , check .env file");
   try {
-    await readdir(join(process.cwd(), UPLOAD_DIR, UPLOAD_DIR_ALBUM, path));
+    await readdir(join(process.cwd(), UPLOAD_DIR, UPLOAD_DIR_ALBUMS, path));
   } catch (error) {
-    await mkdir(join(process.cwd(), UPLOAD_DIR, path), { recursive: true });
+    await mkdir(join(process.cwd(), UPLOAD_DIR, UPLOAD_DIR_ALBUMS, path), {
+      recursive: true,
+    });
   }
 };
 
 export const checkAlbum = async (id: string) => {
-  const album = await getAlbumWithRelations(id);
+  const album = await AlbumDb.getOneWithRelations(id);
   if (!album) throw new Error("Album not found");
   await checkDirectory(album.id);
   return album;
@@ -45,18 +45,15 @@ export const validateFormData = (formData: [string, File | string][]) => {
 };
 
 export const saveImage = async (buffer: ArrayBuffer, path: string) => {
-  let pathCopy = path;
-  if (!UPLOAD_DIR) throw new Error("Upload dir not found , check .env file");
   await writeFile(
-    join(process.cwd(), UPLOAD_DIR, `${pathCopy}`),
+    join(process.cwd(), UPLOAD_DIR, `${path}`),
     Buffer.from(buffer),
   );
 };
 
 export const clearImage = async (id: string) => {
-  if (!UPLOAD_DIR) throw new Error("Upload dir not found");
   try {
-    const deletedImage = await deleteImage(id);
+    const deletedImage = await ImageDb.delete(id);
     if (deletedImage && deletedImage.path) {
       await unlink(join(process.cwd(), UPLOAD_DIR, deletedImage.path));
     }

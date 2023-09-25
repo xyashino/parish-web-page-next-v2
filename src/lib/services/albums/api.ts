@@ -1,8 +1,8 @@
 import { ApiRoute, RevalidateTag } from "@/types/enums";
-import { BaseCrudApiCall } from "@/lib/services/crud";
+import { BaseCrudApiCall } from "@/lib/services/default";
 import { ALBUM_API_MESSAGES } from "@/lib/constants/album";
 
-export const AlbumCrud = new BaseCrudApiCall(
+export const AlbumApiService = new BaseCrudApiCall(
   ApiRoute.BASE_ALBUMS,
   [RevalidateTag.ALBUMS],
   true,

@@ -1,18 +1,18 @@
-import { Album, Image } from "@prisma/client";
 import { ApiRoute } from "@/types/enums";
 import { apiCall, apiCallWithToast } from "@/lib/utils";
 import { UPDATE_COVER_IMAGE_MESSAGES } from "@/lib/constants/image";
+import { CreateAlbum, ImageResponse } from "@/types/db/album";
 
 export const getImageCoverPath = async (id: string) => {
-  return (await apiCall<Image>(`${ApiRoute.BASE_IMAGES}/${id}`)).path;
+  return (await apiCall<ImageResponse>(`${ApiRoute.BASE_IMAGES}/${id}`)).path;
 };
 
 export const updateCoverImage = async (albumId: string, coverId: string) => {
-  return apiCallWithToast<Image>({
+  return apiCallWithToast<ImageResponse>({
     url: `${ApiRoute.BASE_ALBUMS}/${albumId}`,
     fetchOptions: {
       method: "PUT",
-      body: JSON.stringify({ coverId } as Partial<Album>),
+      body: JSON.stringify({ coverId } as Partial<CreateAlbum>),
     },
     msg: UPDATE_COVER_IMAGE_MESSAGES,
   });
@@ -21,19 +21,19 @@ export const updateCoverImage = async (albumId: string, coverId: string) => {
 export const uploadImageApiCall = async (image: File, uuid: string) => {
   const formData = new FormData();
   formData.append(uuid, image);
-  return await apiCall<Image>(
+  return await apiCall<ImageResponse>(
     ApiRoute.UPLOAD_IMAGE,
     {
       method: "POST",
       body: formData,
       headers: {},
     },
-    true
+    true,
   );
 };
 
 export const deleteImageApiCall = async (id: string) => {
-  return apiCallWithToast<Image>({
+  return apiCallWithToast<ImageResponse>({
     url: `${ApiRoute.BASE_IMAGES}/${id}`,
     fetchOptions: {
       method: "DELETE",
