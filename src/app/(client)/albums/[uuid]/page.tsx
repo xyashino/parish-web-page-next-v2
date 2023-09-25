@@ -2,21 +2,20 @@ import React from "react";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { apiCall } from "@/lib/utils";
 import {
-  AlbumListResponse,
   AlbumWithRelationsResponse,
   ImageListResponse,
 } from "@/types/db/album";
 import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { AlbumImage } from "@/components/album/AlbumImage";
 
-export async function generateStaticParams() {
-  const announcements = await apiCall<AlbumListResponse>(ApiRoute.BASE_ALBUMS, {
-    next: { tags: [RevalidateTag.ALBUMS] },
-  });
-  return announcements.map((announcement) => ({
-    uuid: announcement.id,
-  }));
-}
+// export async function generateStaticParams() {
+//   const announcements = await apiCall<AlbumListResponse>(ApiRoute.BASE_ALBUMS, {
+//     next: { tags: [RevalidateTag.ALBUMS] },
+//   });
+//   return announcements.map((announcement) => ({
+//     uuid: announcement.id,
+//   }));
+// }
 
 const AlbumPage = async ({ params: { uuid } }: ParamsWithUUID) => {
   const album = await apiCall<AlbumWithRelationsResponse>(
