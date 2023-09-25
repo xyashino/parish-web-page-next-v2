@@ -1,13 +1,27 @@
-import { Day, Intention, WeekIntentions } from "@prisma/client";
+import { dayTable, intentionTable, weekIntentionsTable } from "@/db/schema";
 
-type WeekIntentionsResponse = WeekIntentions | null;
+type SelectIntention = typeof intentionTable.$inferSelect;
+type CreateIntention = typeof intentionTable.$inferInsert;
 
-type ManyWeekIntentionsResponse = WeekIntentions[];
+type SelectDay = typeof dayTable.$inferSelect;
 
-type WeekIntentionsDay = DateToString<Day> & { intentions: Intention[] };
+type CreateDay = Omit<typeof dayTable.$inferInsert> & {
+  intentions: Omit<CreateIntention, "dayId">[];
+};
 
-type WeekIntentionsWithRelations = DateToString<WeekIntentions> & {
+type CreateWeekIntentions = typeof weekIntentionsTable.$inferInsert & {
+  days: CreateDay[];
+};
+
+type SelectWeekIntentions = weekIntentionsTable.$inferSelect;
+type WeekIntentionsResponse = SelectWeekIntentions | null;
+type ManyWeekIntentionsResponse = SelectWeekIntentions[];
+type WeekIntentionsWithRelationsResponse = WeekIntentionsWithRelations | null;
+
+type WeekIntentionsWithRelations = DateToString<SelectWeekIntentions> & {
   days: WeekIntentionsDay[];
 };
 
-type WeekIntentionsWithRelationsResponse = WeekIntentionsWithRelations | null;
+type WeekIntentionsDay = SelectDay & {
+  intentions: SelectIntention[];
+};
