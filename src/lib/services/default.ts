@@ -3,19 +3,19 @@ import { apiCall, apiCallWithToast } from "@/lib/utils";
 import { ApiToastsCrudMessages, ToastMessages } from "@/types/toast";
 import { DEFAULT_API_TOAST_CRUD_MESSAGES } from "@/lib/constants/common";
 
-export class BaseCrudApiCall<T> {
+export class BaseCrudApiCall<T extends Record<string, any>> {
   constructor(
     private url: ApiRoute,
     private revalidateTag: RevalidateTag[],
     private useToast = true,
-    private msg: ApiToastsCrudMessages = DEFAULT_API_TOAST_CRUD_MESSAGES
+    private msg: ApiToastsCrudMessages = DEFAULT_API_TOAST_CRUD_MESSAGES,
   ) {}
 
   private apiCall(
     method: ApiMethod,
     id: string | null,
     body: object | null,
-    msg?: ToastMessages
+    msg?: ToastMessages,
   ): Promise<T> {
     const fetchOptions = {
       method: method,
@@ -50,7 +50,7 @@ export class BaseCrudApiCall<T> {
     return this.apiCall("GET", id, null);
   }
 
-  public getAll() {
+  public getMany() {
     return this.apiCall("GET", null, null);
   }
 }
