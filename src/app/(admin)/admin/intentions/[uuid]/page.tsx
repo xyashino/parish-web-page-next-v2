@@ -28,7 +28,9 @@ const EditOneIntention = async ({ params: { uuid } }: ParamsWithUUID) => {
       next: { tags: [RevalidateTag.INTENTIONS] },
     },
   );
+
   if (!weekIntention) return notFound();
+
   return (
     <AdminPageWrapper
       headerData={{
