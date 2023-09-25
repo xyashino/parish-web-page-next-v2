@@ -2,7 +2,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import { ToggleButton } from "./toggleButton";
 import { ListWrapper } from "./listWrapper";
-import { NestedItem } from "@/types/interfaces/navigation.interface";
+import { NestedItem } from "@/types/navigation";
 import { NavigationLink } from "@/components/navigation/NavigationLink";
 
 export const MobileListItem = ({ title, nestedRoutes }: NestedItem) => {

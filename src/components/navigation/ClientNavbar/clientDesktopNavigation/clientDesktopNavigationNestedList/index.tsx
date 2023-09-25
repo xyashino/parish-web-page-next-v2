@@ -5,7 +5,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { ListItem } from "./listItem";
-import { NestedItem } from "@/types/interfaces/navigation.interface";
+import { NestedItem } from "@/types/navigation";
 
 const calculateColSpan = (currentIndex: number, totalLength: number) => {
   return currentIndex === totalLength - 1 && totalLength % 2

@@ -5,7 +5,7 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { NavigationItem } from "@/types/interfaces/navigation.interface";
+import { NavigationItem } from "@/types/navigation";
 
 export const ClientDesktopNavigationItem = ({
   title,

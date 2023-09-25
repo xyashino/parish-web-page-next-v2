@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { SingleNavigationItemWithIcon } from "@/types/interfaces/navigation.interface";
+import { SingleNavigationItemWithIcon } from "@/types/navigation";
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,7 @@ export const NavigationLink = ({
     path.startsWith(href)
       ? "bg-foreground text-background hover:bg-accent-foreground hover:text-accent-background"
       : "",
-    className
+    className,
   );
 
   const handleClick = () => {
