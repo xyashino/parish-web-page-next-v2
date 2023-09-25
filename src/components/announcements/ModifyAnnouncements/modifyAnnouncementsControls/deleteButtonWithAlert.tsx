@@ -15,7 +15,7 @@ export const DeleteButtonWithAlert = ({ onConfirm }: Props) => (
         "Zmiany zostaną wykoname trwale. Nie będzie można ich przywrócić.",
     }}
     triggerItem={
-      <Button variant="destructive">
+      <Button variant="destructive" className="font-bold uppercase w-full">
         <TrashIcon className="mr-2 h-4 w-4" /> Usuń
       </Button>
     }

@@ -19,7 +19,7 @@ export const ClearButtonWithAlert = ({ onConfirm }: Props) => (
       confirmText: "Wyczyść",
     }}
     triggerItem={
-      <Button>
+      <Button className="font-bold uppercase w-full">
         <ResetIcon className="mr-2 h-4 w-4" /> Wyczyść
       </Button>
     }
