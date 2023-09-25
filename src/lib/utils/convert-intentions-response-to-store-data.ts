@@ -6,9 +6,6 @@ import {
   WeekIntentionsDay,
   WeekIntentionsWithRelationsResponse,
 } from "@/types/db/week-intentions";
-import { Status } from "@prisma/client";
-
-type NotNullableResponse = Exclude<WeekIntentionsWithRelationsResponse, null>;
 
 const createDayIntentionMapEntry = ({
   id,
@@ -17,19 +14,18 @@ const createDayIntentionMapEntry = ({
 }: WeekIntentionsDay): [string, DayIntentions] => [
   id,
   {
-    dateOfDay: dateOfDay ? new Date(dateOfDay) : null,
-    id,
+    dateOfDay: (dateOfDay && new Date(dateOfDay)) || null,
     ...rest,
   },
 ];
 
 export const convertIntentionsResponseToStoreData = ({
-  status = Status.NONE,
+  status = "NONE",
   endWeek,
   startWeek,
   days,
   id,
-}: NotNullableResponse): WeekIntentionsStoreData => {
+}: ExcludeNull<WeekIntentionsWithRelationsResponse>): WeekIntentionsStoreData => {
   const weekIntentions = {
     status,
     startWeek: startWeek ? new Date(startWeek) : null,
@@ -38,7 +34,9 @@ export const convertIntentionsResponseToStoreData = ({
   };
 
   const dayIntentionsMapData = days.map(createDayIntentionMapEntry);
-  const dayIntentions = new Map(dayIntentionsMapData);
+  const dayIntentions: Map<string, DayIntentions> = new Map(
+    dayIntentionsMapData,
+  );
 
   return {
     weekIntentions,
