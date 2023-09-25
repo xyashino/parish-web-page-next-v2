@@ -9,7 +9,6 @@ import { CreateAlbum } from "@/types/db/album";
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const album = await AlbumDb.getOneWithRelations(id);
-  console.log(album);
   if (!album) return NotFoundResponse("Album not found");
   return NextResponse.json(album);
 }

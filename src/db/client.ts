@@ -13,7 +13,6 @@ export const client = new Client({
   try {
     await client.connect();
   } catch (error) {
-    console.log(error);
     await client.end();
   }
 })();

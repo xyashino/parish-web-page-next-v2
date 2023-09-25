@@ -21,7 +21,6 @@ const AdministratorsManagePage = async () => {
       next: { tags: [RevalidateTag.CATEGORIES] },
     },
   );
-  console.log(albums);
   return (
     <AdminPageWrapper
       headerData={{

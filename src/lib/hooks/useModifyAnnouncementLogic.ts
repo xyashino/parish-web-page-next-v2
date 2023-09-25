@@ -11,16 +11,12 @@ export const useModifyAnnouncementLogic = (
 ) => {
   const { setEditorValue, editorValue: value } = useMdEditorStore();
   const { back, refresh } = useRouter();
-  console.log({ defaultValue });
   const [announcementData, setAnnouncementData] = useState(
     defaultValue ?? DEFAULT_ANNOUNCEMENT_DATA,
   );
 
   useEffect(() => {
-    console.log({ defaultValue });
-
     if (defaultValue) {
-      console.log({ defaultValue });
       const { status, subtitle, value } = defaultValue;
       setEditorValue(value);
       setAnnouncementData((prev) => ({ ...prev, status, subtitle }));

@@ -76,7 +76,6 @@ export class DefaultCrud<T extends PgTable> {
       if (!("id" in model)) throw new Error("Model does not have an id column");
 
       const { uuid } = uuidSchema.parse({ uuid: id });
-      console.log({ uuid });
       const [result] = (await db
         .select()
         .from(model)

@@ -110,8 +110,7 @@ class WeekIntentions extends DefaultCrud<typeof weekIntentionsTable> {
 
   private async createDays(weekId: string, days: CreateDay[]) {
     for (const day of days) {
-      const result = await DayDb.create({ ...day, weekId });
-      console.log({ test: result });
+      await DayDb.create({ ...day, weekId });
     }
   }
 }

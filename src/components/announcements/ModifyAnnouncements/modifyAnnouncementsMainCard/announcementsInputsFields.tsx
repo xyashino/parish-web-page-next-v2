@@ -18,7 +18,6 @@ export const AnnouncementsInputsFields = ({
   const updateStatus = (status: any) => {
     updateMethod({ key: "status", value: status });
   };
-  console.log(status);
 
   const updateSubtitle = (e: ChangeEvent<HTMLInputElement>) => {
     const subtitle = e.target.value;

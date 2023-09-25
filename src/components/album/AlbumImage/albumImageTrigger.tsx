@@ -11,7 +11,6 @@ interface Props extends PropsWithChildren {
 export const AlbumImageTrigger = ({ path, children }: Props) => {
   const [display, setDisplay] = useState(false);
   const handleClick = () => {
-    console.log(display, path);
     setDisplay((prev) => !prev);
   };
   return (

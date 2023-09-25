@@ -21,7 +21,6 @@ export async function GET(request: NextRequest) {
 export async function POST(request: Request) {
   const data = (await request.json()) as CreateWeekIntentions;
   const result = await WeekIntentionsDb.create(data);
-  console.log(result);
   if (!result) return ServerErrorResponse("Intention could not be created");
   revalidateTag(RevalidateTag.INTENTIONS);
   return NextResponse.json(result);

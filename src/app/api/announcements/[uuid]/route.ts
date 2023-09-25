@@ -8,7 +8,6 @@ import { CreateAnnouncement } from "@/types/db/announcement";
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const announcement = await AnnouncementDb.findOne(id);
-  console.log({ announcement });
   if (!announcement) return NotFoundResponse("Announcement not found");
   return NextResponse.json(announcement);
 }
