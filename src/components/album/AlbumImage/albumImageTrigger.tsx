@@ -3,10 +3,13 @@ import { Button } from "@/components/ui/button";
 import { PropsWithChildren, useState } from "react";
 import Image from "next/image";
 import { ImageResponse } from "@/types/db/album";
+import { env } from "@/config/env/client";
 
 interface Props extends PropsWithChildren {
   path: ImageResponse["path"];
 }
+
+const { NEXT_PUBLIC_UPLOAD_IMAGES_PREFIX } = env;
 
 export const AlbumImageTrigger = ({ path, children }: Props) => {
   const [display, setDisplay] = useState(false);
@@ -25,7 +28,9 @@ export const AlbumImageTrigger = ({ path, children }: Props) => {
         >
           <div className="w-11/12 aspect-video mx-auto">
             <Image
-              src={path ?? ""}
+              src={
+                (path && `${NEXT_PUBLIC_UPLOAD_IMAGES_PREFIX}/${path}`) ?? ""
+              }
               alt="fullscreen image"
               width={1920}
               height={1080}
