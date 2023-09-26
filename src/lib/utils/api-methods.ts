@@ -2,8 +2,6 @@ import { ToastMessages } from "@/types/toast";
 import toast from "react-hot-toast";
 import { env } from "@/config/env/client";
 import { DEFAULT_API_TOAST_MESSAGES } from "@/lib/constants/common";
-import { notFound } from "next/navigation";
-import { isEdgeRuntime } from "next/dist/lib/is-edge-runtime";
 
 interface FetchDataWithToastOptions<T> {
   url: string;
@@ -30,7 +28,6 @@ export const apiCall = async <T>(
   );
 
   if (!result.ok) {
-    if (result.status === 404 && !isEdgeRuntime()) return notFound();
     const parsedResult = (await result.json()) as ErrorResponse;
     throw new Error(parsedResult.error || "Something went wrong!");
   }
