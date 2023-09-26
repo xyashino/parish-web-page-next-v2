@@ -13,6 +13,7 @@ export const authOptions = {
   },
   pages: {
     signIn: "/login",
+    error: "/unauthorized",
   },
 } as NextAuthOptions;
 
