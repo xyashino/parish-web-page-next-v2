@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import { AdministratorDb } from "@/db/handlers/adminstrator";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
@@ -6,7 +5,7 @@ import { ServerErrorResponse } from "@/lib/next-responses";
 
 export async function GET() {
   const administrators = await AdministratorDb.findAll();
-  return NextResponse.json(administrators);
+  return new Response(JSON.stringify(administrators), { status: 201 });
 }
 
 export async function POST(request: Request) {
@@ -15,5 +14,5 @@ export async function POST(request: Request) {
   if (!administrator)
     return ServerErrorResponse("Administrator could not be created");
   revalidateTag(RevalidateTag.ADMINISTRATORS);
-  return NextResponse.json(administrator);
+  return new Response(JSON.stringify(administrator), { status: 201 });
 }
