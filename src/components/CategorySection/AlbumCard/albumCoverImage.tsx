@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { ImageIcon } from "@radix-ui/react-icons";
 import { ImageResponse } from "@/types/db/album";
+import { env } from "@/config/env/client";
 
 interface Props {
   cover: ImageResponse | null;
@@ -16,10 +17,11 @@ export const AlbumCoverImage = ({ cover, title }: Props) => {
       </div>
     );
   }
+  const { NEXT_PUBLIC_UPLOAD_IMAGES_PREFIX } = env;
 
   return (
     <Image
-      src={cover.path}
+      src={NEXT_PUBLIC_UPLOAD_IMAGES_PREFIX + cover.path}
       alt={title ?? "Image display cover of album"}
       className="object-center transition-transform group-hover:scale-105 absolute"
       fill

@@ -3,10 +3,13 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { AlbumImageTrigger } from "@/components/album/AlbumImage/albumImageTrigger";
 import { ImageResponse } from "@/types/db/album";
+import { env } from "@/config/env/client";
 
 interface AlbumImageProps extends ImageResponse {
   index: number;
 }
+
+const { NEXT_PUBLIC_UPLOAD_IMAGES_PREFIX } = env;
 
 export const AlbumImage = ({ id, path, index }: AlbumImageProps) => {
   return (
@@ -21,7 +24,10 @@ export const AlbumImage = ({ id, path, index }: AlbumImageProps) => {
     >
       <AlbumImageTrigger path={path}>
         <Image
-          src={path ?? "/images/placeholder.png"}
+          src={
+            (path && `${NEXT_PUBLIC_UPLOAD_IMAGES_PREFIX}${path}`) ??
+            "/images/placeholder.png"
+          }
           alt="Picture of the album"
           className="absolute object-cover object-center"
           fill
