@@ -8,7 +8,7 @@ export const LeftSection = () => (
     <div className="absolute inset-0 bg-slate-950 z-10">
       <div className="absolute inset-0 bg-black opacity-40 z-10"></div>
       <Image
-        src="/auth.webp"
+        src="/images/auth.webp"
         alt="asas"
         fill={true}
         className="absolute inset-0 object-cover bg-slate-950 z-0"
