@@ -12,7 +12,7 @@ class AdministratorCrud extends DefaultCrud<typeof adminTable> {
   async findOneByEmail(email: string) {
     const { withErrorHandling, db } = this;
     return withErrorHandling(async () => {
-      const { email: parsedEmail } = emailSchema.parse(email);
+      const { email: parsedEmail } = emailSchema.parse({ email });
       const [result] = await db
         .select()
         .from(adminTable)
