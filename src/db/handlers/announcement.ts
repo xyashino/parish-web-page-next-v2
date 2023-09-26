@@ -7,7 +7,7 @@ class AnnouncementCrud extends DefaultCrud<typeof announcementTable> {
     super(announcementTable);
   }
 
-  async getActiveAnnouncement() {
+  async getActive() {
     const { model, db, withErrorHandling } = this;
 
     return withErrorHandling(async () => {
