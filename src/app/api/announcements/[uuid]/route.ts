@@ -16,7 +16,6 @@ export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const data: Omit<CreateAnnouncement, "id"> = await request.json();
   const announcements = await AnnouncementDb.update(id, data);
   if (!announcements) return NotFoundResponse("Announcement not found");
-  revalidatePath(RevalidatePath.ADMIN_ANNOUNCEMENTS);
   revalidatePath(RevalidatePath.CLIENT_ANNOUNCEMENTS);
   return NextResponse.json(announcements);
 }
@@ -25,7 +24,6 @@ export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const announcements = await AnnouncementDb.delete(id);
   if (!announcements) return NotFoundResponse("Announcement not found");
-  revalidatePath(RevalidatePath.ADMIN_ADMINISTRATORS);
   revalidatePath(RevalidatePath.CLIENT_ANNOUNCEMENTS);
   return NextResponse.json(announcements);
 }

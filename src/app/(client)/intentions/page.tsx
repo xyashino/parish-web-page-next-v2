@@ -4,6 +4,8 @@ import { getDateRange } from "@/lib/utils";
 import { WeekIntentionsContent } from "@/components/week-intentions/WeekIntentionsContent";
 import { WeekIntentionsDb } from "@/db/handlers/week-intentions";
 
+export const revalidate = 0;
+
 export default async function Intentions() {
   const intentions = await WeekIntentionsDb.getActive();
   return (

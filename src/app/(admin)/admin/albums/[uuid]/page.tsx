@@ -7,6 +7,8 @@ import { AlbumCoverImageCard } from "@/components/album/AlbumCoverImageCard";
 import { AlbumTabs } from "@/components/album/AlbumTabs";
 import { AlbumDb } from "@/db/handlers/album";
 
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const announcements = await AlbumDb.findAll();
   return announcements.map((announcement) => ({

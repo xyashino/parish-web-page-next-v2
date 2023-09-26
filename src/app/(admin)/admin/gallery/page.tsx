@@ -9,6 +9,8 @@ import { CategoriesDataTable } from "@/components/categories/CategoriesDataTable
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 import { AlbumDb, CategoryDb } from "@/db/handlers/album";
 
+export const revalidate = 0;
+
 const AdministratorsManagePage = async () => {
   const albums = await AlbumDb.findAll();
   const categories = await CategoryDb.findAll();

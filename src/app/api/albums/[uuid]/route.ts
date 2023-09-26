@@ -18,8 +18,7 @@ export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const data: Omit<CreateAlbum, "id"> = await request.json();
   const album = await AlbumDb.update(id, data);
   if (!album) return NotFoundResponse("Album not found");
-  revalidatePath(RevalidatePath.CLIENT_ALBUMS);
-  revalidatePath(RevalidatePath.ADMIN_ALBUMS);
+  revalidatePath(RevalidatePath.CLIENT_GALLERY);
   return NextResponse.json(album);
 }
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
@@ -27,7 +26,6 @@ export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   await deleteDirectory(id);
   const album = await AlbumDb.delete(id);
   if (!album) return NotFoundResponse("Album not found");
-  revalidatePath(RevalidatePath.CLIENT_ALBUMS);
-  revalidatePath(RevalidatePath.ADMIN_ALBUMS);
+  revalidatePath(RevalidatePath.CLIENT_GALLERY);
   return NextResponse.json(album);
 }

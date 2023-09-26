@@ -4,6 +4,8 @@ import { ModifyAnnouncements } from "@/components/announcements/ModifyAnnounceme
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 import { AnnouncementDb } from "@/db/handlers/announcement";
 
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const announcements = await AnnouncementDb.findAll();
   return announcements.map((announcement) => ({

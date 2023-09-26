@@ -23,6 +23,5 @@ export async function POST(request: Request) {
   const result = await WeekIntentionsDb.create(data);
   if (!result) return ServerErrorResponse("Intention could not be created");
   revalidatePath(RevalidatePath.CLIENT_INTENTIONS);
-  revalidatePath(RevalidatePath.ADMIN_INTENTIONS);
   return NextResponse.json(result);
 }

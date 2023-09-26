@@ -5,6 +5,8 @@ import { ImageTextSection } from "@/components/ImageTextSection";
 import { AnnouncementDb } from "@/db/handlers/announcement";
 import { notFound } from "next/navigation";
 
+export const revalidate = 0;
+
 export default async function Announcement() {
   const announcements = await AnnouncementDb.getActiveAnnouncement();
   if (!announcements) return notFound();

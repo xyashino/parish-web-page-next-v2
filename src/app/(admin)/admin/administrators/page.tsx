@@ -4,6 +4,8 @@ import { AddAdministratorDialog } from "@/components/administrators/AddAdministr
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 import { AdministratorDb } from "@/db/handlers/adminstrator";
 
+export const revalidate = 0;
+
 const AdministratorsManagePage = async () => {
   const administrators = await AdministratorDb.findAll();
   return (

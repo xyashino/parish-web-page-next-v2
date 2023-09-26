@@ -24,7 +24,6 @@ export async function POST(request: Request) {
   const data: CreateAnnouncement = await request.json();
   const result = await AnnouncementDb.create(data);
   if (!result) return ServerErrorResponse("Announcement could not be created");
-  revalidatePath(RevalidatePath.ADMIN_ADMINISTRATORS);
   revalidatePath(RevalidatePath.CLIENT_ANNOUNCEMENTS);
   return NextResponse.json(result);
 }

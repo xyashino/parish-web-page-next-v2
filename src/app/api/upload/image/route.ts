@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { extname } from "node:path";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import {
   checkAlbum,
   saveImage,
@@ -32,7 +32,6 @@ export async function POST(request: Request) {
   if (!imageEntity || !imageEntity.path)
     return ServerErrorResponse("Image could not be saved");
   await saveImage(await file.arrayBuffer(), imageEntity.path);
-  revalidatePath(RevalidatePath.CLIENT_ALBUMS);
-  revalidateTag(RevalidatePath.ADMIN_ALBUMS);
+  revalidatePath(RevalidatePath.CLIENT_GALLERY);
   return NextResponse.json(imageEntity);
 }

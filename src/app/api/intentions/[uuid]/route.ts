@@ -18,7 +18,6 @@ export async function PUT(request: Request, { params }: any) {
   const result = WeekIntentionsDb.update(id, data);
   if (!result) return NotFoundResponse("Intention not found");
   revalidatePath(RevalidatePath.CLIENT_INTENTIONS);
-  revalidatePath(RevalidatePath.ADMIN_INTENTIONS);
   return NextResponse.json(result);
 }
 
@@ -27,6 +26,5 @@ export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const intention = await WeekIntentionsDb.delete(id);
   if (!intention) return NotFoundResponse("Intention not found");
   revalidatePath(RevalidatePath.CLIENT_INTENTIONS);
-  revalidatePath(RevalidatePath.ADMIN_INTENTIONS);
   return NextResponse.json(intention);
 }

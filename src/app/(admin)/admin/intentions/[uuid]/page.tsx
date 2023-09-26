@@ -5,6 +5,8 @@ import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekInt
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 import { WeekIntentionsDb } from "@/db/handlers/week-intentions";
 
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const intentions = await WeekIntentionsDb.findAll();
   return intentions.map((intention) => ({

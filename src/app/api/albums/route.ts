@@ -16,7 +16,6 @@ export async function POST(request: Request) {
   const result = await AlbumDb.create(data);
   if (!result) return ServerErrorResponse("Album could not be created");
   await createDirectory(result.id);
-  revalidatePath(RevalidatePath.CLIENT_ALBUMS);
-  revalidatePath(RevalidatePath.ADMIN_ALBUMS);
+  revalidatePath(RevalidatePath.CLIENT_GALLERY);
   return NextResponse.json(result);
 }

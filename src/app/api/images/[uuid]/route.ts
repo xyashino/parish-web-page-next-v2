@@ -8,10 +8,8 @@ import { RevalidatePath } from "@/types/enums/revalidate-path";
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const deletedImage = await clearImage(id);
-  revalidatePath(`${RevalidatePath.ADMIN_ALBUMS}/${deletedImage.albumId}`);
   if (!deletedImage) return NotFoundResponse("Image not found");
   revalidatePath(RevalidatePath.CLIENT_GALLERY);
-  revalidatePath(RevalidatePath.ADMIN_GALLERY);
   return NextResponse.json(deletedImage);
 }
 

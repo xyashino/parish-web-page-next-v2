@@ -22,7 +22,6 @@ export async function POST(request: Request) {
   const data: Omit<CreateCategory, "id"> = await request.json();
   const result = await CategoryDb.create(data);
   if (!result) return ServerErrorResponse("Category could not be created");
-  revalidatePath(RevalidatePath.ADMIN_GALLERY);
   revalidatePath(RevalidatePath.CLIENT_GALLERY);
   return NextResponse.json(result);
 }

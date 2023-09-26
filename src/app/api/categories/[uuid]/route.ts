@@ -10,7 +10,6 @@ export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const category = await CategoryDb.update(id, changeData);
   if (!category) return NextResponse.json("Category not found");
   revalidatePath(RevalidatePath.CLIENT_GALLERY);
-  revalidatePath(RevalidatePath.ADMIN_GALLERY);
   return NextResponse.json(category);
 }
 
@@ -19,6 +18,5 @@ export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const category = await CategoryDb.delete(id);
   if (!category) return NextResponse.json("Category not found");
   revalidatePath(RevalidatePath.CLIENT_GALLERY);
-  revalidatePath(RevalidatePath.ADMIN_GALLERY);
   return NextResponse.json(category);
 }
