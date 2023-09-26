@@ -1,20 +1,14 @@
 import React from "react";
-import { ApiRoute, Navigation, RevalidateTag } from "@/types/enums";
-import { apiCall } from "@/lib/utils";
+import { Navigation } from "@/types/enums";
 import { SummaryStatusCard } from "@/components/cards/SummaryStatusCard";
 import { DashboardCardContainer } from "@/components/containers/DashboardCardContainer";
 import { NavigationBtn } from "@/components/navigation/NavigationBtn";
 import { AnnouncementsDataTable } from "@/components/announcements/AnnouncementsDataTable";
-import { AnnouncementsResponse } from "@/types/db/announcement";
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
+import { AnnouncementDb } from "@/db/handlers/announcement";
 
 const AnnouncementsPage = async () => {
-  const announcements = await apiCall<AnnouncementsResponse>(
-    ApiRoute.BASE_ANNOUNCEMENTS,
-    {
-      next: { tags: [RevalidateTag.ANNOUNCEMENTS] },
-    },
-  );
+  const announcements = await AnnouncementDb.findAll();
 
   return (
     <AdminPageWrapper

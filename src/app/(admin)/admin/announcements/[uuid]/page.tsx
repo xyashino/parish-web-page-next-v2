@@ -1,33 +1,18 @@
 import React from "react";
-import { apiCall } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { ModifyAnnouncements } from "@/components/announcements/ModifyAnnouncements";
-import { ApiRoute, RevalidateTag } from "@/types/enums";
-import {
-  AnnouncementResponse,
-  AnnouncementsResponse,
-} from "@/types/db/announcement";
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
+import { AnnouncementDb } from "@/db/handlers/announcement";
 
 export async function generateStaticParams() {
-  const announcements = await apiCall<AnnouncementsResponse>(
-    ApiRoute.BASE_ANNOUNCEMENTS,
-    {
-      next: { tags: [RevalidateTag.ANNOUNCEMENTS] },
-    },
-  );
+  const announcements = await AnnouncementDb.findAll();
   return announcements.map((announcement) => ({
     uuid: announcement.id,
   }));
 }
 
 const EditAnnouncement = async ({ params: { uuid } }: ParamsWithUUID) => {
-  const announcement = await apiCall<AnnouncementResponse>(
-    `${ApiRoute.BASE_ANNOUNCEMENTS}/${uuid}`,
-    {
-      next: { tags: [RevalidateTag.ANNOUNCEMENTS] },
-    },
-  );
+  const announcement = await AnnouncementDb.findOne(uuid);
 
   if (!announcement) return notFound();
 

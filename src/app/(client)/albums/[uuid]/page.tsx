@@ -1,31 +1,18 @@
 import React from "react";
-import { ApiRoute, RevalidateTag } from "@/types/enums";
-import { apiCall } from "@/lib/utils";
-import {
-  AlbumListResponse,
-  AlbumWithRelationsResponse,
-  ImageListResponse,
-} from "@/types/db/album";
+import { ImageListResponse } from "@/types/db/album";
 import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { AlbumImage } from "@/components/album/AlbumImage";
+import { AlbumDb } from "@/db/handlers/album";
 
 export async function generateStaticParams() {
-  const announcements = await apiCall<AlbumListResponse>(ApiRoute.BASE_ALBUMS, {
-    next: { tags: [RevalidateTag.ALBUMS] },
-  });
+  const announcements = await AlbumDb.findAll();
   return announcements.map((announcement) => ({
     uuid: announcement.id,
   }));
 }
 
 const AlbumPage = async ({ params: { uuid } }: ParamsWithUUID) => {
-  const album = await apiCall<AlbumWithRelationsResponse>(
-    `${ApiRoute.BASE_ALBUMS}/${uuid}`,
-    {
-      next: { tags: [RevalidateTag.IMAGES, RevalidateTag.ALBUMS] },
-    },
-  );
-
+  const album = await AlbumDb.findOne(uuid);
   const { images, title } = album;
   return (
     <div className="bg-white animate-fadeIn w-full h-full rounded shadow">
