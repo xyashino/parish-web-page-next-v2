@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 }
 
 const MenageAlbum = async ({ params: { uuid } }: ParamsWithUUID) => {
-  const album = await AlbumDb.findOne(uuid);
+  const album = await AlbumDb.getOneWithRelations(uuid);
 
   if (!album) return notFound();
 

@@ -13,8 +13,7 @@ export async function generateStaticParams() {
 }
 
 const EditOneIntention = async ({ params: { uuid } }: ParamsWithUUID) => {
-  const weekIntention = await WeekIntentionsDb.findOne(uuid);
-
+  const weekIntention = await WeekIntentionsDb.getOneWithRelations(uuid);
   if (!weekIntention) return notFound();
 
   return (

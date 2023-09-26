@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { extname } from "node:path";
-import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums";
+import { revalidatePath, revalidateTag } from "next/cache";
 import {
   checkAlbum,
   saveImage,
@@ -12,6 +11,7 @@ import { ImageDb } from "@/db/handlers/album";
 import { randomUUID } from "node:crypto";
 import { join } from "path";
 import { env } from "@/config/env/server";
+import { RevalidatePath } from "@/types/enums/revalidate-path";
 
 const { UPLOAD_DIR, UPLOAD_DIR_ALBUMS } = env;
 
@@ -32,6 +32,7 @@ export async function POST(request: Request) {
   if (!imageEntity || !imageEntity.path)
     return ServerErrorResponse("Image could not be saved");
   await saveImage(await file.arrayBuffer(), imageEntity.path);
-  revalidateTag(RevalidateTag.IMAGES);
+  revalidatePath(RevalidatePath.CLIENT_ALBUMS);
+  revalidateTag(RevalidatePath.ADMIN_ALBUMS);
   return NextResponse.json(imageEntity);
 }

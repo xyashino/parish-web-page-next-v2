@@ -30,7 +30,14 @@ class Album extends DefaultCrud<typeof albumTable> {
       ) as unknown as AlbumsWithCategoryResponse;
   }
 
-  async getOneWithRelations(id: string): Promise<AlbumWithRelationsResponse> {
+  async findAllActive(): Promise<AlbumsWithCategoryResponse> {
+    const { db, model } = this;
+    return db.select().from(model).where(eq(model.show, true));
+  }
+
+  async getOneWithRelations(
+    id: string,
+  ): Promise<AlbumWithRelationsResponse | null> {
     const { db, withErrorHandling } = this;
     return withErrorHandling(async () => {
       const { uuid } = uuidSchema.parse({ uuid: id });

@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums";
+import { revalidatePath } from "next/cache";
 import { NotFoundResponse, ServerErrorResponse } from "@/lib/next-responses";
 import { Status } from "@/types/db/enums";
 import { AnnouncementDb } from "@/db/handlers/announcement";
 import { CreateAnnouncement } from "@/types/db/announcement";
+import { RevalidatePath } from "@/types/enums/revalidate-path";
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
@@ -24,6 +24,7 @@ export async function POST(request: Request) {
   const data: CreateAnnouncement = await request.json();
   const result = await AnnouncementDb.create(data);
   if (!result) return ServerErrorResponse("Announcement could not be created");
-  revalidateTag(RevalidateTag.ANNOUNCEMENTS);
+  revalidatePath(RevalidatePath.ADMIN_ADMINISTRATORS);
+  revalidatePath(RevalidatePath.CLIENT_ANNOUNCEMENTS);
   return NextResponse.json(result);
 }

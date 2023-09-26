@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { revalidateTag } from "next/cache";
-import { RevalidateTag } from "@/types/enums";
+import { revalidatePath } from "next/cache";
 import { NotFoundResponse } from "@/lib/next-responses";
 import { WeekIntentionsDb } from "@/db/handlers/week-intentions/week-intentions";
 import { CreateWeekIntentions } from "@/types/db/week-intentions";
+import { RevalidatePath } from "@/types/enums/revalidate-path";
 
 export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
@@ -17,7 +17,8 @@ export async function PUT(request: Request, { params }: any) {
   const data = (await request.json()) as CreateWeekIntentions;
   const result = WeekIntentionsDb.update(id, data);
   if (!result) return NotFoundResponse("Intention not found");
-  revalidateTag(RevalidateTag.INTENTIONS);
+  revalidatePath(RevalidatePath.CLIENT_INTENTIONS);
+  revalidatePath(RevalidatePath.ADMIN_INTENTIONS);
   return NextResponse.json(result);
 }
 
@@ -25,6 +26,7 @@ export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const intention = await WeekIntentionsDb.delete(id);
   if (!intention) return NotFoundResponse("Intention not found");
-  revalidateTag(RevalidateTag.INTENTIONS);
+  revalidatePath(RevalidatePath.CLIENT_INTENTIONS);
+  revalidatePath(RevalidatePath.ADMIN_INTENTIONS);
   return NextResponse.json(intention);
 }

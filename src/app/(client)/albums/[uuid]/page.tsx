@@ -3,16 +3,18 @@ import { ImageListResponse } from "@/types/db/album";
 import { PageTitleWithPrevBtn } from "@/components/PageTitleWithPrevBtn";
 import { AlbumImage } from "@/components/album/AlbumImage";
 import { AlbumDb } from "@/db/handlers/album";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  const announcements = await AlbumDb.findAll();
+  const announcements = await AlbumDb.findAllActive();
   return announcements.map((announcement) => ({
     uuid: announcement.id,
   }));
 }
 
 const AlbumPage = async ({ params: { uuid } }: ParamsWithUUID) => {
-  const album = await AlbumDb.findOne(uuid);
+  const album = await AlbumDb.getOneWithRelations(uuid);
+  if (!album) return notFound();
   const { images, title } = album;
   return (
     <div className="bg-white animate-fadeIn w-full h-full rounded shadow">
