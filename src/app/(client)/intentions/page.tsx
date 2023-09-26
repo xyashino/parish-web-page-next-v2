@@ -1,17 +1,11 @@
 import React from "react";
 import { ImageTextSection } from "@/components/ImageTextSection";
-import { apiCall, getDateRange } from "@/lib/utils";
-import { ApiRoute, RevalidateTag } from "@/types/enums";
-import { WeekIntentionsWithRelationsResponse } from "@/types/db/week-intentions";
+import { getDateRange } from "@/lib/utils";
 import { WeekIntentionsContent } from "@/components/week-intentions/WeekIntentionsContent";
+import { WeekIntentionsDb } from "@/db/handlers/week-intentions";
 
 export default async function Intentions() {
-  const intentions = await apiCall<WeekIntentionsWithRelationsResponse>(
-    ApiRoute.ACTIVE_WEEK_INTENTION,
-    {
-      next: { tags: [RevalidateTag.INTENTIONS] },
-    },
-  );
+  const intentions = await WeekIntentionsDb.getActive();
   return (
     <div className="my-4 animate-fadeIn">
       <ImageTextSection

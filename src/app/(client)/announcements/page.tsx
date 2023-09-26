@@ -1,17 +1,13 @@
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ImageTextSection } from "@/components/ImageTextSection";
-import { ApiRoute, RevalidateTag } from "@/types/enums";
-import { apiCall } from "@/lib/utils";
-import { AnnouncementResponse } from "@/types/db/announcement";
-import React from "react";
+import { AnnouncementDb } from "@/db/handlers/announcement";
+import { notFound } from "next/navigation";
 
 export default async function Announcement() {
-  const [announcements] = await apiCall<AnnouncementResponse[]>(
-    ApiRoute.ACTIVE_ANNOUNCEMENT,
-    { next: { tags: [RevalidateTag.ANNOUNCEMENTS] } },
-  );
-
+  const announcements = await AnnouncementDb.getActiveAnnouncement();
+  if (!announcements) return notFound();
   return (
     <div className="my-4 animate-fadeIn">
       <ImageTextSection
