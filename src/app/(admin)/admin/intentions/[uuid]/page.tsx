@@ -3,20 +3,23 @@ import { apiCall, convertIntentionsResponseToStoreData } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { ApiRoute, RevalidateTag } from "@/types/enums";
 import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekIntentions";
-import { WeekIntentionsWithRelationsResponse } from "@/types/db/week-intentions";
+import {
+  ManyWeekIntentionsResponse,
+  WeekIntentionsWithRelationsResponse,
+} from "@/types/db/week-intentions";
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 
-// export async function generateStaticParams() {
-//   const intentions = await apiCall<ManyWeekIntentionsResponse>(
-//     ApiRoute.BASE_WEEK_INTENTIONS,
-//     {
-//       next: { tags: [RevalidateTag.INTENTIONS] },
-//     },
-//   );
-//   return intentions.map((intention) => ({
-//     uuid: intention.id,
-//   }));
-// }
+export async function generateStaticParams() {
+  const intentions = await apiCall<ManyWeekIntentionsResponse>(
+    ApiRoute.BASE_WEEK_INTENTIONS,
+    {
+      next: { tags: [RevalidateTag.INTENTIONS] },
+    },
+  );
+  return intentions.map((intention) => ({
+    uuid: intention.id,
+  }));
+}
 
 const EditOneIntention = async ({ params: { uuid } }: ParamsWithUUID) => {
   const weekIntention = await apiCall<WeekIntentionsWithRelationsResponse>(
