@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
 import { deleteDirectory } from "@/lib/services/albums/server-methods";
@@ -9,7 +10,7 @@ export async function GET(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
   const album = await AlbumDb.getOneWithRelations(id);
   if (!album) return NotFoundResponse("Album not found");
-  return new Response(JSON.stringify(album), { status: 200 });
+  return NextResponse.json(album);
 }
 
 export async function PUT(request: Request, { params }: ParamsWithUUID) {
@@ -18,7 +19,7 @@ export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const album = await AlbumDb.update(id, data);
   if (!album) return NotFoundResponse("Album not found");
   revalidateTag(RevalidateTag.ALBUMS);
-  return new Response(JSON.stringify(album), { status: 200 });
+  return NextResponse.json(album);
 }
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const id = params.uuid;
@@ -26,5 +27,5 @@ export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const album = await AlbumDb.delete(id);
   if (!album) return NotFoundResponse("Album not found");
   revalidateTag(RevalidateTag.ALBUMS);
-  return new Response(JSON.stringify(album), { status: 200 });
+  return NextResponse.json(album);
 }

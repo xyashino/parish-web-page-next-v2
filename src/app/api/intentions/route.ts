@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   }
 
   const result = await WeekIntentionsDb.findAll();
-  return new Response(JSON.stringify(result), { status: 200 });
+  return NextResponse.json(result);
 }
 
 export async function POST(request: Request) {
@@ -23,5 +23,5 @@ export async function POST(request: Request) {
   const result = await WeekIntentionsDb.create(data);
   if (!result) return ServerErrorResponse("Intention could not be created");
   revalidateTag(RevalidateTag.INTENTIONS);
-  return new Response(JSON.stringify(result), { status: 200 });
+  return NextResponse.json(result);
 }

@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import { extname } from "node:path";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
@@ -32,5 +33,5 @@ export async function POST(request: Request) {
     return ServerErrorResponse("Image could not be saved");
   await saveImage(await file.arrayBuffer(), imageEntity.path);
   revalidateTag(RevalidateTag.IMAGES);
-  return new Response(JSON.stringify(imageEntity), { status: 200 });
+  return NextResponse.json(imageEntity);
 }

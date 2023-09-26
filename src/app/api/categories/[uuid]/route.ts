@@ -10,7 +10,7 @@ export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const category = await CategoryDb.update(id, changeData);
   if (!category) return NextResponse.json("Category not found");
   revalidateTag(RevalidateTag.CATEGORIES);
-  return new Response(JSON.stringify(category), { status: 200 });
+  return NextResponse.json(category);
 }
 
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
@@ -18,5 +18,5 @@ export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const category = await CategoryDb.delete(id);
   if (!category) return NextResponse.json("Category not found");
   revalidateTag(RevalidateTag.CATEGORIES);
-  return new Response(JSON.stringify(category), { status: 200 });
+  return NextResponse.json(category);
 }

@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(categories);
   }
   const categories = await CategoryDb.findAll();
-  return new Response(JSON.stringify(categories), { status: 200 });
+  return NextResponse.json(categories);
 }
 
 export async function POST(request: Request) {
@@ -23,5 +23,5 @@ export async function POST(request: Request) {
   const result = await CategoryDb.create(data);
   if (!result) return ServerErrorResponse("Category could not be created");
   revalidateTag(RevalidateTag.CATEGORIES);
-  return new Response(JSON.stringify(result), { status: 200 });
+  return NextResponse.json(result);
 }

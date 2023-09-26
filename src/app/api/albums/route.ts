@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
 import { createDirectory } from "@/lib/services/albums/server-methods";
@@ -7,7 +8,7 @@ import { AlbumDb } from "@/db/handlers/album";
 
 export async function GET() {
   const albums = await AlbumDb.findAll();
-  return new Response(JSON.stringify(albums), { status: 200 });
+  return NextResponse.json(albums);
 }
 
 export async function POST(request: Request) {
@@ -16,5 +17,5 @@ export async function POST(request: Request) {
   if (!result) return ServerErrorResponse("Album could not be created");
   await createDirectory(result.id);
   revalidateTag(RevalidateTag.ALBUMS);
-  return new Response(JSON.stringify(result), { status: 200 });
+  return NextResponse.json(result);
 }

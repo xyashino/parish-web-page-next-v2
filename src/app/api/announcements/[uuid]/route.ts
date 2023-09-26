@@ -17,7 +17,7 @@ export async function PUT(request: Request, { params }: ParamsWithUUID) {
   const announcements = await AnnouncementDb.update(id, data);
   if (!announcements) return NotFoundResponse("Announcement not found");
   revalidateTag(RevalidateTag.ANNOUNCEMENTS);
-  return new Response(JSON.stringify(announcements), { status: 200 });
+  return NextResponse.json(announcements);
 }
 
 export async function DELETE(request: Request, { params }: ParamsWithUUID) {
@@ -25,5 +25,5 @@ export async function DELETE(request: Request, { params }: ParamsWithUUID) {
   const announcements = await AnnouncementDb.delete(id);
   if (!announcements) return NotFoundResponse("Announcement not found");
   revalidateTag(RevalidateTag.ANNOUNCEMENTS);
-  return new Response(JSON.stringify(announcements), { status: 200 });
+  return NextResponse.json(announcements);
 }
