@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { revalidateTag } from "next/cache";
 import { RevalidateTag } from "@/types/enums";
 import { NotFoundResponse, ServerErrorResponse } from "@/lib/next-responses";
@@ -14,16 +14,17 @@ export async function GET(request: NextRequest) {
     const announcements = await AnnouncementDb.getActiveAnnouncement();
     if (!announcements)
       return NotFoundResponse("Active announcement not found");
-    return NextResponse.json(announcements);
+    return new Response(JSON.stringify(announcements), { status: 200 });
   }
-  const result = await AnnouncementDb.findAll();
-  return NextResponse.json(result);
+  const announcements = await AnnouncementDb.findAll();
+  return new Response(JSON.stringify(announcements), { status: 200 });
 }
 
 export async function POST(request: Request) {
   const data: CreateAnnouncement = await request.json();
-  const result = await AnnouncementDb.create(data);
-  if (!result) return ServerErrorResponse("Announcement could not be created");
+  const announcements = await AnnouncementDb.create(data);
+  if (!announcements)
+    return ServerErrorResponse("Announcement could not be created");
   revalidateTag(RevalidateTag.ANNOUNCEMENTS);
-  return NextResponse.json(result);
+  return new Response(JSON.stringify(announcements), { status: 200 });
 }
