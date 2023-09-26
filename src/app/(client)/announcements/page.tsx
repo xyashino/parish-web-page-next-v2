@@ -3,13 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ImageTextSection } from "@/components/ImageTextSection";
 import { AnnouncementDb } from "@/db/handlers/announcement";
-import { notFound } from "next/navigation";
-
-export const revalidate = 0;
 
 export default async function Announcement() {
-  const announcements = await AnnouncementDb.getActiveAnnouncement();
-  if (!announcements) return notFound();
+  const announcements = await AnnouncementDb.getActive();
   return (
     <div className="my-4 animate-fadeIn">
       <ImageTextSection
