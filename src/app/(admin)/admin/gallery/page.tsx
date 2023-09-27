@@ -13,8 +13,10 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const AdministratorsManagePage = async () => {
-  const albums = await AlbumDb.findAll();
-  const categories = await CategoryDb.findAll();
+  const [albums, categories] = await Promise.all([
+    AlbumDb.findAll(),
+    CategoryDb.findAll(),
+  ]);
   return (
     <AdminPageWrapper
       headerData={{
