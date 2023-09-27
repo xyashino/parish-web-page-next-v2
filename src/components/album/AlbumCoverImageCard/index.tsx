@@ -20,7 +20,7 @@ export const AlbumCoverImageCard = ({ imageCoverId }: Props) => {
   }, [imageCoverId, setCoverImage, setCoverImageByImageId]);
 
   return (
-    <Card className="w-1/3">
+    <Card className="w-full lg:w-1/3">
       <AlbumCoverImageCardHeader />
       {coverImagePath ? (
         <DisplayCoverImage path={coverImagePath} />

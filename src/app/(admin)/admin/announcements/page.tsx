@@ -7,6 +7,9 @@ import { AnnouncementsDataTable } from "@/components/announcements/Announcements
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 import { AnnouncementDb } from "@/db/handlers/announcement";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const AnnouncementsPage = async () => {
   const announcements = await AnnouncementDb.findAll();
 

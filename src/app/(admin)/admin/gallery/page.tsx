@@ -9,6 +9,7 @@ import { CategoriesDataTable } from "@/components/categories/CategoriesDataTable
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 import { AlbumDb, CategoryDb } from "@/db/handlers/album";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const AdministratorsManagePage = async () => {

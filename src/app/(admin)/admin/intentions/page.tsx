@@ -7,6 +7,7 @@ import { WeekIntentionsDataTable } from "@/components/week-intentions/WeekIntent
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 import { WeekIntentionsDb } from "@/db/handlers/week-intentions";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const IntentionsPage = async () => {

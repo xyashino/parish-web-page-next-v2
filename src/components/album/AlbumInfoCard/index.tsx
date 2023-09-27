@@ -7,7 +7,7 @@ import { AlbumWithRelationsResponse } from "@/types/db/album";
 export const AlbumInfoCard = (
   props: Exclude<AlbumWithRelationsResponse, null>,
 ) => (
-  <Card className="w-1/3">
+  <Card className="w-full lg:w-1/3">
     <AlbumInfoCardHeader />
     <CardContent>
       <AlbumInfoCardInfo {...props} />

@@ -28,10 +28,7 @@ export const DataTable = <TData, TValue>({
 }: DataTableProps<TData, TValue>) => {
   const table = useTable(tableProps);
   const tableClasses = cn("rounded-xl border mx-auto", className);
-  const wrapperClasses = cn(
-    "mx-2 lg:w-11/12 lg:mx-auto mb-2 ",
-    wrapperClassName,
-  );
+  const wrapperClasses = cn("lg:w-11/12 lg:mx-auto mb-2 ", wrapperClassName);
 
   return (
     <Card className={wrapperClasses}>

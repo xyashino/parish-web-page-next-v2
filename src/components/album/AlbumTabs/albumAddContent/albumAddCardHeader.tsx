@@ -4,8 +4,8 @@ import { UploadDialog } from "@/components/album/AlbumTabs/albumAddContent/uploa
 
 export const AlbumAddCardHeader = () => {
   return (
-    <CardHeader className="flex-row">
-      <div className="grow">
+    <CardHeader className="lg:flex-row">
+      <div className="grow space-y-2">
         <CardTitle>Dodajesz zdjęcia do Albumu</CardTitle>
         <CardDescription>
           <span>

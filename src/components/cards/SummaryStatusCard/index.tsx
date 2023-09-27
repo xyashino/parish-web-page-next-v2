@@ -17,7 +17,11 @@ export const SummaryStatusCard = <T extends ObjectWithStatus>({
   title,
 }: Props<T>) => {
   return (
-    <BaseCard title={title} Icon={ChatBubbleIcon} className="select-none">
+    <BaseCard
+      title={title}
+      Icon={ChatBubbleIcon}
+      className="select-none w-full lg:w-auto"
+    >
       {!values.length ? (
         <p className="uppercase font-bold">{emptyArrayMessage}</p>
       ) : (

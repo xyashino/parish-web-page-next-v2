@@ -16,11 +16,11 @@ export const AdminPageWrapper = ({
 }: Props) => (
   <div
     className={cn(
-      "flex flex-col space-y-6 animate-fadeIn transition-opacity mb-4",
+      "flex flex-col space-y-4 animate-fadeIn transition-opacity mb-4",
       className,
     )}
   >
     <PageTitleWithPrevBtn {...headerData} />
-    {children}
+    <div className="p-3 flex flex-col space-y-6 ">{children}</div>
   </div>
 );

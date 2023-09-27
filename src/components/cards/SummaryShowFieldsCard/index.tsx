@@ -17,7 +17,11 @@ export const SummaryShowFieldsCard = <T extends ObjectWithShow>({
   title,
 }: Props<T>) => {
   return (
-    <BaseCard title={title} Icon={ChatBubbleIcon} className="select-none">
+    <BaseCard
+      title={title}
+      Icon={ChatBubbleIcon}
+      className="select-none w-full lg:w-auto mx-2"
+    >
       {!values.length ? (
         <p className="uppercase font-bold">{emptyArrayMessage}</p>
       ) : (

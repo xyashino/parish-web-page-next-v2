@@ -5,6 +5,7 @@ import { ModifyWeekIntentions } from "@/components/week-intentions/ModifyWeekInt
 import { AdminPageWrapper } from "@/layouts/AdminPageWrapper";
 import { WeekIntentionsDb } from "@/db/handlers/week-intentions";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export async function generateStaticParams() {

@@ -18,6 +18,7 @@ export const AdminNavbarHeader = ({ navigationRoutes }: Props) => {
         navigateTo={Navigation.ADMIN_HOME}
       />
       <MobileNavigationSheet
+        triggerClassName="text-white hover:bg-transparent"
         renderItems={(onClick) =>
           navigationRoutes.map((route, i) => (
             <NavigationLink

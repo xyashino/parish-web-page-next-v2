@@ -9,13 +9,18 @@ import { MobileNavigationSheetLogoutFooter } from "./mobileNavigationSheetLogout
 interface Props {
   showLogout?: boolean;
   renderItems: (onClick: () => void) => React.ReactNode[];
+  triggerClassName?: string;
 }
 
-export const MobileNavigationSheet = ({ showLogout, renderItems }: Props) => {
+export const MobileNavigationSheet = ({
+  showLogout,
+  renderItems,
+  triggerClassName,
+}: Props) => {
   const [open, setOpen] = useState(false);
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <MobileNavigationSheetTrigger />
+      <MobileNavigationSheetTrigger className={triggerClassName} />
       <SheetContent className="overflow-y-scroll">
         <MobileNavigationSheetHeader />
         <div className="grid gap-4 py-4 grow">

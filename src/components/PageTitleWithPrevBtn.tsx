@@ -21,13 +21,13 @@ export const PageTitleWithPrevBtn = ({
   };
 
   return (
-    <div className="w-full p-2 lg:p-6 space-y-2 lg:space-y-4 rounded-xl  flex-wrap">
+    <div className="w-full p-2 lg:p-6 space-y-2 lg:space-y-4 rounded-xl  flex-wrap ">
       <div className="flex items-center space-x-2.5">
         <Button variant="ghost" onClick={handleClick}>
           <PinLeftIcon className="text-foreground text-2xl" />
         </Button>
         <div>
-          <h2 className="text-xl lg:text-2xl font-bold capitalize text-foreground  text-center">
+          <h2 className="text-lg lg:text-2xl font-bold capitalize text-foreground ">
             {title}
           </h2>
           {description && (

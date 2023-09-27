@@ -7,6 +7,7 @@ import { AlbumCoverImageCard } from "@/components/album/AlbumCoverImageCard";
 import { AlbumTabs } from "@/components/album/AlbumTabs";
 import { AlbumDb } from "@/db/handlers/album";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export async function generateStaticParams() {
@@ -28,7 +29,7 @@ const MenageAlbum = async ({ params: { uuid } }: ParamsWithUUID) => {
         title: `Album: "${title}"`,
       }}
     >
-      <div className="mx-4 w-full lg:w-11/12 lg:mx-auto space-y-4">
+      <div className="w-full lg:w-11/12 lg:mx-auto space-y-4">
         <DashboardCardContainer>
           <AlbumInfoCard {...album} />
           <AlbumCoverImageCard imageCoverId={coverId} />

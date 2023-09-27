@@ -25,7 +25,9 @@ export const Logo = ({ renderAsLink = true, className, navigateTo }: Props) => {
     return (
       <Link className={logoClasses} href={navigateTo ?? Navigation.CLIENT_HOME}>
         <ChurchIcon className="text-center transition-transform duration-500 ease-in-out" />
-        <span className="italic align-middle">Parafia Gruszów Wielki</span>
+        <span className="italic align-middle text-lg lg:text-xl">
+          Parafia Gruszów Wielki
+        </span>
       </Link>
     );
 

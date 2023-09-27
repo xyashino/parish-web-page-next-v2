@@ -14,7 +14,7 @@ const Admin = () => {
         title: "Strona główna",
       }}
     >
-      <div className="prose max-w-none mx-auto w-5/6 bg-white p-8 rounded shadow">
+      <div className="prose prose-sm lg:prose-base max-w-none mx-auto lg:w-5/6 w-11/12 bg-white p-8 rounded shadow">
         <h1>Witaj w panelu administracyjnym</h1>
         <p>Dzięki niemu możesz zarządzać treścią strony internetowej.</p>
         <h2>Faq:</h2>
@@ -22,7 +22,7 @@ const Admin = () => {
         <Accordion type="single">
           <AccordionItem value="status">
             <AccordionTrigger>
-              <h2>O co chodzi ze statusem?</h2>
+              <h2 className="p-0 m-0">O co chodzi ze statusem?</h2>
             </AccordionTrigger>
             <AccordionContent>
               <h3>Strona posiada 3 statusy:</h3>

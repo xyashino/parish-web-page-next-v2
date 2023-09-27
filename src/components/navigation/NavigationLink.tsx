@@ -23,7 +23,7 @@ export const NavigationLink = ({
 
   const linkClasses = cn(
     navigationMenuTriggerStyle(),
-    "space-x-2 font-bold  justify-normal font-mono uppercase w-full",
+    "space-x-2 font-semibold  justify-normal  uppercase w-full",
     path.startsWith(href)
       ? "bg-foreground text-background hover:bg-accent-foreground hover:text-accent-background"
       : "",

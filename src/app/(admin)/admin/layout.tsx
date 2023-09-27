@@ -13,7 +13,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <div className="flex flex-col lg:flex-row h-screen w-screen max-w-full overflow-hidden">
       <AdminNavbar />
       <Separator orientation="vertical" className="hidden lg:block" />
-      <main className="grow flex flex-col justify-between overflow-hidden  overflow-y-scroll   bg-muted">
+      <main className="grow flex flex-col justify-between overflow-x-hidden  overflow-y-scroll   bg-muted">
         {children}
         <Footer />
       </main>
