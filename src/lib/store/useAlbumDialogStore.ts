@@ -1,4 +1,4 @@
-import { createDialogStore } from "@/lib/store/default/createDialogStore";
+import { createDialogStore } from "./utils/createDialogStore";
 import { ALBUM_DEFAULT_VALUE } from "@/config/constants/album";
 import { modifyAlbumSchema } from "@/lib/schemas/album";
 

@@ -1,9 +1,9 @@
 import { z } from "zod";
-import { useAlbumDialogStore } from "@/lib/store";
 import { ModifyDialogHeaderProps } from "@/components/CustomDialog/customDialogHeader";
 import { modifyAlbumSchema } from "@/lib/schemas/album";
 import { AlbumApiService } from "@/lib/services/albums/api";
 import { useRouter } from "next/navigation";
+import { useAlbumDialogStore } from "@/lib/store/useAlbumDialogStore";
 
 export const useModifyAlbumLogic = () => {
   const { defaultValues, close, id, isOpen, setIsOpen } = useAlbumDialogStore();

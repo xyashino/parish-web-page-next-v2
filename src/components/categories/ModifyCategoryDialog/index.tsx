@@ -4,7 +4,7 @@ import { z } from "zod";
 import { CustomDialog } from "@/components/CustomDialog";
 
 import { modifyCategorySchema } from "@/lib/schemas/categories";
-import { useCategoryDialogStore } from "@/lib/store/categories/useCategoryDialogStore";
+import { useCategoryDialogStore } from "@/lib/store/useCategoryDialogStore";
 import { ModifyCategoryDialogFormFields } from "./modifyCategoryDialogFormFields";
 import { CategoriesApiService } from "@/lib/services/categories";
 import { useRouter } from "next/navigation";

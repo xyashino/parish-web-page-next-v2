@@ -1,8 +1,8 @@
 import React, { SyntheticEvent } from "react";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
-import { useCategoryDialogStore } from "@/lib/store";
 import { CategoryResponse } from "@/types/db/album";
+import { useCategoryDialogStore } from "@/lib/store/useCategoryDialogStore";
 
 interface Props {
   categoryData: ExcludeNull<CategoryResponse>;

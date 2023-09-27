@@ -1,8 +1,8 @@
 import React, { SyntheticEvent } from "react";
 import { Pencil2Icon } from "@radix-ui/react-icons";
-import { useAlbumDialogStore } from "@/lib/store";
 import { DataTableActionsDropDownItem } from "@/components/DataTable";
 import { AlbumResponse } from "@/types/db/album";
+import { useAlbumDialogStore } from "@/lib/store/useAlbumDialogStore";
 
 interface Props {
   albumData: AlbumResponse;
