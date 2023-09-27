@@ -1,5 +1,5 @@
 import { WeekIntentionsDay } from "@/types/db/week-intentions";
-import { DAY } from "@/lib/constants/db";
+import { DAY } from "@/config/constants/db";
 
 export const getLengthByEnumStatus = <T extends { status: any }>(
   values: T[],

@@ -1,7 +1,7 @@
 import { ApiRoute } from "@/types/enums";
 import { apiCall, apiCallWithToast } from "@/lib/utils";
 import { ApiToastsCrudMessages, ToastMessages } from "@/types/toast";
-import { DEFAULT_API_TOAST_CRUD_MESSAGES } from "@/lib/constants/common";
+import { DEFAULT_API_TOAST_CRUD_MESSAGES } from "@/config/constants/common";
 
 export class BaseCrudApiCall<T extends Record<string, any>> {
   constructor(

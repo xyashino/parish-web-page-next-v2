@@ -5,7 +5,7 @@ import {
   DAY_ENUM_NAME,
   STATUS,
   STATUS_ENUM_NAME,
-} from "../../lib/constants/db";
+} from "@/config/constants/db";
 
 export const statusEnum = pgEnum(STATUS_ENUM_NAME, STATUS);
 export const dayEnum = pgEnum(DAY_ENUM_NAME, DAY);

@@ -4,8 +4,7 @@ import { getDirNames } from "@/lib/utils/mdx/get-dir-names";
 import { getArticlesFromDir } from "@/lib/utils/mdx";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArticleWrapper } from "@/layouts/ArticleWrapper";
-
-const ARTICLE_PATH = "/src/articles" as const;
+import { ARTICLE_DIR_PATH } from "@/config/constants/md";
 
 type ParamsWithName = {
   params: {
@@ -14,16 +13,16 @@ type ParamsWithName = {
 };
 
 export const generateStaticParams = async () =>
-  (await getDirNames(ARTICLE_PATH)).map((name) => ({ name }));
+  (await getDirNames(ARTICLE_DIR_PATH)).map((name) => ({ name }));
 
 export default async function ArticlePage({
   params: { name },
 }: ParamsWithName) {
-  const dirNames = await getDirNames(ARTICLE_PATH);
+  const dirNames = await getDirNames(ARTICLE_DIR_PATH);
   if (!dirNames.includes(name)) return notFound();
 
   try {
-    const dirPath = join(ARTICLE_PATH, name);
+    const dirPath = join(ARTICLE_DIR_PATH, name);
     const articlesArr = await getArticlesFromDir(dirPath);
     return (
       <div className="w-full">

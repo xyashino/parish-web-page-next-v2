@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import { ArticleWrapper } from "@/layouts/ArticleWrapper";
 import { getArticleByFileName, getArticleNames } from "@/lib/utils/mdx";
-
-const ARTICLE_PATH = "/src/articles" as const;
+import { ARTICLE_DIR_PATH } from "@/config/constants/md";
 
 type ParamsWithName = {
   params: {
@@ -10,14 +9,15 @@ type ParamsWithName = {
   };
 };
 
-export const generateStaticParams = async () => getArticleNames(ARTICLE_PATH);
+export const generateStaticParams = async () =>
+  getArticleNames(ARTICLE_DIR_PATH);
 
 export default async function ArticlePage({
   params: { name },
 }: ParamsWithName) {
   const article = await getArticleByFileName<BaseArticleMetadata>(
     name,
-    ARTICLE_PATH,
+    ARTICLE_DIR_PATH,
   );
 
   if (!article) return notFound();

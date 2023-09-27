@@ -2,7 +2,7 @@ import { useMdEditorStore } from "@/lib/store/useMdEditorStore";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { UpdateAnnouncementData } from "@/types/announcement-edit";
-import { DEFAULT_ANNOUNCEMENT_DATA } from "@/lib/constants/announcements";
+import { DEFAULT_ANNOUNCEMENT_DATA } from "@/config/constants/announcements";
 import { AnnouncementsApiService } from "@/lib/services/announcements";
 import { AnnouncementResponse } from "@/types/db/announcement";
 

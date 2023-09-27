@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { WeekIntentionsStore } from "@/types/week-intentions-store";
-import { WEEK_INTENTIONS_STORE_DEFAULT } from "@/lib/constants/week-intentions";
-import { DAY } from "@/lib/constants/db";
+import { WEEK_INTENTIONS_STORE_DEFAULT } from "@/config/constants/week-intentions";
+import { DAY } from "@/config/constants/db";
 
 export const useWeekIntentionsStore = create<WeekIntentionsStore>(
   (set, get) => ({

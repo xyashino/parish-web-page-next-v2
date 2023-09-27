@@ -1,5 +1,5 @@
 import { ApiRoute } from "@/types/enums";
-import { ANNOUNCEMENTS_API_MESSAGES } from "@/lib/constants/announcements";
+import { ANNOUNCEMENTS_API_MESSAGES } from "@/config/constants/announcements";
 import { BaseCrudApiCall } from "@/lib/services/default";
 import { AnnouncementResponse } from "@/types/db/announcement";
 

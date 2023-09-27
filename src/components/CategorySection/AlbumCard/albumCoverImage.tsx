@@ -22,7 +22,7 @@ export const AlbumCoverImage = ({ cover, title }: Props) => {
   return (
     <Image
       src={NEXT_PUBLIC_UPLOAD_IMAGES_PREFIX + cover.path}
-      alt={title ?? "Image display cover of album"}
+      alt={title ?? "Image display cover of album.ts"}
       className="object-center transition-transform group-hover:scale-105 absolute"
       fill
       draggable={false}

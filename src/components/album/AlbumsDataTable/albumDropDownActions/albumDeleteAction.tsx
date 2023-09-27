@@ -19,7 +19,7 @@ export const AlbumDeleteAction = ({ id }: Props) => {
   return (
     <ConfirmAlert
       headerConfig={{
-        title: "Czy na pewno chcesz usunąć ten album?",
+        title: "Czy na pewno chcesz usunąć ten album.ts?",
         description:
           "Album zostanie trwale usunięty (w tym zdjęcia które się w nim znajdują).",
       }}

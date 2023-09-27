@@ -1,7 +1,7 @@
 import { ToastMessages } from "@/types/toast";
 import toast from "react-hot-toast";
 import { env } from "@/config/env/client";
-import { DEFAULT_API_TOAST_MESSAGES } from "@/lib/constants/common";
+import { DEFAULT_API_TOAST_MESSAGES } from "@/config/constants/common";
 import { notFound } from "next/navigation";
 import { isEdgeRuntime } from "next/dist/lib/is-edge-runtime";
 

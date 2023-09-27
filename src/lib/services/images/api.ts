@@ -1,6 +1,6 @@
 import { ApiRoute } from "@/types/enums";
 import { apiCall, apiCallWithToast } from "@/lib/utils";
-import { UPDATE_COVER_IMAGE_MESSAGES } from "@/lib/constants/image";
+import { UPDATE_COVER_IMAGE_MESSAGES } from "@/config/constants/image";
 import { CreateAlbum, ImageResponse } from "@/types/db/album";
 
 export const getImageCoverPath = async (id: string) => {
