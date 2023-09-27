@@ -18,7 +18,7 @@ export const ModifyIntentionsRow = ({ intentionData, id }: Props) => {
       <TableCell>{intentionData.order}</TableCell>
       <TableCell className="font-bold">{intentionData.hour}</TableCell>
       <TableCell>
-        <ReactMarkdown className="prose-sm max-w-none">
+        <ReactMarkdown className="prose prose-sm max-w-none">
           {intentionData.value ?? ""}
         </ReactMarkdown>
       </TableCell>
