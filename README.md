@@ -9,7 +9,12 @@ The project is divided into three main parts:
 2. [Backend](https://github.com/xyashino/parish-webpage-backend)
 3. [Admin Panel](https://github.com/xyashino/parish-webpage-admin-panel)
 
-This revamped version consolidates all these parts into a single project, providing a more streamlined and integrated experience.
+But this revamped version consolidates all these parts into a single repository, thanks to Next.js.
+
+## PREVIEW
+[parish webpage next.webm](https://github.com/xyashino/parish-webpage-next/assets/69910622/ead511d3-17e7-4f94-b4e9-6daab739396d)
+
+## DEMO [HERE](https://parafia.yashino.live/)
 
 ## Technologies
 
