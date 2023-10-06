@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Parish Webpage (Revamped)
+
+This repository contains the revamped version of the Parish Webpage project. It's a modern take on the original project, leveraging the power of Next.js and other cutting-edge technologies.
+
+## Overview
+
+The project is divided into three main parts:
+1. [Frontend](https://github.com/xyashino/parish-webpage-front)
+2. [Backend](https://github.com/xyashino/parish-webpage-backend)
+3. [Admin Panel](https://github.com/xyashino/parish-webpage-admin-panel)
+
+This revamped version consolidates all these parts into a single project, providing a more streamlined and integrated experience.
+
+## Technologies
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Form Handling**: [React Hook Form](https://react-hook-form.com/)
+- **Validation**: [Zod](https://github.com/colinhacks/zod)
+- **Styling**: [TailwindCSS](https://tailwindcss.com/)
+- **UI Components**: [Radix UI](https://radix-ui.com/)
+- **Database**: [PostgreSQL](https://www.postgresql.org/)
+- **ORM**: [Drizzle ORM](https://drizzle-orm.github.io/drizzle/)
+- **Authentication**: [Next Auth](https://next-auth.js.org/)
+- **Markdown**: [MDX](https://mdxjs.com/) with [React Markdown](https://github.com/remarkjs/react-markdown)
+- **Toast Notifications**: [React Hot Toast](https://react-hot-toast.com/)
+- **Other Utilities**: [clsx](https://github.com/lukeed/clsx), [dotenv](https://github.com/motdotla/dotenv), [gray-matter](https://github.com/jonschlinkert/gray-matter)
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone the repository.
+2. Install the required packages using `yarn` or `npm install`.
+3. Set up your environment variables based on the `.env.example` file.
+4. Run the development server using `yarn dev` or `npm run dev`.
